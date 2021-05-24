@@ -1,4 +1,4 @@
-extends Node2D
+extends AnimationPlayer
 
 
 # Declare member variables here. Examples:
@@ -8,10 +8,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("sup world")
-	print("hello world")
+	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func sup_animation_player() -> void:
+	print("sup boiiii")

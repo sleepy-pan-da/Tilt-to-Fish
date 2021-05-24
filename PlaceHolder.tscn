@@ -1,12 +1,69 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/calendar-01.png" type="Texture" id=1]
 [ext_resource path="res://PlaceHolder.gd" type="Script" id=2]
 
-[node name="PlaceHolder" type="Node2D"]
-position = Vector2( 643.271, 366.857 )
+[sub_resource type="Animation" id=1]
+resource_name = "Test"
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlaceHolder/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1012.58, 407.294 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PlaceHolder/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 142.355 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PlaceHolder/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.3, 0.3 ), Vector2( 0.3, 0.090072 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("PlaceHolder")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "sup_animation_player"
+} ]
+}
+
+[node name="PlaceHolder" type="AnimationPlayer"]
+autoplay = "Test"
+anims/Test = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 1012.58, 407.294 )
+rotation = 2.48456
+scale = Vector2( 0.3, 0.090072 )
 texture = ExtResource( 1 )

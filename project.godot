@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Sprite",
 "class": "Arrow",
 "language": "GDScript",
-"path": "res://Arrow.gd"
+"path": "res://FishingScene/Bobber/Arrow.gd"
 } ]
 _global_script_class_icons={
 "Arrow": ""

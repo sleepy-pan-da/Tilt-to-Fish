@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Bobber.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://AccelerometerLabel.gd" type="Script" id=3]
 
