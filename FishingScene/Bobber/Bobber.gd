@@ -29,13 +29,16 @@ func compute_speed_multiplier_based_on_tilt(movement_direction_vector : float) -
 	# the numbers used below will interpolate into an exponential graph
 	# --- This method was created to make player not move as much when tilted
 	# --- lightly 
+	
+	# intervals of 60 - js
 	if abs(movement_direction_vector) <= 1: 
 		return 125 
 	elif abs(movement_direction_vector) <= 2:
-		return 175
+		return 185
 	elif abs(movement_direction_vector) <= 3:
-		return 200
+		return 245
 	elif abs(movement_direction_vector) <= 4:
-		return 225
+		return 305
 	else:
-		return 250
+		return 365
+				

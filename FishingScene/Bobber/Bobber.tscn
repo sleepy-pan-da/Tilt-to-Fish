@@ -21,11 +21,12 @@ scale = Vector2( 0.062, 0.062 )
 texture = ExtResource( 2 )
 
 [node name="Arrow" type="Sprite" parent="."]
-position = Vector2( 27, -6.13909e-12 )
+position = Vector2( 29.006, 6.82121e-13 )
 rotation = 1.5708
-scale = Vector2( 0.007, 0.007 )
+scale = Vector2( 0.00876928, 0.00876928 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="Tween" type="Tween" parent="Arrow"]
+
 [connection signal="tween_completed" from="Arrow/Tween" to="Arrow" method="_on_Tween_tween_completed"]

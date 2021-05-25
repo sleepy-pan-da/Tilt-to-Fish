@@ -63,7 +63,5 @@ anims/Test = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 1012.58, 407.294 )
-rotation = 2.48456
-scale = Vector2( 0.3, 0.090072 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )

@@ -33,7 +33,7 @@ func configure_arrow_location(velocity : Vector2) -> void:
 		tween.interpolate_method(self, "compute_arrow_position", 
 		position.angle(), 
 		velocity_angle_wrt_x_axis, 
-		0.2, Tween.TRANS_SINE, Tween.EASE_OUT)
+		0.12, Tween.TRANS_SINE, Tween.EASE_OUT_IN)
 		
 		tween.start()
 		initial_velocity = velocity
