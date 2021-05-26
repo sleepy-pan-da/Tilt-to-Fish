@@ -5,7 +5,6 @@ onready var tween = $Tween
 var path_radius : int 
 var initial_velocity : Vector2
 var configuring_position : bool = false
-const INITIAL_ROTATION : float = PI/2
 
 func _ready() -> void:
 	path_radius = position.x
@@ -13,7 +12,7 @@ func _ready() -> void:
 	
 func configure_arrow_location(velocity : Vector2) -> void:
 	var velocity_angle_wrt_x_axis : float = velocity.angle() 
-	var angle_to_rotate_arrow_by : float = velocity_angle_wrt_x_axis - (rotation - INITIAL_ROTATION)
+	var angle_to_rotate_arrow_by : float = velocity_angle_wrt_x_axis - rotation
 	
 	if initial_velocity == null:
 		initial_velocity = velocity
@@ -42,7 +41,7 @@ func configure_arrow_location(velocity : Vector2) -> void:
 func compute_arrow_position(angle_wrt_x_axis : float):
 	position.x = path_radius * cos(angle_wrt_x_axis)
 	position.y = path_radius * sin(angle_wrt_x_axis)
-	rotate(angle_wrt_x_axis - (rotation - INITIAL_ROTATION))
+	rotate(angle_wrt_x_axis - rotation)
 	
 
 func _on_Tween_tween_completed(_object : Arrow, _key):

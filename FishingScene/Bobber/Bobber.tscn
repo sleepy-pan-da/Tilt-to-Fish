@@ -22,7 +22,6 @@ texture = ExtResource( 2 )
 
 [node name="Arrow" type="Sprite" parent="."]
 position = Vector2( 29.006, 6.82121e-13 )
-rotation = 1.5708
 scale = Vector2( 0.00876928, 0.00876928 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
