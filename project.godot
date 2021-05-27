@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Summer Game Project"
-run/main_scene="res://GameLevel.tscn"
+run/main_scene="res://Fish/FishTemplate.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -30,3 +30,10 @@ window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
+
+[layer_names]
+
+2d_physics/layer_1="PondBoundary"
+2d_physics/layer_2="Bobber"
+2d_physics/layer_3="FishProximity"
+2d_physics/layer_4="Fish"
