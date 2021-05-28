@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fish/ScrubFish.gd" type="Script" id=1]
+[ext_resource path="res://Fish/FishTemplate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Custom Resources/ScrubFishPossiblePaths.tres" type="Resource" id=3]
+
+[node name="ScrubFish" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+fish_paths = ExtResource( 3 )
+max_velocity = 300
+initial_velocity = 300

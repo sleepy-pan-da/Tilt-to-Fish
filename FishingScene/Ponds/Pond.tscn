@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FishingScene/Ponds/Environment/Rock.tscn" type="PackedScene" id=1]
+
+[node name="Pond" type="Node2D"]
+
+[node name="Rocks" type="Node2D" parent="."]
+position = Vector2( 0, 32 )
+
+[node name="Rock" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 0, -54 )
+
+[node name="Rock2" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 74.18 )
+
+[node name="Rock3" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 203.475 )
+
+[node name="Rock4" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 332.132 )
+
+[node name="Rock5" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 458.267 )
+
+[node name="Rock6" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 0, 721.765 )
+
+[node name="Rock7" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 137.907, 721.765 )
+
+[node name="Rock8" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 277.496, 721.765 )
+
+[node name="Rock9" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 415.059, 721.058 )
+
+[node name="Rock10" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 552.966, 721.058 )
+
+[node name="Rock11" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 692.555, 721.058 )
+
+[node name="Rock12" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 830.092, 721.058 )
+
+[node name="Rock13" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 967.999, 721.058 )
+
+[node name="Rock14" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1107.59, 721.058 )
+
+[node name="Rock15" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1310.91, 721.058 )
+
+[node name="Rock16" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1312.69, -54 )
+
+[node name="Rock17" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1312.69, 73.18 )
+
+[node name="Rock18" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1312.69, 202.475 )
+
+[node name="Rock19" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1312.69, 331.132 )
+
+[node name="Rock20" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1312.69, 457.267 )
+
+[node name="Rock21" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 137.907, -53.4738 )
+
+[node name="Rock22" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 277.496, -53.4738 )
+
+[node name="Rock23" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 415.059, -54.1809 )
+
+[node name="Rock24" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 552.966, -54.1809 )
+
+[node name="Rock25" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 692.555, -54.1809 )
+
+[node name="Rock26" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 830.092, -54.1809 )
+
+[node name="Rock27" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 967.999, -54.1809 )
+
+[node name="Rock28" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1107.59, -54.1809 )
+
+[node name="Rock29" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( -2.41003, 589.819 )
+
+[node name="Rock30" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1315.34, 589.819 )
+
+[node name="Rock31" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1210.69, 720.632 )
+
+[node name="Rock32" parent="Rocks" instance=ExtResource( 1 )]
+position = Vector2( 1210.69, -57.1095 )

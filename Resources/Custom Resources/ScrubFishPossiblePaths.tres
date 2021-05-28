@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/FishPaths.gd" type="Script" id=1]
+[ext_resource path="res://Fish/Paths/FishPath1.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+array_of_paths = [ ExtResource( 2 ) ]

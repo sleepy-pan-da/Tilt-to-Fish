@@ -6,19 +6,20 @@
 [ext_resource path="res://FishingScene/Bobber/Bobber.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 35.0
+radius = 36.7311
 
 [node name="Bobber" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -3 )
-shape = SubResource( 1 )
 
 [node name="BobberSprite" type="Sprite" parent="."]
 position = Vector2( 1, 0 )
 scale = Vector2( 0.062, 0.062 )
 texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -3 )
+shape = SubResource( 1 )
 
 [node name="Arrow" type="Sprite" parent="."]
 position = Vector2( 29.006, 6.82121e-13 )

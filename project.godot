@@ -13,23 +13,51 @@ _global_script_classes=[ {
 "class": "Arrow",
 "language": "GDScript",
 "path": "res://FishingScene/Bobber/Arrow.gd"
+}, {
+"base": "Node2D",
+"class": "Fish",
+"language": "GDScript",
+"path": "res://Fish/FishTemplate.gd"
+}, {
+"base": "Resource",
+"class": "FishGeneratorBasedOnFloor",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/FishGeneratorBasedOnFloor.gd"
+}, {
+"base": "Path2D",
+"class": "FishPath",
+"language": "GDScript",
+"path": "res://Fish/Paths/FishPathTemplate.gd"
+}, {
+"base": "Resource",
+"class": "FishPaths",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/FishPaths.gd"
 } ]
 _global_script_class_icons={
-"Arrow": ""
+"Arrow": "",
+"Fish": "",
+"FishGeneratorBasedOnFloor": "",
+"FishPath": "",
+"FishPaths": ""
 }
 
 [application]
 
 config/name="Summer Game Project"
-run/main_scene="res://Fish/FishTemplate.tscn"
+run/main_scene="res://GameLevel.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+settings/fps/force_fps=60
 
 [display]
 
 window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep"
 
 [layer_names]
 

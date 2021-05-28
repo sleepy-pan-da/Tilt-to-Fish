@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://AccelerometerLabel.gd" type="Script" id=3]
+[ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GameLevel.gd" type="Script" id=7]
+[ext_resource path="res://Resources/Custom Resources/FishGeneratorFloor1.tres" type="Resource" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -10,6 +13,12 @@ use_mipmaps = true
 font_data = ExtResource( 2 )
 
 [node name="GameLevel" type="Node2D"]
+script = ExtResource( 7 )
+fish_generator = ExtResource( 8 )
+
+[node name="Pond" parent="." instance=ExtResource( 4 )]
+
+[node name="Fishes" type="Node2D" parent="."]
 
 [node name="Bobber" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 360 )

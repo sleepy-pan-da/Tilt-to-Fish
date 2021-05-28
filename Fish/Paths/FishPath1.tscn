@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fish/Paths/FishPathTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fish/Paths/FishPath1.gd" type="Script" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 192, 192, 0, 0, 0, 0, 1088, 192, 0, 0, 0, 0, 1088, 576, 0, 0, 0, 0, 192, 576, 0, 0, 0, 0, 192, 192 )
+}
+
+[node name="FishPath1" instance=ExtResource( 1 )]
+curve = SubResource( 1 )
+script = ExtResource( 2 )
