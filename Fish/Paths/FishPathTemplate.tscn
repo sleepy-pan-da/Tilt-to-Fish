@@ -5,3 +5,4 @@ curve = null
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2( 192, 192 )
+rotate = false

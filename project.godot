@@ -52,7 +52,7 @@ _global_script_class_icons={
 
 config/name="Summer Game Project"
 run/main_scene="res://GameLevel.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_right.PNG"
 
 [debug]
 

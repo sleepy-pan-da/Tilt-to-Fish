@@ -4,7 +4,7 @@ class_name Fish
 
 onready var ripple = $KinematicBody/RippleSprite
 onready var ripple_animation = $KinematicBody/RippleAnimation
-onready var progress_bar = $ProgressBar
+onready var progress_bar = $KinematicBody/ProgressBar
 onready var check_bobber_in_proximity_area_timer = $CheckBobberInProximityAreaTimer
 
 var alerted : bool = false
@@ -25,7 +25,6 @@ func _on_progress_bar_filled() -> void:
 
 func set_up_progress_bar() -> void:
 	progress_bar.set_max_value(amount_needed_to_catch)
-	progress_bar.configure_offset()
 	progress_bar.hide()
 
 

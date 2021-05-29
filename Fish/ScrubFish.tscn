@@ -1,24 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Fish/ScrubFish.gd" type="Script" id=1]
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Custom Resources/ScrubFishPossiblePaths.tres" type="Resource" id=3]
-[ext_resource path="res://Assets/Fishing Scene/Fishes/scrubfish_top.PNG" type="Texture" id=4]
 
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 fish_paths = ExtResource( 3 )
-max_velocity = 300
-initial_velocity = 300
-
-[node name="ProgressBar" parent="." index="0"]
-margin_left = -111.6
-margin_top = -111.6
-margin_right = 74.4
-margin_bottom = 74.4
-rect_scale = Vector2( 1.2, 1.2 )
-
-[node name="FishSprite" parent="KinematicBody" index="1"]
-rotation = 1.5708
-scale = Vector2( 0.125, 0.125 )
-texture = ExtResource( 4 )
+max_speed = 300
+initial_speed = 300
