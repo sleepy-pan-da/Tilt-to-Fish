@@ -12,7 +12,6 @@ func _ready() -> void:
 	
 func configure_arrow_location(velocity : Vector2) -> void:
 	var velocity_angle_wrt_x_axis : float = velocity.angle() 
-	var angle_to_rotate_arrow_by : float = velocity_angle_wrt_x_axis - rotation
 	
 	if initial_velocity == null:
 		initial_velocity = velocity

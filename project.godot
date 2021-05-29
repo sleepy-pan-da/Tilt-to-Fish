@@ -14,20 +14,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://FishingScene/Bobber/Arrow.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Bobber",
+"language": "GDScript",
+"path": "res://FishingScene/Bobber/Bobber.gd"
+}, {
+"base": "Resource",
+"class": "BobberStats",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/BobberStats.gd"
+}, {
 "base": "Node2D",
 "class": "Fish",
 "language": "GDScript",
-"path": "res://Fish/FishTemplate.gd"
+"path": "res://Fish/FishTemplate/FishTemplate.gd"
 }, {
 "base": "Resource",
 "class": "FishGeneratorBasedOnFloor",
 "language": "GDScript",
 "path": "res://Resources/Custom Resources/FishGeneratorBasedOnFloor.gd"
-}, {
-"base": "Path2D",
-"class": "FishPath",
-"language": "GDScript",
-"path": "res://Fish/Paths/FishPathTemplate.gd"
 }, {
 "base": "Resource",
 "class": "FishPaths",
@@ -36,9 +41,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Arrow": "",
+"Bobber": "",
+"BobberStats": "",
 "Fish": "",
 "FishGeneratorBasedOnFloor": "",
-"FishPath": "",
 "FishPaths": ""
 }
 

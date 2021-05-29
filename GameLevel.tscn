@@ -21,7 +21,7 @@ fish_generator = ExtResource( 8 )
 [node name="Fishes" type="Node2D" parent="."]
 
 [node name="Bobber" parent="." instance=ExtResource( 1 )]
-position = Vector2( 640, 360 )
+position = Vector2( 640, 156.875 )
 
 [node name="AccelerometerLabel" type="Label" parent="."]
 margin_left = 40.0

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Fishing Scene/UI elements/rock.PNG" type="Texture" id=1]
+
+[node name="RockCorner" type="Sprite"]
+scale = Vector2( 0.25, 0.125 )
+texture = ExtResource( 1 )

@@ -7,7 +7,6 @@ export(float) var deceleration : float
 export(int) var initial_velocity : int
 
 onready var kinematic_body = $KinematicBody
-onready var tween = $Tween
 
 var chosen_path : PackedScene
 var path_to_follow : PathFollow2D
@@ -16,6 +15,9 @@ var direction_of_acceleration : int = 0
 
 
 func _ready():
+	amount_needed_to_catch = 200
+	set_up_progress_bar()
+	print(amount_needed_to_catch)
 	# comment these out for debugging
 	velocity = initial_velocity
 	choose_path()
@@ -42,7 +44,7 @@ func reparent(child: Node, new_parent: Node):
 	new_parent.add_child(child)
 
 
-func _physics_process(delta):
+func _physics_process(delta : float):
 	if alerted:
 		direction_of_acceleration = 1
 	else:
@@ -51,12 +53,12 @@ func _physics_process(delta):
 		move(delta)
 
 
-func move(delta):
+func move(delta : float):
 	applyAcceleration(delta)
 	path_to_follow.offset += velocity * delta
+	progress_bar.relocate(path_to_follow.position)
 
-
-func applyAcceleration(delta):
+func applyAcceleration(delta : float):
 	if direction_of_acceleration == 1:
 		if velocity < max_velocity:
 			velocity = min(velocity + acceleration * delta, max_velocity)

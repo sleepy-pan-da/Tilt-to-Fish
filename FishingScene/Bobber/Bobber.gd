@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+class_name Bobber
+
+export(Resource) var bobber_stats = bobber_stats as BobberStats
 onready var arrow = $Arrow
 
 
