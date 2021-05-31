@@ -25,7 +25,7 @@ shape = SubResource( 1 )
 
 [node name="Arrow" type="Sprite" parent="."]
 position = Vector2( 29.006, 6.82121e-13 )
-scale = Vector2( 0.00876928, 0.00876928 )
+scale = Vector2( 0.009, 0.014 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
