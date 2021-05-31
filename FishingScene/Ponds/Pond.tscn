@@ -13,18 +13,22 @@ __meta__ = {
 }
 
 [node name="RockCorner" parent="." instance=ExtResource( 1 )]
-position = Vector2( 209.725, 56.3081 )
+position = Vector2( 154.329, 56.3081 )
+scale = Vector2( 0.174394, 0.125 )
 
 [node name="RockCorner2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1067.73, 654.102 )
+position = Vector2( 1131.8, 670.426 )
 rotation = 3.14159
+scale = Vector2( 0.172439, 0.124348 )
 
 [node name="RockCorner3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1067.73, 46.2472 )
+position = Vector2( 1135.81, 50.2517 )
+scale = Vector2( 0.172439, 0.125 )
 flip_h = true
 
 [node name="RockCorner4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 181.392, 660.273 )
+position = Vector2( 145.351, 668.264 )
+scale = Vector2( 0.163314, 0.125 )
 flip_v = true
 
 [node name="Boundary" type="StaticBody2D" parent="."]
@@ -33,4 +37,4 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
 position = Vector2( 621.446, 373.681 )
 scale = Vector2( 39.2784, 25.1023 )
-polygon = PoolVector2Array( -15.8216, -9.4685, -4.21213, -14.8863, 5.36057, -14.8863, 16.7663, -9.7872, 16.7663, 7.74107, 5.1569, 13.7963, -5.02683, 13.7963, -15.8216, 8.37847, -15.8216, 16.0272, 18.3957, 16.0272, 18.3957, -17.4359, -17.451, -17.4359, -15.8216, 8.37847 )
+polygon = PoolVector2Array( -15.8216, -9.4685, -7.3192, -14.8486, 8.78477, -14.7777, 16.7663, -9.7872, 16.7663, 7.74107, 9.10231, 14.0408, -7.27384, 14.5377, -15.8216, 8.37847, -15.8216, 16.0272, 18.3957, 16.0272, 18.3957, -17.4359, -17.451, -17.4359, -15.8216, 8.37847 )

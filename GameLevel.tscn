@@ -17,6 +17,7 @@ script = ExtResource( 7 )
 fish_generator = ExtResource( 8 )
 
 [node name="Pond" parent="." instance=ExtResource( 4 )]
+position = Vector2( -1.33484, 0 )
 
 [node name="Fishes" type="Node2D" parent="."]
 
