@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource( 1 )
-array_of_fish = [ ExtResource( 2 ) ]
+fish_type = [ ExtResource( 2 ) ]
+qty_of_fish_type = [ 2 ]

@@ -7,5 +7,7 @@
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 fish_paths = ExtResource( 3 )
-max_speed = 300
+max_speed = 500
+acceleration = 50.0
+deceleration = 30.0
 initial_speed = 300

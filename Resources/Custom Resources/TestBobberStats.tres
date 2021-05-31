@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource( 1 )
-bobber_attack_amount = 5
+bobber_attack_amount = 1

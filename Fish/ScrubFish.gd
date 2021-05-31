@@ -15,8 +15,9 @@ var speed : float
 var direction_of_acceleration : int = 0
 var initial_position : Vector2 
 
+
 func _ready():
-	amount_needed_to_catch = 200
+	amount_needed_to_catch = 50
 	set_up_progress_bar()
 	#print(amount_needed_to_catch)
 	# comment these out for debugging
@@ -27,9 +28,8 @@ func _ready():
 
 
 func choose_path() -> void:
-	randomize()
-	var random_index : int = randi() % fish_paths.array_of_paths.size()
-	chosen_path = fish_paths.array_of_paths[random_index]
+	chosen_path = fish_paths.choose_path()
+	fish_paths.update_path_index()
 
 
 func assign_path() -> void:
@@ -78,7 +78,7 @@ func applyAcceleration(delta : float):
 
 func update_fish_sprite_based_on_horizontal_direction() -> void:
 	var direction : Vector2 = initial_position.direction_to(path_to_follow.position)
-	if direction.x == 1 and fish_sprite.animation == "FacingLeft":
+	if direction.x > 0.1 and fish_sprite.animation == "FacingLeft":
 		fish_sprite.animation = "FacingRight"
-	elif direction.x == -1 and fish_sprite.animation == "FacingRight":
+	elif direction.x < -0.1 and fish_sprite.animation == "FacingRight":
 		fish_sprite.animation = "FacingLeft"
