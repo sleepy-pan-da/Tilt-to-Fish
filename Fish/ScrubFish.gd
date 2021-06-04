@@ -1,6 +1,6 @@
 extends Fish
+class_name MovingFish
 
-export(Resource) var fish_paths = fish_paths as FishPaths
 export(int) var max_speed : int
 export(float) var acceleration : float
 export(float) var deceleration : float
@@ -9,7 +9,7 @@ export(int) var initial_speed : int
 onready var kinematic_body = $KinematicBody
 onready var fish_sprite = $KinematicBody/FishSprite
 
-var chosen_path : PackedScene
+var assigned_path : Path2D
 var path_to_follow : PathFollow2D
 var speed : float 
 var direction_of_acceleration : int = 0
@@ -17,27 +17,24 @@ var initial_position : Vector2
 
 
 func _ready():
-	amount_needed_to_catch = 50
 	set_up_progress_bar()
-	#print(amount_needed_to_catch)
 	# comment these out for debugging
 	speed = initial_speed
-	choose_path()
-	assign_path()
-	initial_position = path_to_follow.position
+	assigned_path = get_node_of_fish_path()
+	if assigned_path != null:
+		path_to_follow = assigned_path.get_child(0)
+		#PathFollow2D needs to be parent of kinematic body for fish to follow path
+		reparent(kinematic_body, path_to_follow)
+		initial_position = path_to_follow.position
+		
 
 
-func choose_path() -> void:
-	chosen_path = fish_paths.choose_path()
-	fish_paths.update_path_index()
-
-
-func assign_path() -> void:
-	var assigned_path = chosen_path.instance()
-	add_child(assigned_path)
-	path_to_follow = assigned_path.get_child(0)
-	#PathFollow2D needs to be parent of kinematic body for fish to follow path
-	reparent(kinematic_body, path_to_follow) 
+func get_node_of_fish_path() -> Node:
+	var child_nodes : Array = get_children()
+	for i in range(child_nodes.size()):
+		if child_nodes[i].get_class() == "Path2D":
+			return child_nodes[i]
+	return null
 
 
 func reparent(child: Node, new_parent: Node):

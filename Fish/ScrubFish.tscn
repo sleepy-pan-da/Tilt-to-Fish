@@ -2,12 +2,19 @@
 
 [ext_resource path="res://Fish/ScrubFish.gd" type="Script" id=1]
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/Custom Resources/ScrubFishPossiblePaths.tres" type="Resource" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 43.0758
 
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-fish_paths = ExtResource( 3 )
-max_speed = 500
+max_speed = 200
 acceleration = 50.0
 deceleration = 30.0
-initial_speed = 300
+initial_speed = 200
+
+[node name="RippleSprite" parent="KinematicBody" index="3"]
+scale = Vector2( 0.06, 0.06 )
+
+[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
+shape = SubResource( 1 )

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=2]
-
-[ext_resource path="res://Resources/Custom Resources/FishGeneratorBasedOnFloor.gd" type="Script" id=1]
-[ext_resource path="res://Fish/ScrubFish.tscn" type="PackedScene" id=2]
-
-[resource]
-script = ExtResource( 1 )
-fish_type = [ ExtResource( 2 ) ]
-qty_of_fish_type = [ 2 ]

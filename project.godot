@@ -29,23 +29,35 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Fish/FishTemplate/FishTemplate.gd"
 }, {
-"base": "Resource",
-"class": "FishGeneratorBasedOnFloor",
+"base": "Fish",
+"class": "MovingFish",
 "language": "GDScript",
-"path": "res://Resources/Custom Resources/FishGeneratorBasedOnFloor.gd"
+"path": "res://Fish/ScrubFish.gd"
+}, {
+"base": "MovingFish",
+"class": "MovingSeaUrchin",
+"language": "GDScript",
+"path": "res://Fish/MovingSeaUrchin.gd"
+}, {
+"base": "Fish",
+"class": "SeaUrchin",
+"language": "GDScript",
+"path": "res://Fish/SeaUrchin.gd"
 }, {
 "base": "Resource",
-"class": "FishPaths",
+"class": "Test",
 "language": "GDScript",
-"path": "res://Resources/Custom Resources/FishPaths.gd"
+"path": "res://Resources/Custom Resources/Test.gd"
 } ]
 _global_script_class_icons={
 "Arrow": "",
 "Bobber": "",
 "BobberStats": "",
 "Fish": "",
-"FishGeneratorBasedOnFloor": "",
-"FishPaths": ""
+"MovingFish": "",
+"MovingSeaUrchin": "",
+"SeaUrchin": "",
+"Test": ""
 }
 
 [application]
@@ -53,6 +65,10 @@ _global_script_class_icons={
 config/name="Summer Game Project"
 run/main_scene="res://GameLevel.tscn"
 config/icon="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_right.PNG"
+
+[autoload]
+
+GameEvents="*res://Singletons/GameEvents.gd"
 
 [debug]
 
@@ -70,4 +86,4 @@ window/stretch/aspect="keep"
 2d_physics/layer_1="PondBoundary"
 2d_physics/layer_2="Bobber"
 2d_physics/layer_3="FishProximity"
-2d_physics/layer_4="Fish"
+2d_physics/layer_4="FishHitBox"

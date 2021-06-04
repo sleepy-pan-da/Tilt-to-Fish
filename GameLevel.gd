@@ -1,18 +1,20 @@
 extends Node2D
 
-export(Resource) var fish_generator = fish_generator as FishGeneratorBasedOnFloor
+#export(Resource) var fish_generator = fish_generator as FishGeneratorBasedOnFloor
 onready var fishes = $Fishes
+onready var bobber = $Bobber
+onready var hooks_label = $HooksLabel
 
 
 func _ready() -> void:
-	generate_fish()
+	update_hooks_label()
+	GameEvents.connect("bobber_took_damage", self, "update_hooks_label")
+	GameEvents.connect("bobber_ran_out_of_hooks", self, "game_over")
 
 
-func generate_fish() -> void: 
-	for i in range(fish_generator.fish_type.size()):
-		var fish_count = fish_generator.qty_of_fish_type[i]
-		while fish_count > 0:
-			var fish = fish_generator.fish_type[i].instance()
-			fishes.add_child(fish)
-			fish.position = self.position	
-			fish_count -= 1
+func update_hooks_label() -> void:
+	hooks_label.text = "Hooks : " + str(bobber.bobber_stats.hooks_amount)
+
+
+func game_over() -> void:
+	bobber.queue_free()

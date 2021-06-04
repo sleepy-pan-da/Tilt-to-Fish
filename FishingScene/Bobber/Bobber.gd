@@ -38,25 +38,25 @@ func compute_speed_multiplier_based_on_tilt_in_x_direction(x_direction_vector : 
 	# intervals of 50 - cy
 	# intervals of 60 - js
 	if abs(x_direction_vector) <= 1: 
-		return 300 
+		return 250 
 	elif abs(x_direction_vector) <= 2:
-		return 300
+		return 250
 	elif abs(x_direction_vector) <= 3:
-		return 300
+		return 250
 	elif abs(x_direction_vector) <= 4:
-		return 300
+		return 250
 	else:
-		return 300
+		return 250
 				
 
 func compute_speed_multiplier_based_on_tilt_in_y_direction(y_direction_vector : float) -> int:
 	if abs(y_direction_vector) <= 1: 
-		return 250
+		return 175
 	elif abs(y_direction_vector) <= 1.5:
-		return 250
+		return 175
 	elif abs(y_direction_vector) <= 2:
-		return 250
+		return 175
 	elif abs(y_direction_vector) <= 2.5:
-		return 250
+		return 175
 	else:
-		return 250
+		return 175

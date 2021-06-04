@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Fish/SeaUrchin.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 164.598
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 42, 35 )
+
+[node name="SeaUrchin" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+amount_needed_to_catch = 50.0
+damage = 1
+
+[node name="FishSprite" parent="KinematicBody" index="2"]
+modulate = Color( 0.831373, 0.0196078, 0.0196078, 1 )
+
+[node name="RippleSprite" parent="KinematicBody" index="3"]
+scale = Vector2( 0.18, 0.18 )
+
+[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="HitBox" type="Area2D" parent="KinematicBody" index="6"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody/HitBox" index="0"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="KinematicBody/HitBox" to="." method="_on_HitBox_body_entered"]

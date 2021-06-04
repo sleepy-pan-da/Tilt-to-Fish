@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Fish/Paths/FishPathTemplate.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( -66.5956, 0.594603, 66.5956, -0.594603, 384, 128, 0, 0, 0, 0, 448, 192, 12.7356, -23.9729, -12.7356, 23.9729, 432, 240, 0, 0, 0, 0, 384, 256, 18.0793, -16.3975, -18.0793, 16.3975, 336, 280, 0, 0, 0, 0, 320, 320, -67.7848, 0, 67.7848, 0, 384, 384, 0, 0, 0, 0, 448, 320, 13.75, 16.75, -13.75, -16.75, 432, 280, 0, 0, 0, 0, 384, 256, 18.3543, 22.1, -18.3543, -22.1, 336, 240, 0, 0, 0, 0, 320, 192, -65.4064, 1.18921, 65.4064, -1.18921, 384, 128 )
+}
+
+[node name="8Path" instance=ExtResource( 1 )]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="." index="0"]
+position = Vector2( 384, 128 )
