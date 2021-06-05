@@ -1,35 +1,43 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://FishingScene/Ponds/Environment/RockCorner.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FishingScene/Ponds/Environment/Rock_TopLeft.tscn" type="PackedScene" id=2]
+[ext_resource path="res://FishingScene/Ponds/Environment/rock_topright.PNG" type="Texture" id=3]
+[ext_resource path="res://FishingScene/Ponds/Environment/Rock_TopRight.tscn" type="PackedScene" id=4]
 
 [node name="Pond" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 3.5636
 margin_right = 1280.0
-margin_bottom = 720.0
-color = Color( 0.533333, 0.776471, 0.952941, 1 )
+margin_bottom = 723.564
+color = Color( 0.470588, 0.87451, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RockCorner" parent="." instance=ExtResource( 1 )]
-position = Vector2( 154.329, 56.3081 )
-scale = Vector2( 0.174394, 0.125 )
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1192.44, 75.218 )
+scale = Vector2( 0.178703, 0.178703 )
 
-[node name="RockCorner2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1131.8, 670.426 )
-rotation = 3.14159
-scale = Vector2( 0.172439, 0.124348 )
-
-[node name="RockCorner3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1135.81, 50.2517 )
-scale = Vector2( 0.172439, 0.125 )
+[node name="rock_btmleft" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( -6205.24, 3345.44 )
+rotation = -0.20944
+scale = Vector2( 1.15147, 1.02754 )
 flip_h = true
-
-[node name="RockCorner4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 145.351, 668.264 )
-scale = Vector2( 0.163314, 0.125 )
 flip_v = true
+
+[node name="rock_btmright" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( -230.745, 3150.55 )
+scale = Vector2( 1, 1 )
+flip_h = true
+flip_v = true
+
+[node name="rock_topright" type="Sprite" parent="Node2D"]
+texture = ExtResource( 3 )
+
+[node name="rock_topleft" parent="Node2D" instance=ExtResource( 2 )]
+position = Vector2( -5751.19, 13.1255 )
+scale = Vector2( 1, 1 )
 
 [node name="Boundary" type="StaticBody2D" parent="."]
 collision_mask = 0
@@ -37,4 +45,4 @@ collision_mask = 0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boundary"]
 position = Vector2( 621.446, 373.681 )
 scale = Vector2( 39.2784, 25.1023 )
-polygon = PoolVector2Array( -15.8216, -9.4685, -7.3192, -14.8486, 8.78477, -14.7777, 16.7663, -9.7872, 16.7663, 7.74107, 9.10231, 14.0408, -7.27384, 14.5377, -15.8216, 8.37847, -15.8216, 16.0272, 18.3957, 16.0272, 18.3957, -17.4359, -17.451, -17.4359, -15.8216, 8.37847 )
+polygon = PoolVector2Array( -15.7568, -8.88619, -7.31919, -14.6357, 10.6447, -14.7777, 16.678, -7.53755, 16.7663, 7.74107, 9.10231, 14.0408, -8.10306, 14.2084, -16.0332, 7.20225, -15.8216, 16.0272, 18.3957, 16.0272, 18.3957, -17.4359, -17.451, -17.4359, -15.8216, 8.37847 )
