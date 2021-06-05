@@ -1,15 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Environment/Rock_TopLeft.tscn" type="PackedScene" id=2]
-[ext_resource path="res://FishingScene/Ponds/Environment/rock_topright.PNG" type="Texture" id=3]
 [ext_resource path="res://FishingScene/Ponds/Environment/Rock_TopRight.tscn" type="PackedScene" id=4]
 
 [node name="Pond" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_top = 3.5636
 margin_right = 1280.0
-margin_bottom = 723.564
+margin_bottom = 720.0
 color = Color( 0.470588, 0.87451, 1, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,11 +30,12 @@ scale = Vector2( 1, 1 )
 flip_h = true
 flip_v = true
 
-[node name="rock_topright" type="Sprite" parent="Node2D"]
-texture = ExtResource( 3 )
-
 [node name="rock_topleft" parent="Node2D" instance=ExtResource( 2 )]
 position = Vector2( -5751.19, 13.1255 )
+scale = Vector2( 1, 1 )
+
+[node name="rock_topright" parent="Node2D" instance=ExtResource( 4 )]
+position = Vector2( 2.90936, -51.5829 )
 scale = Vector2( 1, 1 )
 
 [node name="Boundary" type="StaticBody2D" parent="."]
