@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://FishingScene/Ponds/Environment/rock_topright.PNG" type="Texture" id=1]
+
+[node name="rock_topright" type="Sprite"]
+position = Vector2( -81.0286, 3.88534 )
+scale = Vector2( 0.263965, 0.263965 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}

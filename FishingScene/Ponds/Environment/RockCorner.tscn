@@ -3,5 +3,5 @@
 [ext_resource path="res://Assets/Fishing Scene/UI elements/rock.PNG" type="Texture" id=1]
 
 [node name="RockCorner" type="Sprite"]
-scale = Vector2( 0.197206, 0.125 )
+scale = Vector2( 0.165269, 0.125 )
 texture = ExtResource( 1 )
