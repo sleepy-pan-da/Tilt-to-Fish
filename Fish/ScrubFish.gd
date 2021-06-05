@@ -1,5 +1,5 @@
-extends Fish
-class_name MovingFish
+extends FishTemplate
+class_name ScrubFish
 
 export(int) var max_speed : int
 export(float) var acceleration : float

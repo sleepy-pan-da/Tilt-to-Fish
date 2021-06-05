@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Fish
+class_name FishTemplate
 
 onready var ripple = $KinematicBody/RippleSprite
 onready var ripple_animation = $KinematicBody/RippleAnimation

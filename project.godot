@@ -25,21 +25,21 @@ _global_script_classes=[ {
 "path": "res://Resources/Custom Resources/BobberStats.gd"
 }, {
 "base": "Node2D",
-"class": "Fish",
+"class": "FishTemplate",
 "language": "GDScript",
 "path": "res://Fish/FishTemplate/FishTemplate.gd"
 }, {
-"base": "Fish",
-"class": "MovingFish",
-"language": "GDScript",
-"path": "res://Fish/ScrubFish.gd"
-}, {
-"base": "MovingFish",
+"base": "ScrubFish",
 "class": "MovingSeaUrchin",
 "language": "GDScript",
 "path": "res://Fish/MovingSeaUrchin.gd"
 }, {
-"base": "Fish",
+"base": "FishTemplate",
+"class": "ScrubFish",
+"language": "GDScript",
+"path": "res://Fish/ScrubFish.gd"
+}, {
+"base": "FishTemplate",
 "class": "SeaUrchin",
 "language": "GDScript",
 "path": "res://Fish/SeaUrchin.gd"
@@ -53,9 +53,9 @@ _global_script_class_icons={
 "Arrow": "",
 "Bobber": "",
 "BobberStats": "",
-"Fish": "",
-"MovingFish": "",
+"FishTemplate": "",
 "MovingSeaUrchin": "",
+"ScrubFish": "",
 "SeaUrchin": "",
 "Test": ""
 }
@@ -63,7 +63,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Summer Game Project"
-run/main_scene="res://GameLevel.tscn"
+run/main_scene="res://Levels/Level1.tscn"
 config/icon="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_right.PNG"
 
 [autoload]

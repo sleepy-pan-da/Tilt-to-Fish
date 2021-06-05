@@ -1,4 +1,3 @@
 extends Node
 
 signal bobber_took_damage
-signal bobber_ran_out_of_hooks

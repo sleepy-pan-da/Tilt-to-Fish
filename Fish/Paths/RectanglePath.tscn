@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Fish/Paths/FishPathTemplate.tscn" type="PackedScene" id=1]
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 1216, 64, 0, 0, 0, 0, 1216, 640, 0, 0, 0, 0, 64, 640, 0, 0, 0, 0, 64, 64 )
 }
 
 [node name="RectanglePath" instance=ExtResource( 1 )]
-curve = SubResource( 6 )
+curve = SubResource( 1 )
 
 [node name="PathFollow2D" parent="." index="0"]
 position = Vector2( 64, 64 )

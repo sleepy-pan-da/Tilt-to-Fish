@@ -1,4 +1,4 @@
-extends Fish
+extends FishTemplate
 class_name SeaUrchin
 
 export(int) var damage

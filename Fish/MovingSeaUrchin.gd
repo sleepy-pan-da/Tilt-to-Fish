@@ -1,4 +1,4 @@
-extends MovingFish
+extends ScrubFish
 class_name MovingSeaUrchin
 
 export(int) var damage
