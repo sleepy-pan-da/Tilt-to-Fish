@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Light.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Levels/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Fishing Scene/UI elements/UI_hook.png" type="Texture" id=3]
 [ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=4]
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=5]
 
@@ -29,13 +30,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="UI"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 3113.0
+margin_bottom = 2064.0
+rect_scale = Vector2( 0.063, 0.063 )
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HooksLabel" type="Label" parent="UI"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 313.0
-margin_bottom = 113.0
+margin_left = 143.0
+margin_top = 75.0
+margin_right = 231.0
+margin_bottom = 138.0
 custom_fonts/font = SubResource( 1 )
-text = "Hooks : 999"
+text = "99"
 __meta__ = {
 "_edit_use_anchors_": false
 }

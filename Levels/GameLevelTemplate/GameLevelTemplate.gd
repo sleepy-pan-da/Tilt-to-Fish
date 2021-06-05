@@ -27,7 +27,7 @@ func freeze_game() -> void:
 
 
 func update_hooks_label() -> void:
-	hooks_label.text = "Hooks : " + str(bobber.bobber_stats.hooks_amount)
+	hooks_label.text = str(0) + str(bobber.bobber_stats.hooks_amount)
 
 
 func game_over() -> void:
