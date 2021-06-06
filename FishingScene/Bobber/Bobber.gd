@@ -5,6 +5,9 @@ class_name Bobber
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 onready var arrow = $Arrow
 
+# will be made false pre countdown, will be toggled back to true after countdown
+var enabled : bool = true 
+
 
 func _physics_process(delta : float) -> void:
 	move(Input.get_accelerometer())
@@ -23,7 +26,8 @@ func move(movement_direction_vector : Vector3) -> void:
 	velocity = Vector2(x_velocity, y_velocity)
 	
 	arrow.configure_arrow_location(velocity)
-	move_and_slide(velocity)
+	if enabled: # pre countdown, bobber cannot move but it's arrow can move around
+		move_and_slide(velocity)
 
 
 func compute_speed_multiplier_based_on_tilt_in_x_direction(x_direction_vector : float) -> int:
@@ -38,25 +42,25 @@ func compute_speed_multiplier_based_on_tilt_in_x_direction(x_direction_vector : 
 	# intervals of 50 - cy
 	# intervals of 60 - js
 	if abs(x_direction_vector) <= 1: 
-		return 250 
+		return 200 
 	elif abs(x_direction_vector) <= 2:
-		return 250
+		return 200
 	elif abs(x_direction_vector) <= 3:
-		return 250
+		return 200
 	elif abs(x_direction_vector) <= 4:
-		return 250
+		return 200
 	else:
-		return 250
+		return 200
 				
 
 func compute_speed_multiplier_based_on_tilt_in_y_direction(y_direction_vector : float) -> int:
 	if abs(y_direction_vector) <= 1: 
-		return 175
+		return 200
 	elif abs(y_direction_vector) <= 1.5:
-		return 175
+		return 200
 	elif abs(y_direction_vector) <= 2:
-		return 175
+		return 200
 	elif abs(y_direction_vector) <= 2.5:
-		return 175
+		return 200
 	else:
-		return 175
+		return 200

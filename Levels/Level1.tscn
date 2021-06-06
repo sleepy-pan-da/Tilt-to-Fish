@@ -11,8 +11,10 @@ _data = {
 }
 
 [node name="Level1" instance=ExtResource( 1 )]
+next_scene = ExtResource( 1 )
 
 [node name="ScrubFish" parent="Fishes" index="0" instance=ExtResource( 2 )]
+amount_needed_to_catch = 50.0
 
 [node name="RectanglePath" parent="Fishes/ScrubFish" index="3" instance=ExtResource( 3 )]
 position = Vector2( 0, -24 )

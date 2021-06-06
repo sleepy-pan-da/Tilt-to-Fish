@@ -1,3 +1,4 @@
 extends Node
 
 signal bobber_took_damage
+signal successfully_caught_fish

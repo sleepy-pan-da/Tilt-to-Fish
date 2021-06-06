@@ -24,6 +24,7 @@ func _ready() -> void:
 	
 
 func _on_progress_bar_filled() -> void:
+	GameEvents.emit_signal("successfully_caught_fish")
 	queue_free()
 
 
