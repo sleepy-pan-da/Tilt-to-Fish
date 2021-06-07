@@ -4,11 +4,11 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 1216, 64, 0, 0, 0, 0, 1216, 640, 0, 0, 0, 0, 64, 640, 0, 0, 0, 0, 64, 64 )
+"points": PoolVector2Array( 0, 0, 0, 0, 320, 64, 0, 0, 0, 0, 960, 64, 0, 0, 0, 0, 960, 576, 0, 0, 0, 0, 320, 576, 0, 0, 0, 0, 320, 64 )
 }
 
 [node name="RectanglePath" instance=ExtResource( 1 )]
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" parent="." index="0"]
-position = Vector2( 64, 64 )
+position = Vector2( 320, 64 )
