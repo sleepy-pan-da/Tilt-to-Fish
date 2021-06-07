@@ -15,11 +15,8 @@ func configure_arrow_location(velocity : Vector2) -> void:
 	
 	if initial_velocity == Vector2.ZERO:
 		initial_velocity = velocity
-	print(rad2deg(velocity.angle_to(initial_velocity)))
-	print(abs(rad2deg(velocity.angle_to(initial_velocity))))
+
 	var significant_angle_diff : bool = abs(rad2deg(velocity.angle_to(initial_velocity))) >= 5
-	print(str(significant_angle_diff) + str(abs(rad2deg(velocity.angle_to(initial_velocity))) ))
-	
 	if significant_angle_diff and velocity.length() >= 175 and !configuring_position:
 		configuring_position = true
 		var diff_in_angle : float = abs(position.angle() - velocity_angle_wrt_x_axis)
