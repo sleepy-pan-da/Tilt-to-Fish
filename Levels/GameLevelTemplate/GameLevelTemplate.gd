@@ -7,7 +7,7 @@ onready var bobber = $Bobber
 onready var hooks_label = $UI/Hooks/HooksLabel
 onready var countdown = $UI/Countdown
 onready var congrats = $UI/Congrats
-var can_descend : bool = false
+var can_descend : bool = true
 
 
 func _ready() -> void:
@@ -73,4 +73,5 @@ func _input(event):
 			
 
 func transition_to_next_scene() -> void:
-	get_tree().change_scene_to(next_scene)
+	if next_scene != null:
+		get_tree().change_scene_to(next_scene)

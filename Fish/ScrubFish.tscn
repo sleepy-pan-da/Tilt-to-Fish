@@ -8,6 +8,7 @@ radius = 43.0758
 
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+amount_needed_to_catch = 75.0
 max_speed = 200
 acceleration = 50.0
 deceleration = 30.0

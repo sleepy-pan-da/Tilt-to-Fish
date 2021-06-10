@@ -5,6 +5,7 @@ export(int) var max_speed : int
 export(float) var acceleration : float
 export(float) var deceleration : float
 export(int) var initial_speed : int
+export(int) var offset_direction : int = 1 # 1 = forward, -1 = backward
 
 onready var kinematic_body = $KinematicBody
 onready var fish_sprite = $KinematicBody/FishSprite
@@ -23,7 +24,7 @@ func _ready():
 	assigned_path = get_node_of_fish_path()
 	if assigned_path != null:
 		path_to_follow = assigned_path.get_child(0)
-		#PathFollow2D needs to be parent of kinematic body for fish to follow path
+		# PathFollow2D needs to be parent of kinematic body for fish to follow path
 		reparent(kinematic_body, path_to_follow)
 		initial_position = path_to_follow.position
 		
@@ -54,7 +55,7 @@ func _physics_process(delta : float):
 
 func move(delta : float):
 	applyAcceleration(delta)
-	path_to_follow.offset += speed * delta
+	path_to_follow.offset += speed * delta * offset_direction
 	update_fish_sprite_based_on_horizontal_direction()
 	initial_position = path_to_follow.position
 

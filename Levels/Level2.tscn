@@ -19,7 +19,7 @@ next_scene = ExtResource( 4 )
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" parent="Fishes/ScrubFish/RectanglePath" index="0"]
-position = Vector2( 312, 256 )
+position = Vector2( 64, 448 )
 
 [editable path="Fishes/ScrubFish"]
 [editable path="Fishes/ScrubFish/RectanglePath"]

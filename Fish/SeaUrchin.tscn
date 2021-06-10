@@ -4,7 +4,7 @@
 [ext_resource path="res://Fish/SeaUrchin.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 164.5
+radius = 160.0
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 42, 35 )
@@ -12,18 +12,16 @@ extents = Vector2( 42, 35 )
 [node name="SeaUrchin" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 amount_needed_to_catch = 50.0
-fish_recovery_amount = 2.0
-max_speed = 100
+fish_recovery_amount = 0.0
 acceleration = 0.0
 deceleration = 0.0
-initial_speed = 100
 damage = 1
 
 [node name="FishSprite" parent="KinematicBody" index="2"]
 modulate = Color( 0.988235, 0, 0, 1 )
 
 [node name="RippleSprite" parent="KinematicBody" index="3"]
-scale = Vector2( 0.18, 0.18 )
+scale = Vector2( 0.17, 0.17 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 1 )

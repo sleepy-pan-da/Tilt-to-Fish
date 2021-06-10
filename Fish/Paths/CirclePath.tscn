@@ -4,12 +4,12 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 127.477, 0, 448, 256, 0, 0, 0, 0, 576, 384, 128.145, 0, -128.145, 0, 451.38, 521.671, 0, 0, 0, 0, 320, 384, -126.81, 0, 126.81, 0, 448, 256 )
+"points": PoolVector2Array( 0, 0, 127.477, 0, 448, 267, 0, 0, 0, 0, 560, 387, 128.145, 0, -128.145, 0, 448, 507, 0, 0, 0, 0, 336, 387, -126.81, 0, 126.81, 0, 448, 267 )
 }
 
 [node name="CirclePath" instance=ExtResource( 1 )]
 curve = SubResource( 1 )
 
 [node name="PathFollow2D" parent="." index="0"]
-position = Vector2( 450.054, 521.667 )
+position = Vector2( 413.523, 503.597 )
 offset = 413.599

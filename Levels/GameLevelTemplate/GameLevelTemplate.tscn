@@ -17,11 +17,11 @@ font_data = ExtResource( 8 )
 size = 144
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 144
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 96
 font_data = ExtResource( 8 )
 
@@ -123,7 +123,7 @@ margin_left = -418.0
 margin_top = -248.0
 margin_right = 418.0
 margin_bottom = -63.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Congrats"
 align = 1
 valign = 1
@@ -140,7 +140,7 @@ margin_left = -475.5
 margin_top = 88.0
 margin_right = 475.5
 margin_bottom = 273.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "Tap to continue"
 align = 1
 valign = 1

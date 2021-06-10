@@ -8,7 +8,7 @@
 next_scene = ExtResource( 3 )
 
 [node name="SeaUrchin" parent="Fishes" index="0" instance=ExtResource( 2 )]
-position = Vector2( 480, 512 )
+position = Vector2( 520, 552 )
 
 [node name="SeaUrchin2" parent="Fishes" index="1" instance=ExtResource( 2 )]
-position = Vector2( 808, 512 )
+position = Vector2( 760, 552 )
