@@ -1,9 +1,6 @@
 extends FishTemplate
 class_name ScrubFish
 
-export(int) var max_speed : int
-export(float) var acceleration : float
-export(float) var deceleration : float
 export(int) var initial_speed : int
 export(int) var offset_direction : int = 1 # 1 = forward, -1 = backward
 
@@ -45,33 +42,14 @@ func reparent(child: Node, new_parent: Node):
 
 
 func _physics_process(delta : float):
-	if alerted:
-		direction_of_acceleration = 1
-	else:
-		direction_of_acceleration = 0
 	if(path_to_follow != null):
 		move(delta)
 
 
 func move(delta : float):
-	applyAcceleration(delta)
 	path_to_follow.offset += speed * delta * offset_direction
 	update_fish_sprite_based_on_horizontal_direction()
 	initial_position = path_to_follow.position
-
-	
-func applyAcceleration(delta : float):
-	if direction_of_acceleration == 1:
-		if speed < max_speed:
-			speed = min(speed + acceleration * delta, max_speed)
-	elif direction_of_acceleration == -1:
-		if speed > -max_speed:
-			speed = max(speed - acceleration * delta, -max_speed)
-	elif direction_of_acceleration == 0:
-		if speed > 0:
-			speed = max(initial_speed, speed - deceleration * delta)
-		elif speed < 0:
-			speed = min(-initial_speed, speed + deceleration * delta)
 		
 
 func update_fish_sprite_based_on_horizontal_direction() -> void:

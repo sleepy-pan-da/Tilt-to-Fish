@@ -4,7 +4,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 768, 64, 0, 0, 0, 0, 768, 640, 0, 0, 0, 0, 192, 640, 0, 0, 0, 0, 192, 64 )
+"points": PoolVector2Array( 0, 0, 0, 0, 192, 64, 0, 0, 0, 0, 768, 64, 0, 0, 0, 0, 768, 128, 0, 0, 0, 0, 192, 128, 0, 0, 0, 0, 192, 64 )
 }
 
 [node name="RectanglePath" instance=ExtResource( 1 )]

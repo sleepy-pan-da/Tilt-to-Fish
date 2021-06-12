@@ -8,7 +8,6 @@ onready var progress_bar = $KinematicBody/ProgressBar
 onready var check_bobber_in_proximity_area_timer = $CheckBobberInProximityAreaTimer
 onready var recovery_timer = $RecoveryTimer
 
-var alerted : bool = false # will need this for fish types that react when you enter their proximity area
 export(float) var amount_needed_to_catch = 100
 export(float) var fish_recovery_amount = 0.5
 var bobber_in_proximity_area : Bobber
@@ -38,7 +37,6 @@ func set_up_progress_bar() -> void:
 
 
 func _on_ProximityArea_body_entered(body : Bobber) -> void:
-	alerted = true
 	progress_bar.show()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
@@ -46,8 +44,6 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
-	alerted = false
-	#progress_bar.hide()
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
 	

@@ -7,7 +7,7 @@
 [ext_resource path="res://Fish/Paths/CirclePath.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Levels/Level8.tscn" type="PackedScene" id=6]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -26,9 +26,7 @@ next_scene = ExtResource( 6 )
 [node name="SeaUrchin" parent="Fishes" index="0" instance=ExtResource( 3 )]
 
 [node name="FishSprite" parent="Fishes/SeaUrchin/KinematicBody" index="2"]
-scale = Vector2( 0.063, 0.063 )
-frames = SubResource( 4 )
-animation = "FacingRight"
+frames = SubResource( 1 )
 
 [node name="CirclePath" parent="Fishes/SeaUrchin" index="3" instance=ExtResource( 5 )]
 position = Vector2( 192, -155 )
