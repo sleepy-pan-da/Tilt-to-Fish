@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 bobber_attack_amount = 1.0
+bobber_attack_rate = 0.1
 hooks_amount = 3
 bobber_flow_max_amount = 50.0
 bobber_flow_increment_amount = 1.0

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Fish/ScrubFish.gd" type="Script" id=1]
+[ext_resource path="res://Fish/ScrubFish/ScrubFish.gd" type="Script" id=1]
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Fish/Behaviours/SetPathMovement/SetPathMovement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fish/Behaviours/FixedPathMovement/FixedPathMovement.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 43.0758
@@ -10,12 +10,12 @@ radius = 43.0758
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 amount_needed_to_catch = 75.0
-initial_speed = 200
+
+[node name="FixedPathMovement" parent="." index="0" instance=ExtResource( 3 )]
+speed = 300
 
 [node name="RippleSprite" parent="KinematicBody" index="3"]
 scale = Vector2( 0.06, 0.06 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 1 )
-
-[node name="SetPathMovement" parent="." index="3" instance=ExtResource( 3 )]

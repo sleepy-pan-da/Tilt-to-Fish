@@ -49,7 +49,7 @@
 [ext_resource path="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_left.PNG" type="Texture" id=47]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 39.0288
+radius = 40.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -109,8 +109,7 @@ radius = 173.142
 script = ExtResource( 2 )
 
 [node name="KinematicBody" type="KinematicBody2D" parent="."]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 16
 
 [node name="ProgressBar" type="TextureProgress" parent="KinematicBody"]
 margin_left = 34.0
@@ -129,7 +128,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody"]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="FishSprite" type="AnimatedSprite" parent="KinematicBody"]
 scale = Vector2( 0.063, 0.063 )

@@ -4,9 +4,14 @@ class_name Bobber
 
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 onready var arrow = $Arrow
-
-# will be made false pre countdown, will be toggled back to true after countdown
+onready var blink_animation_player = $BlinkAnimationPlayer
+onready var immunity_timer = $ImmunityTimer
 var enabled : bool = true 
+var immune : bool = false 
+
+
+func _ready():
+	start_immunity()
 
 
 func _physics_process(delta : float) -> void:
@@ -64,3 +69,18 @@ func compute_speed_multiplier_based_on_tilt_in_y_direction(y_direction_vector : 
 		return 200
 	else:
 		return 200
+
+
+func start_immunity():
+	blink_animation_player.play("Immune")
+	immune = true
+	immunity_timer.start()
+
+
+func _on_ImmunityTimer_timeout():
+	end_immunity()
+	
+
+func end_immunity():
+	blink_animation_player.play("EndImmune")
+	immune = false

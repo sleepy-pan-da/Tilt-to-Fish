@@ -27,6 +27,7 @@ font_data = ExtResource( 8 )
 
 [node name="GameLevelTemplate" type="Node2D"]
 script = ExtResource( 2 )
+current_bobber = ExtResource( 4 )
 
 [node name="Pond" parent="." instance=ExtResource( 5 )]
 position = Vector2( -1.33484, 0 )
@@ -34,7 +35,7 @@ position = Vector2( -1.33484, 0 )
 [node name="Fishes" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
-[node name="Bobber" parent="." instance=ExtResource( 4 )]
+[node name="BobberSpawnPt" type="Position2D" parent="."]
 position = Vector2( 640, 360 )
 
 [node name="UI" type="Control" parent="."]

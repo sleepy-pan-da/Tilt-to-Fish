@@ -1,17 +1,19 @@
 extends Node2D
 
 export(PackedScene) onready var next_scene 
-
+export(PackedScene) onready var current_bobber
 onready var fishes = $Fishes
-onready var bobber = $Bobber
+onready var bobber_spawn_pt = $BobberSpawnPt
 onready var hooks_label = $UI/Hooks/HooksLabel
 onready var countdown = $UI/Countdown
 onready var congrats = $UI/Congrats
+
+var bobber : Bobber
 var can_descend : bool = true
 
 
 func _ready() -> void:
-	toggle_bobber(false)
+	create_bobber_instance()
 	update_hooks_label()
 	countdown.connect("countdown_finished", self, "on_countdown_finished")
 	GameEvents.connect("bobber_took_damage", self, "_on_bobber_took_damage")
@@ -19,21 +21,33 @@ func _ready() -> void:
 	fishes.connect("caught_all_fishes", self, "on_caught_all_fishes")
 
 
-func toggle_bobber(can_move : bool) -> void:
-	bobber.enabled = can_move
+func create_bobber_instance() -> void:
+	if current_bobber != null: # helps to test without bobber
+		bobber = current_bobber.instance()
 
 
 func update_hooks_label() -> void:
-	hooks_label.text = str(0) + str(bobber.bobber_stats.hooks_amount)
+	if current_bobber != null: # helps to test without bobber
+		if bobber.bobber_stats.hooks_amount > 0:
+			hooks_label.text = str(0) + str(bobber.bobber_stats.hooks_amount)
+		else:
+			hooks_label.text = str(0)
 
 
 func on_countdown_finished() -> void:
-	toggle_bobber(true)
+	add_bobber_instance_to_scene()
+
+
+func add_bobber_instance_to_scene() -> void:
+	if bobber != null: # helps to test without bobber
+		add_child(bobber)
+		bobber.global_position = bobber_spawn_pt.global_position
 	
 
 func _on_bobber_took_damage() -> void:
 	freeze_game()
 	update_hooks_label()
+	bobber.start_immunity()
 	if bobber.bobber_stats.hooks_amount <= 0:
 		game_over()
 
@@ -48,7 +62,7 @@ func on_caught_all_fishes() -> void:
 	
 
 func freeze_game() -> void:
-	var freeze_duration : float = 0.1
+	var freeze_duration : float = 0.075
 	get_tree().paused = true
 	yield(get_tree().create_timer(freeze_duration), 'timeout')
 	get_tree().paused = false

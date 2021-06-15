@@ -32,12 +32,7 @@ _global_script_classes=[ {
 "base": "FishTemplate",
 "class": "ScrubFish",
 "language": "GDScript",
-"path": "res://Fish/ScrubFish.gd"
-}, {
-"base": "ScrubFish",
-"class": "SeaUrchin",
-"language": "GDScript",
-"path": "res://Fish/SeaUrchin.gd"
+"path": "res://Fish/ScrubFish/ScrubFish.gd"
 }, {
 "base": "Resource",
 "class": "Test",
@@ -50,7 +45,6 @@ _global_script_class_icons={
 "BobberStats": "",
 "FishTemplate": "",
 "ScrubFish": "",
-"SeaUrchin": "",
 "Test": ""
 }
 
@@ -81,3 +75,5 @@ window/stretch/aspect="keep"
 2d_physics/layer_2="Bobber"
 2d_physics/layer_3="FishProximity"
 2d_physics/layer_4="FishHitBox"
+2d_physics/layer_5="Fish"
+2d_physics/layer_6="FishThatFollowsYou"
