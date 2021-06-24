@@ -10,7 +10,8 @@ radius = 160.0
 
 [node name="SeaUrchin" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-fish_recovery_amount = 1.0
+amount_needed_to_catch = 50.0
+fish_recovery_amount = 0.0
 damage = 1
 
 [node name="HitBox" parent="KinematicBody" index="0" instance=ExtResource( 3 )]

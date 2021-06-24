@@ -3,7 +3,7 @@
 [ext_resource path="res://Fish/Behaviours/DetectionArea/DetectionArea.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 300.0
+radius = 306.706
 
 [node name="DetectionArea" type="Area2D"]
 collision_layer = 0

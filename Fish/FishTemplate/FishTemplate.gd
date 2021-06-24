@@ -23,8 +23,9 @@ func _ready() -> void:
 	
 
 func _on_progress_bar_filled() -> void:
-	GameEvents.emit_signal("successfully_caught_fish")
 	queue_free()
+	GameEvents.emit_signal("successfully_caught_fish")
+
 
 
 func _on_progress_bar_emptied() -> void:
@@ -94,10 +95,12 @@ func reparent(child: Node, new_parent: Node):
 
 
 func update_fish_sprite_based_on_horizontal_direction(movement_vector : Vector2) -> void:
-	if movement_vector.x > 0.1 and fish_sprite.animation == "FacingLeft":
-		fish_sprite.animation = "FacingRight"
-	elif movement_vector.x < -0.1 and fish_sprite.animation == "FacingRight":
-		fish_sprite.animation = "FacingLeft"
+	if movement_vector != Vector2.ZERO:
+		var direction : Vector2 = movement_vector.normalized()
+		if direction.x > 0.1 and fish_sprite.animation == "FacingLeft":
+			fish_sprite.animation = "FacingRight"
+		elif direction.x < -0.1 and fish_sprite.animation == "FacingRight":
+			fish_sprite.animation = "FacingLeft"
 
 
 func obtain_bobber_reference(bobber : Bobber) -> void:

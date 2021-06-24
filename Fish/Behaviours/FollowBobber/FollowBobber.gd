@@ -7,7 +7,7 @@ export(int) var speed : float
 	
 
 func compute_vector_to_move_towards_bobber(bobber : Bobber) -> Vector2:
-	var vector_to_move_towards_bobber : Vector2 = Vector2.ZERO
+	var velocity : Vector2 = Vector2.ZERO
 	
 	var bobber_position : Vector2 = bobber.global_position
 	var fish_to_bobber : Vector2 = bobber_position - global_position
@@ -15,6 +15,6 @@ func compute_vector_to_move_towards_bobber(bobber : Bobber) -> Vector2:
 	var far_from_bobber = fish_to_bobber.length() > 5
 	if far_from_bobber:
 		var direction_to_bobber : Vector2 = fish_to_bobber.normalized()
-		vector_to_move_towards_bobber = direction_to_bobber * speed
+		velocity = direction_to_bobber * speed
 		
-	return vector_to_move_towards_bobber
+	return velocity

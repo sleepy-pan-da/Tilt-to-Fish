@@ -1,8 +1,23 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Fish/Behaviours/SwimToRandomPt/SwimToRandomPt.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fish/Behaviours/SwimToRandomPtBasedOnRadius/SwimToRandomPtBasedOnRadius.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fish/Coffeesh/Coffeesh.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Fishing Scene/Fishes/coffeesh/coffesh_right.PNG" type="Texture" id=4]
+[ext_resource path="res://Assets/Fishing Scene/Fishes/coffeesh/coffeesh_left.PNG" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "FacingRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "FacingLeft",
+"speed": 5.0
+} ]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
@@ -10,15 +25,14 @@ radius = 173.142
 
 [node name="Coffeesh" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+amount_needed_to_catch = 50.0
 
-[node name="SwimToRandomPt" parent="KinematicBody" index="0" instance=ExtResource( 2 )]
-speed = 400
-look_ahead_distance = 100
-
-[node name="FishSprite" parent="KinematicBody" index="3"]
-modulate = Color( 0.517647, 0.403922, 0.235294, 1 )
+[node name="FishSprite" parent="KinematicBody" index="2"]
+frames = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 1 )
 
-[editable path="KinematicBody/SwimToRandomPt"]
+[node name="SwimToRandomPtBasedOnRadius" parent="KinematicBody" index="6" instance=ExtResource( 2 )]
+speed = 300
+radius = 100

@@ -1,15 +1,13 @@
 extends FishTemplate
 
 onready var kinematic_body = $KinematicBody
+onready var lunge_at_bobber = $KinematicBody/LungeAtBobber
 onready var detection_area = $KinematicBody/DetectionArea
 onready var hitbox = $KinematicBody/HitBox
-onready var swim_to_random_pt_based_on_radius = $KinematicBody/SwimToRandomPtBasedOnRadius
-onready var follow_bobber = $KinematicBody/FollowBobber
 export(int) var damage
-var detected_bobber : bool = false
 var movement_vector : Vector2
 var collision : KinematicCollision2D
-
+var stunned : bool = false
 
 func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")
@@ -19,12 +17,11 @@ func _ready() -> void:
 
 
 func on_detected_bobber(bobber : Bobber) -> void:
-	detected_bobber = true
 	obtain_bobber_reference(bobber)
 	
 	
 func on_lost_bobber() -> void:
-	detected_bobber = false
+	bobber_in_proximity_area = null
 
 
 func on_bobber_entered_hitbox() -> void:
@@ -33,19 +30,20 @@ func on_bobber_entered_hitbox() -> void:
 	
 
 func _physics_process(delta) -> void:
-	if detected_bobber:
-		movement_vector = follow_bobber.compute_vector_to_move_towards_bobber(bobber_in_proximity_area)
-		swim_to_random_pt_based_on_radius.swimming = false
-	else:
-		if !swim_to_random_pt_based_on_radius.swimming:
-			movement_vector = swim_to_random_pt_based_on_radius.swim()
-		elif swim_to_random_pt_based_on_radius.reached_pt():
-			pass
+	if bobber_in_proximity_area != null and !lunge_at_bobber.lunging: 
+		movement_vector = lunge_at_bobber.lunge(bobber_in_proximity_area)
 	
 	collision = kinematic_body.move_and_collide(movement_vector * delta)
 	if collision and collision.collider.is_in_group("PondBoundary"): 
-		# baby shark hit the walls alr, need to swim to other places
-		movement_vector = swim_to_random_pt_based_on_radius.swim()
-		
+		if !lunge_at_bobber.stunned:
+			lunge_at_bobber.stunned()
+			movement_vector = Vector2.ZERO
+	
 	update_fish_sprite_based_on_horizontal_direction(movement_vector)
-		
+
+
+#func _on_StunnedTimer_timeout():
+#	stunned = false
+#	steering_behaviour.reset_current_velocity()
+
+

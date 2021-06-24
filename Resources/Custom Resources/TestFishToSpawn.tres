@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/FishToSpawn.gd" type="Script" id=1]
+[ext_resource path="res://Fish/SeaUrchin/SeaUrchin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fish/ArcherFish/ArcherFish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fish/RocketFish/RocketFish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fish/SlothFish/SlothFish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fish/BootlegFish/BootlegFish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fish/BullFish/BullFish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fish/Coffeesh/Coffeesh.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Fish/BabyShark/BabyShark.tscn" type="PackedScene" id=9]
+
+[resource]
+script = ExtResource( 1 )
+fishes = [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ) ]

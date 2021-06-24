@@ -8,7 +8,7 @@
 [ext_resource path="res://Shaders/Blinking/Blinking.tres" type="Material" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 36.7311
+radius = 28.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "EndImmune"
@@ -51,16 +51,16 @@ bobber_stats = ExtResource( 5 )
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )
 position = Vector2( 1, 0 )
-scale = Vector2( 0.062, 0.062 )
+scale = Vector2( 0.047, 0.047 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -3 )
+position = Vector2( 1, -2 )
 shape = SubResource( 1 )
 
 [node name="Arrow" type="Sprite" parent="."]
-position = Vector2( 29.006, 6.82121e-13 )
-scale = Vector2( 0.009, 0.014 )
+position = Vector2( 23, 0 )
+scale = Vector2( 0.008, 0.01 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 

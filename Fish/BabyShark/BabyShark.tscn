@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fish/BabyShark/BabyShark.gd" type="Script" id=1]
 [ext_resource path="res://Fish/Behaviours/DetectionArea/DetectionArea.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Fish/Behaviours/SwimToRandomPt/SwimToRandomPt.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fish/Behaviours/SwimToRandomPtBasedOnRadius/SwimToRandomPtBasedOnRadius.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fish/Behaviours/FishHitBox/FishHitBox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Fish/Behaviours/FollowBobber/FollowBobber.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
 radius = 173.142
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 300.0
 
 [node name="BabyShark" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
@@ -26,11 +29,16 @@ shape = SubResource( 1 )
 
 [node name="DetectionArea" parent="KinematicBody" index="6" instance=ExtResource( 2 )]
 
+[node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
+shape = SubResource( 2 )
+
 [node name="HitBox" parent="KinematicBody" index="7" instance=ExtResource( 5 )]
 
-[node name="SwimToRandomPt" parent="KinematicBody" index="8" instance=ExtResource( 4 )]
+[node name="FollowBobber" parent="KinematicBody" index="8" instance=ExtResource( 6 )]
+speed = 250
 
-[node name="FollowBobber" parent="KinematicBody" index="9" instance=ExtResource( 6 )]
-speed = 200
+[node name="SwimToRandomPtBasedOnRadius" parent="KinematicBody" index="9" instance=ExtResource( 4 )]
+speed = 100
+radius = 300
 
-[editable path="KinematicBody/SwimToRandomPt"]
+[editable path="KinematicBody/DetectionArea"]

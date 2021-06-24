@@ -25,9 +25,24 @@ _global_script_classes=[ {
 "path": "res://Resources/Custom Resources/BobberStats.gd"
 }, {
 "base": "Node2D",
+"class": "FishManager",
+"language": "GDScript",
+"path": "res://Levels/GameLevelTemplate/Fishes.gd"
+}, {
+"base": "Node2D",
 "class": "FishTemplate",
 "language": "GDScript",
 "path": "res://Fish/FishTemplate/FishTemplate.gd"
+}, {
+"base": "Resource",
+"class": "FishToSpawn",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/FishToSpawn.gd"
+}, {
+"base": "Area2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Fish/Behaviours/ShootProjectiles/Projectile.gd"
 }, {
 "base": "FishTemplate",
 "class": "ScrubFish",
@@ -43,7 +58,10 @@ _global_script_class_icons={
 "Arrow": "",
 "Bobber": "",
 "BobberStats": "",
+"FishManager": "",
 "FishTemplate": "",
+"FishToSpawn": "",
+"Projectile": "",
 "ScrubFish": "",
 "Test": ""
 }
@@ -51,7 +69,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Summer Game Project"
-run/main_scene="res://Levels/Level1.tscn"
+run/main_scene="res://Levels/WaveSystem/WaveLevel.tscn"
 config/icon="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_right.PNG"
 
 [autoload]

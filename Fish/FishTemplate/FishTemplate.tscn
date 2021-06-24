@@ -53,14 +53,14 @@ radius = 40.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 47 ) ],
-"loop": true,
-"name": "FacingLeft",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "FacingRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "FacingLeft",
 "speed": 5.0
 } ]
 
