@@ -112,11 +112,12 @@ script = ExtResource( 2 )
 collision_layer = 16
 
 [node name="ProgressBar" type="TextureProgress" parent="KinematicBody"]
-margin_left = 34.0
-margin_top = -77.0
-margin_right = 220.0
-margin_bottom = 109.0
+margin_left = -6.0
+margin_top = -152.77
+margin_right = 180.0
+margin_bottom = 33.2298
 rect_scale = Vector2( 0.25, 0.25 )
+rect_pivot_offset = Vector2( 93, 93 )
 step = 0.1
 texture_under = ExtResource( 44 )
 texture_progress = ExtResource( 45 )
@@ -125,6 +126,8 @@ script = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="KinematicBody/ProgressBar"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody"]
 shape = SubResource( 1 )

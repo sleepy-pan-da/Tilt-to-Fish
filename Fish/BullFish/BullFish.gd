@@ -13,6 +13,7 @@ func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
+	lunge_at_bobber.connect("recovered_from_stun", self, "on_recovered_from_stun")
 	set_up_progress_bar()
 
 
@@ -37,10 +38,14 @@ func _physics_process(delta) -> void:
 	if collision and collision.collider.is_in_group("PondBoundary"): 
 		if !lunge_at_bobber.stunned:
 			lunge_at_bobber.stunned()
+			fish_sprite.react_when_stunned()
 			movement_vector = Vector2.ZERO
 	
 	update_fish_sprite_based_on_horizontal_direction(movement_vector)
 
+
+func on_recovered_from_stun() -> void:
+	fish_sprite.react_when_recovered()
 
 #func _on_StunnedTimer_timeout():
 #	stunned = false

@@ -20,16 +20,14 @@ func _ready() -> void:
 	
 	set_up_progress_bar() # need to call this again in ready of child class
 	ripple.hide()
-	
 
 func _on_progress_bar_filled() -> void:
 	queue_free()
 	GameEvents.emit_signal("successfully_caught_fish")
 
 
-
 func _on_progress_bar_emptied() -> void:
-	progress_bar.hide()
+	progress_bar.disappear()
 	
 
 func set_up_progress_bar() -> void:
@@ -39,7 +37,7 @@ func set_up_progress_bar() -> void:
 
 func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	obtain_bobber_reference(body) # first instance obtaining reference of bobber
-	progress_bar.show()
+	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
 

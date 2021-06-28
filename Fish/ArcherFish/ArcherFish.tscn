@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fish/Behaviours/ShootProjectiles/ShootProjectiles.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fish/ArcherFish/ArcherFish.gd" type="Script" id=3]
 [ext_resource path="res://Fish/Behaviours/DetectionArea/DetectionArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fish/ArcherFish/FishSprite.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 resource_local_to_scene = true
@@ -17,6 +18,12 @@ script = ExtResource( 3 )
 amount_needed_to_catch = 50.0
 fish_recovery_amount = 0.0
 damage = 1
+number_of_projectiles_shot_each_round = 1
+
+[node name="FishSprite" parent="KinematicBody" index="2"]
+script = ExtResource( 5 )
+
+[node name="Tween" type="Tween" parent="KinematicBody/FishSprite" index="0"]
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 1 )

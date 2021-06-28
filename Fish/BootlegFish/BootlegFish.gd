@@ -35,8 +35,9 @@ func on_bobber_entered_hitbox() -> void:
 func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	if !entered_proximity_area:
 		entered_proximity_area = true # added functionality, fish will only attack when this is true to bait players
+		fish_sprite.react_when_proximity_area_first_entered()
 	obtain_bobber_reference(body)
-	progress_bar.show()
+	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
 	

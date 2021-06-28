@@ -82,7 +82,7 @@ func on_proceeded_to_next_wave() -> void:
 
 	
 func freeze_game() -> void:
-	var freeze_duration : float = 0.075
+	var freeze_duration : float = 0.2
 	get_tree().paused = true
 	yield(get_tree().create_timer(freeze_duration), 'timeout')
 	get_tree().paused = false

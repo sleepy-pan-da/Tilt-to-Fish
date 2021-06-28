@@ -1,9 +1,11 @@
 extends FishTemplate
 
 export(int) var damage
+export(int) var number_of_projectiles_shot_each_round
 onready var shoot_projectiles = $KinematicBody/ShootProjectiles
 onready var detection_area = $KinematicBody/DetectionArea
 onready var timer = $KinematicBody/ShootProjectiles/Timer
+
 
 
 func _ready() -> void:
@@ -26,9 +28,15 @@ func on_bobber_entered_hitbox() -> void:
 # this starts the firing
 func on_detected_bobber(bobber : Bobber) -> void:
 	obtain_bobber_reference(bobber)
-	shoot_projectiles.fire(bobber.global_position)
-	timer.start()
+	fire_projectiles()
+	
 
+func fire_projectiles() -> void:
+	for i in range(number_of_projectiles_shot_each_round):
+		shoot_projectiles.fire(bobber_in_proximity_area.global_position)
+		fish_sprite.react_upon_fire()
+		yield(get_tree().create_timer(0.5), 'timeout')
+	timer.start()
 
 # need this to solve for null reference
 func on_lost_bobber() -> void:
@@ -38,8 +46,7 @@ func on_lost_bobber() -> void:
 # resumes firing after timeout
 func _on_Timer_timeout() -> void:
 	if bobber_in_proximity_area != null:
-		shoot_projectiles.fire(bobber_in_proximity_area.global_position)
-		timer.start()
+		fire_projectiles()
 
 
 # this stops the firing
@@ -47,7 +54,7 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	if !timer.is_stopped():
 		timer.stop()
 	obtain_bobber_reference(body) 
-	progress_bar.show()
+	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
 	

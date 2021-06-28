@@ -15,7 +15,11 @@ func _on_WaveTimer_timeout() -> void:
 	proceed_to_next_wave()
 	
 
-func proceed_to_next_wave() -> void:
+# will be called if 
+# all fishes are caught
+# or
+# wave timer timeout
+func proceed_to_next_wave() -> void: 
 	wave_timer.stop()
 	wave_number += 1
 	spawn_fish()
@@ -28,12 +32,16 @@ func spawn_fish():
 	# wave 11-15 -> spawns 3 fish
 	var number_of_fish_to_spawn : int = (wave_number/5) + 1
 	for i in range(number_of_fish_to_spawn):
-		var index: int = fish_to_spawn.generate_random_index_for_fish()
-		var spawned_fish : FishTemplate = fish_to_spawn.fishes[index].instance()
-		add_child(spawned_fish)
-		spawned_fish.global_position = generate_random_pt_on_screen()
+		add_fish_to_scene()
 	wave_timer.start()
-	
+
+
+func add_fish_to_scene() -> void:
+	var index: int = fish_to_spawn.generate_random_index_for_fish()
+	var spawned_fish : FishTemplate = fish_to_spawn.fishes[index].instance()
+	add_child(spawned_fish)
+	spawned_fish.global_position = generate_random_pt_on_screen()
+
 
 func generate_random_pt_on_screen() -> Vector2:
 	randomize()

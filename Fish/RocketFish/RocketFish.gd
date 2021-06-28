@@ -23,4 +23,5 @@ func _physics_process(delta) -> void:
 	collision = kinematic_body.move_and_collide(movement_vector * delta)
 	if collision:
 		movement_vector = bounce_off_walls.compute_bounced_off_vector(collision, movement_vector)
+		fish_sprite.react_when_hit_wall()
 	update_fish_sprite_based_on_horizontal_direction(movement_vector)

@@ -15,7 +15,7 @@ var lunging : bool = false
 var num_of_lunges : int = 0
 var can_lunge : bool = true
 var stunned : bool = false
-
+signal recovered_from_stun
 
 func reached_pt() -> bool:
 	var reached_pt : bool = (computed_pt - global_position).length() < 5
@@ -52,7 +52,7 @@ func _on_CooldownBetweenLunges_timeout() -> void:
 func _on_StunnedTimer_timeout():
 	can_lunge = true
 	stunned = false
-	
+	emit_signal("recovered_from_stun")
 
 func lunge(bobber : Bobber) -> Vector2:
 	var velocity : Vector2

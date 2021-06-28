@@ -21,7 +21,7 @@ func _ready() -> void:
 func on_detected_bobber(bobber : Bobber) -> void:
 	detected_bobber = true
 	obtain_bobber_reference(bobber)
-	
+	fish_sprite.react_when_proximity_area_entered()
 	
 func on_lost_bobber() -> void:
 	detected_bobber = false
