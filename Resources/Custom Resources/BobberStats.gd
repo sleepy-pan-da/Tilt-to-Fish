@@ -10,3 +10,7 @@ export(float) var bobber_flow_decrement_amount # amount emptied in flow bar per 
 
 func minus_hook(damage : int) -> void:
 	hooks_amount -= damage
+
+
+func reset() -> void: # called when u restart
+	hooks_amount = 3

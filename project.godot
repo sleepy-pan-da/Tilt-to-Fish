@@ -75,6 +75,7 @@ config/icon="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_right.PNG"
 [autoload]
 
 GameEvents="*res://Singletons/GameEvents.gd"
+GameData="*res://Singletons/GameData.gd"
 
 [debug]
 

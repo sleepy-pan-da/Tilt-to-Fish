@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Levels/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Levels/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=8]
 [ext_resource path="res://Assets/radial_background.png" type="Texture" id=9]
 [ext_resource path="res://Assets/radial_bar.png" type="Texture" id=10]
+[ext_resource path="res://Levels/GameLevelTemplate/GameOver.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 56
@@ -30,6 +31,18 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 56
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 144
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 48
 font_data = ExtResource( 8 )
 
 [node name="GameLevelTemplate" type="Node2D"]
@@ -193,5 +206,81 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="UI/WaveNumber/ProgressBar"]
 process_mode = 0
 
+[node name="GameOver" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="UI/GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.0
+margin_top = 55.0
+margin_right = 208.0
+margin_bottom = 119.0
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayAgain" type="Label" parent="UI/GameOver/Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -208.0
+margin_top = -32.0
+margin_right = 208.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 208, 34 )
+custom_fonts/font = SubResource( 6 )
+text = "Play again"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="UI/GameOver/Button/PlayAgain"]
+
+[node name="Label" type="Label" parent="UI/GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.5
+margin_top = -194.0
+margin_right = 450.5
+margin_bottom = -41.0
+custom_fonts/font = SubResource( 7 )
+text = "Game over"
+align = 1
+valign = 1
+
+[node name="HighScore" type="Label" parent="UI/GameOver"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -439.0
+margin_top = -26.0
+margin_right = 439.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 8 )
+text = "Highest wave number reached:"
+align = 1
+valign = 1
+
 [connection signal="timeout" from="UI/Countdown/Timer" to="UI/Countdown" method="_on_Timer_timeout"]
 [connection signal="timeout" from="UI/WaveNumber/ProgressBar/Timer" to="UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]
+[connection signal="button_down" from="UI/GameOver/Button" to="UI/GameOver" method="_on_Button_button_down"]
+[connection signal="button_up" from="UI/GameOver/Button" to="UI/GameOver" method="_on_Button_button_up"]
+[connection signal="tween_all_completed" from="UI/GameOver/Button/PlayAgain/Tween" to="UI/GameOver" method="_on_Tween_tween_all_completed"]

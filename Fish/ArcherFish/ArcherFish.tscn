@@ -41,6 +41,12 @@ one_shot = true
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
 shape = SubResource( 2 )
 
+[node name="InitialSetUpTimer" type="Timer" parent="." index="3"]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="KinematicBody/ShootProjectiles/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="InitialSetUpTimer" to="." method="_on_InitialSetUpTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]
