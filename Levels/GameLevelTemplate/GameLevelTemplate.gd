@@ -12,12 +12,14 @@ onready var congrats = $UI/Congrats
 onready var wave_number_label = $UI/WaveNumber/Label
 onready var wave_number_progress_bar = $UI/WaveNumber/ProgressBar
 onready var game_over = $UI/GameOver
+onready var screen_transition = $UI/ScreenTransition
 
 var bobber : Bobber
 var can_descend : bool = false
 
 
 func _ready() -> void:
+	screen_transition.transition_in()
 	create_bobber_instance()
 	update_hooks_label()
 	countdown.connect("countdown_finished", self, "on_countdown_finished")
@@ -25,7 +27,8 @@ func _ready() -> void:
 	GameEvents.connect("successfully_caught_fish", self, "_on_successfully_caught_fish")
 	fishes.connect("caught_all_fishes", self, "on_caught_all_fishes")
 	fishes.connect("proceeded_to_next_wave", self, "on_proceeded_to_next_wave")
-	game_over.connect("clicked_play_again", self, "restart")
+	game_over.connect("clicked_play_again", self, "on_clicked_play_again")
+	screen_transition.connect("transitioned_out", self, "restart")
 
 
 func create_bobber_instance() -> void:
@@ -92,7 +95,7 @@ func freeze_game() -> void:
 
 func game_over() -> void:
 	if wave_system_enabled:
-		bobber.bobber_stats.reset()
+		bobber.bobber_stats.reset() 
 		bobber.queue_free()
 		if GameData.beat_high_score(fishes.wave_number):
 			GameData.update_high_score(fishes.wave_number)
@@ -116,7 +119,10 @@ func _input(event):
 func transition_to_next_scene() -> void:
 	if next_scene != null:
 		get_tree().change_scene_to(next_scene)
-		
+
+
+func on_clicked_play_again() -> void:
+	screen_transition.transition_out()		
 
 func restart() -> void:
 	get_tree().reload_current_scene()	

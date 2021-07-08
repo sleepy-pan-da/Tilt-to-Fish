@@ -28,3 +28,7 @@ func contract():
 func _on_Tween_tween_all_completed():
 	if present:
 		contract()
+
+
+func _on_Tween_tween_completed(object, key):
+	print(object, key)

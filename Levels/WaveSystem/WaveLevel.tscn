@@ -17,3 +17,5 @@ wait_time = 30.0
 one_shot = true
 
 [connection signal="timeout" from="Fishes/WaveTimer" to="Fishes" method="_on_WaveTimer_timeout"]
+
+[editable path="UI/ScreenTransition"]
