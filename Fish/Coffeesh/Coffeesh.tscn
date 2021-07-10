@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Fishing Scene/Fishes/coffeesh/coffesh_right.PNG" type="Texture" id=4]
 [ext_resource path="res://Assets/Fishing Scene/Fishes/coffeesh/coffeesh_left.PNG" type="Texture" id=5]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -19,7 +19,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
 radius = 173.142
 
@@ -28,10 +28,10 @@ script = ExtResource( 3 )
 amount_needed_to_catch = 50.0
 
 [node name="FishSprite" parent="KinematicBody" index="2"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="SwimToRandomPtBasedOnRadius" parent="KinematicBody" index="6" instance=ExtResource( 2 )]
 speed = 300

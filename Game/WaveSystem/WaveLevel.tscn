@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Levels/GameLevelTemplate/GameLevelTemplate.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Levels/WaveSystem/Fishes.gd" type="Script" id=2]
+[ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/WaveSystem/Fishes.gd" type="Script" id=2]
 [ext_resource path="res://Resources/Custom Resources/TestFishToSpawn.tres" type="Resource" id=3]
 
 [node name="WaveLevel" instance=ExtResource( 1 )]

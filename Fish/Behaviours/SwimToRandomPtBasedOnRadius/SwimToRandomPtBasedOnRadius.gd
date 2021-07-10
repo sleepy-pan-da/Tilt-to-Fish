@@ -26,7 +26,6 @@ func swim() -> Vector2:
 	compute_pt_to_swim_to()
 	var velocity : Vector2 = direction_to_swim * speed
 	swimming = true
-	print(computed_pt)
 	return velocity
 
 

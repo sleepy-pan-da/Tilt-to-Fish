@@ -9,7 +9,8 @@ radius = 43.0758
 
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-amount_needed_to_catch = 75.0
+amount_needed_to_catch = 25.0
+fish_recovery_amount = 0.0
 
 [node name="FixedPathMovement" parent="." index="0" instance=ExtResource( 3 )]
 speed = 300
