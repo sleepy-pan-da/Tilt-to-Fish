@@ -3,15 +3,17 @@ extends KinematicBody2D
 class_name Bobber
 
 export(Resource) var bobber_stats = bobber_stats as BobberStats
+export(Resource) var control_config = control_config as ControlConfig
 onready var arrow = $Arrow
 onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
-var enabled : bool = true 
+var have_immunity : bool = true 
 var immune : bool = false 
 
 
 func _ready():
-	start_immunity()
+	if have_immunity: # will not have_immunity if toggled bobber in the options page
+		start_immunity()
 
 
 func _physics_process(delta : float) -> void:
@@ -19,56 +21,31 @@ func _physics_process(delta : float) -> void:
 
 
 func move(movement_direction_vector : Vector3) -> void:
-	var speed_multiplier : float
+	var speed_multiplier : int
 	var x_velocity : float
 	var y_velocity : float
 	var velocity : Vector2
 	
-	speed_multiplier = compute_speed_multiplier_based_on_tilt_in_x_direction(movement_direction_vector.x)
-	x_velocity = movement_direction_vector.x * speed_multiplier 
-	speed_multiplier = compute_speed_multiplier_based_on_tilt_in_y_direction(movement_direction_vector.y)
+	if control_config.holding_preference == "regular":
+		movement_direction_vector = recalibrate_regular_movement_direction_vector(movement_direction_vector)
+	
+	speed_multiplier = compute_speed_multiplier()	
+	x_velocity = movement_direction_vector.x * speed_multiplier
 	y_velocity = -movement_direction_vector.y * speed_multiplier 
 	velocity = Vector2(x_velocity, y_velocity)
 	
 	arrow.configure_arrow_location(velocity)
-	if enabled: # pre countdown, bobber cannot move but it's arrow can move around
-		move_and_slide(velocity)
+	move_and_slide(velocity)
 
 
-func compute_speed_multiplier_based_on_tilt_in_x_direction(x_direction_vector : float) -> int:
-	# The harder you tilt, the larger the movement direction vector,
-	# the larger the speed multiplier
-	# the numbers used below will interpolate into an exponential graph
-	# --- This method was created to make player not move as much when tilted
-	# --- lightly 
-	# Thru playtesting, we feel that bobber sensitivity feels higher when moving up than down
-	# thus, this function has variants for x direction and y direction
-	
-	# intervals of 50 - cy
-	# intervals of 60 - js
-	if abs(x_direction_vector) <= 1: 
-		return 200 
-	elif abs(x_direction_vector) <= 2:
-		return 200
-	elif abs(x_direction_vector) <= 3:
-		return 200
-	elif abs(x_direction_vector) <= 4:
-		return 200
-	else:
-		return 200
-				
+func compute_speed_multiplier() -> int:
+	return 2 * control_config.tilt_sensitivity
 
-func compute_speed_multiplier_based_on_tilt_in_y_direction(y_direction_vector : float) -> int:
-	if abs(y_direction_vector) <= 1: 
-		return 200
-	elif abs(y_direction_vector) <= 1.5:
-		return 200
-	elif abs(y_direction_vector) <= 2:
-		return 200
-	elif abs(y_direction_vector) <= 2.5:
-		return 200
-	else:
-		return 200
+
+func recalibrate_regular_movement_direction_vector(movement_direction_vector : Vector3) -> Vector3:
+	var y_axis_offset : int = -7
+	movement_direction_vector.y -= y_axis_offset # recalibrating movement direction vector, only y axis is changed
+	return movement_direction_vector
 
 
 func start_immunity():

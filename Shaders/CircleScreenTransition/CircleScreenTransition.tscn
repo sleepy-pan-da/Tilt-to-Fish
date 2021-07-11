@@ -18,7 +18,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/circle_size = 0.0
+shader_param/circle_size = 1.05
 shader_param/screen_width = 1280.0
 shader_param/screen_height = 720.0
 
