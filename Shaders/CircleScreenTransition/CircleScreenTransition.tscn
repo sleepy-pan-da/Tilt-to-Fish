@@ -1,29 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.gd" type="Script" id=1]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-render_mode unshaded;
-
-uniform float circle_size : hint_range(0.0, 1.05);
-uniform float screen_width;
-uniform float screen_height;
-
-void fragment() {
-	float ratio = screen_width / screen_height;
-	float dist = distance(vec2(0.5, 0.5), vec2(mix(0.5, UV.x, ratio), UV.y));
-	COLOR.a = step(circle_size, dist);
-}"
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
-shader_param/circle_size = 1.05
-shader_param/screen_width = 1280.0
-shader_param/screen_height = 720.0
+[ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tres" type="Material" id=2]
 
 [node name="ScreenTransition" type="ColorRect"]
-material = SubResource( 2 )
+material = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2

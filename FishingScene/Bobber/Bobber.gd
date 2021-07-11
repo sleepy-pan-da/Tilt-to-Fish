@@ -45,6 +45,7 @@ func compute_speed_multiplier() -> int:
 func recalibrate_regular_movement_direction_vector(movement_direction_vector : Vector3) -> Vector3:
 	var y_axis_offset : int = -7
 	movement_direction_vector.y -= y_axis_offset # recalibrating movement direction vector, only y axis is changed
+	movement_direction_vector.y *= 2 # make it easier to move downwards
 	return movement_direction_vector
 
 
