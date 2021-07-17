@@ -4,26 +4,18 @@ extends FishManager
 # go onto next wave if
 # 1. catch all remaining fish 
 # or
-# 2. timer runs out (each wave has a timer of 20s?)
+# 2. timer runs out (each wave has a timer of 30s)
 
-onready var wave_timer = $WaveTimer
 export(Resource) var fish_to_spawn = fish_to_spawn as FishToSpawn
 var wave_number : int = 1
-signal proceeded_to_next_wave
-
-func _on_WaveTimer_timeout() -> void:
-	proceed_to_next_wave()
-	
 
 # will be called if 
 # all fishes are caught
 # or
-# wave timer timeout
+# wave number timeout
 func proceed_to_next_wave() -> void: 
-	wave_timer.stop()
 	wave_number += 1
 	spawn_fish()
-	emit_signal("proceeded_to_next_wave")
 
 
 func spawn_fish():
@@ -33,7 +25,6 @@ func spawn_fish():
 	var number_of_fish_to_spawn : int = (wave_number/5) + 1
 	for i in range(number_of_fish_to_spawn):
 		add_fish_to_scene()
-	wave_timer.start()
 
 
 func add_fish_to_scene() -> void:

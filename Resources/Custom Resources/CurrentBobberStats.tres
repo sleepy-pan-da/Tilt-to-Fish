@@ -6,4 +6,5 @@
 script = ExtResource( 1 )
 initial_bobber_attack_amount = 1.0
 initial_bobber_attack_rate = 0.1
+initial_damage_multiplier = 1.0
 hooks_amount = 3

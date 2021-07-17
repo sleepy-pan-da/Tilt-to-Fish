@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/radial_bar.png" type="Texture" id=10]
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Game/GameLevelTemplate/GameOver.gd" type="Script" id=12]
+[ext_resource path="res://Game/GameLevelTemplate/Stats.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 56
@@ -32,6 +33,9 @@ font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 56
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -206,6 +210,58 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="UI/WaveNumber/ProgressBar"]
 process_mode = 0
+
+[node name="Stats" type="Control" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DamageMultiplier" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 184.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 9 )
+text = "Dmg Multiplier: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FillAmount" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 214.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 9 )
+text = "Fill amount:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrbDamageAlpha" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 244.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 9 )
+text = "Orb dmg alpha:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OrbDamageGamma" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 274.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 9 )
+text = "Orb dmg gamma:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GameOver" type="Control" parent="UI"]
 visible = false

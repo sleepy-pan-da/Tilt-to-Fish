@@ -1,6 +1,7 @@
 extends Node2D
 
 export(String, FILE, "*.tscn") var main_menu
+#export(PackedScene) var main_menu
 export(Resource) var control_config = control_config as ControlConfig
 export(PackedScene) onready var current_bobber
 
@@ -49,6 +50,8 @@ func on_clicked_holding_preference_button(holding_preference : String) -> void:
 
 
 func on_clicked_back() -> void:
+	if toggle_bobber_button.bobber_present:
+		bobber.queue_free()
 	screen_transition.transition_out()
 
 

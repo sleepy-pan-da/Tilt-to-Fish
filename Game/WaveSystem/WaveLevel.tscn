@@ -11,11 +11,4 @@ wave_system_enabled = true
 script = ExtResource( 2 )
 fish_to_spawn = ExtResource( 3 )
 
-[node name="WaveTimer" type="Timer" parent="Fishes" index="0"]
-process_mode = 0
-wait_time = 30.0
-one_shot = true
-
-[connection signal="timeout" from="Fishes/WaveTimer" to="Fishes" method="_on_WaveTimer_timeout"]
-
 [editable path="UI/ScreenTransition"]

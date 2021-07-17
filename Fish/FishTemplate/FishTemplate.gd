@@ -13,7 +13,6 @@ export(float) var amount_needed_to_catch = 100
 export(float) var fish_recovery_amount = 0.5
 var bobber_in_proximity_area : Bobber
 
-
 func _ready() -> void:
 	progress_bar.connect("progress_bar_filled", self, "_on_progress_bar_filled")
 	progress_bar.connect("progress_bar_emptied", self, "_on_progress_bar_emptied")
@@ -42,7 +41,7 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	manage_timers_when_proximity_area_entered() 
 
 
-func _on_ProximityArea_body_exited(_body : Bobber) -> void:
+func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
 	
@@ -70,7 +69,6 @@ func manage_timers_when_proximity_area_exited() -> void:
 	
 # will be called if you stay in proximity area for the duration of bobber's attack rate	
 func _on_CheckBobberInProximityAreaTimer_timeout(): 
-	
 	var player_attack_amount = bobber_in_proximity_area.bobber_stats.bobber_attack_amount
 	progress_bar.increment_bar(player_attack_amount)
 	
@@ -103,3 +101,12 @@ func update_fish_sprite_based_on_horizontal_direction(movement_vector : Vector2)
 
 func obtain_bobber_reference(bobber : Bobber) -> void:
 	bobber_in_proximity_area = bobber
+
+
+func _on_Hurtbox_body_entered(body):
+	if body.get_class() == "AlphaOrbs":
+		progress_bar.appear()
+		progress_bar.increment_bar(body.damage)
+	elif body.get_class() == "GammaOrbs":
+		progress_bar.appear()
+		progress_bar.increment_bar(body.damage)

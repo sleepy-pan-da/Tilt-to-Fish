@@ -18,3 +18,4 @@ func _on_HitBox_body_entered(body : Bobber) -> void:
 	if !body.immune:
 		emit_signal("bobber_entered_hitbox")
 		queue_free() # added functionality
+

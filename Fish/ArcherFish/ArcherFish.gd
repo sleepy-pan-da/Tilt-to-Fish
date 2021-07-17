@@ -23,7 +23,7 @@ func on_fired_projectile(projectile : Projectile) -> void:
 	
 func on_bobber_entered_hitbox() -> void:
 	bobber_in_proximity_area.bobber_stats.minus_hook(damage)
-	GameEvents.emit_signal("bobber_took_damage")
+	GameEvents.emit_signal("bobber_took_damage", damage)
 
 
 # will be called when bobber spawns due to large detection area
