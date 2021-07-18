@@ -4,7 +4,9 @@ class_name BackPack
 
 var backpack_max_capacity : int = 5
 var backpack = 	{
-					
+					"Poke"			:	1,
+					"Pull Out"		:	1,
+					"Intimidate"	:	1
 				}
 
 

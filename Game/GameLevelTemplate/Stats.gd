@@ -4,6 +4,8 @@ onready var damage_multiplier = $DamageMultiplier
 onready var fill_amount = $FillAmount
 onready var orb_damage_alpha = $OrbDamageAlpha
 onready var orb_damage_gamma = $OrbDamageGamma
+onready var poke_damage = $PokeDamage
+onready var pull_out_damage = $PullOutDamage
 
 func update_labels(bobber : Bobber) -> void:
 	if bobber != null:
@@ -17,4 +19,11 @@ func update_labels(bobber : Bobber) -> void:
 			orb_damage_gamma.text = "Orb Damage Gamma: " + str(bobber.current_orbiting_orbs_gamma.get_orb_damage())
 		else:
 			orb_damage_gamma.text = "Orb Damage Gamma: "
-
+		if bobber.bobber_stats.can_poke:
+			poke_damage.text = "Poke damage: " + str(bobber.bobber_stats.poke_damage)
+		else:
+			poke_damage.text = "Poke damage: " 
+		if bobber.bobber_stats.can_pull_out:
+			pull_out_damage.text = "Pull out damage: " + str(bobber.bobber_stats.pull_out_damage)
+		else:
+			pull_out_damage.text = "Pull out damage: " 

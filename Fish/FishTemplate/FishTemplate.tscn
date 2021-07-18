@@ -53,14 +53,14 @@ radius = 40.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 47 ) ],
-"loop": true,
-"name": "FacingLeft",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "FacingRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "FacingLeft",
 "speed": 5.0
 } ]
 
@@ -173,6 +173,7 @@ one_shot = true
 
 [connection signal="body_entered" from="KinematicBody/ProximityArea" to="." method="_on_ProximityArea_body_entered"]
 [connection signal="body_exited" from="KinematicBody/ProximityArea" to="." method="_on_ProximityArea_body_exited"]
+[connection signal="area_entered" from="KinematicBody/Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="body_entered" from="KinematicBody/Hurtbox" to="." method="_on_Hurtbox_body_entered"]
 [connection signal="timeout" from="CheckBobberInProximityAreaTimer" to="." method="_on_CheckBobberInProximityAreaTimer_timeout"]
 [connection signal="timeout" from="RecoveryTimer" to="." method="_on_RecoveryTimer_timeout"]

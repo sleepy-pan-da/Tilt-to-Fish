@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _on_progress_bar_filled() -> void:
 	queue_free()
-	GameEvents.emit_signal("successfully_caught_fish")
+	GameEvents.emit_signal("successfully_caught_fish", get_node("KinematicBody").global_position)
 
 
 func _on_progress_bar_emptied() -> void:
@@ -39,12 +39,17 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
+	if body.bobber_stats.can_poke:
+		progress_bar.increment_bar(body.bobber_stats.poke_damage)
 
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
-	
+	if body.bobber_stats.can_pull_out:
+		progress_bar.appear()
+		progress_bar.increment_bar(body.bobber_stats.pull_out_damage)
+
 
 func enable_ripple() -> void:
 	ripple.show()
@@ -110,3 +115,9 @@ func _on_Hurtbox_body_entered(body):
 	elif body.get_class() == "GammaOrbs":
 		progress_bar.appear()
 		progress_bar.increment_bar(body.damage)
+
+
+func _on_Hurtbox_area_entered(area):
+	if area.get_class() == "Intimidate":
+		progress_bar.appear()
+		progress_bar.increment_bar(area.damage)

@@ -35,18 +35,18 @@ font_data = ExtResource( 8 )
 size = 56
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=9]
-font_data = ExtResource( 8 )
-
 [sub_resource type="DynamicFont" id=6]
-size = 64
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 144
+size = 64
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=8]
+size = 144
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 48
 font_data = ExtResource( 8 )
 
@@ -224,7 +224,7 @@ margin_left = 40.0
 margin_top = 184.0
 margin_right = 224.0
 margin_bottom = 208.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "Dmg Multiplier: "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -235,7 +235,7 @@ margin_left = 40.0
 margin_top = 214.0
 margin_right = 224.0
 margin_bottom = 208.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "Fill amount:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -246,7 +246,7 @@ margin_left = 40.0
 margin_top = 244.0
 margin_right = 224.0
 margin_bottom = 208.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "Orb dmg alpha:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -257,8 +257,30 @@ margin_left = 40.0
 margin_top = 274.0
 margin_right = 224.0
 margin_bottom = 208.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 6 )
 text = "Orb dmg gamma:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PokeDamage" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 304.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 6 )
+text = "Poke damage:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PullOutDamage" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 334.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 6 )
+text = "Pull out damage:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -299,7 +321,7 @@ margin_top = -32.0
 margin_right = 208.0
 margin_bottom = 36.0
 rect_pivot_offset = Vector2( 208, 34 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Play again"
 align = 1
 __meta__ = {
@@ -317,7 +339,7 @@ margin_left = -450.5
 margin_top = -194.0
 margin_right = 450.5
 margin_bottom = -41.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Game over"
 align = 1
 valign = 1
@@ -331,7 +353,7 @@ margin_left = -439.0
 margin_top = -26.0
 margin_right = 439.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Highest wave number reached:"
 align = 1
 valign = 1

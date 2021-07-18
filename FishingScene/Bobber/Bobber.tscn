@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fishing Scene/UI elements/arrow-01.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/bobber-01.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Resources/Custom Resources/CurrentBackPack.tres" type="Resource" id=8]
 [ext_resource path="res://Upgrades/OrbitingOrbs/OrbitingOrbsAlpha/OrbitingOrbsAlpha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Upgrades/OrbitingOrbs/OrbitingOrbsGamma/OrbitingOrbsGamma.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Upgrades/Intimidate/Intimidation.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0
@@ -53,6 +54,7 @@ backpack = ExtResource( 8 )
 control_config = ExtResource( 7 )
 orbiting_orbs_alpha = ExtResource( 9 )
 orbiting_orbs_gamma = ExtResource( 10 )
+intimidation = ExtResource( 11 )
 
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )

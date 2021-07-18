@@ -61,15 +61,19 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
-	
+	if body.bobber_stats.can_poke:
+		progress_bar.increment_bar(body.bobber_stats.poke_damage)
 
 # this resumes the firing
-func _on_ProximityArea_body_exited(_body : Bobber) -> void:
+func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	if !can_fire:
 		timer.start()
 		can_fire = true
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
+	if body.bobber_stats.can_pull_out:
+		progress_bar.appear()
+		progress_bar.increment_bar(body.bobber_stats.pull_out_damage)
 
 
 func _on_InitialSetUpTimer_timeout():

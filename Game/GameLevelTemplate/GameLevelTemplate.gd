@@ -35,12 +35,13 @@ func _ready() -> void:
 	wave_number_progress_bar.connect("wave_timed_out", self, "proceed_to_next_wave")
 	wave_number_progress_bar.connect("turned_black_mamba", self, "on_turned_black_mamba")
 	wave_number_progress_bar.connect("ran_out_of_enthusiasm", self, "on_ran_out_of_enthusiasm")
-
+	
 
 func create_bobber_instance() -> void:
 	if current_bobber != null: # helps to test without bobber
 		bobber = current_bobber.instance()
 		bobber.connect("bobber_entered_scene", self, "on_bobber_entered_scene")
+		bobber.connect("intimidated_fish", self, "on_intimidated_fish")
 
 func update_hooks_label() -> void:
 	if current_bobber != null: # helps to test without bobber
@@ -88,13 +89,15 @@ func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
 	set_up_game_based_on_backpack_upon_gaining_hook(num_of_hook_gained)
 
 
-func _on_successfully_caught_fish() -> void:
+func _on_successfully_caught_fish(fish_position : Vector2) -> void:
 	var backpack = bobber.backpack
 	fishes.update_fishes_remaining_upon_successful_catch()
-	if backpack.has_item("Captain Hook Beta"):
-		if bobber.can_activate_captain_hook_beta(fishes.num_of_fishes_caught):
-			bobber.activate_captain_hook_beta()
-			update_hooks_label()
+	set_up_game_based_on_backpack_upon_catching_fish(fish_position)
+
+
+func on_intimidated_fish(bobber_intimidation : Node, fish_position : Vector2) -> void:
+	add_child(bobber_intimidation)
+	bobber_intimidation.global_position = fish_position
 
 
 func proceed_to_next_wave() -> void:
@@ -165,13 +168,10 @@ func set_up_game_based_on_backpack() -> void:
 		wave_number_progress_bar.enthusiasm = true
 	if backpack.has_item("Live Fast"):
 		wave_number_progress_bar.set_wave_duration(wave_number_progress_bar.wave_duration / 2)
-	if backpack.has_item("Die Young"):
-		bobber_stats.die_young = true
-	else:
-		bobber_stats.die_young = false
 	if backpack.has_item("Captain Hook Alpha"):
 		bobber.activate_captain_hook_alpha()
 		update_hooks_label()
+	
 	
 
 func set_up_game_based_on_backpack_upon_proceeding_to_next_wave() -> void:
@@ -211,6 +211,17 @@ func set_up_game_based_on_backpack_upon_gaining_hook(num_of_hook_gained : int) -
 	bobber.update_damage()
 	stats.update_labels(bobber)
 	
+
+func set_up_game_based_on_backpack_upon_catching_fish(fish_position : Vector2) -> void:
+	var backpack = bobber.backpack
+	var bobber_stats = bobber.bobber_stats
+	if backpack.has_item("Captain Hook Beta"):
+		if bobber.can_activate_captain_hook_beta(fishes.num_of_fishes_caught):
+			bobber.activate_captain_hook_beta()
+			update_hooks_label()
+	if backpack.has_item("Intimidate"):
+		bobber.instantiate_intimidate(fish_position)
+
 	
 func on_turned_black_mamba() -> void:
 	var bobber_stats = bobber.bobber_stats

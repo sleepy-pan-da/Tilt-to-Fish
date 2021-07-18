@@ -60,6 +60,11 @@ _global_script_classes=[ {
 "path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsGamma/GammaOrbs/GammaOrbs.gd"
 }, {
 "base": "Node2D",
+"class": "Intimidate",
+"language": "GDScript",
+"path": "res://Upgrades/Intimidate/Intimidation.gd"
+}, {
+"base": "Node2D",
 "class": "OrbitingOrbsAlpha",
 "language": "GDScript",
 "path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsAlpha/OrbitingOrbsAlpha.gd"
@@ -95,6 +100,7 @@ _global_script_class_icons={
 "FishTemplate": "",
 "FishToSpawn": "",
 "GammaOrbs": "",
+"Intimidate": "",
 "OrbitingOrbsAlpha": "",
 "OrbitingOrbsGamma": "",
 "Projectile": "",
@@ -132,4 +138,4 @@ window/stretch/aspect="keep"
 2d_physics/layer_4="FishHitBox"
 2d_physics/layer_5="Fish"
 2d_physics/layer_6="FishThatFollowsYou"
-2d_physics/layer_7="OrbitingOrbs"
+2d_physics/layer_7="ThingsThatHitFishHurtbox"
