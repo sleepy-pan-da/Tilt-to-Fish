@@ -8,11 +8,16 @@ export(Resource) var control_config = control_config as ControlConfig
 
 export(PackedScene) var orbiting_orbs_alpha = orbiting_orbs_alpha as OrbitingOrbsAlpha
 export(PackedScene) var orbiting_orbs_gamma = orbiting_orbs_gamma as OrbitingOrbsGamma
-export(PackedScene) var intimidation = intimidation
+export(PackedScene) var intimidation = intimidation as Intimidate
+export(PackedScene) var retaliation = retaliation as Retaliation
+
+export(bool) var testing_on_pc : bool
 
 onready var arrow = $Arrow
 onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
+onready var get_excited_timer = $GetExcitedTimer
+
 
 var have_immunity : bool = true 
 var immune : bool = false 
@@ -20,7 +25,9 @@ var current_orbiting_orbs_alpha : OrbitingOrbsAlpha
 var current_orbiting_orbs_gamma : OrbitingOrbsGamma
 
 signal bobber_entered_scene
+signal updated_damage
 signal intimidated_fish(intimidation, fish_position)
+signal retaliated_fish(retaliation, bobber_position)
 
 func _ready():
 	bobber_stats.set_up_initial_stats()
@@ -29,14 +36,22 @@ func _ready():
 	set_up_poke_and_pull_out()
 	set_up_orbiting_orbs()
 	set_up_intimidate()
+	set_up_retaliation()
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
 	
 
 func _physics_process(delta : float) -> void:
-	move(Input.get_accelerometer())
-
+	if !testing_on_pc:
+		move(Input.get_accelerometer())
+	else:
+		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+		var speed : float = 300
+		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
+		arrow.configure_arrow_location(velocity)
+		move_and_slide(velocity)
 
 func move(movement_direction_vector : Vector3) -> void:
 	var speed_multiplier : int
@@ -94,6 +109,8 @@ func update_damage() -> void:
 	compute_orbiting_orbs_gamma_damage()
 	set_up_poke_and_pull_out()
 	set_up_intimidate()
+	set_up_retaliation()
+	emit_signal("updated_damage")
 
 
 # this needs to be called first in ready() before setting up other stats
@@ -230,22 +247,16 @@ func compute_gravity_orb_damage_multiplier() -> float:
 
 func update_confidence_upon_taking_damage(damage_taken : int) -> void:
 	var initial_hook_amount : int = bobber_stats.hooks_amount + damage_taken
-	
-	if backpack.item_level("Confidence") == 1:
-		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_hook_amount))
-		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.hooks_amount))
-	elif backpack.item_level("Confidence") == 2:
-		bobber_stats.damage_multiplier /= (1 + (0.8 * initial_hook_amount))
-		bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.hooks_amount)) 
-	else:
-		bobber_stats.damage_multiplier /= (1 + (1.6 * initial_hook_amount))
-		bobber_stats.damage_multiplier *= (1 + (1.6 * bobber_stats.hooks_amount)) 
+	compute_confidence_damage_multiplier(initial_hook_amount)
 
 
 func update_confidence_upon_gaining_hook(hook_gained : int) -> void:
 	# for this function to work, hooks amount need to be updated in bobber stats first
 	var initial_hook_amount : int = bobber_stats.hooks_amount - hook_gained 
-	
+	compute_confidence_damage_multiplier(initial_hook_amount)
+
+
+func compute_confidence_damage_multiplier(initial_hook_amount : int) -> void:
 	if backpack.item_level("Confidence") == 1:
 		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_hook_amount))
 		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.hooks_amount))
@@ -355,7 +366,6 @@ func set_up_poke_and_pull_out() -> void:
 
 
 func activate_poke() -> void:
-	bobber_stats.can_poke = true
 	if backpack.item_level("Poke") == 1:
 		bobber_stats.compute_poke_damage(5)
 	elif backpack.item_level("Poke") == 2:
@@ -365,12 +375,10 @@ func activate_poke() -> void:
 
 
 func deactivate_poke() -> void:
-	bobber_stats.can_poke = false
 	bobber_stats.compute_poke_damage(0)
 
 
 func activate_pull_out() -> void:
-	bobber_stats.can_pull_out = true
 	if backpack.item_level("Pull Out") == 1:
 		bobber_stats.compute_pull_out_damage(5)
 	elif backpack.item_level("Pull Out") == 2:
@@ -380,7 +388,6 @@ func activate_pull_out() -> void:
 
 
 func deactivate_pull_out() -> void:
-	bobber_stats.can_pull_out = false
 	bobber_stats.compute_pull_out_damage(0)
 
 
@@ -408,3 +415,96 @@ func instantiate_intimidate(fish_position : Vector2) -> void:
 	var current_intimidation = intimidation.instance()
 	current_intimidation.set_damage(bobber_stats.intimidate_damage)
 	emit_signal("intimidated_fish", current_intimidation, fish_position)
+
+
+func set_up_retaliation() -> void:
+	if backpack.has_item("Retaliation"):
+		activate_retaliation()
+	else:
+		deactivate_retaliation()
+
+
+func activate_retaliation() -> void:
+	if backpack.item_level("Retaliation") == 1:
+		bobber_stats.compute_retaliate_damage(15)
+	elif backpack.item_level("Retaliation") == 2:
+		bobber_stats.compute_retaliate_damage(30)
+	else:
+		bobber_stats.compute_retaliate_damage(60)
+
+
+func deactivate_retaliation() -> void:
+	bobber_stats.compute_retaliate_damage(0)
+
+
+func instantiate_retaliation() -> void:
+	var current_retaliation = retaliation.instance()
+	current_retaliation.set_damage(bobber_stats.retaliate_damage)
+	emit_signal("retaliated_fish", current_retaliation, global_position)
+	
+
+func update_reassuring_confidence_upon_catching_fish() -> void:
+	var initial_reassuring_confidence_stacks : int = bobber_stats.reassuring_confidence_stacks
+	if bobber_stats.reassuring_confidence_stacks < 10:
+		bobber_stats.reassuring_confidence_stacks += 1
+	compute_reassuring_confidence_damage_multiplier(initial_reassuring_confidence_stacks)
+
+
+func update_reassuring_confidence_upon_taking_damage() -> void:
+	var initial_reassuring_confidence_stacks : int = bobber_stats.reassuring_confidence_stacks
+	bobber_stats.reassuring_confidence_stacks /= 2
+	compute_reassuring_confidence_damage_multiplier(initial_reassuring_confidence_stacks)
+
+
+func compute_reassuring_confidence_damage_multiplier(initial_reassuring_confidence_stacks : int) -> void:
+	if backpack.item_level("Reassuring Confidence") == 1:
+		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_reassuring_confidence_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.reassuring_confidence_stacks))
+	elif backpack.item_level("Reassuring Confidence") == 2:
+		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_reassuring_confidence_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.reassuring_confidence_stacks))
+	else:
+		bobber_stats.damage_multiplier /= (1 + (0.8 * initial_reassuring_confidence_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.reassuring_confidence_stacks))
+
+
+func update_masochistic() -> void:
+	var initial_masochistic_stacks : int = bobber_stats.masochistic_stacks
+	bobber_stats.masochistic_stacks += 1
+	compute_masochistic_damage_multiplier(initial_masochistic_stacks)
+
+
+func compute_masochistic_damage_multiplier(initial_masochistic_stacks : int):
+	if backpack.item_level("Masochistic") == 1:
+		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_masochistic_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.masochistic_stacks))
+	elif backpack.item_level("Masochistic") == 2:
+		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_masochistic_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.masochistic_stacks))
+	else:
+		bobber_stats.damage_multiplier /= (1 + (0.8 * initial_masochistic_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.masochistic_stacks))
+
+func get_excited() -> void:
+	if get_excited_timer.is_stopped():
+		if backpack.item_level("Get Excited") == 1:
+			bobber_stats.damage_multiplier *= (1 + 2)
+		elif backpack.item_level("Get Excited") == 2:
+			bobber_stats.damage_multiplier *= (1 + 3)
+		else:
+			bobber_stats.damage_multiplier *= (1 + 4)
+	get_excited_timer.start()	# resets the get_excited buff if get_excited_timer is still runnning
+
+
+func _on_GetExcitedTimer_timeout() -> void:
+	no_longer_excited()
+
+
+func no_longer_excited() -> void:
+	if backpack.item_level("Get Excited") == 1:
+		bobber_stats.damage_multiplier /= (1 + 2)
+	elif backpack.item_level("Get Excited") == 2:
+		bobber_stats.damage_multiplier /= (1 + 3)
+	else:
+		bobber_stats.damage_multiplier /= (1 + 4)
+	update_damage()

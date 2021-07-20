@@ -285,6 +285,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ReassuringConfidence" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 364.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 6 )
+text = "Reassuring Confidence: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Masochistic" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 394.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 6 )
+text = "Masochistic:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameOver" type="Control" parent="UI"]
 visible = false
 anchor_right = 1.0

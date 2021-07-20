@@ -18,7 +18,7 @@ onready var screen_transition = $UI/ScreenTransition
 var bobber : Bobber
 var bobber_path : NodePath
 var can_descend : bool = false
-
+var proceeding_to_next_wave : bool = false
 
 func _ready() -> void:
 	screen_transition.transition_in()
@@ -42,6 +42,8 @@ func create_bobber_instance() -> void:
 		bobber = current_bobber.instance()
 		bobber.connect("bobber_entered_scene", self, "on_bobber_entered_scene")
 		bobber.connect("intimidated_fish", self, "on_intimidated_fish")
+		bobber.connect("retaliated_fish", self, "on_retaliated_fish")
+		bobber.connect("updated_damage", self, "on_updated_damage")
 
 func update_hooks_label() -> void:
 	if current_bobber != null: # helps to test without bobber
@@ -90,9 +92,10 @@ func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
 
 
 func _on_successfully_caught_fish(fish_position : Vector2) -> void:
-	var backpack = bobber.backpack
-	fishes.update_fishes_remaining_upon_successful_catch()
-	set_up_game_based_on_backpack_upon_catching_fish(fish_position)
+	if has_node(bobber_path):
+		var backpack = bobber.backpack
+		fishes.update_fishes_remaining_upon_successful_catch()
+		set_up_game_based_on_backpack_upon_catching_fish(fish_position)
 
 
 func on_intimidated_fish(bobber_intimidation : Node, fish_position : Vector2) -> void:
@@ -100,18 +103,30 @@ func on_intimidated_fish(bobber_intimidation : Node, fish_position : Vector2) ->
 	bobber_intimidation.global_position = fish_position
 
 
+func on_retaliated_fish(bobber_retaliation : Node, bobber_position : Vector2) -> void:
+	add_child(bobber_retaliation)
+	bobber_retaliation.global_position = bobber_position
+
+
+func on_updated_damage() -> void:
+	stats.update_labels(bobber)
+
+
 func proceed_to_next_wave() -> void:
 	if wave_system_enabled:
-		if has_node(bobber_path):
+		if has_node(bobber_path) and !proceeding_to_next_wave:
+			proceeding_to_next_wave = true
+			yield(get_tree().create_timer(1), "timeout") # temporary solution to prevent intimidate from breaking the game
 			bobber.start_immunity() # prevent getting hit unfairly when fish spawn (temp solution)
 			fishes.proceed_to_next_wave()
 			update_wave_number_label(fishes.wave_number)
 			set_up_game_based_on_backpack_upon_proceeding_to_next_wave()
 			wave_number_progress_bar.reset_progress_bar()
+			proceeding_to_next_wave = false
 			
 	
 func freeze_game() -> void:
-	var freeze_duration : float = 0.2
+	var freeze_duration : float = 0.1
 	get_tree().paused = true
 	yield(get_tree().create_timer(freeze_duration), 'timeout')
 	get_tree().paused = false
@@ -188,7 +203,6 @@ func set_up_game_based_on_backpack_upon_proceeding_to_next_wave() -> void:
 			wave_number_progress_bar.turned_unenthusiastic = false
 			bobber.activate_enthusiasm()	
 	bobber.update_damage()
-	stats.update_labels(bobber)
 	
 
 func set_up_game_based_on_backpack_upon_taking_damage(damage_taken : int) -> void:
@@ -199,8 +213,15 @@ func set_up_game_based_on_backpack_upon_taking_damage(damage_taken : int) -> voi
 	if backpack.has_item("Underdog"):
 		if bobber.can_activate_underdog():
 			bobber.activate_underdog()
+	if backpack.has_item("Reassuring Confidence"):
+		bobber.update_reassuring_confidence_upon_taking_damage()
+	if backpack.has_item("Masochistic"):
+		bobber.update_masochistic()
+	
 	bobber.update_damage()
-	stats.update_labels(bobber)
+	
+	if backpack.has_item("Retaliation"):
+		bobber.instantiate_retaliation()
 	
 		
 func set_up_game_based_on_backpack_upon_gaining_hook(num_of_hook_gained : int) -> void:
@@ -209,29 +230,33 @@ func set_up_game_based_on_backpack_upon_gaining_hook(num_of_hook_gained : int) -
 	if backpack.has_item("Confidence"):
 		bobber.update_confidence_upon_gaining_hook(num_of_hook_gained)
 	bobber.update_damage()
-	stats.update_labels(bobber)
 	
 
 func set_up_game_based_on_backpack_upon_catching_fish(fish_position : Vector2) -> void:
 	var backpack = bobber.backpack
 	var bobber_stats = bobber.bobber_stats
+	if backpack.has_item("Reassuring Confidence"):
+		bobber.update_reassuring_confidence_upon_catching_fish()
+	if backpack.has_item("Get Excited"):
+		bobber.get_excited()
 	if backpack.has_item("Captain Hook Beta"):
 		if bobber.can_activate_captain_hook_beta(fishes.num_of_fishes_caught):
 			bobber.activate_captain_hook_beta()
 			update_hooks_label()
+	
+	bobber.update_damage()
+	
 	if backpack.has_item("Intimidate"):
 		bobber.instantiate_intimidate(fish_position)
-
+	
 	
 func on_turned_black_mamba() -> void:
 	var bobber_stats = bobber.bobber_stats
 	bobber.activate_black_mamba()	
 	bobber.update_damage()
-	stats.update_labels(bobber)
 	
 
 func on_ran_out_of_enthusiasm() -> void:
 	var bobber_stats = bobber.bobber_stats
 	bobber.deactivate_enthusiasm()	
 	bobber.update_damage()
-	stats.update_labels(bobber)

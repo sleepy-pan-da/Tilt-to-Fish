@@ -13,20 +13,24 @@ var damage_multiplier : float # anything that fills fish progress bar counts as 
 var die_young : bool = false # take double damage if true
 var turned_underdog : bool = false # will be true if gained underdog buff
 
-var can_poke : bool = false 
 var poke_damage : float
-var can_pull_out : bool = false
 var pull_out_damage : float
 
 var intimidate_damage : float
+var retaliate_damage : float
+
+var reassuring_confidence_stacks : int = 0
+var masochistic_stacks : int = 0
 
 # called in ready function of bobber
-# helps to reset stats
+# helps to reset stats upon fishing after leaving shop
 func set_up_initial_stats() -> void:
 	raw_bobber_attack_amount = initial_bobber_attack_amount
 	bobber_attack_rate = initial_bobber_attack_rate
 	damage_multiplier = initial_damage_multiplier
 	turned_underdog = false # resets underdog
+	reassuring_confidence_stacks = 0 # resets reassuring confidence stacks
+	masochistic_stacks = 0 # resets masochistic stacks
 
 
 func minus_hook(damage : int) -> void:
@@ -64,3 +68,8 @@ func compute_pull_out_damage(raw_pull_out_damage : float) -> void:
 func compute_intimidate_damage(raw_intimidate_damage : float) -> void:
 	intimidate_damage = raw_intimidate_damage
 	intimidate_damage *= damage_multiplier
+
+
+func compute_retaliate_damage(raw_retaliate_damage : float) -> void:
+	retaliate_damage = raw_retaliate_damage
+	retaliate_damage *= damage_multiplier

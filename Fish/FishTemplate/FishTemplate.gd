@@ -39,14 +39,14 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
-	if body.bobber_stats.can_poke:
+	if body.backpack.has_item("Poke"):
 		progress_bar.increment_bar(body.bobber_stats.poke_damage)
 
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
-	if body.bobber_stats.can_pull_out:
+	if body.backpack.has_item("Pull Out"):
 		progress_bar.appear()
 		progress_bar.increment_bar(body.bobber_stats.pull_out_damage)
 
@@ -119,5 +119,8 @@ func _on_Hurtbox_body_entered(body):
 
 func _on_Hurtbox_area_entered(area):
 	if area.get_class() == "Intimidate":
+		progress_bar.appear()
+		progress_bar.increment_bar(area.damage)
+	elif area.get_class() == "Retaliation":
 		progress_bar.appear()
 		progress_bar.increment_bar(area.damage)
