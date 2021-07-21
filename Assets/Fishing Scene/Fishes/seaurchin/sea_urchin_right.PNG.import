@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/scrubfish(thick)_left.PNG-163d3479ca314ee791599db660567bc8.stex"
+path="res://.import/sea_urchin_right.PNG-28ff0e13ee205a75ccc9f26243129ae7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fishing Scene/Fishes/scrubfish(thick)_left.PNG"
-dest_files=[ "res://.import/scrubfish(thick)_left.PNG-163d3479ca314ee791599db660567bc8.stex" ]
+source_file="res://Assets/Fishing Scene/Fishes/seaurchin/sea_urchin_right.PNG"
+dest_files=[ "res://.import/sea_urchin_right.PNG-28ff0e13ee205a75ccc9f26243129ae7.stex" ]
 
 [params]
 

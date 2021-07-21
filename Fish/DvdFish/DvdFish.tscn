@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Assets/Fishing Scene/Fishes/DVD fish/DVD Left.png" type="Texture" id=1]
+[ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fish/DvdFish/FishSprite.gd" type="Script" id=3]
+[ext_resource path="res://Fish/DvdFish/DvdFish.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fishing Scene/Fishes/DVD fish/DVD Right.PNG" type="Texture" id=5]
+[ext_resource path="res://Fish/Behaviours/FishHitBox/FishHitBox.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fish/Behaviours/BounceOffWalls/BounceOffWalls.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "FacingRight",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
+radius = 173.142
+
+[node name="DvdFish" instance=ExtResource( 2 )]
+script = ExtResource( 4 )
+amount_needed_to_catch = 50.0
+fish_recovery_amount = 0.0
+damage = 1
+
+[node name="FishSprite" parent="KinematicBody" index="2"]
+frames = SubResource( 1 )
+script = ExtResource( 3 )
+colours_of_dvd = [ Color( 1, 0.98, 0.98, 1 ), Color( 0.49, 0.99, 0, 1 ), Color( 0.94, 0.5, 0.5, 1 ), Color( 1, 0, 1, 1 ), Color( 0.69, 0.77, 0.87, 1 ), Color( 1, 1, 0, 1 ) ]
+
+[node name="Tween" type="Tween" parent="KinematicBody/FishSprite" index="0"]
+
+[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="HitBox" parent="KinematicBody" index="6" instance=ExtResource( 6 )]
+
+[node name="BounceOffWalls" parent="." index="3" instance=ExtResource( 7 )]
+speed = 300

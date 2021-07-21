@@ -485,6 +485,7 @@ func compute_masochistic_damage_multiplier(initial_masochistic_stacks : int):
 		bobber_stats.damage_multiplier /= (1 + (0.8 * initial_masochistic_stacks))
 		bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.masochistic_stacks))
 
+
 func get_excited() -> void:
 	if get_excited_timer.is_stopped():
 		if backpack.item_level("Get Excited") == 1:

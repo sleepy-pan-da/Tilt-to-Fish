@@ -220,6 +220,7 @@ func set_up_game_based_on_backpack_upon_taking_damage(damage_taken : int) -> voi
 	
 	bobber.update_damage()
 	
+	# this needs to be after update damage with newly computed damage multiplier
 	if backpack.has_item("Retaliation"):
 		bobber.instantiate_retaliation()
 	
@@ -246,6 +247,7 @@ func set_up_game_based_on_backpack_upon_catching_fish(fish_position : Vector2) -
 	
 	bobber.update_damage()
 	
+	# this needs to be after update damage with newly computed damage multiplier
 	if backpack.has_item("Intimidate"):
 		bobber.instantiate_intimidate(fish_position)
 	
