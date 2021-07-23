@@ -2,6 +2,10 @@ extends Node2D
 
 export(PackedScene) onready var next_scene 
 export(PackedScene) onready var current_bobber
+export(PackedScene) onready var free_money
+export(PackedScene) onready var pumping_iron
+export(PackedScene) onready var periodic_life_gain
+export(PackedScene) onready var rejuvenated
 export var wave_system_enabled : bool = true # used for disabling wave system and testing individual fish
 
 onready var fishes = $Fishes
@@ -186,8 +190,15 @@ func set_up_game_based_on_backpack() -> void:
 	if backpack.has_item("Captain Hook Alpha"):
 		bobber.activate_captain_hook_alpha()
 		update_hooks_label()
-	
-	
+	if backpack.has_item("Free Money"):
+		set_up_free_money()
+	if backpack.has_item("Pumping Iron"):
+		set_up_pumping_iron()
+	if backpack.has_item("Periodic Life Gain"):
+		set_up_periodic_life_gain()
+	if backpack.has_item("Rejuvenated"):
+		set_up_rejuvenated()
+
 
 func set_up_game_based_on_backpack_upon_proceeding_to_next_wave() -> void:
 	var backpack = bobber.backpack
@@ -217,6 +228,8 @@ func set_up_game_based_on_backpack_upon_taking_damage(damage_taken : int) -> voi
 		bobber.update_reassuring_confidence_upon_taking_damage()
 	if backpack.has_item("Masochistic"):
 		bobber.update_masochistic()
+	if backpack.has_item("Thrill Seeker"):
+		bobber.reset_thrill_seeker_upon_taking_damage()
 	
 	bobber.update_damage()
 	
@@ -244,6 +257,11 @@ func set_up_game_based_on_backpack_upon_catching_fish(fish_position : Vector2) -
 		if bobber.can_activate_captain_hook_beta(fishes.num_of_fishes_caught):
 			bobber.activate_captain_hook_beta()
 			update_hooks_label()
+	if backpack.has_item("Rejuvenated"):
+		if bobber.rejuvenated:
+			bobber_stats.gain_hook(1)
+			update_hooks_label()
+			GameEvents.emit_signal("bobber_gained_hook", 1)
 	
 	bobber.update_damage()
 	
@@ -262,3 +280,74 @@ func on_ran_out_of_enthusiasm() -> void:
 	var bobber_stats = bobber.bobber_stats
 	bobber.deactivate_enthusiasm()	
 	bobber.update_damage()
+
+
+func set_up_free_money() -> void:
+	var backpack = bobber.backpack
+	var current_free_money = free_money.instance()
+	add_child(current_free_money)
+	current_free_money.connect("created_coin", self, "on_created_coin")
+	if backpack.item_level("Free Money") == 1:
+		current_free_money.set_timer(15)
+	elif backpack.item_level("Free Money") == 2:
+		current_free_money.set_timer(10)
+	else:
+		current_free_money.set_timer(5)
+	current_free_money.start_timer()
+
+
+func on_created_coin(coin) -> void:
+	add_child(coin)
+	coin.global_position = fishes.generate_random_pt_on_screen()
+
+
+func set_up_pumping_iron() -> void:
+	var current_pumping_iron = pumping_iron.instance()
+	add_child(current_pumping_iron)
+	current_pumping_iron.connect("created_iron", self, "on_created_iron")
+	current_pumping_iron.set_timer(5)
+	current_pumping_iron.start_timer()
+
+
+func on_created_iron(iron) -> void:
+	iron.global_position = fishes.generate_random_pt_on_screen()
+
+
+func set_up_periodic_life_gain() -> void:
+	var backpack = bobber.backpack
+	var current_periodic_life_gain = periodic_life_gain.instance()
+	add_child(current_periodic_life_gain)
+	current_periodic_life_gain.connect("created_hook", self, "on_created_hook")
+	if backpack.item_level("Periodic Life Gain") == 1:
+		current_periodic_life_gain.set_timer(30)
+	elif backpack.item_level("Periodic Life Gain") == 2:
+		current_periodic_life_gain.set_timer(20)
+	else:
+		current_periodic_life_gain.set_timer(10)
+	current_periodic_life_gain.start_timer()
+
+
+func on_created_hook(hook) -> void:
+	add_child(hook)
+	hook.global_position = fishes.generate_random_pt_on_screen()
+	hook.connect("bobber_touched_hook", self, "update_hooks_label")
+
+
+func set_up_rejuvenated() -> void:
+	var backpack = bobber.backpack
+	var current_rejuvenated = rejuvenated.instance()
+	add_child(current_rejuvenated)
+	current_rejuvenated.connect("created_rejuvenate_orb", self, "on_created_rejuvenate_orb")
+	if backpack.item_level("Rejuvenated") == 1:
+		current_rejuvenated.set_timer(40)
+	elif backpack.item_levl("Rejuvenated") == 2:
+		current_rejuvenated.set_timer(30)
+	else:
+		current_rejuvenated.set_timer(20)
+	current_rejuvenated.start_timer()
+	
+
+func on_created_rejuvenate_orb(rejuvenate_orb) -> void:
+	add_child(rejuvenate_orb)
+	rejuvenate_orb.global_position = fishes.generate_random_pt_on_screen() 
+	

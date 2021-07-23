@@ -51,16 +51,16 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 47 ) ],
-"loop": true,
-"name": "FacingLeft",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "FacingRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "FacingLeft",
 "speed": 5.0
 } ]
 
@@ -137,7 +137,7 @@ shape = SubResource( 1 )
 
 [node name="FishSprite" type="AnimatedSprite" parent="KinematicBody"]
 scale = Vector2( 0.063, 0.063 )
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 animation = "FacingRight"
 
 [node name="RippleSprite" type="AnimatedSprite" parent="KinematicBody"]

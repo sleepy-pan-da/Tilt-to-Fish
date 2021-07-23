@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Fishing Scene/UI elements/arrow-01.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/bobber-01.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Upgrades/OrbitingOrbs/OrbitingOrbsGamma/OrbitingOrbsGamma.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Upgrades/Intimidate/Intimidation.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Upgrades/Retaliation/Retaliation.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Upgrades/ThrillSeeker/ThrillSeeker.tscn" type="PackedScene" id=13]
+[ext_resource path="res://FishingScene/Bobber/BobberSprite.gd" type="Script" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0
@@ -57,12 +59,16 @@ orbiting_orbs_alpha = ExtResource( 9 )
 orbiting_orbs_gamma = ExtResource( 10 )
 intimidation = ExtResource( 11 )
 retaliation = ExtResource( 12 )
+thrill_seeker = ExtResource( 13 )
 
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )
 position = Vector2( 1, 0 )
 scale = Vector2( 0.047, 0.047 )
 texture = ExtResource( 2 )
+script = ExtResource( 14 )
+
+[node name="Tween" type="Tween" parent="BobberSprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1, -2 )
@@ -89,6 +95,9 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="RejuvenatedTimer" type="Timer" parent="."]
+
 [connection signal="tween_completed" from="Arrow/Tween" to="Arrow" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="ImmunityTimer" to="." method="_on_ImmunityTimer_timeout"]
 [connection signal="timeout" from="GetExcitedTimer" to="." method="_on_GetExcitedTimer_timeout"]
+[connection signal="timeout" from="RejuvenatedTimer" to="." method="_on_RejuvenatedTimer_timeout"]

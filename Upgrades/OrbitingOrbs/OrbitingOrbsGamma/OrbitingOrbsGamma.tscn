@@ -5,7 +5,7 @@
 
 [node name="OrbitingOrbsGamma" type="Node2D"]
 script = ExtResource( 2 )
-angular_velocity = 1.571
+angular_velocity = 3.142
 
 [node name="GammaOrbs1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, 0 )

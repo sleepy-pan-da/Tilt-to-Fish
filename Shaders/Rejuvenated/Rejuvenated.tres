@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform bool active = false;
+
+void fragment()
+{
+	vec4 previous_colour = texture(TEXTURE, UV);
+	vec4 green_colour = vec4(0, 1, 0, previous_colour.a);
+	vec4 new_colour = previous_colour;
+	if (active == true){
+		new_colour = green_colour;
+	}
+		COLOR = new_colour;
+	
+}"
+
+[resource]
+shader = SubResource( 4 )
+shader_param/active = false

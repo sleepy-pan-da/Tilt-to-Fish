@@ -10,17 +10,21 @@ export(PackedScene) var orbiting_orbs_alpha = orbiting_orbs_alpha as OrbitingOrb
 export(PackedScene) var orbiting_orbs_gamma = orbiting_orbs_gamma as OrbitingOrbsGamma
 export(PackedScene) var intimidation = intimidation as Intimidate
 export(PackedScene) var retaliation = retaliation as Retaliation
+export(PackedScene) var thrill_seeker = thrill_seeker as ThrillSeeker
 
 export(bool) var testing_on_pc : bool
 
+onready var bobber_sprite = $BobberSprite
 onready var arrow = $Arrow
 onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
 onready var get_excited_timer = $GetExcitedTimer
+onready var rejuvenated_timer = $RejuvenatedTimer
 
 
 var have_immunity : bool = true 
 var immune : bool = false 
+var rejuvenated : bool = false
 var current_orbiting_orbs_alpha : OrbitingOrbsAlpha 
 var current_orbiting_orbs_gamma : OrbitingOrbsGamma
 
@@ -37,6 +41,7 @@ func _ready():
 	set_up_orbiting_orbs()
 	set_up_intimidate()
 	set_up_retaliation()
+	set_up_thrill_seeker()
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
@@ -48,7 +53,7 @@ func _physics_process(delta : float) -> void:
 	else:
 		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-		var speed : float = 300
+		var speed : float = 400
 		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
 		arrow.configure_arrow_location(velocity)
 		move_and_slide(velocity)
@@ -91,11 +96,26 @@ func start_immunity():
 
 func _on_ImmunityTimer_timeout():
 	end_immunity()
-	
+
 
 func end_immunity():
 	blink_animation_player.play("EndImmune")
 	immune = false
+
+
+func start_rejuvenated(duration_of_rejuvenation : int) -> void:
+	bobber_sprite.set_rejuvenated()
+	rejuvenated = true
+	rejuvenated_timer.start(duration_of_rejuvenation)
+
+
+func _on_RejuvenatedTimer_timeout() -> void:
+	end_rejuvenated()
+
+
+func end_rejuvenated() -> void:
+	bobber_sprite.reset()
+	rejuvenated = false
 
 
 func get_class() -> String:
@@ -137,11 +157,11 @@ func set_up_damage_multiplier_based_on_backpack() -> void:
 	
 	if backpack.has_item("Confidence"):
 		if backpack.item_level("Confidence") == 1:
-			bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.hooks_amount)) 
+			bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.hooks_amount)) 
 		elif backpack.item_level("Confidence") == 2:
-			bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.hooks_amount)) 
+			bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.hooks_amount)) 
 		else:
-			bobber_stats.damage_multiplier *= (1 + (1.6 * bobber_stats.hooks_amount)) 
+			bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.hooks_amount)) 
 
 
 func set_up_bobber_attack_amount_based_on_backpack() -> void:
@@ -233,7 +253,7 @@ func update_orbiting_speed() -> void:
 	if current_orbiting_orbs_alpha != null:
 		current_orbiting_orbs_alpha.set_angular_velocity(current_orbiting_orbs_alpha.angular_velocity * 2)
 	if current_orbiting_orbs_gamma != null:
-		current_orbiting_orbs_gamma.set_angular_velocity(current_orbiting_orbs_gamma.angular_velocity * 4)
+		current_orbiting_orbs_gamma.set_angular_velocity(current_orbiting_orbs_gamma.angular_velocity * 2)
 
 
 func compute_gravity_orb_damage_multiplier() -> float:
@@ -258,32 +278,32 @@ func update_confidence_upon_gaining_hook(hook_gained : int) -> void:
 
 func compute_confidence_damage_multiplier(initial_hook_amount : int) -> void:
 	if backpack.item_level("Confidence") == 1:
-		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_hook_amount))
-		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.hooks_amount))
+		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_hook_amount))
+		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.hooks_amount))
 	elif backpack.item_level("Confidence") == 2:
+		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_hook_amount))
+		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.hooks_amount)) 
+	else:
 		bobber_stats.damage_multiplier /= (1 + (0.8 * initial_hook_amount))
 		bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.hooks_amount)) 
-	else:
-		bobber_stats.damage_multiplier /= (1 + (1.6 * initial_hook_amount))
-		bobber_stats.damage_multiplier *= (1 + (1.6 * bobber_stats.hooks_amount)) 
 
 
 func activate_black_mamba() -> void:
 	if backpack.item_level("Black Mamba") == 1:
-		bobber_stats.damage_multiplier *= (1 + 0.4)
+		bobber_stats.damage_multiplier *= (1 + 0.5)
 	elif backpack.item_level("Black Mamba") == 2:
-		bobber_stats.damage_multiplier *= (1 + 0.8)
+		bobber_stats.damage_multiplier *= (1 + 1)
 	else:
-		bobber_stats.damage_multiplier *= (1 + 1.6)
+		bobber_stats.damage_multiplier *= (1 + 2)
 
 
 func deactivate_black_mamba() -> void:
 	if backpack.item_level("Black Mamba") == 1:
-		bobber_stats.damage_multiplier /= (1 + 0.4)
+		bobber_stats.damage_multiplier /= (1 + 0.5)
 	elif backpack.item_level("Black Mamba") == 2:
-		bobber_stats.damage_multiplier /= (1 + 0.8)
+		bobber_stats.damage_multiplier /= (1 + 1)
 	else:
-		bobber_stats.damage_multiplier /= (1 + 1.6)
+		bobber_stats.damage_multiplier /= (1 + 2)
 
 
 func activate_enthusiasm() -> void:
@@ -509,3 +529,59 @@ func no_longer_excited() -> void:
 	else:
 		bobber_stats.damage_multiplier /= (1 + 4)
 	update_damage()
+
+
+func set_up_thrill_seeker() -> void:
+	if backpack.has_item("Thrill Seeker"):
+		var current_thrill_seeker : ThrillSeeker = thrill_seeker.instance()
+		add_child(current_thrill_seeker)
+		current_thrill_seeker.connect("activated_thrill_seeker", self, "update_thrill_seeker_when_near_hitbox")
+	
+	
+func update_thrill_seeker_when_near_hitbox() -> void:
+	bobber_sprite.react()
+	var initial_thrill_stacks : int = bobber_stats.thrill_seeker_stacks
+	if bobber_stats.thrill_seeker_stacks < 10:
+		bobber_stats.thrill_seeker_stacks += 1
+	compute_thrill_seeker_damage_multiplier(initial_thrill_stacks)
+	update_damage()
+
+
+func reset_thrill_seeker_upon_taking_damage() -> void:
+	var initial_thrill_stacks : int = bobber_stats.thrill_seeker_stacks
+	bobber_stats.thrill_seeker_stacks = 0
+	compute_thrill_seeker_damage_multiplier(initial_thrill_stacks)
+	
+
+func compute_thrill_seeker_damage_multiplier(initial_thrill_stacks : int) -> void:
+	if backpack.item_level("Thrill Seeker") == 1:
+		bobber_stats.damage_multiplier /= (1 + (0.3 * initial_thrill_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.3 * bobber_stats.thrill_seeker_stacks))
+	elif backpack.item_level("Thrill Seeker") == 2:
+		bobber_stats.damage_multiplier /= (1 + (0.6 * initial_thrill_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.6 * bobber_stats.thrill_seeker_stacks))
+	else:
+		bobber_stats.damage_multiplier /= (1 + (1.2 * initial_thrill_stacks))
+		bobber_stats.damage_multiplier *= (1 + (1.2 * bobber_stats.thrill_seeker_stacks))		
+
+
+func update_pumping_iron() -> void:
+	var initial_iron_stacks = bobber_stats.pumping_iron_stacks
+	bobber_stats.pumping_iron_stacks += 1
+	compute_pumping_iron_damage_multiplier(initial_iron_stacks)
+	update_damage()
+
+
+func compute_pumping_iron_damage_multiplier(initial_iron_stacks : int) -> void:
+	if backpack.item_level("Pumping Iron") == 1:
+		bobber_stats.damage_multiplier /= (1 + (0.05 * initial_iron_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.05 * bobber_stats.pumping_iron_stacks))
+	elif backpack.item_level("Pumping Iron") == 2:
+		bobber_stats.damage_multiplier /= (1 + (0.1 * initial_iron_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.1 * bobber_stats.pumping_iron_stacks))
+	else:
+		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_iron_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.pumping_iron_stacks))
+
+
+

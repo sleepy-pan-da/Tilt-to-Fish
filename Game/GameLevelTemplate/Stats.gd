@@ -8,6 +8,8 @@ onready var poke_damage = $PokeDamage
 onready var pull_out_damage = $PullOutDamage
 onready var reassuring_confidence = $ReassuringConfidence
 onready var masochistic = $Masochistic
+onready var thrill_seeker = $ThrillSeeker
+onready var gold = $Gold
 
 func update_labels(bobber : Bobber) -> void:
 	if bobber != null:
@@ -43,3 +45,10 @@ func update_labels(bobber : Bobber) -> void:
 			masochistic.text = "Masochistic: " + str(bobber.bobber_stats.masochistic_stacks)
 		else:
 			masochistic.text = "Masochistic: "
+			
+		if bobber.backpack.has_item("Thrill Seeker"):
+			thrill_seeker.text = "Thrill Seeker: " + str(bobber.bobber_stats.thrill_seeker_stacks)
+		else:
+			thrill_seeker.text = "Thrill Seeker: "
+		
+		gold.text = "Gold: " + str(bobber.bobber_stats.gold_amount)

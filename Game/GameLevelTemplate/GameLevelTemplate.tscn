@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -13,6 +13,10 @@
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Game/GameLevelTemplate/GameOver.gd" type="Script" id=12]
 [ext_resource path="res://Game/GameLevelTemplate/Stats.gd" type="Script" id=13]
+[ext_resource path="res://Upgrades/FreeMoney/FreeMoney.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Upgrades/PumpingIron/PumpingIron.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Upgrades/PeriodicLifeGain/PeriodicLifeGain.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Upgrades/Rejuvenated/Rejuvenated.tscn" type="PackedScene" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 56
@@ -53,6 +57,10 @@ font_data = ExtResource( 8 )
 [node name="GameLevelTemplate" type="Node2D"]
 script = ExtResource( 2 )
 current_bobber = ExtResource( 4 )
+free_money = ExtResource( 14 )
+pumping_iron = ExtResource( 15 )
+periodic_life_gain = ExtResource( 16 )
+rejuvenated = ExtResource( 17 )
 wave_system_enabled = false
 
 [node name="Pond" parent="." instance=ExtResource( 5 )]
@@ -303,6 +311,28 @@ margin_right = 224.0
 margin_bottom = 208.0
 custom_fonts/font = SubResource( 6 )
 text = "Masochistic:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ThrillSeeker" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 424.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 6 )
+text = "Thrill Seeker:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gold" type="Label" parent="UI/Stats"]
+margin_left = 40.0
+margin_top = 454.0
+margin_right = 224.0
+margin_bottom = 208.0
+custom_fonts/font = SubResource( 6 )
+text = "Gold: "
 __meta__ = {
 "_edit_use_anchors_": false
 }
