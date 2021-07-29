@@ -2,21 +2,23 @@
 
 [ext_resource path="res://Fish/ScrubFish/ScrubFish.gd" type="Script" id=1]
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Fish/Behaviours/FixedPathMovement/FixedPathMovement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fish/Behaviours/SwimToRandomPtBasedOnRadius/SwimToRandomPtBasedOnRadius.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 43.0758
+resource_local_to_scene = true
+radius = 127.0
 
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-amount_needed_to_catch = 25.0
+amount_needed_to_catch = 50.0
 fish_recovery_amount = 0.0
 
-[node name="FixedPathMovement" parent="." index="0" instance=ExtResource( 3 )]
-speed = 300
-
 [node name="RippleSprite" parent="KinematicBody" index="3"]
-scale = Vector2( 0.06, 0.06 )
+scale = Vector2( 0.14, 0.14 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 1 )
+
+[node name="SwimToRandomPtBasedOnRadius" parent="KinematicBody" index="7" instance=ExtResource( 3 )]
+speed = 200
+radius = 1300

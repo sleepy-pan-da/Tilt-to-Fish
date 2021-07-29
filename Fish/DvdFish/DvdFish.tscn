@@ -23,7 +23,7 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 173.142
+radius = 140.0
 
 [node name="DvdFish" instance=ExtResource( 2 )]
 script = ExtResource( 4 )

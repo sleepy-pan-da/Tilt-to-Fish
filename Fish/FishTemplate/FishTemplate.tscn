@@ -122,6 +122,7 @@ margin_bottom = 33.2298
 rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 93, 93 )
 step = 0.1
+allow_greater = true
 texture_under = ExtResource( 44 )
 texture_progress = ExtResource( 45 )
 fill_mode = 4

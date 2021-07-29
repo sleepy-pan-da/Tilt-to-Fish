@@ -21,7 +21,7 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 173.142
+radius = 111.057
 
 [node name="Coffeesh" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

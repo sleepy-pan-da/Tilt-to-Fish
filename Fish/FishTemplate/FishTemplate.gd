@@ -124,3 +124,7 @@ func _on_Hurtbox_area_entered(area):
 	elif area.get_class() == "Retaliation":
 		progress_bar.appear()
 		progress_bar.increment_bar(area.damage)
+
+
+func make_fish_tankier_with_each_interval_of_five_rounds(interval_of_five_rounds : int):
+	amount_needed_to_catch *= pow(1.5, interval_of_five_rounds)

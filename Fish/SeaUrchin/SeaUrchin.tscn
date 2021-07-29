@@ -27,7 +27,7 @@ radius = 160.0
 script = ExtResource( 2 )
 amount_needed_to_catch = 50.0
 fish_recovery_amount = 0.0
-damage = 1
+damage = 2
 
 [node name="HitBox" parent="KinematicBody" index="0" instance=ExtResource( 3 )]
 

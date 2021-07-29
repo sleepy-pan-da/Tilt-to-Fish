@@ -10,20 +10,20 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "FacingRight",
 "speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 173.142
+radius = 113.537
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 1536.56
@@ -40,6 +40,9 @@ frames = SubResource( 1 )
 script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="KinematicBody/FishSprite" index="0"]
+
+[node name="RippleSprite" parent="KinematicBody" index="3"]
+frame = 33
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 2 )

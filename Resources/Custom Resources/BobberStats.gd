@@ -7,6 +7,7 @@ export(float) var initial_damage_multiplier
 export(int) var hooks_amount # aka number of lives
 export(int) var gold_amount
 
+var max_hooks_amount : int = 5 # to prevent the scenario where u have a fk ton of hooks
 var raw_bobber_attack_amount : float # does not have damage multiplier yet
 var bobber_attack_amount : float # amount filled in fish progress bar per attack rate, has damage multiplier
 var bobber_attack_rate : float 
@@ -49,8 +50,12 @@ func minus_hook(damage : int) -> void:
 
 func gain_hook(num_of_hook_gained : int) -> void:
 	hooks_amount += num_of_hook_gained
-
-
+	if hooks_amount > max_hooks_amount:
+		hooks_amount = max_hooks_amount
+	else:
+		GameEvents.emit_signal("bobber_gained_hook", num_of_hook_gained)
+		
+		
 func increment_gold(gold_gained : int) -> void:
 	gold_amount += gold_gained
 	
@@ -59,7 +64,14 @@ func decrement_gold(gold_lost : int) -> void:
 	gold_amount -= gold_lost
 	
 
+func collect_interest() -> void:
+	var max_interest : int = 5
+	var computed_interest : int = gold_amount / 3
+	var interest : int = min(computed_interest, max_interest)
+	increment_gold(interest)
+
 func reset_when_game_over() -> void: 
+	gold_amount = 0
 	hooks_amount = 3
 	turned_underdog = false
 

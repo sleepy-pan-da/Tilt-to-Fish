@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Fishing Scene/Fishes/Slothfish/Slothfish Right .PNG" type="Texture" id=4]
 [ext_resource path="res://Assets/Fishing Scene/Fishes/Slothfish/Slothfish Left.PNG" type="Texture" id=5]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
@@ -21,7 +21,7 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
-radius = 173.142
+radius = 112.0
 
 [node name="SlothFish" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -29,7 +29,7 @@ amount_needed_to_catch = 50.0
 fish_recovery_amount = 0.0
 
 [node name="FishSprite" parent="KinematicBody" index="2"]
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 2 )

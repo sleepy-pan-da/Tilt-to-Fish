@@ -13,7 +13,8 @@ onready var bobber_spawn_pt = $BobberSpawnPt
 onready var hooks_label = $UI/Hooks/HooksLabel
 onready var countdown = $UI/Countdown
 onready var congrats = $UI/Congrats
-onready var wave_number_label = $UI/WaveNumber/Label
+onready var wave_number_label = $UI/WaveNumber/CurrentWave
+onready var total_waves = $UI/WaveNumber/TotalWaves
 onready var wave_number_progress_bar = $UI/WaveNumber/ProgressBar
 onready var game_over = $UI/GameOver
 onready var stats = $UI/Stats
@@ -29,14 +30,16 @@ func _ready() -> void:
 	create_bobber_instance()
 	set_up_game_based_on_backpack()
 	update_hooks_label()
+	update_total_waves()
+	GameData.reset_wave_number()
 	countdown.connect("countdown_finished", self, "on_countdown_finished")
 	GameEvents.connect("bobber_took_damage", self, "_on_bobber_took_damage")
 	GameEvents.connect("bobber_gained_hook", self, "on_bobber_gained_hook")
 	GameEvents.connect("successfully_caught_fish", self, "_on_successfully_caught_fish")
 	game_over.connect("clicked_play_again", self, "on_clicked_play_again")
-	screen_transition.connect("transitioned_out", self, "restart")
-	fishes.connect("caught_all_fishes", self, "proceed_to_next_wave")
-	wave_number_progress_bar.connect("wave_timed_out", self, "proceed_to_next_wave")
+	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
+	fishes.connect("caught_all_fishes", self, "proceed_to_next_wave_after_catching_all_fish")
+	wave_number_progress_bar.connect("wave_timed_out", self, "proceed_to_next_wave_after_timing_out")
 	wave_number_progress_bar.connect("turned_black_mamba", self, "on_turned_black_mamba")
 	wave_number_progress_bar.connect("ran_out_of_enthusiasm", self, "on_ran_out_of_enthusiasm")
 	
@@ -58,6 +61,10 @@ func update_hooks_label() -> void:
 				hooks_label.text = str(bobber.bobber_stats.hooks_amount)
 		else:
 			hooks_label.text = str(0)
+
+
+func update_total_waves() -> void:
+	total_waves.text = "/" + str(3)
 
 
 func update_wave_number_label(current_wave_number : int) -> void:
@@ -114,20 +121,38 @@ func on_retaliated_fish(bobber_retaliation : Node, bobber_position : Vector2) ->
 
 func on_updated_damage() -> void:
 	stats.update_labels(bobber)
+	
 
-
-func proceed_to_next_wave() -> void:
+func proceed_to_next_wave_after_catching_all_fish() -> void:
 	if wave_system_enabled:
 		if has_node(bobber_path) and !proceeding_to_next_wave:
-			proceeding_to_next_wave = true
-			yield(get_tree().create_timer(1), "timeout") # temporary solution to prevent intimidate from breaking the game
-			bobber.start_immunity() # prevent getting hit unfairly when fish spawn (temp solution)
-			fishes.proceed_to_next_wave()
-			update_wave_number_label(fishes.wave_number)
-			set_up_game_based_on_backpack_upon_proceeding_to_next_wave()
-			wave_number_progress_bar.reset_progress_bar()
-			proceeding_to_next_wave = false
-			
+			if GameData.current_wave_number % 3 == 0: # final wave of the round
+				GameData.increment_round_number()
+				bobber.bobber_stats.collect_interest()
+				bobber.bobber_stats.increment_gold(2 + GameData.difficulty_modifier)
+				bobber.queue_free()
+				screen_transition.transition_out()
+			else:
+				proceed_to_next_wave()
+
+
+func proceed_to_next_wave_after_timing_out() -> void:
+	if wave_system_enabled:
+		if has_node(bobber_path) and !proceeding_to_next_wave:
+			if GameData.current_wave_number % 3 != 0: # not final wave of the round
+				proceed_to_next_wave()
+	
+
+func proceed_to_next_wave() -> void:
+	proceeding_to_next_wave = true
+	yield(get_tree().create_timer(1), "timeout") # temporary solution to prevent intimidate from breaking the game
+	bobber.start_immunity() # prevent getting hit unfairly when fish spawn (temp solution)
+	fishes.proceed_to_next_wave()
+	update_wave_number_label(GameData.current_wave_number)
+	set_up_game_based_on_backpack_upon_proceeding_to_next_wave()
+	wave_number_progress_bar.reset_progress_bar()
+	proceeding_to_next_wave = false
+
 	
 func freeze_game() -> void:
 	var freeze_duration : float = 0.1
@@ -138,11 +163,11 @@ func freeze_game() -> void:
 
 func game_over() -> void:
 	if wave_system_enabled:
-		bobber.bobber_stats.reset_when_game_over() 
+		bobber.reset_upon_new_run()
 		bobber.queue_free()
-		if GameData.beat_high_score(fishes.wave_number):
-			GameData.update_high_score(fishes.wave_number)
-			game_over.update_high_score_label(GameData.highest_wave_number_reached)
+		if GameData.beat_high_score():
+			GameData.update_high_score()
+			game_over.update_high_score_label(GameData.highest_round_reached)
 		game_over.show()
 		wave_number_progress_bar.stop_progress_bar_timer()
 
@@ -152,15 +177,16 @@ func congratulate_player() -> void:
 
 func allow_player_to_descend() -> void:
 	can_descend = true
-	
 
-func _input(event):
-	if event is InputEventScreenTouch:
-		if event.is_pressed() and can_descend:
-			transition_to_next_scene()
-			
 
-func transition_to_next_scene() -> void:
+func go_to_next_scene() -> void:
+	if game_over.visible:
+		restart()
+	else:
+		go_to_shop()
+
+
+func go_to_shop() -> void:
 	if next_scene != null:
 		get_tree().change_scene_to(next_scene)
 
@@ -168,7 +194,9 @@ func transition_to_next_scene() -> void:
 func on_clicked_play_again() -> void:
 	screen_transition.transition_out()		
 
+
 func restart() -> void:
+	GameData.reset_game_upon_new_run()
 	get_tree().reload_current_scene()	
 
 
@@ -261,7 +289,6 @@ func set_up_game_based_on_backpack_upon_catching_fish(fish_position : Vector2) -
 		if bobber.rejuvenated:
 			bobber_stats.gain_hook(1)
 			update_hooks_label()
-			GameEvents.emit_signal("bobber_gained_hook", 1)
 	
 	bobber.update_damage()
 	
@@ -288,11 +315,11 @@ func set_up_free_money() -> void:
 	add_child(current_free_money)
 	current_free_money.connect("created_coin", self, "on_created_coin")
 	if backpack.item_level("Free Money") == 1:
-		current_free_money.set_timer(15)
+		current_free_money.set_timer(30)
 	elif backpack.item_level("Free Money") == 2:
-		current_free_money.set_timer(10)
+		current_free_money.set_timer(20)
 	else:
-		current_free_money.set_timer(5)
+		current_free_money.set_timer(10)
 	current_free_money.start_timer()
 
 
@@ -319,11 +346,11 @@ func set_up_periodic_life_gain() -> void:
 	add_child(current_periodic_life_gain)
 	current_periodic_life_gain.connect("created_hook", self, "on_created_hook")
 	if backpack.item_level("Periodic Life Gain") == 1:
-		current_periodic_life_gain.set_timer(30)
-	elif backpack.item_level("Periodic Life Gain") == 2:
 		current_periodic_life_gain.set_timer(20)
-	else:
+	elif backpack.item_level("Periodic Life Gain") == 2:
 		current_periodic_life_gain.set_timer(10)
+	else:
+		current_periodic_life_gain.set_timer(5)
 	current_periodic_life_gain.start_timer()
 
 

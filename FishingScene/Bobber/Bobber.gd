@@ -53,7 +53,7 @@ func _physics_process(delta : float) -> void:
 	else:
 		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-		var speed : float = 400
+		var speed : float = 500
 		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
 		arrow.configure_arrow_location(velocity)
 		move_and_slide(velocity)
@@ -102,6 +102,11 @@ func end_immunity():
 	blink_animation_player.play("EndImmune")
 	immune = false
 
+
+func reset_upon_new_run() -> void:
+	bobber_stats.reset_when_game_over()
+	backpack.backpack.clear()
+	
 
 func start_rejuvenated(duration_of_rejuvenation : int) -> void:
 	bobber_sprite.set_rejuvenated()
@@ -339,7 +344,7 @@ func activate_underdog() -> void:
 
 
 func can_activate_captain_hook_beta(num_of_fish_caught : int) -> bool:
-	return num_of_fish_caught % 5 == 0
+	return num_of_fish_caught % 7 == 0
 
 
 func activate_captain_hook_beta() -> void:
@@ -361,7 +366,6 @@ func activate_captain_hook_beta() -> void:
 		else:
 			num_of_hook_gained = 1
 	bobber_stats.gain_hook(num_of_hook_gained)
-	GameEvents.emit_signal("bobber_gained_hook", num_of_hook_gained)
 
 
 func activate_captain_hook_alpha() -> void:

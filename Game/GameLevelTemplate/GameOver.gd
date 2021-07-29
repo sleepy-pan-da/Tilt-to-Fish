@@ -7,7 +7,7 @@ var released_button : bool = false
 signal clicked_play_again
 
 func _ready() -> void:
-	update_high_score_label(GameData.highest_wave_number_reached)
+	update_high_score_label(GameData.highest_round_reached)
 
 
 func _on_Button_button_down() -> void:
@@ -28,4 +28,4 @@ func _on_Tween_tween_all_completed() -> void:
 
 
 func update_high_score_label(new_high_score) -> void:
-	high_score.text = "Highest wave number reached: " + str(new_high_score)
+	high_score.text = "Highest round reached: " + str(new_high_score)
