@@ -38,7 +38,7 @@ func spawn_fish():
 func add_fish_to_scene() -> void:
 	var index: int = fish_to_spawn.generate_random_index_for_fish()
 	var spawned_fish = fish_to_spawn.fishes[index].instance()
-	spawned_fish.make_fish_tankier_with_each_interval_of_five_rounds(GameData.difficulty_modifier)
+	spawned_fish.make_fish_tankier_with_difficulty_modifier(GameData.difficulty_modifier)
 	add_child(spawned_fish)
 	spawned_fish.global_position = generate_random_pt_on_screen()
 

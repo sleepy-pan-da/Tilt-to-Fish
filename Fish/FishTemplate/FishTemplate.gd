@@ -126,5 +126,8 @@ func _on_Hurtbox_area_entered(area):
 		progress_bar.increment_bar(area.damage)
 
 
-func make_fish_tankier_with_each_interval_of_five_rounds(interval_of_five_rounds : int):
-	amount_needed_to_catch *= pow(1.5, interval_of_five_rounds)
+func make_fish_tankier_with_difficulty_modifier(difficulty_modifier : int):
+	amount_needed_to_catch *= pow(1.5, difficulty_modifier)
+	amount_needed_to_catch = round(amount_needed_to_catch) 
+	# if not rounded, amount_needed to catch might have more than 1dp. 
+	# Step of progress bar is now 0.1. this might result in the case where u never catch the fish

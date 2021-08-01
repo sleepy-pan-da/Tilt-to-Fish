@@ -31,8 +31,10 @@ func reset_round_number() -> void:
 
 func increment_round_number() -> void:
 	round_number += 1
-	if round_number % 5 == 1 and round_number != 1:
+	if (round_number - 6) % 3 == 0 and round_number >= 6:
 		increment_difficulty()
+#	if round_number % 5 == 1 and round_number != 1:
+#		increment_difficulty()
 
 
 func reset_difficulty_modifier() -> void:

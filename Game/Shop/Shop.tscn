@@ -1,0 +1,435 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/faceon_gold_coin.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fishing Scene/UI elements/UI_hook.png" type="Texture" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Game/Shop/UI.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Custom Resources/CurrentBackPack.tres" type="Resource" id=7]
+[ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=8]
+[ext_resource path="res://Game/Shop/ItemsSold.gd" type="Script" id=9]
+[ext_resource path="res://Resources/Custom Resources/AlphaItemPool.tres" type="Resource" id=10]
+[ext_resource path="res://Game/Shop/Hooks.gd" type="Script" id=11]
+[ext_resource path="res://Game/Shop/Gold.gd" type="Script" id=12]
+[ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Game/Shop/RoundNumber.gd" type="Script" id=14]
+[ext_resource path="res://Game/Shop/ItemDescription.gd" type="Script" id=15]
+[ext_resource path="res://Game/Shop/ItemName.gd" type="Script" id=16]
+[ext_resource path="res://Game/Shop/DescriptionBox.gd" type="Script" id=17]
+[ext_resource path="res://Game/Shop/BuySellButton.gd" type="Script" id=18]
+[ext_resource path="res://Game/Shop/ItemCost.gd" type="Script" id=19]
+[ext_resource path="res://Game/Shop/ItemSlots.gd" type="Script" id=20]
+[ext_resource path="res://Game/Shop/BackpackPlaceHolder.tres" type="Texture" id=21]
+
+[sub_resource type="DynamicFont" id=1]
+size = 38
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 38
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 2 )
+
+[node name="Shop" type="Node2D"]
+
+[node name="Pond" parent="." instance=ExtResource( 1 )]
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+bobber_stats = ExtResource( 8 )
+backpack = ExtResource( 7 )
+game_scene = "res://Game/WaveSystem/WaveLevel.tscn"
+
+[node name="Hooks" type="Control" parent="UI"]
+margin_right = 1280.0
+margin_bottom = 720.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UI/Hooks"]
+margin_left = 30.0
+margin_top = 16.0
+margin_right = 3111.0
+margin_bottom = 2048.0
+rect_scale = Vector2( 0.042, 0.042 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HooksLabel" type="Label" parent="UI/Hooks"]
+margin_left = 99.0
+margin_top = 48.0
+margin_right = 187.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 1 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gold" type="Control" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UI/Gold"]
+margin_left = -40.0
+margin_top = -192.0
+margin_right = 472.0
+margin_bottom = 320.0
+rect_scale = Vector2( 0.125, 0.125 )
+rect_pivot_offset = Vector2( 256, 256 )
+texture = ExtResource( 3 )
+
+[node name="GoldLabel" type="Label" parent="UI/Gold"]
+margin_left = 256.0
+margin_top = 48.0
+margin_right = 312.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 2 )
+text = "99"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RoundNumber" type="Label" parent="UI"]
+margin_left = 38.0
+margin_top = 112.0
+margin_right = 191.0
+margin_bottom = 130.0
+custom_fonts/font = SubResource( 10 )
+text = "Round Number: "
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shop" type="Label" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -169.0
+margin_top = -336.0
+margin_right = 169.0
+margin_bottom = -268.0
+custom_fonts/font = SubResource( 3 )
+text = "The Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reroll" type="Button" parent="UI"]
+margin_left = 1088.0
+margin_top = 24.0
+margin_right = 1248.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 4 )
+text = "Reroll (2)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lock" type="Button" parent="UI"]
+margin_left = 896.0
+margin_top = 24.0
+margin_right = 1056.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 4 )
+text = "Lock"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemsSold" type="HBoxContainer" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -325.0
+margin_top = -250.0
+margin_right = 325.0
+margin_bottom = -90.0
+custom_constants/separation = 50
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_pool = ExtResource( 10 )
+
+[node name="Button" type="Button" parent="UI/ItemsSold"]
+margin_right = 183.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 12 )
+clip_text = true
+
+[node name="Button2" type="Button" parent="UI/ItemsSold"]
+margin_left = 233.0
+margin_right = 416.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 13 )
+
+[node name="Button3" type="Button" parent="UI/ItemsSold"]
+margin_left = 466.0
+margin_right = 650.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 14 )
+
+[node name="DescriptionBox" type="Control" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -442.0
+margin_top = -40.0
+margin_right = 442.0
+margin_bottom = 194.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_pool = ExtResource( 10 )
+
+[node name="ItemName" type="Label" parent="UI/DescriptionBox"]
+margin_right = 370.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 6 )
+text = "Item Name"
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCost" type="Label" parent="UI/DescriptionBox"]
+margin_left = 546.0
+margin_right = 666.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 6 )
+text = "Cost:"
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescription" type="Label" parent="UI/DescriptionBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 40.0
+margin_right = -242.0
+custom_fonts/font = SubResource( 7 )
+text = "Item Description"
+autowrap = true
+script = ExtResource( 15 )
+
+[node name="BuySellButton" type="Button" parent="UI/DescriptionBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 261.0
+margin_top = -38.5
+margin_right = 373.0
+margin_bottom = 38.5
+custom_fonts/font = SubResource( 8 )
+text = "BUY"
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Backpack" type="Control" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -335.0
+margin_top = 256.0
+margin_right = 336.0
+margin_bottom = 336.0
+
+[node name="BackpackSprite" type="TextureRect" parent="UI/Backpack"]
+margin_left = 25.0
+margin_top = 9.0
+margin_right = 89.0
+margin_bottom = 73.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlots" type="HBoxContainer" parent="UI/Backpack"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.0
+margin_top = -40.0
+margin_right = 228.0
+margin_bottom = 40.0
+custom_constants/separation = 20
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+occupied_item_icon = ExtResource( 21 )
+
+[node name="Button" type="Button" parent="UI/Backpack/ItemSlots"]
+margin_right = 75.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/Backpack/ItemSlots/Button"]
+margin_left = 52.0
+margin_top = -17.0
+margin_right = 82.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 15 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="UI/Backpack/ItemSlots"]
+margin_left = 95.0
+margin_right = 170.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/Backpack/ItemSlots/Button2"]
+margin_left = 52.0
+margin_top = -17.0
+margin_right = 82.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 15 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="UI/Backpack/ItemSlots"]
+margin_left = 190.0
+margin_right = 265.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/Backpack/ItemSlots/Button3"]
+margin_left = 52.0
+margin_top = -17.0
+margin_right = 82.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 15 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="UI/Backpack/ItemSlots"]
+margin_left = 285.0
+margin_right = 360.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/Backpack/ItemSlots/Button4"]
+margin_left = 52.0
+margin_top = -17.0
+margin_right = 82.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 15 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="UI/Backpack/ItemSlots"]
+margin_left = 380.0
+margin_right = 456.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/Backpack/ItemSlots/Button5"]
+margin_left = 52.0
+margin_top = -17.0
+margin_right = 82.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 15 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextWave" type="Button" parent="UI"]
+margin_left = 1112.0
+margin_top = 648.0
+margin_right = 1272.0
+margin_bottom = 704.0
+custom_fonts/font = SubResource( 9 )
+text = "Next wave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenTransition" parent="UI" instance=ExtResource( 13 )]
+
+[connection signal="pressed" from="UI/Reroll" to="UI" method="_on_Reroll_pressed"]
+[connection signal="pressed" from="UI/NextWave" to="UI" method="_on_NextWave_pressed"]
