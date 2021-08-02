@@ -72,7 +72,7 @@ func collect_interest() -> void:
 
 func reset_when_game_over() -> void: 
 	gold_amount = 0
-	hooks_amount = 3
+	hooks_amount = max_hooks_amount
 	turned_underdog = false
 
 

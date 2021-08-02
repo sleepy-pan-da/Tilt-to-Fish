@@ -32,3 +32,6 @@ func disappear() -> void:
 	tween.interpolate_property(self, "rect_scale", Vector2(0.25, 0.25), Vector2(0, 0), 0.5, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 	tween.interpolate_property(self, "modulate:a", 1, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
+
+
+

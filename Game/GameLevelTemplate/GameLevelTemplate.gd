@@ -44,6 +44,8 @@ func _ready() -> void:
 	wave_number_progress_bar.connect("ran_out_of_enthusiasm", self, "on_ran_out_of_enthusiasm")
 	
 
+			
+
 func create_bobber_instance() -> void:
 	if current_bobber != null: # helps to test without bobber
 		bobber = current_bobber.instance()
@@ -156,7 +158,7 @@ func proceed_to_next_wave() -> void:
 
 	
 func freeze_game() -> void:
-	var freeze_duration : float = 0.1
+	var freeze_duration : float = 0.2
 	get_tree().paused = true
 	yield(get_tree().create_timer(freeze_duration), 'timeout')
 	get_tree().paused = false

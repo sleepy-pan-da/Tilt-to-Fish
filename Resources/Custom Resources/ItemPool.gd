@@ -6,6 +6,7 @@ export(Array, String) var common_items
 export(Array, String) var uncommon_items
 export(Array, String) var rare_items
 
+var locked_items : Array = []
 
 var item_info = {
 					# Common items
@@ -166,6 +167,7 @@ var item_info = {
 # rarity breakdown
 # common/uncommon/rare
 # 50%/40%/10%
+# cost of items: common items -> 1, uncommon items -> 2, rare items -> 3
 func pick_an_item() -> String:
 	randomize()
 	var luck : int = randi() % 100 # 0-99
@@ -193,11 +195,5 @@ func pick_a_common_item() -> String:
 	return common_items[selected_index]
 
 
-# common items -> 1, uncommon items -> 2, rare items -> 3
-func get_cost_of_item(item_name : String) -> int:
-	if item_name in common_items:
-		return 1
-	elif item_name in uncommon_items:
-		return 2
-	else:
-		return 3
+func have_locked_items() -> bool:
+	return locked_items.size() > 0

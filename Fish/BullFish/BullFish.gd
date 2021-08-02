@@ -14,6 +14,7 @@ func _ready() -> void:
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
 	lunge_at_bobber.connect("recovered_from_stun", self, "on_recovered_from_stun")
+	fish_sprite.connect("ready_to_attack", self, "on_ready_to_attack")
 	set_up_progress_bar()
 
 
@@ -45,10 +46,8 @@ func _physics_process(delta) -> void:
 
 
 func on_recovered_from_stun() -> void:
-	fish_sprite.react_when_recovered()
-
-#func _on_StunnedTimer_timeout():
-#	stunned = false
-#	steering_behaviour.reset_current_velocity()
+	fish_sprite.react_when_recovering()
 
 
+func on_ready_to_attack() -> void:
+	lunge_at_bobber.recovered_from_stun_and_ready_to_attack()

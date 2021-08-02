@@ -36,8 +36,6 @@ frames = SubResource( 1 )
 script = ExtResource( 3 )
 colours_of_dvd = [ Color( 1, 0.98, 0.98, 1 ), Color( 0.49, 0.99, 0, 1 ), Color( 0.94, 0.5, 0.5, 1 ), Color( 1, 0, 1, 1 ), Color( 0.69, 0.77, 0.87, 1 ), Color( 1, 1, 0, 1 ) ]
 
-[node name="Tween" type="Tween" parent="KinematicBody/FishSprite" index="0"]
-
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 2 )
 

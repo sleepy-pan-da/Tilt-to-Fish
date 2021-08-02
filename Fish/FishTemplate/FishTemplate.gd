@@ -111,18 +111,22 @@ func obtain_bobber_reference(bobber : Bobber) -> void:
 func _on_Hurtbox_body_entered(body):
 	if body.get_class() == "AlphaOrbs":
 		progress_bar.appear()
+		fish_sprite.react_upon_getting_hurtbox_hit()
 		progress_bar.increment_bar(body.damage)
 	elif body.get_class() == "GammaOrbs":
 		progress_bar.appear()
+		fish_sprite.react_upon_getting_hurtbox_hit()
 		progress_bar.increment_bar(body.damage)
 
 
 func _on_Hurtbox_area_entered(area):
 	if area.get_class() == "Intimidate":
 		progress_bar.appear()
+		fish_sprite.react_upon_getting_hurtbox_hit()
 		progress_bar.increment_bar(area.damage)
 	elif area.get_class() == "Retaliation":
 		progress_bar.appear()
+		fish_sprite.react_upon_getting_hurtbox_hit()
 		progress_bar.increment_bar(area.damage)
 
 

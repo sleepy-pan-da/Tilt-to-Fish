@@ -31,43 +31,43 @@ font_data = ExtResource( 2 )
 size = 38
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=10]
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=3]
-size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=12]
-size = 10
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 10
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=14]
-size = 10
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 24
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=15]
-size = 48
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 2 )
 
 [node name="Shop" type="Node2D"]
@@ -149,7 +149,7 @@ margin_left = 38.0
 margin_top = 112.0
 margin_right = 191.0
 margin_bottom = 130.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 3 )
 text = "Round Number: "
 script = ExtResource( 14 )
 __meta__ = {
@@ -165,7 +165,7 @@ margin_left = -169.0
 margin_top = -336.0
 margin_right = 169.0
 margin_bottom = -268.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "The Shop"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -176,7 +176,7 @@ margin_left = 1088.0
 margin_top = 24.0
 margin_right = 1248.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Reroll (2)"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -187,7 +187,8 @@ margin_left = 896.0
 margin_top = 24.0
 margin_right = 1056.0
 margin_bottom = 80.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+toggle_mode = true
 text = "Lock"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -213,7 +214,7 @@ item_pool = ExtResource( 10 )
 margin_right = 183.0
 margin_bottom = 160.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 6 )
 clip_text = true
 
 [node name="Button2" type="Button" parent="UI/ItemsSold"]
@@ -221,14 +222,14 @@ margin_left = 233.0
 margin_right = 416.0
 margin_bottom = 160.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 7 )
 
 [node name="Button3" type="Button" parent="UI/ItemsSold"]
 margin_left = 466.0
 margin_right = 650.0
 margin_bottom = 160.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 8 )
 
 [node name="DescriptionBox" type="Control" parent="UI"]
 visible = false
@@ -249,7 +250,7 @@ item_pool = ExtResource( 10 )
 [node name="ItemName" type="Label" parent="UI/DescriptionBox"]
 margin_right = 370.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "Item Name"
 script = ExtResource( 16 )
 __meta__ = {
@@ -260,7 +261,7 @@ __meta__ = {
 margin_left = 546.0
 margin_right = 666.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 9 )
 text = "Cost:"
 script = ExtResource( 19 )
 __meta__ = {
@@ -272,7 +273,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 40.0
 margin_right = -242.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 10 )
 text = "Item Description"
 autowrap = true
 script = ExtResource( 15 )
@@ -286,7 +287,7 @@ margin_left = 261.0
 margin_top = -38.5
 margin_right = 373.0
 margin_bottom = 38.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 text = "BUY"
 script = ExtResource( 18 )
 __meta__ = {
@@ -340,7 +341,7 @@ margin_left = 52.0
 margin_top = -17.0
 margin_right = 82.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 12 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -358,7 +359,7 @@ margin_left = 52.0
 margin_top = -17.0
 margin_right = 82.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 12 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -376,7 +377,7 @@ margin_left = 52.0
 margin_top = -17.0
 margin_right = 82.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 12 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -394,7 +395,7 @@ margin_left = 52.0
 margin_top = -17.0
 margin_right = 82.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 12 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -412,7 +413,7 @@ margin_left = 52.0
 margin_top = -17.0
 margin_right = 82.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 12 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -423,7 +424,7 @@ margin_left = 1112.0
 margin_top = 648.0
 margin_right = 1272.0
 margin_bottom = 704.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 13 )
 text = "Next wave"
 __meta__ = {
 "_edit_use_anchors_": false

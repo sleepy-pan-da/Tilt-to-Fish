@@ -44,8 +44,6 @@ collision_mask = 33
 frames = SubResource( 1 )
 script = ExtResource( 7 )
 
-[node name="Tween" type="Tween" parent="KinematicBody/FishSprite" index="0"]
-
 [node name="RippleSprite" parent="KinematicBody" index="3"]
 scale = Vector2( 0.14, 0.14 )
 

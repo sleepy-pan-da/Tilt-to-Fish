@@ -11,6 +11,7 @@ onready var round_number = $RoundNumber
 onready var items_sold = $ItemsSold
 onready var description_box = $DescriptionBox
 onready var backpack_slots = $Backpack/ItemSlots
+onready var lock_button = $Lock
 
 var index_of_currently_pressed_item : int = -1
 
@@ -70,7 +71,6 @@ func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
 	
 
 func on_pressed_buy_sell_button() -> void:
-	print("hi")
 	var button_text : String = description_box.buy_sell_button.text
 	if button_text == "Buy":
 		var name_of_item_to_buy : String = description_box.item_name.get_item_name()
@@ -120,4 +120,8 @@ func _on_NextWave_pressed() -> void:
 
 
 func go_back_to_fishing() -> void:
+	if lock_button.pressed:
+		items_sold.lock_items()
+	else:
+		items_sold.forget_locked_items()
 	get_tree().change_scene(game_scene)

@@ -1,6 +1,5 @@
-extends AnimatedSprite
+extends FishTemplateFishSprite
 
-onready var tween = $Tween
 export(Array, Color) var colours_of_dvd
 var index : int = 0
 

@@ -10,7 +10,7 @@
 [ext_resource path="res://Fish/ScrubFish/ScrubFishAnimatedSprites.tres" type="SpriteFrames" id=8]
 [ext_resource path="res://Fish/BootlegFish/BootlegFishAnimatedSprites.tres" type="SpriteFrames" id=10]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "Morph"
 length = 0.63
 step = 0.01
@@ -78,10 +78,8 @@ position = Vector2( -10, 0 )
 frames = ExtResource( 10 )
 script = ExtResource( 7 )
 
-[node name="Tween" type="Tween" parent="KinematicBody/FishSprite" index="0"]
-
 [node name="FishAnimation" type="AnimationPlayer" parent="KinematicBody" index="3"]
-anims/Morph = SubResource( 4 )
+anims/Morph = SubResource( 1 )
 
 [node name="RippleSprite" parent="KinematicBody" index="4"]
 scale = Vector2( 0.2, 0.2 )

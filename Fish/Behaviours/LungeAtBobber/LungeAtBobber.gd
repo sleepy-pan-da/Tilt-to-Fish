@@ -49,10 +49,14 @@ func _on_CooldownBetweenLunges_timeout() -> void:
 	can_lunge = true
 
 
-func _on_StunnedTimer_timeout():
+func _on_StunnedTimer_timeout() -> void:
+	emit_signal("recovered_from_stun")
+
+
+func recovered_from_stun_and_ready_to_attack() -> void:
 	can_lunge = true
 	stunned = false
-	emit_signal("recovered_from_stun")
+
 
 func lunge(bobber : Bobber) -> Vector2:
 	var velocity : Vector2
