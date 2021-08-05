@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -13,13 +13,14 @@
 [ext_resource path="res://Game/Options/ToggleBobberButton.gd" type="Script" id=11]
 [ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Testing/AccelerometerLabel.gd" type="Script" id=13]
+[ext_resource path="res://Game/Options/PlayButton.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 48
+size = 64
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -31,16 +32,21 @@ size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 32
+size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 2 )
+
 [node name="Options" type="Node2D"]
 script = ExtResource( 7 )
 main_menu = "res://Game/MainMenu/MainMenu.tscn"
+game_scene = "res://Game/WaveSystem/WaveLevel.tscn"
 control_config = ExtResource( 8 )
 current_bobber = ExtResource( 12 )
 
@@ -79,6 +85,32 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="UI/BackButton/Label"]
 
+[node name="PlayButton" type="Button" parent="UI"]
+margin_left = 1080.0
+margin_top = 14.0
+margin_right = 1264.0
+margin_bottom = 70.0
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+flat = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/PlayButton"]
+margin_right = 40.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 91, 34 )
+custom_fonts/font = SubResource( 2 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="UI/PlayButton/Label"]
+
 [node name="HoldingPreference" type="Label" parent="UI"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -88,7 +120,7 @@ margin_left = -562.5
 margin_top = -258.0
 margin_right = 562.5
 margin_bottom = -190.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "how will you hold the device?"
 align = 1
 valign = 1
@@ -118,7 +150,7 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 144, 26 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "top-down"
 align = 1
 valign = 1
@@ -160,7 +192,7 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 119, 26 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "regular"
 align = 1
 valign = 1
@@ -185,7 +217,7 @@ margin_left = -239.5
 margin_top = 118.0
 margin_right = 239.5
 margin_bottom = 170.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Tilt Sensitivity"
 align = 1
 valign = 1
@@ -234,7 +266,7 @@ __meta__ = {
 margin_right = 40.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 141, 17 )
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "toggle bobber"
 align = 1
 valign = 1
@@ -249,7 +281,7 @@ margin_left = 16.0
 margin_top = 608.0
 margin_right = 56.0
 margin_bottom = 676.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -263,6 +295,9 @@ position = Vector2( 640, 360 )
 [connection signal="button_down" from="UI/BackButton" to="UI/BackButton" method="_on_BackButton_button_down"]
 [connection signal="button_up" from="UI/BackButton" to="UI/BackButton" method="_on_BackButton_button_up"]
 [connection signal="tween_all_completed" from="UI/BackButton/Label/Tween" to="UI/BackButton" method="_on_Tween_tween_all_completed"]
+[connection signal="button_down" from="UI/PlayButton" to="UI/PlayButton" method="_on_PlayButton_button_down"]
+[connection signal="button_up" from="UI/PlayButton" to="UI/PlayButton" method="_on_PlayButton_button_up"]
+[connection signal="tween_all_completed" from="UI/PlayButton/Label/Tween" to="UI/PlayButton" method="_on_Tween_tween_all_completed"]
 [connection signal="button_down" from="UI/HoldingPreference/TopDownButton" to="UI/HoldingPreference/TopDownButton" method="_on_TopDownButton_button_down"]
 [connection signal="button_up" from="UI/HoldingPreference/TopDownButton" to="UI/HoldingPreference/TopDownButton" method="_on_TopDownButton_button_up"]
 [connection signal="tween_all_completed" from="UI/HoldingPreference/TopDownButton/Label/Tween" to="UI/HoldingPreference/TopDownButton" method="_on_Tween_tween_all_completed"]

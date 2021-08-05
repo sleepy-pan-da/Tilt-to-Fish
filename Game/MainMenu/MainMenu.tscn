@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Game/MainMenu/Options.gd" type="Script" id=4]
 [ext_resource path="res://Game/MainMenu/Start.gd" type="Script" id=5]
 [ext_resource path="res://Game/MainMenu/MainMenu.gd" type="Script" id=6]
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Game/Options/Options.tscn" type="PackedScene" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -14,8 +12,7 @@ font_data = ExtResource( 3 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 6 )
-game_scene = "res://Game/WaveSystem/WaveLevel.tscn"
-option_scene = ExtResource( 9 )
+next_scene = "res://Game/Options/Options.tscn"
 
 [node name="Pond" parent="." instance=ExtResource( 1 )]
 
@@ -29,6 +26,8 @@ __meta__ = {
 }
 
 [node name="Labels" type="Control" parent="UI"]
+margin_right = 1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,10 +43,14 @@ __meta__ = {
 }
 
 [node name="StartButton" type="Button" parent="UI/Labels/Start"]
-margin_left = 232.0
-margin_top = 432.0
-margin_right = 464.0
-margin_bottom = 488.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.0
+margin_top = 124.0
+margin_right = 116.0
+margin_bottom = 180.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
@@ -70,46 +73,8 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="UI/Labels/Start/StartButton/StartLabel"]
 
-[node name="Options" type="Control" parent="UI/Labels"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsButton" type="Button" parent="UI/Labels/Options"]
-margin_left = 800.0
-margin_top = 440.0
-margin_right = 1112.0
-margin_bottom = 496.0
-focus_mode = 0
-shortcut_in_tooltip = false
-enabled_focus_mode = 0
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OptionsLabel" type="Label" parent="UI/Labels/Options/OptionsButton"]
-margin_right = 311.0
-margin_bottom = 68.0
-rect_pivot_offset = Vector2( 155, 34 )
-custom_fonts/font = SubResource( 1 )
-text = "options"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="UI/Labels/Options/OptionsButton/OptionsLabel"]
-
 [node name="ScreenTransition" parent="UI" instance=ExtResource( 8 )]
 
 [connection signal="button_down" from="UI/Labels/Start/StartButton" to="UI/Labels/Start" method="_on_StartButton_button_down"]
 [connection signal="button_up" from="UI/Labels/Start/StartButton" to="UI/Labels/Start" method="_on_StartButton_button_up"]
 [connection signal="tween_all_completed" from="UI/Labels/Start/StartButton/StartLabel/Tween" to="UI/Labels/Start" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="UI/Labels/Options/OptionsButton" to="UI/Labels/Options" method="_on_OptionsButton_button_down"]
-[connection signal="button_up" from="UI/Labels/Options/OptionsButton" to="UI/Labels/Options" method="_on_OptionsButton_button_up"]
-[connection signal="tween_all_completed" from="UI/Labels/Options/OptionsButton/OptionsLabel/Tween" to="UI/Labels/Options" method="_on_Tween_tween_all_completed"]

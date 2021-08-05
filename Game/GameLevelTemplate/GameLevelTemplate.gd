@@ -93,6 +93,7 @@ func on_bobber_entered_scene() -> void:
 	
 func _on_bobber_took_damage(damage_taken : int) -> void:
 	freeze_game()
+	Input.vibrate_handheld(100) # to give haptic feedback to player
 	set_up_game_based_on_backpack_upon_taking_damage(damage_taken)
 	update_hooks_label()
 	bobber.start_immunity()
