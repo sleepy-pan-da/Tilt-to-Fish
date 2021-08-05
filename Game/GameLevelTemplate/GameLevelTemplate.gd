@@ -6,6 +6,7 @@ export(PackedScene) onready var free_money
 export(PackedScene) onready var pumping_iron
 export(PackedScene) onready var periodic_life_gain
 export(PackedScene) onready var rejuvenated
+export(PackedScene) onready var long_rest
 export var wave_system_enabled : bool = true # used for disabling wave system and testing individual fish
 
 onready var fishes = $Fishes
@@ -102,6 +103,7 @@ func _on_bobber_took_damage(damage_taken : int) -> void:
 
 
 func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
+	update_hooks_label()
 	set_up_game_based_on_backpack_upon_gaining_hook(num_of_hook_gained)
 
 
@@ -230,6 +232,8 @@ func set_up_game_based_on_backpack() -> void:
 		set_up_periodic_life_gain()
 	if backpack.has_item("Rejuvenated"):
 		set_up_rejuvenated()
+	if backpack.has_item("Long Rest"):
+		set_up_long_rest()
 
 
 func set_up_game_based_on_backpack_upon_proceeding_to_next_wave() -> void:
@@ -359,10 +363,27 @@ func set_up_periodic_life_gain() -> void:
 
 
 func on_created_hook(hook) -> void:
-	add_child(hook)
 	hook.global_position = fishes.generate_random_pt_on_screen()
 	hook.connect("bobber_touched_hook", self, "update_hooks_label")
 
+
+func set_up_long_rest() -> void:
+	var backpack = bobber.backpack
+	var current_long_rest = long_rest.instance()
+	add_child(current_long_rest)
+	current_long_rest.connect("created_long_rest_orb", self, "on_created_long_rest_orb")
+	if backpack.item_level("Long Rest") == 1:
+		current_long_rest.set_timer(25)
+	elif backpack.item_level("Long Rest") == 2:
+		current_long_rest.set_timer(15)
+	else:
+		current_long_rest.set_timer(10)
+	current_long_rest.start_timer()
+	
+	
+func on_created_long_rest_orb(long_rest_orb) -> void:
+	long_rest_orb.global_position = fishes.generate_random_pt_on_screen() 	
+	
 
 func set_up_rejuvenated() -> void:
 	var backpack = bobber.backpack
@@ -371,7 +392,7 @@ func set_up_rejuvenated() -> void:
 	current_rejuvenated.connect("created_rejuvenate_orb", self, "on_created_rejuvenate_orb")
 	if backpack.item_level("Rejuvenated") == 1:
 		current_rejuvenated.set_timer(40)
-	elif backpack.item_levl("Rejuvenated") == 2:
+	elif backpack.item_level("Rejuvenated") == 2:
 		current_rejuvenated.set_timer(30)
 	else:
 		current_rejuvenated.set_timer(20)
@@ -382,3 +403,5 @@ func on_created_rejuvenate_orb(rejuvenate_orb) -> void:
 	add_child(rejuvenate_orb)
 	rejuvenate_orb.global_position = fishes.generate_random_pt_on_screen() 
 	
+
+

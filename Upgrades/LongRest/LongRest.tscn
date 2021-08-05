@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Upgrades/LongRest/LongRest.gd" type="Script" id=1]
+[ext_resource path="res://Upgrades/Orbs/LongRestOrb/LongRestOrb.tscn" type="PackedScene" id=2]
+
+[node name="LongRest" type="Node2D"]
+script = ExtResource( 1 )
+long_rest_orb = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

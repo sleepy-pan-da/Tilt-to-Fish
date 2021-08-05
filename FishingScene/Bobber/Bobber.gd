@@ -20,7 +20,8 @@ onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
 onready var get_excited_timer = $GetExcitedTimer
 onready var rejuvenated_timer = $RejuvenatedTimer
-
+onready var long_rest_timer = $LongRestTimer
+onready var long_rest_progress_bar = $LongRestProgressBar
 
 var have_immunity : bool = true 
 var immune : bool = false 
@@ -123,6 +124,17 @@ func end_rejuvenated() -> void:
 	rejuvenated = false
 
 
+func start_long_rest(duration_of_long_rest : int) -> void:
+	long_rest_timer.start(duration_of_long_rest)
+	long_rest_progress_bar.set_up_progress_bar()
+	
+
+func _on_LongRestTimer_timeout():
+	var number_of_hooks_to_gain = bobber_stats.max_hooks_amount - bobber_stats.hooks_amount
+	if number_of_hooks_to_gain > 0:
+		bobber_stats.gain_hook(number_of_hooks_to_gain)
+	
+	
 func get_class() -> String:
 	return "Bobber"
 
@@ -336,11 +348,11 @@ func can_activate_underdog() -> bool:
 func activate_underdog() -> void:
 	bobber_stats.turned_underdog = true
 	if backpack.item_level("Underdog") == 1:
-		bobber_stats.damage_multiplier *= 2
-	elif backpack.item_level("Underdog") == 2:
 		bobber_stats.damage_multiplier *= 3
-	else:
+	elif backpack.item_level("Underdog") == 2:
 		bobber_stats.damage_multiplier *= 4
+	else:
+		bobber_stats.damage_multiplier *= 5
 
 
 func can_activate_captain_hook_beta(num_of_fish_caught : int) -> bool:
@@ -500,14 +512,14 @@ func update_masochistic() -> void:
 
 func compute_masochistic_damage_multiplier(initial_masochistic_stacks : int):
 	if backpack.item_level("Masochistic") == 1:
-		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_masochistic_stacks))
-		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.masochistic_stacks))
+		bobber_stats.damage_multiplier /= (1 + (0.3 * initial_masochistic_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.3 * bobber_stats.masochistic_stacks))
 	elif backpack.item_level("Masochistic") == 2:
-		bobber_stats.damage_multiplier /= (1 + (0.4 * initial_masochistic_stacks))
-		bobber_stats.damage_multiplier *= (1 + (0.4 * bobber_stats.masochistic_stacks))
+		bobber_stats.damage_multiplier /= (1 + (0.6 * initial_masochistic_stacks))
+		bobber_stats.damage_multiplier *= (1 + (0.6 * bobber_stats.masochistic_stacks))
 	else:
-		bobber_stats.damage_multiplier /= (1 + (0.8 * initial_masochistic_stacks))
-		bobber_stats.damage_multiplier *= (1 + (0.8 * bobber_stats.masochistic_stacks))
+		bobber_stats.damage_multiplier /= (1 + (1.2 * initial_masochistic_stacks))
+		bobber_stats.damage_multiplier *= (1 + (1.2 * bobber_stats.masochistic_stacks))
 
 
 func get_excited() -> void:
@@ -586,6 +598,9 @@ func compute_pumping_iron_damage_multiplier(initial_iron_stacks : int) -> void:
 	else:
 		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_iron_stacks))
 		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.pumping_iron_stacks))
+
+
+
 
 
 

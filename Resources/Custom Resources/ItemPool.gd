@@ -74,7 +74,7 @@ var item_info = {
 					"Pumping Iron"	:
 					{
 						"Cost"			:	2,
-						"Description"	:	"Create an iron orb which when touched gains you an iron stack \n\n+5/10/20% damage for each stack \n\nStacks infinitely \n\nStacks resets upon fishing"
+						"Description"	:	"Create an iron orb which when touched gains you an iron stack \n\nNew iron orb will spawn 5s after touching \n\n+5/10/20% damage for each stack \n\nStacks infinitely \n\nStacks resets upon fishing"
 					},
 					
 					"Thrill Seeker"	:
@@ -98,7 +98,7 @@ var item_info = {
 					"Masochistic"	:
 					{
 						"Cost"			:	2,
-						"Description"	:	"Upon taking damage, gain a masochistic stack \n\n+20/40/80% damage for each stack \n\nStacks infinitely \n\nStacks reset upon fishing"
+						"Description"	:	"Upon taking damage, gain a masochistic stack \n\n+30/60/120% damage for each stack \n\nStacks infinitely \n\nStacks reset upon fishing"
 					},
 					
 					"Enthusiasm"	:
@@ -122,8 +122,14 @@ var item_info = {
 					"Underdog"	:
 					{
 						"Cost"			:	2,
-						"Description"	:	"Upon taking damage, 200/300/400% damage if at 1 hook \n\n(only triggered when u lose to 1 hook, will not be triggered if start fishing with 1 hook) \n\nBuff resets upon fishing"
+						"Description"	:	"Upon taking damage, 300/400/500% damage if at 1 hook \n\n(only triggered when u lose to 1 hook, will not be triggered if start fishing with 1 hook) \n\nBuff resets upon fishing \n\nBuff can only be triggered once per round"
 					}, 
+					
+					"Long Rest"	:
+					{
+						"Cost"			:	2,
+						"Description"	:	"Every 25/15/10s, create a orb which when touched grants 'Fully restores hook count after 10s'"
+					},
 					
 					# Rare items
 					"Rejuvenated"	:

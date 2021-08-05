@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource( 1 )
 common_items = [ "Strength", "Retaliation", "Captain Hook Alpha", "Poke", "Black Mamba", "Free Money", "Orbiting Orbs Gamma", "Pull Out" ]
-uncommon_items = [ "Masochistic", "Pumping Iron", "Periodic Life Gain", "Captain Hook Beta", "Orbiting Orbs Alpha", "Reassuring Confidence", "Get Excited", "Enthusiasm", "Intimidate", "Underdog", "Thrill Seeker" ]
+uncommon_items = [ "Masochistic", "Pumping Iron", "Periodic Life Gain", "Captain Hook Beta", "Orbiting Orbs Alpha", "Reassuring Confidence", "Get Excited", "Enthusiasm", "Intimidate", "Underdog", "Thrill Seeker", "Long Rest" ]
 rare_items = [ "Confidence", "Heavy Rod", "Gravity", "Live Fast", "Die Young", "Rejuvenated" ]

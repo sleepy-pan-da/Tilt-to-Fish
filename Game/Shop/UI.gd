@@ -81,22 +81,24 @@ func on_pressed_buy_sell_button() -> void:
 		var can_afford : bool = bobber_stats.gold_amount >= cost_of_item_to_buy
 		
 		if can_afford:
-			if backpack.has_space():
-				#add item to backpack
-				bobber_stats.decrement_gold(cost_of_item_to_buy)
-				gold.update_gold_label(bobber_stats.gold_amount)
-				backpack.add_item(name_of_item_to_buy)
-				items_sold.get_child(index_of_currently_pressed_item).text = ""
-				description_box.hide()
-				backpack_slots.update_backpack_ui(backpack)
-			elif backpack.has_item(name_of_item_to_buy) and !backpack.item_is_maxed_out(name_of_item_to_buy):
-				#add item to backpack
-				bobber_stats.decrement_gold(cost_of_item_to_buy)
-				gold.update_gold_label(bobber_stats.gold_amount)
-				backpack.add_item(name_of_item_to_buy)
-				items_sold.get_child(index_of_currently_pressed_item).text = ""
-				description_box.hide()
-				backpack_slots.update_backpack_ui(backpack)
+			if !backpack.has_item(name_of_item_to_buy):
+				if backpack.has_space():
+					#add item to backpack
+					bobber_stats.decrement_gold(cost_of_item_to_buy)
+					gold.update_gold_label(bobber_stats.gold_amount)
+					backpack.add_item(name_of_item_to_buy)
+					items_sold.get_child(index_of_currently_pressed_item).text = ""
+					description_box.hide()
+					backpack_slots.update_backpack_ui(backpack)
+			elif backpack.has_item(name_of_item_to_buy):
+				if !backpack.item_is_maxed_out(name_of_item_to_buy):
+					#add item to backpack
+					bobber_stats.decrement_gold(cost_of_item_to_buy)
+					gold.update_gold_label(bobber_stats.gold_amount)
+					backpack.add_item(name_of_item_to_buy)
+					items_sold.get_child(index_of_currently_pressed_item).text = ""
+					description_box.hide()
+					backpack_slots.update_backpack_ui(backpack)
 			else:
 				return
 		

@@ -11,6 +11,8 @@ func _on_Timer_timeout() -> void:
 
 func create_hook() -> void:
 	var current_hook = hook.instance()
+	add_child(current_hook)
+	current_hook.connect("bobber_touched_hook", self, "start_timer")
 	emit_signal("created_hook", current_hook)
 
 
