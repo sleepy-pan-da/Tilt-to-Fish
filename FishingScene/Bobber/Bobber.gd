@@ -69,8 +69,13 @@ func move(movement_direction_vector : Vector3) -> void:
 		movement_direction_vector = recalibrate_regular_movement_direction_vector(movement_direction_vector)
 	
 	speed_multiplier = compute_speed_multiplier()	
-	x_velocity = movement_direction_vector.x * speed_multiplier
-	y_velocity = -movement_direction_vector.y * speed_multiplier 
+	
+	if movement_direction_vector.length() > 1:
+		x_velocity = movement_direction_vector.x * speed_multiplier
+		y_velocity = -movement_direction_vector.y * speed_multiplier 
+	else:
+		x_velocity = movement_direction_vector.x * speed_multiplier / 2
+		y_velocity = -movement_direction_vector.y * speed_multiplier / 2
 	velocity = Vector2(x_velocity, y_velocity)
 	
 	arrow.configure_arrow_location(velocity)
@@ -102,7 +107,7 @@ func _on_ImmunityTimer_timeout():
 func end_immunity():
 	blink_animation_player.play("EndImmune")
 	immune = false
-
+			
 
 func reset_upon_new_run() -> void:
 	bobber_stats.reset_when_game_over()
@@ -598,6 +603,9 @@ func compute_pumping_iron_damage_multiplier(initial_iron_stacks : int) -> void:
 	else:
 		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_iron_stacks))
 		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.pumping_iron_stacks))
+
+
+
 
 
 

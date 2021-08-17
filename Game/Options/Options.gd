@@ -13,6 +13,7 @@ onready var tilt_sensitivity = $UI/TiltSensitivity
 onready var toggle_bobber_button = $UI/ToggleBobberButton
 onready var screen_transition = $UI/ScreenTransition
 onready var bobber_spawn_pt = $BobberSpawnPt
+onready var ui = $UI
 
 var bobber : Bobber
 var button_clicked_to_determine_next_scene : String
@@ -28,6 +29,13 @@ func _ready() -> void:
 	play_button.connect("clicked_play", self, "on_clicked_play")
 	toggle_bobber_button.connect("clicked_toggle_bobber", self, "manage_bobber_instance")
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
+
+
+#func _process(delta):
+#	print(OS.get_window_size())
+#	ui.rect_size = OS.get_window_size()
+#	print(ui.rect_position)
+
 
 func update_current_holding_preference() -> void:
 	hide_all_ticks()

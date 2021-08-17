@@ -52,7 +52,7 @@ func _on_Timer_timeout() -> void:
 		fire_projectiles()
 
 
-# this stops the firing
+# override function - this stops the firing
 func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	if can_fire:
 		timer.stop()
@@ -64,7 +64,7 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	if body.backpack.has_item("Poke"):
 		progress_bar.increment_bar(body.bobber_stats.poke_damage)
 
-# this resumes the firing
+# override function - this resumes the firing
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	if !can_fire:
 		timer.start()

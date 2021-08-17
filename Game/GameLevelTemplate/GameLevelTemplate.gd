@@ -332,7 +332,6 @@ func set_up_free_money() -> void:
 
 
 func on_created_coin(coin) -> void:
-	add_child(coin)
 	coin.global_position = fishes.generate_random_pt_on_screen()
 
 

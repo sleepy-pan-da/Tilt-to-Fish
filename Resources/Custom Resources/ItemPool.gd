@@ -74,7 +74,7 @@ var item_info = {
 					"Pumping Iron"	:
 					{
 						"Cost"			:	2,
-						"Description"	:	"Create an iron orb which when touched gains you an iron stack \n\nNew iron orb will spawn 5s after touching \n\n+5/10/20% damage for each stack \n\nStacks infinitely \n\nStacks resets upon fishing"
+						"Description"	:	"Create an iron orb which when touched gains you an iron stack \n\nNew iron orb will spawn 5s after touching \n\n+5/10/20% damage for each stack \n\nStacks infinitely, stacks count resets upon fishing"
 					},
 					
 					"Thrill Seeker"	:
@@ -147,7 +147,7 @@ var item_info = {
 					"Gravity"	:
 					{
 						"Cost"			:	3,
-						"Description"	:	"Increased orb speed \n\n 125/150/200% orb damage \n\nFill amount is now zero"
+						"Description"	:	"Increased orb speed \n\n125/150/200% orb damage \n\nFill amount is now zero"
 					},
 					
 					"Live Fast"	:

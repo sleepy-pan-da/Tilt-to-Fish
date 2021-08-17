@@ -1,9 +1,32 @@
-extends Button
+extends TextureButton
 
+export(Texture) var BuyButtonTexture
+export(Texture) var SellButtonTexture
+
+onready var tween = $Tween
+var released_button : bool = false
+signal clicked_buy_sell_button
 
 func update_to_buy() -> void:
-	text = "Buy"
+	texture_normal = BuyButtonTexture
 
 
 func update_to_sell() -> void:
-	text = "Sell" 
+	texture_normal = SellButtonTexture
+
+
+func _on_BuySellButton_button_down():
+	tween.interpolate_property(self, "rect_scale", Vector2(0.064, 0.064), Vector2(0.056, 0.056), 0.08, Tween.TRANS_LINEAR)
+	tween.start()
+
+
+func _on_BuySellButton_button_up():
+	released_button = true
+	tween.interpolate_property(self, "rect_scale", Vector2(0.056, 0.056), Vector2(0.064, 0.064), 0.08, Tween.TRANS_LINEAR)
+	tween.start()
+
+
+func _on_Tween_tween_all_completed():
+	if released_button:
+		released_button = false
+		emit_signal("clicked_buy_sell_button")

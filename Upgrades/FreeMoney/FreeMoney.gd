@@ -10,6 +10,8 @@ func _on_Timer_timeout() -> void:
 
 func create_coin() -> void:
 	var current_coin = coin.instance()
+	add_child(current_coin)
+	current_coin.connect("bobber_touched_coin", self, "start_timer")
 	emit_signal("created_coin", current_coin)
 
 
