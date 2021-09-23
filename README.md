@@ -2,6 +2,7 @@
 
 A single-player roguelike android game made with a friend!
 ![alt-text](https://github.com/sleepy-pan-da/Tilt-to-Fish/blob/0f34e92fe435f73f7d9674773320b5a5ddc3f2fe/Assets/Gifs/Tilt%20to%20Fish!_demo.gif)
+![Buying items from shop](https://github.com/sleepy-pan-da/Tilt-to-Fish/blob/faf9bcde465f028a32eced264ce6c1dc46b6c8c3/Assets/Gifs/Tilt%20to%20Fish!_demo2.gif)
 
 ## Description
 ### How to play?
