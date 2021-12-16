@@ -9,15 +9,15 @@ onready var progress_bar = $KinematicBody/ProgressBar
 onready var check_bobber_in_proximity_area_timer = $CheckBobberInProximityAreaTimer
 onready var recovery_timer = $RecoveryTimer
 
-export(float) var amount_needed_to_catch = 100
-export(float) var fish_recovery_amount = 0.5
+export(float) var amount_needed_to_catch
+export(float) var fish_recovery_amount
 var bobber_in_proximity_area : Bobber
 
 func _ready() -> void:
 	progress_bar.connect("progress_bar_filled", self, "_on_progress_bar_filled")
 	progress_bar.connect("progress_bar_emptied", self, "_on_progress_bar_emptied")
 	
-	set_up_progress_bar() # need to call this again in ready of child class
+	set_up_progress_bar()
 	ripple.hide()
 
 func _on_progress_bar_filled() -> void:
@@ -32,7 +32,7 @@ func _on_progress_bar_emptied() -> void:
 func set_up_progress_bar() -> void:
 	progress_bar.set_max_value(amount_needed_to_catch)
 	progress_bar.hide()
-
+	print(progress_bar.max_value)
 
 func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	obtain_bobber_reference(body) # first instance obtaining reference of bobber

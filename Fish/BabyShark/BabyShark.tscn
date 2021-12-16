@@ -12,14 +12,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "FacingRight",
 "speed": 5.0
 } ]
 
@@ -33,7 +33,6 @@ radius = 300.0
 [node name="BabyShark" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
 amount_needed_to_catch = 50.0
-fish_recovery_amount = 0.0
 damage = 1
 
 [node name="KinematicBody" parent="." index="0"]

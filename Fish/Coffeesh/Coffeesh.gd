@@ -4,10 +4,6 @@ onready var kinematic_body = $KinematicBody
 onready var swim_to_random_pt_based_on_radius = $KinematicBody/SwimToRandomPtBasedOnRadius
 var movement_vector : Vector2
 var collision : KinematicCollision2D
-
-
-func _ready() -> void:
-	set_up_progress_bar()
 	
 
 func _physics_process(delta) -> void:

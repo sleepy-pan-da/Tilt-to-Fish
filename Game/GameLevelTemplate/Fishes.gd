@@ -1,5 +1,7 @@
 extends Node2D
 
+# This strictly manages the no. of remaining fish
+
 class_name FishManager
 
 var fishes_remaining : int 
@@ -15,5 +17,4 @@ func update_fishes_remaining_upon_successful_catch() -> void:
 	
 
 func update_fishes_remaining() -> void:
-	# wave timer is a child of fishes as well, need to minus wave timer
 	fishes_remaining = get_child_count()

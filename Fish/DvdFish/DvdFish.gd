@@ -11,7 +11,6 @@ var collision : KinematicCollision2D
 func _ready() -> void:
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
 	movement_vector = bounce_off_walls.start_initial_movement()
-	set_up_progress_bar()
 
 
 func on_bobber_entered_hitbox() -> void:

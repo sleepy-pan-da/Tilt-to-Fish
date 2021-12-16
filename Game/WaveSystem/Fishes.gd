@@ -1,5 +1,7 @@
 extends FishManager
 
+# On top of managing no. of remaining fish, this manages the spawning of fish in level.
+
 # how does the wave system work?
 # go onto next wave if
 # 1. catch all remaining fish 

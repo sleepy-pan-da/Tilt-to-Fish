@@ -9,7 +9,6 @@ export(int) var damage
 
 func _ready() -> void:
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
-	set_up_progress_bar()
 
 
 func on_bobber_entered_hitbox() -> void:

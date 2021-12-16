@@ -35,6 +35,7 @@ signal intimidated_fish(intimidation, fish_position)
 signal retaliated_fish(retaliation, bobber_position)
 
 func _ready():
+	# bobber set up 
 	bobber_stats.set_up_initial_stats()
 	set_up_damage_multiplier_based_on_backpack()
 	set_up_bobber_attack_amount_based_on_backpack()
@@ -43,6 +44,7 @@ func _ready():
 	set_up_intimidate()
 	set_up_retaliation()
 	set_up_thrill_seeker()
+	
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
@@ -113,7 +115,8 @@ func reset_upon_new_run() -> void:
 	bobber_stats.reset_when_game_over()
 	backpack.backpack.clear()
 	
-
+	
+# UPGRADES!!!
 func start_rejuvenated(duration_of_rejuvenation : int) -> void:
 	bobber_sprite.set_rejuvenated()
 	rejuvenated = true

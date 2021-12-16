@@ -11,14 +11,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "FacingRight",
 "speed": 5.0
 } ]
 
@@ -32,7 +32,6 @@ radius = 1542.49
 [node name="BullFish" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 amount_needed_to_catch = 75.0
-fish_recovery_amount = 0.0
 damage = 1
 
 [node name="FishSprite" parent="KinematicBody" index="2"]

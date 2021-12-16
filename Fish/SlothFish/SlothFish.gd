@@ -5,8 +5,6 @@ onready var swim_to_random_pt_based_on_radius = $KinematicBody/SwimToRandomPtBas
 var movement_vector : Vector2
 var collision : KinematicCollision2D
 
-func _ready() -> void:
-	set_up_progress_bar()
 
 func _physics_process(delta) -> void:
 	if !swim_to_random_pt_based_on_radius.swimming:

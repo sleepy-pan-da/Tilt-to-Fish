@@ -15,7 +15,6 @@ func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
-	set_up_progress_bar()
 
 
 func on_detected_bobber(bobber : Bobber) -> void:

@@ -70,6 +70,7 @@ func collect_interest() -> void:
 	var interest : int = min(computed_interest, max_interest)
 	increment_gold(interest)
 
+
 func reset_when_game_over() -> void: 
 	gold_amount = 0
 	hooks_amount = max_hooks_amount

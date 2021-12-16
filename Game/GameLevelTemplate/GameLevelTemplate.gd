@@ -22,7 +22,6 @@ onready var stats = $UI/Stats
 onready var screen_transition = $UI/ScreenTransition
 
 var bobber : Bobber
-var bobber_path : NodePath
 var can_descend : bool = false
 var proceeding_to_next_wave : bool = false
 
@@ -45,8 +44,6 @@ func _ready() -> void:
 	wave_number_progress_bar.connect("ran_out_of_enthusiasm", self, "on_ran_out_of_enthusiasm")
 	
 
-			
-
 func create_bobber_instance() -> void:
 	if current_bobber != null: # helps to test without bobber
 		bobber = current_bobber.instance()
@@ -54,6 +51,7 @@ func create_bobber_instance() -> void:
 		bobber.connect("intimidated_fish", self, "on_intimidated_fish")
 		bobber.connect("retaliated_fish", self, "on_retaliated_fish")
 		bobber.connect("updated_damage", self, "on_updated_damage")
+
 
 func update_hooks_label() -> void:
 	if current_bobber != null: # helps to test without bobber
@@ -84,7 +82,6 @@ func on_countdown_finished() -> void:
 func add_bobber_instance_to_scene() -> void:
 	if bobber != null: # helps to test without bobber
 		add_child(bobber)
-		bobber_path = NodePath("Bobber")
 		bobber.global_position = bobber_spawn_pt.global_position
 
 
@@ -108,7 +105,7 @@ func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
 
 
 func _on_successfully_caught_fish(fish_position : Vector2) -> void:
-	if has_node(bobber_path):
+	if bobber.is_inside_tree():	
 		var backpack = bobber.backpack
 		fishes.update_fishes_remaining_upon_successful_catch()
 		set_up_game_based_on_backpack_upon_catching_fish(fish_position)
@@ -130,7 +127,7 @@ func on_updated_damage() -> void:
 
 func proceed_to_next_wave_after_catching_all_fish() -> void:
 	if wave_system_enabled:
-		if has_node(bobber_path) and !proceeding_to_next_wave:
+		if bobber.is_inside_tree() and !proceeding_to_next_wave:
 			if GameData.current_wave_number % 3 == 0: # final wave of the round
 				proceeding_to_next_wave = true
 				GameData.increment_round_number()
@@ -144,7 +141,7 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 
 func proceed_to_next_wave_after_timing_out() -> void:
 	if wave_system_enabled:
-		if has_node(bobber_path) and !proceeding_to_next_wave:
+		if bobber.is_inside_tree() and !proceeding_to_next_wave:
 			if GameData.current_wave_number % 3 != 0: # not final wave of the round
 				proceed_to_next_wave()
 	
@@ -176,6 +173,7 @@ func game_over() -> void:
 			game_over.update_high_score_label(GameData.highest_round_reached)
 		game_over.show()
 		wave_number_progress_bar.stop_progress_bar_timer()
+
 
 func congratulate_player() -> void:
 	congrats.show()
@@ -211,6 +209,7 @@ func restart() -> void:
 # UPGRADES!!!
 
 # will be called in the ready function before bobber is added to scene
+# bobber will only be added to scene with countdown timer timesout
 # used to set up boolean flags or non-damage stats like hooks
 func set_up_game_based_on_backpack() -> void:
 	var backpack = bobber.backpack

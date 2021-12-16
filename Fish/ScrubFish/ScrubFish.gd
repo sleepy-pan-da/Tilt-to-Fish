@@ -6,13 +6,15 @@ onready var swim_to_random_pt_based_on_radius = $KinematicBody/SwimToRandomPtBas
 var movement_vector : Vector2
 var collision : KinematicCollision2D
 
-func _ready() -> void:
-	set_up_progress_bar()
 
 func _physics_process(delta) -> void:
 	if !swim_to_random_pt_based_on_radius.swimming:
 		movement_vector = swim_to_random_pt_based_on_radius.swim()
-	elif swim_to_random_pt_based_on_radius.reached_pt():
+	elif swim_to_random_pt_based_on_radius.reached_pt(): 
+		# i feel that 
+		# reached_pt() should not change the swimming state
+		# it should only just check if pt is reached 
+		# the changing of swimming state should be done here explicitly
 		pass
 		
 	collision = kinematic_body.move_and_collide(movement_vector * delta)

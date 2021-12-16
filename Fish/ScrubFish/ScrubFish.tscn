@@ -12,7 +12,6 @@ radius = 127.0
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 amount_needed_to_catch = 50.0
-fish_recovery_amount = 0.0
 
 [node name="FishSprite" parent="KinematicBody" index="2"]
 frames = ExtResource( 4 )

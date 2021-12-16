@@ -68,7 +68,6 @@ radius = 1488.08
 [node name="BootlegFish" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 amount_needed_to_catch = 75.0
-fish_recovery_amount = 0.0
 damage = 1
 initial_animated_sprites = ExtResource( 8 )
 actual_animated_sprites = ExtResource( 10 )

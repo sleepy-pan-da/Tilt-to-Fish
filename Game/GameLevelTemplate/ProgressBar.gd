@@ -22,7 +22,7 @@ func _on_Timer_timeout() -> void:
 	increment_bar()
 	if timed_out():
 		emit_signal("wave_timed_out")
-	# value here (which represents time left in wave) increases from 0 to 30
+	# value here (which represents time passed in wave) increases from 0 to 30
 	if value >= wave_duration - 15:
 		if black_mamba and !turned_black_mamba:
 			turned_black_mamba = true

@@ -10,14 +10,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "FacingRight",
 "speed": 5.0
 } ]
 
@@ -28,7 +28,6 @@ radius = 140.0
 [node name="DvdFish" instance=ExtResource( 2 )]
 script = ExtResource( 4 )
 amount_needed_to_catch = 50.0
-fish_recovery_amount = 0.0
 damage = 1
 
 [node name="FishSprite" parent="KinematicBody" index="2"]

@@ -26,7 +26,6 @@ radius = 112.0
 [node name="SlothFish" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 amount_needed_to_catch = 50.0
-fish_recovery_amount = 0.0
 
 [node name="FishSprite" parent="KinematicBody" index="2"]
 frames = SubResource( 1 )

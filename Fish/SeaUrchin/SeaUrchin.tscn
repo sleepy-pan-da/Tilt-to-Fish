@@ -8,14 +8,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "FacingRight",
 "speed": 5.0
 } ]
 
@@ -26,7 +26,6 @@ radius = 160.0
 [node name="SeaUrchin" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 amount_needed_to_catch = 50.0
-fish_recovery_amount = 0.0
 damage = 2
 
 [node name="HitBox" parent="KinematicBody" index="0" instance=ExtResource( 3 )]

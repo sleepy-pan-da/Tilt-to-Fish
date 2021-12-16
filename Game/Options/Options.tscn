@@ -220,6 +220,9 @@ margin_left = 278.0
 margin_right = 342.0
 margin_bottom = 64.0
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TiltSensitivity" type="Label" parent="UI"]
 anchor_left = 0.5

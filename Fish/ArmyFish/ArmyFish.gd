@@ -14,7 +14,6 @@ func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")
 	detection_area.disable_detection_area()
-	set_up_progress_bar()
 
 
 func on_fired_projectile(projectile : Projectile) -> void:
