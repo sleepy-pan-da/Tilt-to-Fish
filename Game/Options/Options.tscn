@@ -73,8 +73,8 @@ __meta__ = {
 [node name="BackButton" type="Button" parent="UI"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 176.0
-margin_bottom = 56.0
+margin_right = 192.0
+margin_bottom = 80.0
 focus_mode = 0
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
