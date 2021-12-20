@@ -9,15 +9,12 @@ export(int) var speed
 export(int) var radius
 
 
-var swimming : bool = false
 var direction_to_swim : Vector2
 var computed_pt : Vector2
 
 
 func reached_pt() -> bool:
 	var reached_pt : bool = (computed_pt - global_position).length() < 50
-	if reached_pt:
-		swimming = false
 	return reached_pt
 
 
@@ -25,7 +22,6 @@ func swim() -> Vector2:
 	direction_to_swim = compute_random_direction()
 	compute_pt_to_swim_to()
 	var velocity : Vector2 = direction_to_swim * speed
-	swimming = true
 	return velocity
 
 

@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Game/GameLevelTemplate/Fishes.gd"
 }, {
+"base": "State",
+"class": "FishState",
+"language": "GDScript",
+"path": "res://Fish/StateMachine/FishState.gd"
+}, {
 "base": "Node2D",
 "class": "FishTemplate",
 "language": "GDScript",
@@ -94,6 +99,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Upgrades/Retaliation/Retaliation.gd"
 }, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Fish/StateMachine/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://Fish/StateMachine/StateMachine.gd"
+}, {
 "base": "Area2D",
 "class": "ThrillSeeker",
 "language": "GDScript",
@@ -107,6 +122,7 @@ _global_script_class_icons={
 "BobberStats": "",
 "ControlConfig": "",
 "FishManager": "",
+"FishState": "",
 "FishTemplate": "",
 "FishTemplateFishSprite": "",
 "FishToSpawn": "",
@@ -117,6 +133,8 @@ _global_script_class_icons={
 "OrbitingOrbsGamma": "",
 "Projectile": "",
 "Retaliation": "",
+"State": "",
+"StateMachine": "",
 "ThrillSeeker": ""
 }
 

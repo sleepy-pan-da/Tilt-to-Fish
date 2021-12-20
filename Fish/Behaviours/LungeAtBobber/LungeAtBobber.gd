@@ -17,12 +17,13 @@ var can_lunge : bool = true
 var stunned : bool = false
 signal recovered_from_stun
 
+
 func reached_pt() -> bool:
 	var reached_pt : bool = (computed_pt - global_position).length() < 5
 	if reached_pt:
 		on_reached_pt()
 	return reached_pt
-
+	
 
 func on_reached_pt() -> void:
 	lunging = false
