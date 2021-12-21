@@ -105,7 +105,7 @@ func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
 
 
 func _on_successfully_caught_fish(fish_position : Vector2) -> void:
-	if bobber.is_inside_tree():	
+	if is_instance_valid(bobber):	
 		var backpack = bobber.backpack
 		fishes.update_fishes_remaining_upon_successful_catch()
 		set_up_game_based_on_backpack_upon_catching_fish(fish_position)
@@ -127,7 +127,7 @@ func on_updated_damage() -> void:
 
 func proceed_to_next_wave_after_catching_all_fish() -> void:
 	if wave_system_enabled:
-		if bobber.is_inside_tree() and !proceeding_to_next_wave:
+		if is_instance_valid(bobber) and !proceeding_to_next_wave:
 			if GameData.current_wave_number % 3 == 0: # final wave of the round
 				proceeding_to_next_wave = true
 				GameData.increment_round_number()
@@ -138,10 +138,10 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 			else:
 				proceed_to_next_wave()
 
-
+#  bobber.is_inside_tree() and 
 func proceed_to_next_wave_after_timing_out() -> void:
-	if wave_system_enabled:
-		if bobber.is_inside_tree() and !proceeding_to_next_wave:
+	if wave_system_enabled and is_instance_valid(bobber): 
+		if !proceeding_to_next_wave:
 			if GameData.current_wave_number % 3 != 0: # not final wave of the round
 				proceed_to_next_wave()
 	

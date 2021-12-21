@@ -6,67 +6,22 @@ extends Node2D
 export(int) var speed 
 export(int) var num_of_lunges_before_rest 	
 export(int) var radius
+
 onready var cooldown_between_lunges = $CooldownBetweenLunges
 onready var rest_timer = $RestTimer
 onready var stunned_timer = $StunnedTimer
+
 var direction_to_lunge : Vector2
 var computed_pt : Vector2
-var lunging : bool = false
 var num_of_lunges : int = 0
-var can_lunge : bool = true
-var stunned : bool = false
-signal recovered_from_stun
-
-
-func reached_pt() -> bool:
-	var reached_pt : bool = (computed_pt - global_position).length() < 5
-	if reached_pt:
-		on_reached_pt()
-	return reached_pt
-	
-
-func on_reached_pt() -> void:
-	lunging = false
-	num_of_lunges += 1
-	if num_of_lunges >= num_of_lunges_before_rest:
-		rest_timer.start()
-		num_of_lunges = 0
-	else:
-		cooldown_between_lunges.start()
-
-
-func stunned() -> void:
-	stunned = true
-	lunging = false
-	stunned_timer.start()
-	num_of_lunges = 0
-	
-	
-func _on_RestTimer_timeout() -> void:
-	can_lunge = true
-	
-
-func _on_CooldownBetweenLunges_timeout() -> void:
-	can_lunge = true
-
-
-func _on_StunnedTimer_timeout() -> void:
-	emit_signal("recovered_from_stun")
-
-
-func recovered_from_stun_and_ready_to_attack() -> void:
-	can_lunge = true
-	stunned = false
 
 
 func lunge(bobber : Bobber) -> Vector2:
 	var velocity : Vector2
-	if can_lunge:
-		direction_to_lunge = compute_direction_to_lunge_towards_bobber(bobber)
-		computed_pt = compute_pt()
-		velocity = direction_to_lunge * speed
-		lunging = true
-		can_lunge = false
+	
+	direction_to_lunge = compute_direction_to_lunge_towards_bobber(bobber)
+	computed_pt = compute_pt()
+	velocity = direction_to_lunge * speed
 		
 	return velocity
 	
@@ -79,6 +34,26 @@ func compute_direction_to_lunge_towards_bobber(bobber : Bobber):
 
 func compute_pt() -> Vector2:
 	return global_position + direction_to_lunge * radius
+
+
+
+
+
+func reached_pt() -> bool:
+	var reached_pt : bool = (computed_pt - global_position).length() < 5
+	return reached_pt
+	
+
+# timer logic should be settled by the fish's states since states settle all the logic
+# if timer is settled here, it gets damn confusing
+
+#func on_reached_pt() -> void:
+#	num_of_lunges += 1
+#	if num_of_lunges >= num_of_lunges_before_rest:
+#		rest_timer.start()
+#		num_of_lunges = 0
+#	else:
+#		cooldown_between_lunges.start()
 
 
 

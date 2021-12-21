@@ -19,7 +19,3 @@ one_shot = true
 process_mode = 0
 wait_time = 3.0
 one_shot = true
-
-[connection signal="timeout" from="CooldownBetweenLunges" to="." method="_on_CooldownBetweenLunges_timeout"]
-[connection signal="timeout" from="RestTimer" to="." method="_on_RestTimer_timeout"]
-[connection signal="timeout" from="StunnedTimer" to="." method="_on_StunnedTimer_timeout"]

@@ -8,7 +8,6 @@ extends Node2D
 export(int) var speed
 export(int) var radius
 
-
 var direction_to_swim : Vector2
 var computed_pt : Vector2
 

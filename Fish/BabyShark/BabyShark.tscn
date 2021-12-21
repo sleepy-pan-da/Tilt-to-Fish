@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Fish/BabyShark/BabyShark.gd" type="Script" id=1]
 [ext_resource path="res://Fish/Behaviours/DetectionArea/DetectionArea.tscn" type="PackedScene" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Fish/BabyShark/FishSprite.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Fishing Scene/Fishes/Baby Shark/Baby shark left.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Fishing Scene/Fishes/Baby Shark/Baby Shark right.png" type="Texture" id=9]
+[ext_resource path="res://Fish/StateMachine/StateMachine.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Fish/BabyShark/States/ComputeNewPtToSwimTo.gd" type="Script" id=11]
+[ext_resource path="res://Fish/BabyShark/States/Swimming.gd" type="Script" id=12]
+[ext_resource path="res://Fish/BabyShark/States/DetectedBobber.gd" type="Script" id=13]
+[ext_resource path="res://Fish/BabyShark/States/FollowBobber.gd" type="Script" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -39,27 +44,42 @@ damage = 1
 collision_layer = 48
 collision_mask = 33
 
-[node name="FishSprite" parent="KinematicBody" index="2"]
+[node name="StateMachine" parent="KinematicBody" index="0" instance=ExtResource( 10 )]
+initial_state = NodePath("ComputeNewPtToSwimTo")
+
+[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachine" index="0"]
+script = ExtResource( 11 )
+
+[node name="Swimming" type="Node" parent="KinematicBody/StateMachine" index="1"]
+script = ExtResource( 12 )
+
+[node name="DetectedBobber" type="Node" parent="KinematicBody/StateMachine" index="2"]
+script = ExtResource( 13 )
+
+[node name="FollowBobber" type="Node" parent="KinematicBody/StateMachine" index="3"]
+script = ExtResource( 14 )
+
+[node name="FishSprite" parent="KinematicBody" index="3"]
 frames = SubResource( 1 )
 script = ExtResource( 7 )
 
-[node name="RippleSprite" parent="KinematicBody" index="3"]
+[node name="RippleSprite" parent="KinematicBody" index="4"]
 scale = Vector2( 0.14, 0.14 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 2 )
 
-[node name="DetectionArea" parent="KinematicBody" index="6" instance=ExtResource( 2 )]
+[node name="DetectionArea" parent="KinematicBody" index="7" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
 shape = SubResource( 3 )
 
-[node name="HitBox" parent="KinematicBody" index="7" instance=ExtResource( 5 )]
+[node name="HitBox" parent="KinematicBody" index="8" instance=ExtResource( 5 )]
 
-[node name="FollowBobber" parent="KinematicBody" index="8" instance=ExtResource( 6 )]
+[node name="FollowBobber" parent="KinematicBody" index="9" instance=ExtResource( 6 )]
 speed = 250
 
-[node name="SwimToRandomPtBasedOnRadius" parent="KinematicBody" index="9" instance=ExtResource( 4 )]
+[node name="SwimToRandomPtBasedOnRadius" parent="KinematicBody" index="10" instance=ExtResource( 4 )]
 speed = 100
 radius = 300
 
