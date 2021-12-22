@@ -32,7 +32,7 @@ func _on_progress_bar_emptied() -> void:
 func set_up_progress_bar() -> void:
 	progress_bar.set_max_value(amount_needed_to_catch)
 	progress_bar.hide()
-	print(progress_bar.max_value)
+	#print(progress_bar.max_value)
 
 func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	obtain_bobber_reference(body) # first instance obtaining reference of bobber
@@ -120,15 +120,21 @@ func _on_Hurtbox_body_entered(body):
 
 
 func _on_Hurtbox_area_entered(area):
-	if area.get_class() == "Intimidate":
-		progress_bar.appear()
-		fish_sprite.react_upon_getting_hurtbox_hit()
+	progress_bar.appear()
+	fish_sprite.react_upon_getting_hurtbox_hit()
+	
+	if area.get_class() == "Intimidate" or area.get_class() == "Retaliation":
 		progress_bar.increment_bar(area.damage)
-	elif area.get_class() == "Retaliation":
-		progress_bar.appear()
-		fish_sprite.react_upon_getting_hurtbox_hit()
-		progress_bar.increment_bar(area.damage)
-
+	elif area.get_class() == "Projectile":
+		progress_bar.increment_bar(amount_needed_to_catch * 0.25)
+		area.queue_free()
+	elif area.get_class() == "FishHitbox":
+		if area.within_hurtbox:
+			if !area.can_deal_damage:
+				area.can_deal_damage = true
+			else:
+				progress_bar.increment_bar(amount_needed_to_catch * 0.2)
+	
 
 func make_fish_tankier_with_difficulty_modifier(difficulty_modifier : int):
 	amount_needed_to_catch *= pow(1.5, difficulty_modifier)

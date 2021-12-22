@@ -65,12 +65,14 @@ script = ExtResource( 6 )
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
 shape = SubResource( 2 )
 
-[node name="HitBox" parent="KinematicBody" index="7" instance=ExtResource( 4 )]
-
-[node name="DetectionArea" parent="KinematicBody" index="8" instance=ExtResource( 3 )]
+[node name="DetectionArea" parent="KinematicBody" index="7" instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
 shape = SubResource( 3 )
+
+[node name="HitBox" parent="KinematicBody" index="8" instance=ExtResource( 4 )]
+collision_layer = 72
+within_hurtbox = true
 
 [node name="LungeAtBobber" parent="KinematicBody" index="9" instance=ExtResource( 2 )]
 speed = 500

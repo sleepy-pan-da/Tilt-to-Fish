@@ -19,7 +19,11 @@ func increment_bar(player_attack_amount : float) -> void:
 	value = min(value + player_attack_amount, max_value)
 	if value >= max_value:
 		emit_signal("progress_bar_filled")
-		
+
+
+func reset_bar() -> void:
+	value = 0
+			
 
 func appear() -> void:
 	show()

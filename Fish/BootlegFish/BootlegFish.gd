@@ -16,6 +16,15 @@ export(Resource) var actual_animated_sprites
 var movement_vector : Vector2
 var collision : KinematicCollision2D
 
+# State Transitions
+# ComputeNewPtToSwimTo -> Swimming
+# Swimming -> ComputeNewPtToSwimTo
+# Swimming -> Morphing
+# Morphing -> FollowBobber
+# FollowBobber -> Stunned
+# Stunned -> RecoverFromStun
+# RecoverFromStun -> FollowBobber
+
 func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")

@@ -12,6 +12,12 @@ export(int) var damage
 var movement_vector : Vector2
 var collision : KinematicCollision2D
 
+# State Transitions
+# ComputeNewPtToSwimTo -> Swimming
+# Swimming -> ComputeNewPtToSwimTo
+# ComputeNewPtToSwimTo / Swimming -> DetectedBobber
+# DetectedBobber -> FollowBobber
+# FollowBobber -> ComputeNewPtToSwimTo
 
 func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")

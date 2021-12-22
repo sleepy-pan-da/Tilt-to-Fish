@@ -9,6 +9,12 @@ onready var shoot_projectiles = $KinematicBody/ShootProjectiles
 onready var detection_area = $KinematicBody/DetectionArea
 onready var rest_timer = $KinematicBody/ShootProjectiles/RestTimer
 
+# State Transitions
+# Alert -> Firing
+# Firing -> Resting
+# Resting -> Firing
+# Resting -> CannotFire
+# CannotFire -> Resting
 
 func _ready() -> void:
 	shoot_projectiles.connect("fired_projectile", self, "on_fired_projectile")

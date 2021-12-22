@@ -5,7 +5,7 @@ extends Node2D
 
 export(PackedScene) var projectile_to_shoot
 export(float) var speed
-var radius : int = 50
+var radius : int = 100
 signal fired_projectile(projectile)
 
 func fire(bobber_position : Vector2) -> void:
