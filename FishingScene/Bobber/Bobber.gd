@@ -606,12 +606,3 @@ func compute_pumping_iron_damage_multiplier(initial_iron_stacks : int) -> void:
 	else:
 		bobber_stats.damage_multiplier /= (1 + (0.2 * initial_iron_stacks))
 		bobber_stats.damage_multiplier *= (1 + (0.2 * bobber_stats.pumping_iron_stacks))
-
-
-
-
-
-
-
-
-

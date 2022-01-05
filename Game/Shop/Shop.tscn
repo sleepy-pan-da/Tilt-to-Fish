@@ -46,12 +46,20 @@ font_data = ExtResource( 2 )
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 13
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
@@ -59,18 +67,10 @@ size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 10
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=10]
-size = 10
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=11]
 size = 32
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 2 )
 
 [node name="Shop" type="Node2D"]
@@ -240,7 +240,7 @@ margin_left = 35.0
 margin_top = 20.0
 margin_right = 237.0
 margin_bottom = 54.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Item Name"
 script = ExtResource( 16 )
@@ -255,7 +255,7 @@ margin_left = -140.0
 margin_top = 20.0
 margin_right = -35.0
 margin_bottom = 54.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Cost:"
 script = ExtResource( 19 )
@@ -268,7 +268,7 @@ margin_left = 36.0
 margin_top = 60.0
 margin_right = 564.0
 margin_bottom = 180.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Item Description"
 autowrap = true
@@ -413,7 +413,7 @@ margin_right = 212.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 enabled_focus_mode = 0
 flat = true
 clip_text = true
@@ -424,7 +424,7 @@ margin_right = 474.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 0
 flat = true
 
@@ -434,7 +434,7 @@ margin_right = 736.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 flat = true
 
@@ -486,7 +486,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -508,7 +508,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -530,7 +530,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -552,7 +552,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -574,7 +574,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -586,7 +586,7 @@ margin_left = 1112.0
 margin_top = 648.0
 margin_right = 1272.0
 margin_bottom = 704.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 10 )
 text = "Next wave"
 __meta__ = {
 "_edit_use_anchors_": false

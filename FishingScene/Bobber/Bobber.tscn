@@ -63,6 +63,7 @@ orbiting_orbs_gamma = ExtResource( 10 )
 intimidation = ExtResource( 11 )
 retaliation = ExtResource( 12 )
 thrill_seeker = ExtResource( 13 )
+testing_on_pc = true
 
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )
