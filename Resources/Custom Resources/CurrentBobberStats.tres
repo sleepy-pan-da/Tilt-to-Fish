@@ -4,8 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-initial_reel_damage = 0.0
-initial_reel_attack_rate = 0.0
-initial_damage_multiplier = 1.0
+initial_reel_damage = 1.0
+initial_reel_attack_rate = 0.1
 hooks_amount = 5
 gold_amount = 0

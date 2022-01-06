@@ -62,7 +62,7 @@ func disable_ripple() -> void:
 	
 	
 func manage_timers_when_proximity_area_entered() -> void:
-	var bobber_attack_rate : float = bobber_in_proximity_area.bobber_stats.bobber_attack_rate
+	var bobber_attack_rate : float = bobber_in_proximity_area.bobber_stats.reel_attack_rate
 	check_bobber_in_proximity_area_timer.start(bobber_attack_rate)
 	recovery_timer.stop()
 	
@@ -74,10 +74,10 @@ func manage_timers_when_proximity_area_exited() -> void:
 	
 # will be called if you stay in proximity area for the duration of bobber's attack rate	
 func _on_CheckBobberInProximityAreaTimer_timeout(): 
-	var player_attack_amount = bobber_in_proximity_area.bobber_stats.bobber_attack_amount
+	var player_attack_amount = bobber_in_proximity_area.bobber_stats.reel_damage
 	progress_bar.increment_bar(player_attack_amount)
 	
-	var bobber_attack_rate : float = bobber_in_proximity_area.bobber_stats.bobber_attack_rate
+	var bobber_attack_rate : float = bobber_in_proximity_area.bobber_stats.reel_attack_rate
 	check_bobber_in_proximity_area_timer.start(bobber_attack_rate)
 	
 
