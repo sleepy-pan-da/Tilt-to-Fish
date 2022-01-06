@@ -39,16 +39,11 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
-	if body.backpack.has_item("Poke"):
-		progress_bar.increment_bar(body.bobber_stats.poke_damage)
 
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
-	if body.backpack.has_item("Pull Out"):
-		progress_bar.appear()
-		progress_bar.increment_bar(body.bobber_stats.pull_out_damage)
 
 
 func enable_ripple() -> void:
@@ -63,7 +58,8 @@ func disable_ripple() -> void:
 	
 func manage_timers_when_proximity_area_entered() -> void:
 	var bobber_attack_rate : float = bobber_in_proximity_area.bobber_stats.reel_attack_rate
-	check_bobber_in_proximity_area_timer.start(bobber_attack_rate)
+	var time_to_next_reel_attack : float = 1 / bobber_attack_rate
+	check_bobber_in_proximity_area_timer.start(time_to_next_reel_attack)
 	recovery_timer.stop()
 	
 
@@ -78,7 +74,8 @@ func _on_CheckBobberInProximityAreaTimer_timeout():
 	progress_bar.increment_bar(player_attack_amount)
 	
 	var bobber_attack_rate : float = bobber_in_proximity_area.bobber_stats.reel_attack_rate
-	check_bobber_in_proximity_area_timer.start(bobber_attack_rate)
+	var time_to_next_reel_attack : float = 1 / bobber_attack_rate
+	check_bobber_in_proximity_area_timer.start(time_to_next_reel_attack)
 	
 
 # will be called every 0.1s when you leave proximity area until progress bar reaches zero
