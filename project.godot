@@ -92,7 +92,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ItemTraits",
 "language": "GDScript",
-"path": "res://Resources/Custom Resources/Item Related/Item.gd"
+"path": "res://Resources/Custom Resources/Item Related/ItemTraits.gd"
 }, {
 "base": "Node2D",
 "class": "OrbitingOrbsAlpha",

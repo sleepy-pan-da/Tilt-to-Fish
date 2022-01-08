@@ -44,18 +44,17 @@ func _ready() -> void:
 func create_bobber_instance() -> void:
 	if current_bobber != null: # helps to test without bobber
 		bobber = current_bobber.instance()
+		bobber.call_when_instantiated()
 		bobber.connect("bobber_entered_scene", self, "on_bobber_entered_scene")
 
 
 func update_hooks_label() -> void:
 	if current_bobber != null: # helps to test without bobber
 		if bobber.bobber_stats.hooks_amount > 0:
-			if bobber.bobber_stats.hooks_amount < 10: # 1 digit
-				hooks_label.text = str(0) + str(bobber.bobber_stats.hooks_amount)
-			else: # 2 digits, no need 0 at the front
-				hooks_label.text = str(bobber.bobber_stats.hooks_amount)
+			hooks_label.text = str(bobber.bobber_stats.hooks_amount) + "/" + \
+			str(bobber.bobber_stats.max_hooks_amount)
 		else:
-			hooks_label.text = str(0)
+			hooks_label.text = str(0) + "/" + str(bobber.bobber_stats.max_hooks_amount)
 
 
 func update_total_waves() -> void:

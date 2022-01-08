@@ -19,11 +19,14 @@ var immune : bool = false
 
 signal bobber_entered_scene
 
-func _ready():
+
+func call_when_instantiated() -> void:
 	# bobber set up 
 	bobber_stats.set_up_initial_stats()
 	set_up_stats_at_start_of_fishing()
-	print(bobber_stats.reel_damage)
+
+
+func _ready():
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
@@ -93,7 +96,7 @@ func end_immunity():
 
 func reset_upon_new_run() -> void:
 	bobber_stats.reset_when_game_over()
-	backpack.backpack.clear()
+	backpack.held_items.clear()
 	
 
 func get_class() -> String:
@@ -109,3 +112,6 @@ func set_up_stats_at_start_of_fishing() -> void:
 			var item_level : int = backpack.item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level)
+
+	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
+		bobber_stats.reconfigure_hook()
