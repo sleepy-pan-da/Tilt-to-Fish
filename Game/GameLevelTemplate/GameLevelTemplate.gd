@@ -19,6 +19,7 @@ onready var total_waves = $UI/WaveNumber/TotalWaves
 onready var wave_number_progress_bar = $UI/WaveNumber/ProgressBar
 onready var game_over = $UI/GameOver
 onready var screen_transition = $UI/ScreenTransition
+onready var debug_ui = $UI/DebugUI
 
 var bobber : Bobber
 var can_descend : bool = false
@@ -79,7 +80,7 @@ func add_bobber_instance_to_scene() -> void:
 
 
 func on_bobber_entered_scene() -> void:
-	pass
+	debug_ui.populate_content(bobber.bobber_stats)
 		
 	
 func _on_bobber_took_damage(damage_taken : int) -> void:

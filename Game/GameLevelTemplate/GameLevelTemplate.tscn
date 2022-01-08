@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -12,11 +12,14 @@
 [ext_resource path="res://Assets/radial_bar.png" type="Texture" id=10]
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Game/GameLevelTemplate/GameOver.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://Upgrades/FreeMoney/FreeMoney.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Upgrades/PumpingIron/PumpingIron.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Upgrades/PeriodicLifeGain/PeriodicLifeGain.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Upgrades/Rejuvenated/Rejuvenated.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Game/GameLevelTemplate/PausingManager.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://Game/GameLevelTemplate/DebugUI.gd" type="Script" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -50,6 +53,13 @@ font_data = ExtResource( 8 )
 [sub_resource type="DynamicFont" id=8]
 size = 48
 font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 19 )
 
 [node name="GameLevelTemplate" type="Node2D"]
 script = ExtResource( 2 )
@@ -309,6 +319,50 @@ align = 1
 valign = 1
 
 [node name="ScreenTransition" parent="UI" instance=ExtResource( 11 )]
+
+[node name="DebugUI" type="Control" parent="UI"]
+margin_left = 22.0
+margin_top = 103.0
+margin_right = 246.0
+margin_bottom = 695.0
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="UI/DebugUI"]
+margin_right = 194.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 9 )
+text = "Debug Panel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="UI/DebugUI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 57.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReelDamage" type="Label" parent="UI/DebugUI/Content"]
+margin_right = 224.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 224, 21 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 10 )
+text = "Reel Damage: "
+
+[node name="ReelRate" type="Label" parent="UI/DebugUI/Content"]
+margin_top = 25.0
+margin_right = 224.0
+margin_bottom = 46.0
+rect_min_size = Vector2( 224, 21 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 10 )
+text = "Reel Rate: "
 
 [node name="PausingManager" type="Node2D" parent="."]
 pause_mode = 2
