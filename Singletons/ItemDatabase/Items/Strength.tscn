@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=1]
+[ext_resource path="res://Singletons/ItemDatabase/Items/Strength.gd" type="Script" id=2]
+
+[node name="Strength" type="Node"]
+script = ExtResource( 2 )
+bobber_stats = ExtResource( 1 )
+increment_values_at_diff_levels = [ 1.0, 2.0, 4.0 ]

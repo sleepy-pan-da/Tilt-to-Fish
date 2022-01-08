@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/Item Related/Item.gd" type="Script" id=1]
+
+[resource]
+resource_name = "Strength"
+script = ExtResource( 1 )
+modifies_stats_at_start_of_fishing = true
+spawns_orbs = false
+cost = 3
+description = ""
+rarity = 0

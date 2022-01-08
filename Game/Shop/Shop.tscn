@@ -9,7 +9,7 @@
 [ext_resource path="res://Resources/Custom Resources/CurrentBackPack.tres" type="Resource" id=7]
 [ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=8]
 [ext_resource path="res://Game/Shop/ItemsSold.gd" type="Script" id=9]
-[ext_resource path="res://Resources/Custom Resources/AlphaItemPool.tres" type="Resource" id=10]
+[ext_resource path="res://Resources/Custom Resources/Item Related/AlphaItemPool.tres" type="Resource" id=10]
 [ext_resource path="res://Game/Shop/Hooks.gd" type="Script" id=11]
 [ext_resource path="res://Game/Shop/Gold.gd" type="Script" id=12]
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=13]

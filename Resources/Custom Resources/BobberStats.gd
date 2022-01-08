@@ -30,16 +30,16 @@ func gain_hook(num_of_hook_gained : int) -> void:
 		hooks_amount = max_hooks_amount
 	else:
 		GameEvents.emit_signal("bobber_gained_hook", num_of_hook_gained)
-		
-		
-func increment_gold(gold_gained : int) -> void:
-	gold_amount += gold_gained
 	
 
-func decrement_gold(gold_lost : int) -> void:
-	gold_amount -= gold_lost
+func change_gold(change_in_gold : int) -> void:
+	gold_amount += change_in_gold
 	
 
 func reset_when_game_over() -> void: 
 	gold_amount = 0
 	hooks_amount = max_hooks_amount
+	
+	
+func change_reel_damage(change_in_reel_damage : float) -> void:
+	reel_damage += change_in_reel_damage	

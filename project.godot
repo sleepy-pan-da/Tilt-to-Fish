@@ -82,7 +82,17 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ItemPool",
 "language": "GDScript",
-"path": "res://Resources/Custom Resources/ItemPool.gd"
+"path": "res://Resources/Custom Resources/Item Related/ItemPool.gd"
+}, {
+"base": "Node",
+"class": "ItemSpecification",
+"language": "GDScript",
+"path": "res://Singletons/ItemDatabase/Items/ItemTemplate.gd"
+}, {
+"base": "Resource",
+"class": "ItemTraits",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/Item Related/Item.gd"
 }, {
 "base": "Node2D",
 "class": "OrbitingOrbsAlpha",
@@ -135,6 +145,8 @@ _global_script_class_icons={
 "GammaOrbs": "",
 "Intimidate": "",
 "ItemPool": "",
+"ItemSpecification": "",
+"ItemTraits": "",
 "OrbitingOrbsAlpha": "",
 "OrbitingOrbsGamma": "",
 "Projectile": "",
@@ -155,6 +167,7 @@ config/icon="res://Assets/Fishing Scene/Fishes/scrubfish/scrubfish(thick)_right.
 GameData="*res://Singletons/GameData.tscn"
 GameEvents="*res://Singletons/GameEvents.tscn"
 LoadingManager="res://Singletons/LoadingManager.tscn"
+ItemDatabase="*res://Singletons/ItemDatabase/ItemDatabase.tscn"
 
 [debug]
 

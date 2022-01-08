@@ -4,6 +4,7 @@ class_name Bobber
 
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 export(Resource) var backpack = backpack as BackPack
+export(Resource) var item_pool = item_pool as ItemPool
 export(Resource) var control_config = control_config as ControlConfig
 
 export(bool) var testing_on_pc : bool
@@ -21,6 +22,8 @@ signal bobber_entered_scene
 func _ready():
 	# bobber set up 
 	bobber_stats.set_up_initial_stats()
+	set_up_stats_at_start_of_fishing()
+	print(bobber_stats.reel_damage)
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
@@ -95,3 +98,14 @@ func reset_upon_new_run() -> void:
 
 func get_class() -> String:
 	return "Bobber"
+
+
+func set_up_stats_at_start_of_fishing() -> void:
+	# Iterate through backpack dictionary to check for any items that require
+	# setting up of stats at start of fishing
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.modifies_stats_at_start_of_fishing:
+			var item_level : int = backpack.item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level)
