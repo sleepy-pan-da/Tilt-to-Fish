@@ -111,7 +111,7 @@ func set_up_stats_at_start_of_fishing() -> void:
 		if item_traits.modifies_stats_at_start_of_fishing:
 			var item_level : int = backpack.item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
-			item_specifications.trigger(item_level)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_stats_at_start_of_fishing)
 
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
 		bobber_stats.reconfigure_hook()
