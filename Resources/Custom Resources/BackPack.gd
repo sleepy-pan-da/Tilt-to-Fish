@@ -11,7 +11,8 @@ var held_items = 	{
 						# Lvl1-2 (2 exp needed)
 						# Lvl2-3 (4 exp needed) 
 						"Strength"		:	0,
-						"Constitution"	:	2
+						"Constitution"	:	2,
+						"FalseGod"		:	0
 					}
 
 

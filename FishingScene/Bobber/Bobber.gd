@@ -24,6 +24,7 @@ func call_when_instantiated() -> void:
 	# bobber set up 
 	bobber_stats.set_up_initial_stats()
 	set_up_stats_at_start_of_fishing()
+	override_stats_at_start_of_fishing()
 
 
 func _ready():
@@ -112,6 +113,18 @@ func set_up_stats_at_start_of_fishing() -> void:
 			var item_level : int = backpack.item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_stats_at_start_of_fishing)
+
+	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
+		bobber_stats.reconfigure_hook()
+		
+
+func override_stats_at_start_of_fishing() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.overrides_stats_at_start_of_fishing:
+			var item_level : int = backpack.item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.override_stats_at_start_of_fishing)
 
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
 		bobber_stats.reconfigure_hook()

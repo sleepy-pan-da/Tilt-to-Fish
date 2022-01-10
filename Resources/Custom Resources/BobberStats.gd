@@ -47,6 +47,10 @@ func change_max_hook(change_in_max_hook : int) -> void:
 	max_hooks_amount += change_in_max_hook
 
 
+func set_max_hook(number_to_set : int) -> void:
+	max_hooks_amount = number_to_set
+
+
 func change_gold(change_in_gold : int) -> void:
 	gold_amount += change_in_gold
 	
