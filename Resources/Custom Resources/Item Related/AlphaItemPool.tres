@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemPool.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Custom Resources/Item Related/Items/Strength.tres" type="Resource" id=2]
 [ext_resource path="res://Resources/Custom Resources/Item Related/Items/Constitution.tres" type="Resource" id=3]
 [ext_resource path="res://Resources/Custom Resources/Item Related/Items/FalseGod.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Custom Resources/Item Related/Items/NotToday.tres" type="Resource" id=5]
 
 [resource]
 script = ExtResource( 1 )
-items = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
+items = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]

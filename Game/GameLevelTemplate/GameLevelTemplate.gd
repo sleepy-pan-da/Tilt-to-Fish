@@ -24,6 +24,7 @@ onready var debug_ui = $UI/DebugUI
 var bobber : Bobber
 var can_descend : bool = false
 var proceeding_to_next_wave : bool = false
+var died_before : bool = false
 
 func _ready() -> void:
 	screen_transition.transition_in()
@@ -87,6 +88,11 @@ func _on_bobber_took_damage(damage_taken : int) -> void:
 	Input.vibrate_handheld(100) # to give haptic feedback to player
 	update_hooks_label()
 	bobber.start_immunity()
+	if bobber.bobber_stats.hooks_amount <= 0:
+		if !died_before:
+			died_before = true
+			bobber.on_lost_all_hooks()
+	# This 2nd check looks weird, but it's needed to check if u rly game over
 	if bobber.bobber_stats.hooks_amount <= 0:
 		game_over()
 

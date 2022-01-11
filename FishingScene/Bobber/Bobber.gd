@@ -21,7 +21,6 @@ signal bobber_entered_scene
 
 
 func call_when_instantiated() -> void:
-	# bobber set up 
 	bobber_stats.set_up_initial_stats()
 	set_up_stats_at_start_of_fishing()
 	override_stats_at_start_of_fishing()
@@ -128,3 +127,21 @@ func override_stats_at_start_of_fishing() -> void:
 
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
 		bobber_stats.reconfigure_hook()
+
+
+func on_lost_all_hooks() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_lose_all_hooks:
+			var item_level : int = backpack.item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.lost_all_hooks)
+
+	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
+		bobber_stats.reconfigure_hook()
+
+
+
+
+
+

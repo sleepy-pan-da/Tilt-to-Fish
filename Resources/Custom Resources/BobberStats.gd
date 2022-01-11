@@ -34,8 +34,7 @@ func gain_hook(num_of_hook_gained : int) -> void:
 	hooks_amount += num_of_hook_gained
 	if hooks_amount > max_hooks_amount:
 		reconfigure_hook()
-	else:
-		GameEvents.emit_signal("bobber_gained_hook", num_of_hook_gained)
+	GameEvents.emit_signal("bobber_gained_hook", num_of_hook_gained)
 
 
 # In the scenario where hook > max hook, hook needs to be reconfigured 

@@ -10,9 +10,10 @@ var held_items = 	{
 						# item_A	:	0 (number here refers to exp pts)
 						# Lvl1-2 (2 exp needed)
 						# Lvl2-3 (4 exp needed) 
-						"Strength"		:	0,
-						"Constitution"	:	2,
-						"FalseGod"		:	0
+						#"Strength"		:	0,
+						#"Constitution"	:	2,
+						#"FalseGod"		:	0,
+						#"NotToday"		:	6
 					}
 
 
