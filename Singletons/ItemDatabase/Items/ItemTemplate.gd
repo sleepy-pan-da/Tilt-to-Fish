@@ -4,7 +4,8 @@ class_name ItemSpecification
 enum TRIGGER_CAUSES {
 	set_up_stats_at_start_of_fishing, 
 	override_stats_at_start_of_fishing,
-	lost_all_hooks
+	lost_all_hooks,
+	caught_fish
 	}
 
 func trigger(item_level : int, trigger_cause : int) -> void:

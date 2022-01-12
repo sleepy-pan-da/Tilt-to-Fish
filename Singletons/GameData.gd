@@ -2,7 +2,7 @@ extends Node
 
 var highest_round_reached : int = 1
 var current_wave_number : int = 1
-var round_number : int = 1
+var round_number : int = 3
 var difficulty_modifier : int = 0
 
 func beat_high_score() -> bool:

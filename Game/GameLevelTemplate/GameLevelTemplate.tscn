@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Game/GameLevelTemplate/PausingManager.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Game/GameLevelTemplate/DebugUI.gd" type="Script" id=20]
+[ext_resource path="res://Game/GameLevelTemplate/ItemsThatRequireLevel.gd" type="Script" id=21]
+[ext_resource path="res://Upgrades/Intimidate/Intimidation.tscn" type="PackedScene" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -371,6 +373,10 @@ script = ExtResource( 18 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
 current = true
+
+[node name="ItemsThatRequireLevel" type="Node" parent="."]
+script = ExtResource( 21 )
+Cccombo = ExtResource( 22 )
 
 [connection signal="timeout" from="UI/Countdown/Timer" to="UI/Countdown" method="_on_Timer_timeout"]
 [connection signal="timeout" from="UI/WaveNumber/ProgressBar/Timer" to="UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]

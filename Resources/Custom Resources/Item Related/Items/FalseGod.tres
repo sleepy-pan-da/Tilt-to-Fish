@@ -8,6 +8,7 @@ script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = true
 overrides_stats_at_start_of_fishing = true
 triggers_when_lose_all_hooks = false
+triggers_when_catch_fish = false
 spawns_orbs = false
 cost = 0
 description = ""

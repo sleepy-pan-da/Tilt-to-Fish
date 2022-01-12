@@ -2,6 +2,7 @@ extends TextureProgress
 
 onready var timer = $Timer
 var wave_duration : int = 30
+signal wave_timed_out
 
 func _ready() -> void:
 	max_value = wave_duration

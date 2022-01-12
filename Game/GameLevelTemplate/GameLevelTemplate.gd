@@ -20,6 +20,7 @@ onready var wave_number_progress_bar = $UI/WaveNumber/ProgressBar
 onready var game_over = $UI/GameOver
 onready var screen_transition = $UI/ScreenTransition
 onready var debug_ui = $UI/DebugUI
+onready var items_that_require_level = $ItemsThatRequireLevel
 
 var bobber : Bobber
 var can_descend : bool = false
@@ -36,6 +37,7 @@ func _ready() -> void:
 	GameEvents.connect("bobber_took_damage", self, "_on_bobber_took_damage")
 	GameEvents.connect("bobber_gained_hook", self, "on_bobber_gained_hook")
 	GameEvents.connect("successfully_caught_fish", self, "_on_successfully_caught_fish")
+	GameEvents.connect("triggered_item_on_caught_fish", self, "on_triggered_item_on_caught_fish")
 	game_over.connect("clicked_play_again", self, "on_clicked_play_again")
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 	fishes.connect("caught_all_fishes", self, "proceed_to_next_wave_after_catching_all_fish")
@@ -81,7 +83,7 @@ func add_bobber_instance_to_scene() -> void:
 
 func on_bobber_entered_scene() -> void:
 	debug_ui.populate_content(bobber.bobber_stats)
-		
+
 	
 func _on_bobber_took_damage(damage_taken : int) -> void:
 	freeze_game()
@@ -101,11 +103,27 @@ func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
 	update_hooks_label()
 
 
+var previous_caught_fish_position : Vector2
 func _on_successfully_caught_fish(fish_position : Vector2) -> void:
 	if is_instance_valid(bobber):	
 		var backpack = bobber.backpack
 		fishes.update_fishes_remaining_upon_successful_catch()
+		previous_caught_fish_position = fish_position
+		bobber.on_caught_fish()
+		
+
+func on_triggered_item_on_caught_fish(item_name : String, incremented_values) -> void:
+	var triggered_item = items_that_require_level.get(item_name)
+	var triggered_instance = triggered_item.instance()
+	triggered_instance.set_value(incremented_values)
+	add_child(triggered_instance)
 	
+	# Have to hardcode the item names here to the sheer difference in item behaviour
+	# This allows for flexibility in the future
+	if item_name == "Cccombo":
+		triggered_instance.global_position = previous_caught_fish_position
+		# create some ui to show combo streak
+
 
 func proceed_to_next_wave_after_catching_all_fish() -> void:
 	if wave_system_enabled:
