@@ -31,8 +31,8 @@ func _ready():
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
-	
 
+	
 func _physics_process(delta : float) -> void:
 	if !testing_on_pc:
 		move(Input.get_accelerometer())
@@ -50,29 +50,30 @@ func _physics_process(delta : float) -> void:
 	if is_moving:
 		Engine.time_scale = 1.0
 	else:
-		Engine.time_scale = 0.2
-	print(Engine.time_scale)
+		Engine.time_scale = bobber_stats.slows_down_time_by
 
-func move(movement_direction_vector : Vector3) -> void:
+func move(accelerometer_vector : Vector3) -> void:
 	var speed_multiplier : int
 	var x_velocity : float
 	var y_velocity : float
 	var velocity : Vector2
 	
 	if control_config.holding_preference == "regular":
-		movement_direction_vector = recalibrate_regular_movement_direction_vector(movement_direction_vector)
+		accelerometer_vector = recalibrate_regular_movement_direction_vector(accelerometer_vector)
 	
 	speed_multiplier = compute_speed_multiplier()	
 	
-	if movement_direction_vector.length() > 1:
-		x_velocity = movement_direction_vector.x * speed_multiplier
-		y_velocity = -movement_direction_vector.y * speed_multiplier 
+	velocity =  Vector2(accelerometer_vector.x, accelerometer_vector.y)
+	
+	#is_moving = velocity.length() > 0.5
+	if velocity.length() > 0.5:
+		velocity.x = velocity.x * speed_multiplier
+		velocity.y = -velocity.y * speed_multiplier 
 		is_moving = true
 	else:
-		x_velocity = movement_direction_vector.x * speed_multiplier / 2
-		y_velocity = -movement_direction_vector.y * speed_multiplier / 2
+		velocity.x = velocity.x * speed_multiplier / 2
+		velocity.y = -velocity.y * speed_multiplier / 2
 		is_moving = false
-	velocity = Vector2(x_velocity, y_velocity)
 	
 	arrow.configure_arrow_location(velocity)
 	move_and_slide(velocity)
@@ -82,12 +83,12 @@ func compute_speed_multiplier() -> int:
 	return 2 * control_config.tilt_sensitivity
 
 
-func recalibrate_regular_movement_direction_vector(movement_direction_vector : Vector3) -> Vector3:
+func recalibrate_regular_movement_direction_vector(accelerometer_vector : Vector3) -> Vector3:
 	var y_axis_offset : int = -7
-	movement_direction_vector.y -= y_axis_offset # recalibrating movement direction vector, only y axis is changed
-	movement_direction_vector.y *= 1.5 # make it easier to move downwards
-	movement_direction_vector.x *= 1.5
-	return movement_direction_vector
+	accelerometer_vector.y -= y_axis_offset # recalibrating movement direction vector, only y axis is changed
+	accelerometer_vector.y *= 1.5 # make it easier to move downwards
+	accelerometer_vector.x *= 1.5
+	return accelerometer_vector
 
 
 func start_immunity():

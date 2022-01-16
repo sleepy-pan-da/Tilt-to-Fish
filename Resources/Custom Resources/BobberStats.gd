@@ -11,7 +11,10 @@ var hooks_amount : int
 var reel_damage : float 
 var reel_attack_rate : float 
 
+var slows_down_time_by : float = 1.0
+
 var first_time_setting_up : bool = true
+
 
 # called in ready function of bobber
 # helps to reset stats upon fishing after leaving shop
@@ -23,6 +26,8 @@ func set_up_initial_stats() -> void:
 		
 	reel_damage = initial_reel_damage
 	reel_attack_rate = initial_reel_attack_rate
+	slows_down_time_by = 1.0
+	
 
 func minus_hook(damage : int) -> void:
 	hooks_amount -= damage

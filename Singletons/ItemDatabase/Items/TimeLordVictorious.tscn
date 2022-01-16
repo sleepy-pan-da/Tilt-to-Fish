@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/TimeLordVictorious.gd" type="Script" id=1]
+
+[node name="TimeLordVictorious" type="Node"]
+script = ExtResource( 1 )
+increment_values_at_diff_levels = [ 0.5, 0.3, 0.1 ]
