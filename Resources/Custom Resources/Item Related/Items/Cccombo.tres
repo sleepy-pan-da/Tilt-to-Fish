@@ -7,6 +7,7 @@ resource_name = "Cccombo"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
+set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = true
 spawns_orbs = false

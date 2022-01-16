@@ -13,6 +13,7 @@ onready var bobber_sprite = $BobberSprite
 onready var arrow = $Arrow
 onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
+onready var items_that_require_bobber = $ItemsThatRequireBobber
 
 var have_immunity : bool = true 
 var immune : bool = false 
@@ -31,7 +32,20 @@ func _ready():
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
+	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
+	set_up_items_at_start_of_fishing()
 
+
+func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_values) -> void:
+	var triggered_item = items_that_require_bobber.get(item_name)
+	var triggered_instance = triggered_item.instance()
+	add_child(triggered_instance)
+	triggered_instance.set_value(incremented_values)
+	
+	if item_name == "BulletTime":
+		pass
+
+	
 	
 func _physics_process(delta : float) -> void:
 	if !testing_on_pc:
@@ -138,6 +152,17 @@ func override_stats_at_start_of_fishing() -> void:
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.override_stats_at_start_of_fishing)
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
 		bobber_stats.reconfigure_hook()
+
+
+# items that are visible on the bobber like BulletTime
+# only called when bobber is ready()
+func set_up_items_at_start_of_fishing() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.set_up_bobber_item_at_start_of_fishing:
+			var item_level : int = backpack.item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_bobber_item_at_start_of_fishing)
 
 
 func on_lost_all_hooks() -> void:

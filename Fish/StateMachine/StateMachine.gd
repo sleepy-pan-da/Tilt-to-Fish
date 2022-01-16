@@ -12,6 +12,7 @@ export var initial_state := NodePath()
 # The current active state. At the start of the game, we get the `initial_state`.
 onready var state: State = get_node(initial_state)
 
+var slow_multiplier : float = 1.0 # to be used to affect delta, the lower the number, the slower it gets
 
 func _ready() -> void:
 	yield(owner, "ready")
@@ -27,11 +28,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	state.update(delta)
+	state.update(delta * slow_multiplier)
 
 
 func _physics_process(delta: float) -> void:
-	state.physics_update(delta)
+	state.physics_update(delta * slow_multiplier)
 
 
 # This function calls the current state's exit() function, then changes the active state,
