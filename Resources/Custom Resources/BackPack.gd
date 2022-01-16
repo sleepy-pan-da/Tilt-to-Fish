@@ -14,7 +14,8 @@ var held_items = 	{
 						#"Constitution"	:	2,
 						#"FalseGod"		:	0,
 						#"NotToday"		:	6,
-						"Cccombo"		:	0
+						#"Cccombo"		:	0,
+						
 					}
 
 

@@ -16,6 +16,7 @@ onready var immunity_timer = $ImmunityTimer
 
 var have_immunity : bool = true 
 var immune : bool = false 
+var is_moving : bool = false
 
 signal bobber_entered_scene
 
@@ -38,11 +39,19 @@ func _physics_process(delta : float) -> void:
 	else:
 		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+		
+		is_moving = !(vertical_direction == 0 and horizontal_direction == 0)
+		
 		var speed : float = 500
 		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
 		arrow.configure_arrow_location(velocity)
 		move_and_slide(velocity)
-
+	
+	if is_moving:
+		Engine.time_scale = 1.0
+	else:
+		Engine.time_scale = 0.2
+	print(Engine.time_scale)
 
 func move(movement_direction_vector : Vector3) -> void:
 	var speed_multiplier : int
@@ -58,9 +67,11 @@ func move(movement_direction_vector : Vector3) -> void:
 	if movement_direction_vector.length() > 1:
 		x_velocity = movement_direction_vector.x * speed_multiplier
 		y_velocity = -movement_direction_vector.y * speed_multiplier 
+		is_moving = true
 	else:
 		x_velocity = movement_direction_vector.x * speed_multiplier / 2
 		y_velocity = -movement_direction_vector.y * speed_multiplier / 2
+		is_moving = false
 	velocity = Vector2(x_velocity, y_velocity)
 	
 	arrow.configure_arrow_location(velocity)
