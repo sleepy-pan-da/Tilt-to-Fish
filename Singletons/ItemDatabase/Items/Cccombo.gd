@@ -1,4 +1,4 @@
-extends "res://Singletons/ItemDatabase/Items/ItemTemplate.gd"
+extends ItemSpecification
 
 export(Array, float) var increment_values_at_diff_levels
 

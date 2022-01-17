@@ -1,4 +1,4 @@
-extends "res://Singletons/ItemDatabase/Items/ItemTemplate.gd"
+extends ItemSpecification
 
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 export(Array, float) var increment_values_at_diff_levels

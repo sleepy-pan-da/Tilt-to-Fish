@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/Arrow.gd" type="Script" id=1]
+
+[node name="Arrow" type="Node"]
+script = ExtResource( 1 )
+increment_values_at_diff_levels = [ 10.0, 20.0, 40.0 ]

@@ -38,6 +38,7 @@ func _ready() -> void:
 	GameEvents.connect("bobber_gained_hook", self, "on_bobber_gained_hook")
 	GameEvents.connect("successfully_caught_fish", self, "_on_successfully_caught_fish")
 	GameEvents.connect("triggered_item_on_caught_fish", self, "on_triggered_item_on_caught_fish")
+	GameEvents.connect("set_up_orb_spawner_at_start_of_fishing", self, "on_set_up_orb_spawner_at_start_of_fishing")
 	game_over.connect("clicked_play_again", self, "on_clicked_play_again")
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 	fishes.connect("caught_all_fishes", self, "proceed_to_next_wave_after_catching_all_fish")
@@ -123,6 +124,9 @@ func on_triggered_item_on_caught_fish(item_name : String, incremented_values) ->
 	if item_name == "Cccombo":
 		triggered_instance.global_position = previous_caught_fish_position
 		# create some ui to show combo streak
+
+func on_set_up_orb_spawner_at_start_of_fishing(item_name : String, incremented_values) -> void:
+	pass
 
 
 func proceed_to_next_wave_after_catching_all_fish() -> void:

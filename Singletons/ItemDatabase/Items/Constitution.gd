@@ -1,4 +1,4 @@
-extends "res://Singletons/ItemDatabase/Items/ItemTemplate.gd"
+extends ItemSpecification
 
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 export(Array, float) var increment_values_at_diff_levels
@@ -6,7 +6,7 @@ export(Array, float) var increment_values_at_diff_levels
 func trigger_at_level_1(trigger_cause : int) -> void:
 	if trigger_cause == TRIGGER_CAUSES.set_up_stats_at_start_of_fishing:
 		bobber_stats.change_max_hook(increment_values_at_diff_levels[0])
-	
+
 
 func trigger_at_level_2(trigger_cause : int) -> void:
 	if trigger_cause == TRIGGER_CAUSES.set_up_stats_at_start_of_fishing:

@@ -28,7 +28,7 @@ func _ready() -> void:
 # ComputeNewPtToSwimTo and Swimming can transition to this
 func on_detected_bobber(bobber : Bobber) -> void:
 	state_machine.transition_to("DetectedBobber", {detected_bobber = bobber})
-	
+
 
 func on_bobber_entered_hitbox() -> void:
 	bobber_in_proximity_area.bobber_stats.minus_hook(damage)
