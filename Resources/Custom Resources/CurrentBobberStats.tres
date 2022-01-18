@@ -7,4 +7,5 @@ script = ExtResource( 1 )
 initial_reel_damage = 1.0
 initial_reel_attack_rate = 5.0
 initial_max_hooks_amount = 5
+initial_max_orbs = 2
 gold_amount = 0

@@ -21,6 +21,7 @@ onready var game_over = $UI/GameOver
 onready var screen_transition = $UI/ScreenTransition
 onready var debug_ui = $UI/DebugUI
 onready var items_that_require_level = $ItemsThatRequireLevel
+onready var orb_manager = $OrbManager
 
 var bobber : Bobber
 var can_descend : bool = false
@@ -84,7 +85,9 @@ func add_bobber_instance_to_scene() -> void:
 
 func on_bobber_entered_scene() -> void:
 	debug_ui.populate_content(bobber.bobber_stats)
-
+	bobber.set_up_orb_spawners_at_start_of_fishing()
+	orb_manager.set_up()
+	
 	
 func _on_bobber_took_damage(damage_taken : int) -> void:
 	freeze_game()
@@ -126,7 +129,15 @@ func on_triggered_item_on_caught_fish(item_name : String, incremented_values) ->
 		# create some ui to show combo streak
 
 func on_set_up_orb_spawner_at_start_of_fishing(item_name : String, incremented_values) -> void:
-	pass
+	var triggered_item = items_that_require_level.get(item_name)
+	var triggered_instance = triggered_item.instance()
+	
+	if item_name == "Arrow":
+		triggered_instance.set_damage(incremented_values)
+		orb_manager.add_child(triggered_instance)
+	
+	orb_manager.add_latest_child_to_spawn_order()
+
 
 
 func proceed_to_next_wave_after_catching_all_fish() -> void:

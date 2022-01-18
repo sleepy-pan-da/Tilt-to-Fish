@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -22,6 +22,9 @@
 [ext_resource path="res://Game/GameLevelTemplate/DebugUI.gd" type="Script" id=20]
 [ext_resource path="res://Game/GameLevelTemplate/ItemsThatRequireLevel.gd" type="Script" id=21]
 [ext_resource path="res://Upgrades/Intimidate/Intimidation.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Upgrades/OrbSpawners/ArrowOrbSpawner/ArrowOrbSpawner.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Game/GameLevelTemplate/OrbManager.gd" type="Script" id=24]
+[ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -377,6 +380,11 @@ current = true
 [node name="ItemsThatRequireLevel" type="Node" parent="."]
 script = ExtResource( 21 )
 Cccombo = ExtResource( 22 )
+Arrow = ExtResource( 23 )
+
+[node name="OrbManager" type="Node" parent="."]
+script = ExtResource( 24 )
+bobber_stats = ExtResource( 25 )
 
 [connection signal="timeout" from="UI/Countdown/Timer" to="UI/Countdown" method="_on_Timer_timeout"]
 [connection signal="timeout" from="UI/WaveNumber/ProgressBar/Timer" to="UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]

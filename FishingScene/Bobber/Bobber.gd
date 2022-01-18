@@ -34,7 +34,7 @@ func _ready():
 	emit_signal("bobber_entered_scene")
 	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
 	set_up_items_at_start_of_fishing()
-	set_up_orb_spawners_at_start_of_fishing()
+	
 
 
 func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_values) -> void:

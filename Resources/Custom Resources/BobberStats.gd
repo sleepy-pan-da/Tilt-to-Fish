@@ -4,13 +4,14 @@ class_name BobberStats
 export(float) var initial_reel_damage # damage that you deal when you are near fish
 export(float) var initial_reel_attack_rate 
 export(int) var initial_max_hooks_amount # aka number of lives
+export(int) var initial_max_orbs
 export(int) var gold_amount
 
 var max_hooks_amount : int
 var hooks_amount : int
 var reel_damage : float 
 var reel_attack_rate : float 
-
+var max_orbs : int
 var slows_down_time_by : float = 1.0
 
 var first_time_setting_up : bool = true
@@ -26,6 +27,7 @@ func set_up_initial_stats() -> void:
 		
 	reel_damage = initial_reel_damage
 	reel_attack_rate = initial_reel_attack_rate
+	max_orbs = initial_max_orbs
 	slows_down_time_by = 1.0
 	
 
