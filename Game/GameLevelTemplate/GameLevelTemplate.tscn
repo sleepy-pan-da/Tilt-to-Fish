@@ -81,6 +81,8 @@ position = Vector2( -1.33484, 0 )
 [node name="Fishes" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
+[node name="Orbs" type="Node2D" parent="."]
+
 [node name="BobberSpawnPt" type="Position2D" parent="."]
 position = Vector2( 640, 360 )
 

@@ -30,6 +30,7 @@ func start_progress_bar_timer() -> void:
 func stop_progress_bar_timer():
 	timer.stop()
 
+
 func reset_progress_bar() -> void:
 	timer.stop()
 	value = 0
