@@ -1,5 +1,4 @@
 extends Sprite
-class_name Arrow
 
 onready var tween = $Tween
 var path_radius : int 
@@ -43,5 +42,9 @@ func compute_arrow_position(angle_wrt_x_axis : float):
 	rotate(angle_wrt_x_axis - rotation)
 	
 
-func _on_Tween_tween_completed(_object : Arrow, _key):
+func _on_Tween_tween_completed(_object, _key):
 	configuring_position = false
+
+
+func compute_arrow_direction() -> Vector2:
+	return position.normalized()

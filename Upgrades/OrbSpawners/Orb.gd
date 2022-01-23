@@ -4,6 +4,7 @@ class_name Orb
 export(float) var cooldown_duration
 onready var cooldown = $Cooldown
 onready var sprite = $Sprite
+var incremented_values
 
 func _ready() -> void:
 	cooldown.connect("finished_cooldown", self, "on_finished_cooldown")

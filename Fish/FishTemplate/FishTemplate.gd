@@ -125,6 +125,10 @@ func _on_Hurtbox_area_entered(area):
 	elif area.get_class() == "Projectile":
 		progress_bar.increment_bar(amount_needed_to_catch * 0.25)
 		area.queue_free()
+	elif area.get_name() == "Arrow":
+		print("arrow damage: " + String(area.damage))
+		progress_bar.increment_bar(area.damage)
+		area.queue_free()
 	elif area.get_class() == "FishHitbox":
 		if area.within_hurtbox:
 			if !area.can_deal_damage:

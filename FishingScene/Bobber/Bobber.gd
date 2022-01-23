@@ -33,8 +33,8 @@ func _ready():
 		start_immunity()
 	emit_signal("bobber_entered_scene")
 	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
+	GameEvents.connect("triggered_orb_that_requires_bobber", self, "on_triggered_orb_that_requires_bobber")
 	set_up_items_at_start_of_fishing()
-	
 
 
 func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_values) -> void:
@@ -46,6 +46,15 @@ func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_v
 	if item_name == "BulletTime":
 		pass
 
+
+func on_triggered_orb_that_requires_bobber(item_name : String, incremented_values) -> void:
+	var triggered_item = items_that_require_bobber.get(item_name)
+	var triggered_instance = triggered_item.instance()
+	add_child(triggered_instance)
+	triggered_instance.set_value(incremented_values)
+	
+	if item_name == "Arrow":
+		triggered_instance.set_bobber_reference(self)
 	
 	
 func _physics_process(delta : float) -> void:

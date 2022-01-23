@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Fishing Scene/UI elements/arrow-01.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/bobber-01.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/AlphaItemPool.tres" type="Resource" id=9]
 [ext_resource path="res://FishingScene/Bobber/ItemsThatRequireBobber.gd" type="Script" id=10]
 [ext_resource path="res://Upgrades/BulletTime/BulletTime.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Upgrades/OrbSpawners/ArrowOrbSpawner/Arrow.tscn" type="PackedScene" id=12]
 [ext_resource path="res://FishingScene/Bobber/BobberSprite.gd" type="Script" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -54,7 +55,6 @@ bobber_stats = ExtResource( 5 )
 backpack = ExtResource( 8 )
 item_pool = ExtResource( 9 )
 control_config = ExtResource( 7 )
-testing_on_pc = true
 
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )
@@ -89,6 +89,7 @@ one_shot = true
 [node name="ItemsThatRequireBobber" type="Node" parent="."]
 script = ExtResource( 10 )
 BulletTime = ExtResource( 11 )
+Arrow = ExtResource( 12 )
 
 [connection signal="tween_completed" from="Arrow/Tween" to="Arrow" method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="ImmunityTimer" to="." method="_on_ImmunityTimer_timeout"]

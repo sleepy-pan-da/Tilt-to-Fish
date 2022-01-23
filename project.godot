@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsAlpha/AlphaOrbs/AlphaOrbs.gd"
 }, {
-"base": "Sprite",
-"class": "Arrow",
-"language": "GDScript",
-"path": "res://FishingScene/Bobber/Arrow.gd"
-}, {
 "base": "Resource",
 "class": "BackPack",
 "language": "GDScript",
@@ -141,7 +136,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AlphaOrbs": "",
-"Arrow": "",
 "BackPack": "",
 "Bobber": "",
 "BobberStats": "",
