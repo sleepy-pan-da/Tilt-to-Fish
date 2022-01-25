@@ -12,7 +12,6 @@ var bobber : Bobber
 
 func _ready():
 	animation_player.play("Charging")
-	print("Sup boiii")
 
 
 func set_bobber_reference(bobber_reference : Bobber) -> void:
@@ -46,12 +45,12 @@ func _physics_process(delta):
 	translate(velocity * delta)
 	
 
-func set_value(new_damage_value : float) -> void:
-	damage = new_damage_value
+func set_incremented_values(new_incremented_values) -> void:
+	damage = new_incremented_values[0]
+	print("Arrow damage is " + str(damage))
 
 
 func on_screen_exited() -> void:
-	print("arrow left the screen")
 	queue_free()
 
 

@@ -11,6 +11,7 @@ func _ready() -> void:
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 	screen_metrics()
 
+
 func on_clicked_start() -> void:
 	screen_transition.transition_out()
 

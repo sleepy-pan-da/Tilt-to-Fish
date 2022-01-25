@@ -4,11 +4,15 @@ class_name OrbSpawner
 export(PackedScene) var orb
 var incremented_values
 
+func set_incremented_values(new_incremented_values) -> void:
+	incremented_values = new_incremented_values
+
+
 func spawn_orb(node_to_add_to : Node) -> void:
-	var orb_instance = orb.instance()
+	var orb_instance : Orb = orb.instance()
 	node_to_add_to.add_child(orb_instance)
 	node_to_add_to.global_position = generate_random_pt_on_screen()
-	orb_instance.incremented_values = incremented_values
+	orb_instance.set_incremented_values(incremented_values)
 
 
 func generate_random_pt_on_screen() -> Vector2:
@@ -29,7 +33,3 @@ func generate_random_pt_on_screen() -> Vector2:
 	 
 	var computed_pt : Vector2 = Vector2(x_coordinate, y_coordinate)
 	return computed_pt
-
-
-func set_incremented_values(new_incremented_values) -> void:
-	incremented_values = new_incremented_values

@@ -1,17 +1,22 @@
 extends ItemSpecification
 
-export(Array, float) var increment_values_at_diff_levels 
+export(Array, float) var increment_damage_at_diff_levels
+export(Array, float) var increment_cooldown_at_diff_levels
+
 
 func trigger_at_level_1(trigger_cause : int) -> void:
 	if trigger_cause == TRIGGER_CAUSES.set_up_orb_spawners_at_start_of_fishing:
-		GameEvents.emit_signal("set_up_orb_spawner_at_start_of_fishing", name, increment_values_at_diff_levels[0])
+		var incremented_values = [increment_damage_at_diff_levels[0], increment_cooldown_at_diff_levels[0]]
+		GameEvents.emit_signal("set_up_orb_spawner_at_start_of_fishing", name, incremented_values)
 
 
 func trigger_at_level_2(trigger_cause : int) -> void:
 	if trigger_cause == TRIGGER_CAUSES.set_up_orb_spawners_at_start_of_fishing:
-		GameEvents.emit_signal("set_up_orb_spawner_at_start_of_fishing", name, increment_values_at_diff_levels[1])
+		var incremented_values = [increment_damage_at_diff_levels[1], increment_cooldown_at_diff_levels[1]]
+		GameEvents.emit_signal("set_up_orb_spawner_at_start_of_fishing", name, incremented_values)
 
 
 func trigger_at_level_3(trigger_cause : int) -> void:
 	if trigger_cause == TRIGGER_CAUSES.set_up_orb_spawners_at_start_of_fishing:
-		GameEvents.emit_signal("set_up_orb_spawner_at_start_of_fishing", name, increment_values_at_diff_levels[2])
+		var incremented_values = [increment_damage_at_diff_levels[2], increment_cooldown_at_diff_levels[2]]
+		GameEvents.emit_signal("set_up_orb_spawner_at_start_of_fishing", name, incremented_values)

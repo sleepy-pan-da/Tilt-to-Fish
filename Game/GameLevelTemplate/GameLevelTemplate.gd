@@ -128,16 +128,16 @@ func on_triggered_item_on_caught_fish(item_name : String, incremented_values) ->
 		triggered_instance.global_position = previous_caught_fish_position
 		# create some ui to show combo streak
 
+
 func on_set_up_orb_spawner_at_start_of_fishing(item_name : String, incremented_values) -> void:
 	var triggered_item = items_that_require_level.get(item_name)
 	var triggered_instance : OrbSpawner = triggered_item.instance()
+	triggered_instance.set_incremented_values(incremented_values)
 	
 	if item_name == "Arrow":
-		triggered_instance.set_incremented_values(incremented_values)
 		orb_manager.add_child(triggered_instance)
 	
 	orb_manager.add_latest_child_to_spawn_order()
-
 
 
 func proceed_to_next_wave_after_catching_all_fish() -> void:

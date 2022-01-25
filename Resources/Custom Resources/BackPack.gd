@@ -17,7 +17,7 @@ var held_items = 	{
 						#"Cccombo"		:	0,
 						#"TimeLordVictorious"	:	0,
 						#"BulletTime"	:	2,
-						"Arrow"	:	0
+						"Arrow"	:	2
 					}
 
 

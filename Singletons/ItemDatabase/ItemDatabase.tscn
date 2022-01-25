@@ -29,4 +29,5 @@ bobber_stats = ExtResource( 7 )
 [node name="BulletTime" parent="." instance=ExtResource( 8 )]
 
 [node name="Arrow" parent="." instance=ExtResource( 9 )]
-increment_values_at_diff_levels = [ 20.0, 40.0, 80.0 ]
+increment_damage_at_diff_levels = [ 10.0, 20.0, 40.0 ]
+increment_cooldown_at_diff_levels = [ 8.0, 4.0, 2.0 ]

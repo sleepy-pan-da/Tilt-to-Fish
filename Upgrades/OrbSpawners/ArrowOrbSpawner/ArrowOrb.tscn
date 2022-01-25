@@ -8,7 +8,6 @@ extents = Vector2( 32, 32 )
 
 [node name="ArrowOrb" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-cooldown_duration = 2.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 1 )
