@@ -52,9 +52,7 @@ func on_triggered_orb_that_requires_bobber(item_name : String, incremented_value
 	var triggered_instance = triggered_item.instance()
 	add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)
-	
-	if item_name == "Arrow":
-		triggered_instance.set_bobber_reference(self)
+	triggered_instance.set_bobber_reference(self)
 	
 	
 func _physics_process(delta : float) -> void:

@@ -123,7 +123,7 @@ radius = 1300
 [node name="HitBox" parent="KinematicBody" index="10" instance=ExtResource( 6 )]
 
 [node name="SteeringBehaviour" parent="KinematicBody" index="11" instance=ExtResource( 5 )]
-max_speed = 500.0
+max_speed = 300.0
 mass = 45.0
 
 [node name="StunnedTimer" type="Timer" parent="." index="3"]

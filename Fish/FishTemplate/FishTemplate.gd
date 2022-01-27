@@ -128,6 +128,8 @@ func _on_Hurtbox_area_entered(area):
 	elif area.get_name() == "Arrow":
 		progress_bar.increment_bar(area.damage)
 		area.queue_free()
+	elif area.get_name() == "AntimatterWave":
+		progress_bar.increment_bar(area.damage)
 	elif area.get_class() == "FishHitbox":
 		if area.within_hurtbox:
 			if !area.can_deal_damage:

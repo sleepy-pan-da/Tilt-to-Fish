@@ -29,3 +29,4 @@ func set_incremented_values(new_incremented_values) -> void:
 func set_cooldown_duration(new_cooldown_duration : float) -> void:
 	cooldown_duration = new_cooldown_duration
 	cooldown.set_duration(cooldown_duration)
+	print("cooldown duration is " + str(cooldown.max_value))

@@ -133,10 +133,7 @@ func on_set_up_orb_spawner_at_start_of_fishing(item_name : String, incremented_v
 	var triggered_item = items_that_require_level.get(item_name)
 	var triggered_instance : OrbSpawner = triggered_item.instance()
 	triggered_instance.set_incremented_values(incremented_values)
-	
-	if item_name == "Arrow":
-		orb_manager.add_child(triggered_instance)
-	
+	orb_manager.add_child(triggered_instance)
 	orb_manager.add_latest_child_to_spawn_order()
 
 
