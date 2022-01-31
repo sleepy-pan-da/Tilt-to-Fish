@@ -133,6 +133,11 @@ _global_script_classes=[ {
 "class": "ThrillSeeker",
 "language": "GDScript",
 "path": "res://Upgrades/ThrillSeeker/ThrillSeeker.gd"
+}, {
+"base": "Projectile",
+"class": "TurretProjectile",
+"language": "GDScript",
+"path": "res://TurretProjectile.gd"
 } ]
 _global_script_class_icons={
 "AlphaOrbs": "",
@@ -159,7 +164,8 @@ _global_script_class_icons={
 "Retaliation": "",
 "State": "",
 "StateMachine": "",
-"ThrillSeeker": ""
+"ThrillSeeker": "",
+"TurretProjectile": ""
 }
 
 [application]

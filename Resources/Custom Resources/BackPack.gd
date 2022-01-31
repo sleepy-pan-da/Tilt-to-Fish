@@ -17,8 +17,9 @@ var held_items = 	{
 						#"Cccombo"		:	0,
 						#"TimeLordVictorious"	:	0,
 						#"BulletTime"	:	2,
-						"Arrow"	:	2,
-						"AntimatterWave"	:	2
+						#"Arrow"	:	2,
+						#"AntimatterWave"	:	2,
+						"FiveRoundsRapid"	:	6
 					}
 
 

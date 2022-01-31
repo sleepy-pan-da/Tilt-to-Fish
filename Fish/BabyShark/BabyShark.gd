@@ -31,5 +31,4 @@ func on_detected_bobber(bobber : Bobber) -> void:
 
 
 func on_bobber_entered_hitbox() -> void:
-	bobber_in_proximity_area.bobber_stats.minus_hook(damage)
 	GameEvents.emit_signal("bobber_took_damage", damage)

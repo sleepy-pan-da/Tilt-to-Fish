@@ -123,7 +123,10 @@ func _on_Hurtbox_area_entered(area):
 	if area.get_class() == "Intimidate" or area.get_class() == "Retaliation":
 		progress_bar.increment_bar(area.damage)
 	elif area.get_class() == "Projectile":
-		progress_bar.increment_bar(amount_needed_to_catch * 0.25)
+		progress_bar.increment_bar(amount_needed_to_catch * 0.2)
+		area.queue_free()
+	elif area.get_class() == "TurretProjectile":
+		progress_bar.increment_bar(area.damage)
 		area.queue_free()
 	elif area.get_name() == "Arrow":
 		progress_bar.increment_bar(area.damage)
