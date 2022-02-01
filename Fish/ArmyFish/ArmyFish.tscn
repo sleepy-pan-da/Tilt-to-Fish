@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Fish/ArmyFish/FishSprite.gd" type="Script" id=1]
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Fish/ArmyFish/ArmyFish.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Fishing Scene/Fishes/armyboi/army left.PNG" type="Texture" id=6]
 [ext_resource path="res://Fish/Behaviours/DetectionArea/DetectionArea.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Fish/StateMachine/StateMachine.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Fish/ArmyFish/States/Alert.gd" type="Script" id=9]
 [ext_resource path="res://Fish/ArmyFish/States/Firing.gd" type="Script" id=10]
 [ext_resource path="res://Fish/ArmyFish/States/Resting.gd" type="Script" id=11]
@@ -26,12 +25,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 1536.56
+
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
 radius = 113.537
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 1536.56
 
 [node name="ArmyFish" instance=ExtResource( 2 )]
 script = ExtResource( 5 )
@@ -39,19 +38,20 @@ amount_needed_to_catch = 50.0
 damage = 1
 number_of_projectiles_shot_each_round = 1
 
-[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 8 )]
+[node name="StateMachine" parent="KinematicBody" index="0"]
 initial_state = NodePath("Alert")
+nodepath_of_state_after_recover = NodePath("Alert")
 
-[node name="Alert" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
+[node name="Alert" type="Node" parent="KinematicBody/StateMachine" index="0"]
 script = ExtResource( 9 )
 
-[node name="Firing" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
+[node name="Firing" type="Node" parent="KinematicBody/StateMachine" index="1"]
 script = ExtResource( 10 )
 
-[node name="Resting" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
+[node name="Resting" type="Node" parent="KinematicBody/StateMachine" index="2"]
 script = ExtResource( 11 )
 
-[node name="CannotFire" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
+[node name="CannotFire" type="Node" parent="KinematicBody/StateMachine" index="3"]
 script = ExtResource( 12 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]
@@ -61,10 +61,7 @@ script = ExtResource( 1 )
 [node name="RippleSprite" parent="KinematicBody" index="4"]
 frame = 33
 
-[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
-shape = SubResource( 2 )
-
-[node name="ShootProjectiles" parent="KinematicBody" index="7" instance=ExtResource( 4 )]
+[node name="ShootProjectiles" parent="KinematicBody" index="6" instance=ExtResource( 4 )]
 speed = 500.0
 
 [node name="RestTimer" type="Timer" parent="KinematicBody/ShootProjectiles" index="0"]
@@ -72,11 +69,14 @@ process_mode = 0
 wait_time = 2.0
 one_shot = true
 
-[node name="DetectionArea" parent="KinematicBody" index="8" instance=ExtResource( 7 )]
+[node name="DetectionArea" parent="KinematicBody" index="7" instance=ExtResource( 7 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
 shape = SubResource( 3 )
 
-[connection signal="timeout" from="KinematicBody/ShootProjectiles/RestTimer" to="KinematicBody/StateMachineOld/Resting" method="_on_RestTimer_timeout"]
+[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="timeout" from="KinematicBody/ShootProjectiles/RestTimer" to="KinematicBody/StateMachine/Resting" method="_on_RestTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fish/Behaviours/LungeAtBobber/LungeAtBobber.tscn" type="PackedScene" id=2]
@@ -9,11 +9,9 @@
 [ext_resource path="res://Assets/Fishing Scene/Fishes/Bullfish/Bullfish Left.PNG" type="Texture" id=7]
 [ext_resource path="res://Assets/Fishing Scene/Fishes/Bullfish/Bullfish Right.PNG" type="Texture" id=8]
 [ext_resource path="res://Fish/BullFish/States/Alert.gd" type="Script" id=9]
-[ext_resource path="res://Fish/StateMachine/StateMachine.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Fish/BullFish/States/Lunging.gd" type="Script" id=11]
 [ext_resource path="res://Fish/BullFish/States/ComputePtToLungeTowards.gd" type="Script" id=12]
 [ext_resource path="res://Fish/BullFish/States/Stunned.gd" type="Script" id=13]
-[ext_resource path="res://Fish/BullFish/States/RecoverFromStun.gd" type="Script" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -28,58 +26,54 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 1542.49
+
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
 radius = 140.0
-
-[sub_resource type="CircleShape2D" id=3]
-radius = 1542.49
 
 [node name="BullFish" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
 amount_needed_to_catch = 75.0
 damage = 1
 
-[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 10 )]
+[node name="StateMachine" parent="KinematicBody" index="0"]
 initial_state = NodePath("Alert")
+nodepath_of_state_after_recover = NodePath("ComputePtToLungeTowards")
 
-[node name="Alert" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
+[node name="Alert" type="Node" parent="KinematicBody/StateMachine" index="0"]
 script = ExtResource( 9 )
 
-[node name="ComputePtToLungeTowards" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
+[node name="ComputePtToLungeTowards" type="Node" parent="KinematicBody/StateMachine" index="1"]
 script = ExtResource( 12 )
 
-[node name="Lunging" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
+[node name="Lunging" type="Node" parent="KinematicBody/StateMachine" index="2"]
 script = ExtResource( 11 )
 
-[node name="Collided" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
+[node name="Collided" type="Node" parent="KinematicBody/StateMachine" index="3"]
 script = ExtResource( 13 )
-
-[node name="Recover" type="Node" parent="KinematicBody/StateMachineOld" index="4"]
-script = ExtResource( 14 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]
 frames = SubResource( 1 )
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
-shape = SubResource( 2 )
-
-[node name="DetectionArea" parent="KinematicBody" index="7" instance=ExtResource( 3 )]
+[node name="DetectionArea" parent="KinematicBody" index="6" instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
 shape = SubResource( 3 )
 
-[node name="HitBox" parent="KinematicBody" index="8" instance=ExtResource( 4 )]
+[node name="HitBox" parent="KinematicBody" index="7" instance=ExtResource( 4 )]
 collision_layer = 72
 within_hurtbox = true
 
-[node name="LungeAtBobber" parent="KinematicBody" index="9" instance=ExtResource( 2 )]
+[node name="LungeAtBobber" parent="KinematicBody" index="8" instance=ExtResource( 2 )]
 speed = 500
 num_of_lunges_before_rest = 1
 radius = 2000
 
-[connection signal="timeout" from="KinematicBody/LungeAtBobber/CollidedTimer" to="KinematicBody/StateMachineOld/Collided" method="_on_CollidedTimer_timeout"]
+[node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
+shape = SubResource( 2 )
 
 [editable path="KinematicBody/DetectionArea"]
 [editable path="KinematicBody/LungeAtBobber"]
