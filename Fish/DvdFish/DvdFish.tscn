@@ -35,19 +35,19 @@ script = ExtResource( 4 )
 amount_needed_to_catch = 50.0
 damage = 1
 
-[node name="StateMachine" parent="KinematicBody" index="0" instance=ExtResource( 8 )]
+[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 8 )]
 initial_state = NodePath("StartInitialMovement")
 
-[node name="StartInitialMovement" type="Node" parent="KinematicBody/StateMachine" index="0"]
+[node name="StartInitialMovement" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
 script = ExtResource( 12 )
 
-[node name="Swimming" type="Node" parent="KinematicBody/StateMachine" index="1"]
+[node name="Swimming" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
 script = ExtResource( 9 )
 
-[node name="Collided" type="Node" parent="KinematicBody/StateMachine" index="2"]
+[node name="Collided" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
 script = ExtResource( 11 )
 
-[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachine" index="3"]
+[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
 script = ExtResource( 10 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]

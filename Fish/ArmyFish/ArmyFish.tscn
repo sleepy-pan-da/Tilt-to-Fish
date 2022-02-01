@@ -39,19 +39,19 @@ amount_needed_to_catch = 50.0
 damage = 1
 number_of_projectiles_shot_each_round = 1
 
-[node name="StateMachine" parent="KinematicBody" index="0" instance=ExtResource( 8 )]
+[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 8 )]
 initial_state = NodePath("Alert")
 
-[node name="Alert" type="Node" parent="KinematicBody/StateMachine" index="0"]
+[node name="Alert" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
 script = ExtResource( 9 )
 
-[node name="Firing" type="Node" parent="KinematicBody/StateMachine" index="1"]
+[node name="Firing" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
 script = ExtResource( 10 )
 
-[node name="Resting" type="Node" parent="KinematicBody/StateMachine" index="2"]
+[node name="Resting" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
 script = ExtResource( 11 )
 
-[node name="CannotFire" type="Node" parent="KinematicBody/StateMachine" index="3"]
+[node name="CannotFire" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
 script = ExtResource( 12 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]
@@ -77,6 +77,6 @@ one_shot = true
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
 shape = SubResource( 3 )
 
-[connection signal="timeout" from="KinematicBody/ShootProjectiles/RestTimer" to="KinematicBody/StateMachine/Resting" method="_on_RestTimer_timeout"]
+[connection signal="timeout" from="KinematicBody/ShootProjectiles/RestTimer" to="KinematicBody/StateMachineOld/Resting" method="_on_RestTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]

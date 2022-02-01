@@ -8,6 +8,7 @@ onready var ripple_animation = $KinematicBody/RippleAnimation
 onready var progress_bar = $KinematicBody/ProgressBar
 onready var check_bobber_in_proximity_area_timer = $CheckBobberInProximityAreaTimer
 onready var recovery_timer = $RecoveryTimer
+onready var stunned_timer = $StunnedTimer
 
 export(float) var amount_needed_to_catch
 export(float) var fish_recovery_amount

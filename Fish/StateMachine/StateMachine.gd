@@ -8,9 +8,11 @@ signal transitioned(state_name)
 
 # Path to the initial active state. We export it to be able to pick the initial state in the inspector.
 export var initial_state := NodePath()
+export var nodepath_of_state_after_recover := NodePath()
 
 # The current active state. At the start of the game, we get the `initial_state`.
 onready var state: State = get_node(initial_state)
+onready var state_after_recover : State = get_node(nodepath_of_state_after_recover)
 
 var slow_multiplier : float = 1.0 # to be used to affect delta, the lower the number, the slower it gets
 

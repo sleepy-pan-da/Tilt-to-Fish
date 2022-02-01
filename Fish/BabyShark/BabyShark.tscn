@@ -44,19 +44,19 @@ damage = 1
 collision_layer = 48
 collision_mask = 33
 
-[node name="StateMachine" parent="KinematicBody" index="0" instance=ExtResource( 10 )]
+[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 10 )]
 initial_state = NodePath("ComputeNewPtToSwimTo")
 
-[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachine" index="0"]
+[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
 script = ExtResource( 11 )
 
-[node name="Swimming" type="Node" parent="KinematicBody/StateMachine" index="1"]
+[node name="Swimming" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
 script = ExtResource( 12 )
 
-[node name="DetectedBobber" type="Node" parent="KinematicBody/StateMachine" index="2"]
+[node name="DetectedBobber" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
 script = ExtResource( 13 )
 
-[node name="FollowBobber" type="Node" parent="KinematicBody/StateMachine" index="3"]
+[node name="FollowBobber" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
 script = ExtResource( 14 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]

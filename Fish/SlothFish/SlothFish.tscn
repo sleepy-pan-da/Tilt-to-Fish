@@ -13,14 +13,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "FacingLeft",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "FacingRight",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "FacingLeft",
 "speed": 5.0
 } ]
 
@@ -32,19 +32,19 @@ radius = 112.0
 script = ExtResource( 3 )
 amount_needed_to_catch = 50.0
 
-[node name="StateMachine" parent="KinematicBody" index="0" instance=ExtResource( 6 )]
+[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 6 )]
 initial_state = NodePath("ComputeNewPtToSwimTo")
 
-[node name="Swimming" type="Node" parent="KinematicBody/StateMachine" index="0"]
+[node name="Swimming" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
 script = ExtResource( 7 )
 
-[node name="ReachedPt" type="Node" parent="KinematicBody/StateMachine" index="1"]
+[node name="ReachedPt" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
 script = ExtResource( 9 )
 
-[node name="Collided" type="Node" parent="KinematicBody/StateMachine" index="2"]
+[node name="Collided" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
 script = ExtResource( 8 )
 
-[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachine" index="3"]
+[node name="ComputeNewPtToSwimTo" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
 script = ExtResource( 10 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]

@@ -40,22 +40,22 @@ script = ExtResource( 5 )
 amount_needed_to_catch = 75.0
 damage = 1
 
-[node name="StateMachine" parent="KinematicBody" index="0" instance=ExtResource( 10 )]
+[node name="StateMachineOld" parent="KinematicBody" index="0" instance=ExtResource( 10 )]
 initial_state = NodePath("Alert")
 
-[node name="Alert" type="Node" parent="KinematicBody/StateMachine" index="0"]
+[node name="Alert" type="Node" parent="KinematicBody/StateMachineOld" index="0"]
 script = ExtResource( 9 )
 
-[node name="ComputePtToLungeTowards" type="Node" parent="KinematicBody/StateMachine" index="1"]
+[node name="ComputePtToLungeTowards" type="Node" parent="KinematicBody/StateMachineOld" index="1"]
 script = ExtResource( 12 )
 
-[node name="Lunging" type="Node" parent="KinematicBody/StateMachine" index="2"]
+[node name="Lunging" type="Node" parent="KinematicBody/StateMachineOld" index="2"]
 script = ExtResource( 11 )
 
-[node name="Collided" type="Node" parent="KinematicBody/StateMachine" index="3"]
+[node name="Collided" type="Node" parent="KinematicBody/StateMachineOld" index="3"]
 script = ExtResource( 13 )
 
-[node name="Recover" type="Node" parent="KinematicBody/StateMachine" index="4"]
+[node name="Recover" type="Node" parent="KinematicBody/StateMachineOld" index="4"]
 script = ExtResource( 14 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]
@@ -79,7 +79,7 @@ speed = 500
 num_of_lunges_before_rest = 1
 radius = 2000
 
-[connection signal="timeout" from="KinematicBody/LungeAtBobber/CollidedTimer" to="KinematicBody/StateMachine/Collided" method="_on_CollidedTimer_timeout"]
+[connection signal="timeout" from="KinematicBody/LungeAtBobber/CollidedTimer" to="KinematicBody/StateMachineOld/Collided" method="_on_CollidedTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]
 [editable path="KinematicBody/LungeAtBobber"]
