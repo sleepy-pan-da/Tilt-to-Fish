@@ -9,7 +9,7 @@ export(int) var radius
 
 onready var cooldown_between_lunges = $CooldownBetweenLunges
 onready var rest_timer = $RestTimer
-onready var stunned_timer = $StunnedTimer
+onready var collided_timer = $CollidedTimer
 
 var direction_to_lunge : Vector2
 var computed_pt : Vector2

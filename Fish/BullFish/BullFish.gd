@@ -10,20 +10,19 @@ export(int) var damage
 
 var movement_vector : Vector2
 var collision : KinematicCollision2D
-var stunned : bool = false
 
 # State Transitions
 # Alert -> ComputePtToLungeTowards
 # ComputePtToLungeTowards -> Lunging
-# Lunging -> Stunned
-# Stunned -> RecoverFromStun
-# RecoverFromStun -> ComputePtToLungeTowards
+# Lunging -> Collided
+# Collided -> Recover
+# Recover -> ComputePtToLungeTowards
 
 func _ready() -> void:
 	detection_area.connect("detected_bobber", state_machine.get_node("Alert"), "on_detected_bobber")
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
-	fish_sprite.connect("finished_recovering", state_machine.get_node("RecoverFromStun"), "on_finished_recovering")
+	fish_sprite.connect("finished_recovering", state_machine.get_node("Recover"), "on_finished_recovering")
 
 # need this to solve for null reference when your bobber dies	
 func on_lost_bobber() -> void:

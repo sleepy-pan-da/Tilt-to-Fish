@@ -52,10 +52,10 @@ script = ExtResource( 12 )
 [node name="Lunging" type="Node" parent="KinematicBody/StateMachine" index="2"]
 script = ExtResource( 11 )
 
-[node name="Stunned" type="Node" parent="KinematicBody/StateMachine" index="3"]
+[node name="Collided" type="Node" parent="KinematicBody/StateMachine" index="3"]
 script = ExtResource( 13 )
 
-[node name="RecoverFromStun" type="Node" parent="KinematicBody/StateMachine" index="4"]
+[node name="Recover" type="Node" parent="KinematicBody/StateMachine" index="4"]
 script = ExtResource( 14 )
 
 [node name="FishSprite" parent="KinematicBody" index="3"]
@@ -79,8 +79,7 @@ speed = 500
 num_of_lunges_before_rest = 1
 radius = 2000
 
-[connection signal="tween_completed" from="KinematicBody/FishSprite/Tween" to="KinematicBody/FishSprite" method="_on_Tween_tween_completed"]
-[connection signal="timeout" from="KinematicBody/LungeAtBobber/StunnedTimer" to="KinematicBody/StateMachine/Stunned" method="_on_StunnedTimer_timeout"]
+[connection signal="timeout" from="KinematicBody/LungeAtBobber/CollidedTimer" to="KinematicBody/StateMachine/Collided" method="_on_CollidedTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]
 [editable path="KinematicBody/LungeAtBobber"]

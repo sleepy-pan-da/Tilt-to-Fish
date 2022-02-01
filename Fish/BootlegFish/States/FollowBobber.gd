@@ -8,6 +8,6 @@ func physics_update(_delta: float) -> void:
 		fish.update_fish_sprite_based_on_horizontal_direction(fish.movement_vector)
 		
 		if fish.collision and fish.collision.collider.is_in_group("PondBoundary"): 
-			state_machine.transition_to("Stunned")
+			state_machine.transition_to("Collided")
 	else:
 		state_machine.transition_to("ComputeNewPtToSwimTo")
