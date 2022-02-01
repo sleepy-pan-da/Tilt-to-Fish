@@ -35,7 +35,7 @@ func fire() -> void:
 
 func set_incremented_values(new_incremented_values) -> void:
 	damage = new_incremented_values[0]
-	print("FiveRoundsRapid damage is " + str(damage))
+	#print("FiveRoundsRapid damage is " + str(damage))
 
 
 func _physics_process(delta):

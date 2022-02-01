@@ -77,7 +77,6 @@ projectile_speed = 500.0
 polygon = PoolVector2Array( -64, -24, -72, -24, -72, 24, -64, 24, -40, 40, -24, 40, 0, 40, 32, 16, 40, 8, 72, 8, 72, -8, 40, -8, 32, -16, 0, -40, -40, -40 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 rotation = 1.5708
 texture = ExtResource( 1 )
 

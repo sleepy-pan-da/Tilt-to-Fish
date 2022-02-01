@@ -13,7 +13,6 @@ func spawn_orb(node_to_add_to : Node) -> void:
 	node_to_add_to.add_child(orb_instance)
 	orb_instance.global_position = generate_random_pt_on_screen()
 	orb_instance.set_incremented_values(incremented_values)
-	print(name + ": " + str(node_to_add_to.global_position))
 
 
 func generate_random_pt_on_screen() -> Vector2:

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/FieldMedic.gd" type="Script" id=1]
+
+[node name="FieldMedic" type="Node"]
+script = ExtResource( 1 )
+increment_total_fill_amount_at_diff_levels = [ 50.0, 25.0, 10.0 ]
+increment_cooldown_at_diff_levels = [ 25.0, 15.0, 10.0 ]
