@@ -8,8 +8,8 @@ onready var tween = $Tween
 onready var firing_cooldown = $FiringCooldown
 
 var damage : float
-var detected_fish = []
-var configuring_position : bool = false
+var detected_fish = [] #FIFO Queue
+var is_rotating : bool = false
 
 func _ready() -> void:
 	animation_player.play("SetUp")
@@ -41,31 +41,34 @@ func set_incremented_values(new_incremented_values) -> void:
 func _physics_process(delta):
 	if detected_fish.empty():
 		return
-	if !configuring_position:
-		var target = detected_fish.front()
-		var desired_angle = (target.global_position - global_position).angle()
-		var current_angle = (muzzle.global_position - global_position).angle()
-		var angle_diff : float = abs(rad2deg(desired_angle - current_angle))
-		
-		if angle_diff > 180: # arrow will pick smallest angle of rotation
-			# change direction for arrow movement
-			if sign(desired_angle) == 1: 
-				desired_angle -= 2*PI
-			else:
-				desired_angle += 2*PI
-		
-		if angle_diff > 10:
-			configuring_position = true
-			print(abs(rad2deg(desired_angle - current_angle)))
-			tween.interpolate_method(self, "compute_turret_rotation", 
-			current_angle, 
-			desired_angle, 
-			0.12, Tween.TRANS_SINE, Tween.EASE_OUT_IN)
-			tween.start()
+	if !is_rotating:
+		rotate_if_needed()
+
+
+func rotate_if_needed() -> void:
+	var target = detected_fish.front()
+	var desired_angle = (target.global_position - global_position).angle()
+	var current_angle = (muzzle.global_position - global_position).angle()
+	var angle_diff : float = abs(rad2deg(desired_angle - current_angle))
+	
+	if angle_diff > 180: # arrow will pick smallest angle of rotation
+		# change direction for arrow movement
+		if sign(desired_angle) == 1: 
+			desired_angle -= 2*PI
+		else:
+			desired_angle += 2*PI
+	
+	if angle_diff > 10:
+		is_rotating = true
+		tween.interpolate_method(self, "compute_turret_rotation", 
+		current_angle, 
+		desired_angle, 
+		0.12, Tween.TRANS_SINE, Tween.EASE_OUT_IN)
+		tween.start()
 
 
 func _on_Tween_tween_completed(object, key):
-	configuring_position = false
+	is_rotating = false
 
 
 func compute_turret_rotation(angle_wrt_x_axis : float):

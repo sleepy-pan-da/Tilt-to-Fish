@@ -19,7 +19,7 @@ var held_items = 	{
 						#"BulletTime"	:	2,
 						#"Arrow"	:	2,
 						#"AntimatterWave"	:	2,
-						"FiveRoundsRapid"	:	6
+						#"FiveRoundsRapid"	:	2
 					}
 
 
