@@ -15,21 +15,21 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "FacingLeft",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "FacingRight",
+"speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 1542.49
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
 radius = 140.0
 
@@ -61,7 +61,7 @@ script = ExtResource( 6 )
 [node name="DetectionArea" parent="KinematicBody" index="6" instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="HitBox" parent="KinematicBody" index="7" instance=ExtResource( 4 )]
 collision_layer = 72
@@ -73,7 +73,9 @@ num_of_lunges_before_rest = 1
 radius = 2000
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[connection signal="timeout" from="KinematicBody/LungeAtBobber/CollidedTimer" to="KinematicBody/StateMachine/Collided" method="_on_CollidedTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]
 [editable path="KinematicBody/LungeAtBobber"]

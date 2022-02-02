@@ -9,15 +9,17 @@ onready var progress_bar = $KinematicBody/ProgressBar
 onready var check_bobber_in_proximity_area_timer = $CheckBobberInProximityAreaTimer
 onready var recovery_timer = $RecoveryTimer
 onready var stunned_timer = $StunnedTimer
+onready var state_machine = $KinematicBody/StateMachine
 
 export(float) var amount_needed_to_catch
 export(float) var fish_recovery_amount
 var bobber_in_proximity_area : Bobber
 
 func _ready() -> void:
+	print("sup")
 	progress_bar.connect("progress_bar_filled", self, "_on_progress_bar_filled")
 	progress_bar.connect("progress_bar_emptied", self, "_on_progress_bar_emptied")
-	
+	fish_sprite.connect("finished_recovering", state_machine.get_node("Recover"), "on_finished_recovering")
 	set_up_progress_bar()
 	ripple.hide()
 

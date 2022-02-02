@@ -4,7 +4,6 @@ export(int) var damage
 export(int) var number_of_projectiles_shot_each_round
 export(int) var time_between_each_shot
 
-onready var state_machine = $KinematicBody/StateMachine
 onready var shoot_projectiles = $KinematicBody/ShootProjectiles
 onready var detection_area = $KinematicBody/DetectionArea
 onready var rest_timer = $KinematicBody/ShootProjectiles/RestTimer

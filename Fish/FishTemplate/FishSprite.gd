@@ -3,6 +3,7 @@ extends AnimatedSprite
 class_name FishTemplateFishSprite
 
 onready var tween = $Tween
+var is_recovering : bool = false
 signal finished_recovering
 
 func react_upon_getting_hurtbox_hit() -> void:
@@ -16,9 +17,12 @@ func react_when_stunned() -> void:
 
 
 func react_when_recovering() -> void:
+	is_recovering = true
 	tween.interpolate_property(self, "scale", Vector2(0, 0), Vector2(0.063, 0.063), 0.4, Tween.TRANS_BACK, Tween.EASE_OUT)
 	tween.start()
 	
 
 func _on_Tween_tween_completed(object, key):
-	emit_signal("finished_recovering")
+	if is_recovering:
+		is_recovering = false
+		emit_signal("finished_recovering")

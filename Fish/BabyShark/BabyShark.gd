@@ -5,7 +5,6 @@ onready var detection_area = $KinematicBody/DetectionArea
 onready var hitbox = $KinematicBody/HitBox
 onready var swim_to_random_pt_based_on_radius = $KinematicBody/SwimToRandomPtBasedOnRadius
 onready var follow_bobber = $KinematicBody/FollowBobber
-onready var state_machine = $KinematicBody/StateMachine
 
 export(int) var damage
 

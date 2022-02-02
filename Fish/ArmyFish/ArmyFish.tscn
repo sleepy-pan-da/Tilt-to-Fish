@@ -14,21 +14,21 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "FacingLeft",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "FacingRight",
+"speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 1536.56
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
 radius = 113.537
 
@@ -72,10 +72,10 @@ one_shot = true
 [node name="DetectionArea" parent="KinematicBody" index="7" instance=ExtResource( 7 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/DetectionArea" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [connection signal="timeout" from="KinematicBody/ShootProjectiles/RestTimer" to="KinematicBody/StateMachine/Resting" method="_on_RestTimer_timeout"]
 

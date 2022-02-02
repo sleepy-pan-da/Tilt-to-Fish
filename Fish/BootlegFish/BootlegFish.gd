@@ -7,7 +7,6 @@ onready var swim_to_random_pt_based_on_radius = $KinematicBody/SwimToRandomPtBas
 onready var hitbox = $KinematicBody/HitBox
 onready var collided_timer = $CollidedTimer
 onready var fish_animation = $KinematicBody/FishAnimation
-onready var state_machine = $KinematicBody/StateMachine
 
 export(int) var damage
 export(Resource) var initial_animated_sprites
@@ -29,7 +28,7 @@ func _ready() -> void:
 	detection_area.connect("detected_bobber", self, "on_detected_bobber")
 	detection_area.connect("lost_bobber", self, "on_lost_bobber")
 	hitbox.connect("bobber_entered_hitbox", self, "on_bobber_entered_hitbox")
-	fish_sprite.connect("finished_recovering", state_machine.get_node("Recover"), "on_finished_recovering")
+	#fish_sprite.connect("finished_recovering", state_machine.get_node("Recover"), "on_finished_recovering")
 	set_up_initial_animated_sprites()
 	
 
