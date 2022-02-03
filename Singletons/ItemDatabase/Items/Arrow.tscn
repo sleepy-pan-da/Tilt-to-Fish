@@ -4,4 +4,5 @@
 
 [node name="Arrow" type="Node"]
 script = ExtResource( 1 )
-increment_values_at_diff_levels = [ 10.0, 20.0, 40.0 ]
+increment_damage_at_diff_levels = [ 15.0, 30.0, 60.0 ]
+increment_cooldown_at_diff_levels = [ 8.0, 4.0, 2.0 ]

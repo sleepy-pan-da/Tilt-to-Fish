@@ -7,7 +7,7 @@ func enter(_msg := {}) -> void:
 
 # resumes firing after timeout
 func _on_RestTimer_timeout():
-	if fish.bobber_in_proximity_area != null:
+	if fish.bobber_in_proximity_area != null and state_machine.state.name == self.name:
 		state_machine.transition_to("Firing")
 
 

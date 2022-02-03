@@ -6,12 +6,12 @@
 [ext_resource path="res://Singletons/ItemDatabase/Items/NotToday.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Cccombo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Singletons/ItemDatabase/Items/TimeLordVictorious.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=7]
 [ext_resource path="res://Singletons/ItemDatabase/Items/BulletTime.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Arrow.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Singletons/ItemDatabase/Items/AntimatterWave.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Singletons/ItemDatabase/Items/FiveRoundsRapid.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Singletons/ItemDatabase/Items/FieldMedic.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Singletons/ItemDatabase/Items/StunGrenade.tscn" type="PackedScene" id=13]
 
 [node name="ItemDatabase" type="Node"]
 
@@ -24,21 +24,18 @@
 [node name="NotToday" parent="." instance=ExtResource( 4 )]
 
 [node name="Cccombo" parent="." instance=ExtResource( 5 )]
-increment_values_at_diff_levels = [ 5.0, 10.0, 20.0 ]
 
 [node name="TimeLordVictorious" parent="." instance=ExtResource( 6 )]
-bobber_stats = ExtResource( 7 )
 
 [node name="BulletTime" parent="." instance=ExtResource( 8 )]
 
 [node name="Arrow" parent="." instance=ExtResource( 9 )]
-increment_damage_at_diff_levels = [ 15.0, 30.0, 60.0 ]
-increment_cooldown_at_diff_levels = [ 8.0, 4.0, 2.0 ]
 
 [node name="AntimatterWave" parent="." instance=ExtResource( 10 )]
 
 [node name="FiveRoundsRapid" parent="." instance=ExtResource( 11 )]
-increment_damage_at_diff_levels = [ 4.0, 8.0, 16.0 ]
-increment_cooldown_at_diff_levels = [ 20.0, 10.0, 5.0 ]
 
 [node name="FieldMedic" parent="." instance=ExtResource( 12 )]
+
+[node name="StunGrenade" parent="." instance=ExtResource( 13 )]
+increment_stun_duration = [ 1.0, 2.0, 4.0 ]

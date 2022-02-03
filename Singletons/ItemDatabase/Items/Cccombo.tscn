@@ -4,4 +4,4 @@
 
 [node name="Cccombo" type="Node"]
 script = ExtResource( 2 )
-increment_values_at_diff_levels = [ 0.0, 0.0, 0.0 ]
+increment_values_at_diff_levels = [ 5.0, 10.0, 20.0 ]

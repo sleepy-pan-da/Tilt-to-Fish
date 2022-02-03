@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 89.4427
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Collapse"
 length = 0.5
 tracks/0/type = "value"
@@ -39,8 +39,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "SetUp"
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -56,6 +55,7 @@ tracks/0/keys = {
 }
 
 [node name="FieldMedic" type="Area2D"]
+modulate = Color( 1, 1, 1, 0 )
 monitorable = false
 collision_layer = 0
 collision_mask = 2
@@ -66,8 +66,8 @@ bobber_stats = ExtResource( 5 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Collapse = SubResource( 3 )
-anims/SetUp = SubResource( 2 )
+anims/Collapse = SubResource( 2 )
+anims/SetUp = SubResource( 3 )
 
 [node name="ProgressBar" type="TextureProgress" parent="."]
 anchor_left = 0.5

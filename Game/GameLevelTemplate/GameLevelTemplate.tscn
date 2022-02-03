@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/AntimatterWaveOrbSpawner/AntimatterWaveOrbSpawner.tscn" type="PackedScene" id=26]
 [ext_resource path="res://Upgrades/OrbSpawners/FiveRoundsRapidOrbSpawner/FiveRoundsRapidOrbSpawner.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Upgrades/OrbSpawners/FieldMedicOrbSpawner/FieldMedicOrbSpawner.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Upgrades/OrbSpawners/StunGrenadeOrbSpawner/StunGrenadeOrbSpawner.tscn" type="PackedScene" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -389,6 +390,7 @@ Arrow = ExtResource( 23 )
 AntimatterWave = ExtResource( 26 )
 FiveRoundsRapid = ExtResource( 27 )
 FieldMedic = ExtResource( 28 )
+StunGrenade = ExtResource( 29 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )

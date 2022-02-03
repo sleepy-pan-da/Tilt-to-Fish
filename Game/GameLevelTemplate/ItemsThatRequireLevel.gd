@@ -7,3 +7,4 @@ export(PackedScene) onready var Arrow
 export(PackedScene) onready var AntimatterWave
 export(PackedScene) onready var FiveRoundsRapid
 export(PackedScene) onready var FieldMedic
+export(PackedScene) onready var StunGrenade

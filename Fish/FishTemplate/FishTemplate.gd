@@ -30,7 +30,11 @@ func _on_progress_bar_filled() -> void:
 
 func _on_progress_bar_emptied() -> void:
 	progress_bar.disappear()
-	
+
+
+func on_stunned(new_stun_duration : float) -> void:
+	state_machine.transition_to("Stunned", {stun_duration = new_stun_duration})	
+
 
 func set_up_progress_bar() -> void:
 	progress_bar.set_max_value(amount_needed_to_catch)
@@ -136,6 +140,8 @@ func _on_Hurtbox_area_entered(area):
 		area.queue_free()
 	elif area.get_name() == "AntimatterWave":
 		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "StunGrenadeExplosion":
+		on_stunned(area.stun_duration)
 	elif area.get_class() == "FishHitbox":
 		if area.within_hurtbox:
 			if !area.can_deal_damage:

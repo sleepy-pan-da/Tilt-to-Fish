@@ -20,7 +20,8 @@ var held_items = 	{
 						#"Arrow"	:	2,
 						#"AntimatterWave"	:	2,
 						#"FiveRoundsRapid"	:	2,
-						"FieldMedic"	:	2
+						#"FieldMedic"	:	2,
+						"StunGrenade"	:	6
 					}
 
 
