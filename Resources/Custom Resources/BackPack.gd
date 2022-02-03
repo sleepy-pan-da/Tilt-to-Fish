@@ -17,11 +17,12 @@ var held_items = 	{
 						#"Cccombo"		:	0,
 						#"TimeLordVictorious"	:	0,
 						#"BulletTime"	:	2,
-						#"Arrow"	:	2,
-						#"AntimatterWave"	:	2,
-						#"FiveRoundsRapid"	:	2,
-						#"FieldMedic"	:	2,
-						"StunGrenade"	:	6
+						#"Arrow"	:	0,
+						#"AntimatterWave"	:	6,
+						#"FiveRoundsRapid"	:	6,
+						#"FieldMedic"	:	6,
+						#"StunGrenade"	:	6,
+						#"QuickReload"	:	6
 					}
 
 

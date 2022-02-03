@@ -12,6 +12,7 @@ var hooks_amount : int
 var reel_damage : float 
 var reel_attack_rate : float 
 var max_orbs : int
+var orb_cooldown_reduction : float = 1.0
 var slows_down_time_by : float = 1.0
 
 var first_time_setting_up : bool = true
@@ -28,8 +29,9 @@ func set_up_initial_stats() -> void:
 	reel_damage = initial_reel_damage
 	reel_attack_rate = initial_reel_attack_rate
 	max_orbs = initial_max_orbs
+	orb_cooldown_reduction = 1.0
 	slows_down_time_by = 1.0
-	
+
 
 func minus_hook(damage : int) -> void:
 	hooks_amount -= damage
@@ -56,6 +58,18 @@ func change_max_hook(change_in_max_hook : int) -> void:
 func set_max_hook(number_to_set : int) -> void:
 	max_hooks_amount = number_to_set
 
+
+func change_max_orbs(change_in_max_orbs : int) -> void:
+	max_orbs += change_in_max_orbs
+
+
+func change_orb_cooldown_reduction(change_in_cooldown_reduction : float) -> void:
+	orb_cooldown_reduction += change_in_cooldown_reduction
+
+
+func set_max_orbs(number_to_set : int) -> void:
+	max_orbs = number_to_set
+	
 
 func change_gold(change_in_gold : int) -> void:
 	gold_amount += change_in_gold

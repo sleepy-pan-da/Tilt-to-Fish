@@ -6,4 +6,4 @@
 [node name="FalseGod" type="Node"]
 script = ExtResource( 1 )
 bobber_stats = ExtResource( 2 )
-increment_values_at_diff_levels = [ 3.0, 6.0, 12.0 ]
+increment_reel_damage = [ 3.0, 6.0, 12.0 ]

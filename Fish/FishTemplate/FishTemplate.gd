@@ -16,7 +16,6 @@ export(float) var fish_recovery_amount
 var bobber_in_proximity_area : Bobber
 
 func _ready() -> void:
-	print("sup")
 	progress_bar.connect("progress_bar_filled", self, "_on_progress_bar_filled")
 	progress_bar.connect("progress_bar_emptied", self, "_on_progress_bar_emptied")
 	fish_sprite.connect("finished_recovering", state_machine.get_node("Recover"), "on_finished_recovering")
