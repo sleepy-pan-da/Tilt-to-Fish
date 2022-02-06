@@ -11,7 +11,14 @@ func get_item(item_name : String) -> Resource:
 		return null
 	return items[item_index]
 
-	
+
+func has_item(item_name : String) -> bool:
+	var item_index : int = get_item_index(item_name)
+	if item_index == -1:
+		return false
+	return true
+
+
 # Querying a resource by resource_name
 func get_item_index(item_name : String) -> int:
 	for i in items.size():

@@ -11,6 +11,8 @@ set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = true
+name = "Five Rounds Rapid"
 cost = 0
-description = ""
+description = "Place an automated turret that fires at nearby targets (includes you) for 5/10/20s
+10s Cooldown"
 rarity = 0

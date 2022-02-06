@@ -5,10 +5,11 @@ export(Resource) var item_pool = item_pool as ItemPool
 var items_sold : Array = []
 
 func _ready() -> void:
-	if item_pool.have_locked_items():
-		remember_locked_items()
-	else:
-		pick_items_sold()
+#	if item_pool.have_locked_items():
+#		remember_locked_items()
+#	else:
+#		pick_items_sold()
+	pass
 
 
 func pick_items_sold() -> void:

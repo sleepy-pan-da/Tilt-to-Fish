@@ -11,6 +11,8 @@ set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = true
+name = "Arrow"
 cost = 0
-description = ""
+description = "Delay: Fires an arrow that deals damage to it’s first target
+5s Cooldown"
 rarity = 0

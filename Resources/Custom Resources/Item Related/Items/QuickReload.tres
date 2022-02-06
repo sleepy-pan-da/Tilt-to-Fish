@@ -11,6 +11,8 @@ set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = false
+name = "Quick Reload"
 cost = 0
-description = ""
+description = "Max orbs in play = 1
+Orbs cooldown decreased by 10/20/40%"
 rarity = 0
