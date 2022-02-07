@@ -7,9 +7,9 @@ export(String, FILE, "*.tscn") var game_scene
 onready var hooks = $UpperLeftCorner/Hooks
 onready var gold = $UpperLeftCorner/Gold
 onready var round_number = $RoundNumber
-#onready var items_sold = $ItemsSold
 onready var description_box = $ShopPanel/DescriptionBox
 onready var backpack_slots = $ShopPanel/ItemSlots
+onready var items_sold = $ShopPanel/ItemsSold
 #onready var lock_button = $Lock
 #onready var reroll_button = $Reroll
 onready var screen_transition = $ScreenTransition
@@ -21,11 +21,14 @@ func _ready() -> void:
 	hooks.update_label(bobber_stats)
 	gold.update_label(bobber_stats)
 	round_number.update_round_number(GameData.round_number)
+	items_sold.set_up_items_sold(backpack)
+	
 	backpack_slots.update_backpack_ui(backpack)
+	
 #	reroll_button.connect("clicked_reroll", self, "on_clicked_reroll")
-#	items_sold.get_child(0).connect("pressed", self, "on_pressed_items_sold", [0])
-#	items_sold.get_child(1).connect("pressed", self, "on_pressed_items_sold", [1])
-#	items_sold.get_child(2).connect("pressed", self, "on_pressed_items_sold", [2])
+	items_sold.get_child(0).connect("pressed", self, "on_pressed_items_sold", [0])
+	items_sold.get_child(1).connect("pressed", self, "on_pressed_items_sold", [1])
+	items_sold.get_child(2).connect("pressed", self, "on_pressed_items_sold", [2])
 #	description_box.buy_sell_button.connect("clicked_buy_sell_button", self, "on_clicked_buy_sell_button")
 	backpack_slots.get_child(0).connect("pressed", self, "on_pressed_backpack_slot", [0])
 	backpack_slots.get_child(1).connect("pressed", self, "on_pressed_backpack_slot", [1])
@@ -42,20 +45,20 @@ func _ready() -> void:
 #		items_sold.pick_items_sold()
 #		description_box.hide()
 #		index_of_currently_pressed_item = -1
-#
-#
-#func on_pressed_items_sold(child_index : int) -> void:
-#	index_of_currently_pressed_item = child_index
-#	var item_name : String = items_sold.get_child(child_index).text
-#	if item_name != "": # bought the item alr, no more item offered for sale
-#		if !description_box.visible:
-#			description_box.show() 
-#		description_box.update_description_box_from_items_sold(item_name, child_index)
-#	else:
-#		description_box.hide()
-#		return
-#
-#
+
+
+func on_pressed_items_sold(child_index : int) -> void:
+	index_of_currently_pressed_item = child_index
+	var item_name : String = items_sold.get_child(child_index).text
+	if item_name != "": # bought the item alr, no more item offered for sale
+		if !description_box.visible:
+			description_box.show() 
+		description_box.update_description_box_from_items_sold(item_name, child_index)
+	else:
+		description_box.hide()
+		return
+
+
 func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
 	var array_of_backpack_keys : Array = backpack.get_items_of_backpack()
 	var item_name : String 
@@ -70,7 +73,7 @@ func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
 		if !description_box.visible:
 			description_box.show() 
 		# need to add 3 to compensate for the first 3 edges pointing to items sold
-		description_box.update_description_box_from_backpack_slots(item_name, index_of_backpack_keys + 3) 
+		description_box.update_description_box_from_backpack_slots(backpack, item_name, index_of_backpack_keys + 3) 
 
 
 #func on_clicked_buy_sell_button() -> void:

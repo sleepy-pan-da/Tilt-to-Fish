@@ -25,3 +25,9 @@ func get_item_index(item_name : String) -> int:
 		if items[i].resource_name == item_name:
 			return i
 	return -1
+
+
+func pick_an_item_randomly() -> ItemTraits:
+	randomize()
+	var random_index : int = randi() % items.size()
+	return items[random_index]

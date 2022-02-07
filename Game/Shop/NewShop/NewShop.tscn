@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=26]
 [ext_resource path="res://Resources/Custom Resources/CurrentBackPack.tres" type="Resource" id=27]
 [ext_resource path="res://Game/Shop/NewShop/ItemRarity.gd" type="Script" id=28]
+[ext_resource path="res://Game/Shop/NewShop/ItemExp.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -47,14 +48,13 @@ font_data = ExtResource( 2 )
 size = 22
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=6]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 10
+[sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -66,10 +66,14 @@ size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 32
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 2 )
 
 [node name="Shop" type="Node"]
@@ -215,27 +219,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemRarity" type="Label" parent="UI/ShopPanel/DescriptionBox"]
-margin_left = 652.0
-margin_top = 53.0
-margin_right = 761.0
-margin_bottom = 92.0
-custom_fonts/font = SubResource( 11 )
+[node name="ItemDescription" type="Label" parent="UI/ShopPanel/DescriptionBox"]
+margin_left = 36.0
+margin_top = 60.0
+margin_right = 604.0
+margin_bottom = 180.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Rarity:
-Super Rare"
-script = ExtResource( 28 )
+text = "Item Description"
+autowrap = true
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemCost" type="Label" parent="UI/ShopPanel/DescriptionBox"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -140.0
+[node name="RightSide" type="VBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+margin_left = 652.0
 margin_top = 20.0
-margin_right = -35.0
-margin_bottom = 54.0
+margin_right = 761.0
+margin_bottom = 119.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCost" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
+margin_right = 109.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 105, 34 )
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Cost:"
@@ -244,16 +255,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemDescription" type="Label" parent="UI/ShopPanel/DescriptionBox"]
-margin_left = 36.0
-margin_top = 60.0
-margin_right = 604.0
-margin_bottom = 180.0
+[node name="ItemRarity" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
+margin_top = 38.0
+margin_right = 109.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 109, 39 )
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Item Description"
-autowrap = true
-script = ExtResource( 12 )
+text = "Rarity:
+Super Rare"
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemExp" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
+margin_top = 81.0
+margin_right = 109.0
+margin_bottom = 99.0
+rect_min_size = Vector2( 74, 18 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Exp: 0/6"
+script = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -395,7 +421,7 @@ margin_right = 212.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 0
 flat = true
 clip_text = true
@@ -406,7 +432,7 @@ margin_right = 474.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 flat = true
 
@@ -416,7 +442,7 @@ margin_right = 736.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 enabled_focus_mode = 0
 flat = true
 
@@ -460,7 +486,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -482,7 +508,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -504,7 +530,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -526,7 +552,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -548,7 +574,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -560,13 +586,14 @@ margin_left = 1112.0
 margin_top = 648.0
 margin_right = 1272.0
 margin_bottom = 704.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Next wave"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ScreenTransition" parent="UI" instance=ExtResource( 24 )]
+visible = false
 
 [connection signal="button_down" from="UI/ShopPanel/DescriptionBox/BuySellButton" to="UI/ShopPanel/DescriptionBox/BuySellButton" method="_on_BuySellButton_button_down"]
 [connection signal="button_up" from="UI/ShopPanel/DescriptionBox/BuySellButton" to="UI/ShopPanel/DescriptionBox/BuySellButton" method="_on_BuySellButton_button_up"]
