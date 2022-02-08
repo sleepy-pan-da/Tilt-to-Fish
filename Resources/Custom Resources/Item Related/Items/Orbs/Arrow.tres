@@ -12,7 +12,8 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = true
 name = "Arrow"
-cost = 0
+buying_cost = 1
+selling_cost = [ 1, 2, 4 ]
 description = "Delay: Fires an arrow that deals damage to it’s first target
 5s Cooldown"
 rarity = 0

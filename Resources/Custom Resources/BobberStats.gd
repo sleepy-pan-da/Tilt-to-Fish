@@ -5,8 +5,9 @@ export(float) var initial_reel_damage # damage that you deal when you are near f
 export(float) var initial_reel_attack_rate 
 export(int) var initial_max_hooks_amount # aka number of lives
 export(int) var initial_max_orbs
-export(int) var gold_amount
+export(int) var initial_gold_amount
 
+var gold_amount : int
 var max_hooks_amount : int
 var hooks_amount : int
 var reel_damage : float 
@@ -17,15 +18,15 @@ var slows_down_time_by : float = 1.0
 
 var first_time_setting_up : bool = true
 
-
 # called in ready function of bobber
 # helps to reset stats upon fishing after leaving shop
 func set_up_initial_stats() -> void:
 	max_hooks_amount = initial_max_hooks_amount
 	if first_time_setting_up:
 		hooks_amount = max_hooks_amount
+		gold_amount = initial_gold_amount
 		first_time_setting_up = false
-		
+
 	reel_damage = initial_reel_damage
 	reel_attack_rate = initial_reel_attack_rate
 	max_orbs = initial_max_orbs
@@ -76,7 +77,7 @@ func change_gold(change_in_gold : int) -> void:
 	
 
 func reset_when_game_over() -> void: 
-	gold_amount = 0
+	gold_amount = initial_gold_amount
 	first_time_setting_up = true
 	
 	

@@ -143,7 +143,7 @@ func set_up_stats_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
 		if item_traits.modifies_stats_at_start_of_fishing:
-			var item_level : int = backpack.item_level(item_name)
+			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_stats_at_start_of_fishing)
 	# you need this in the scenario where u sell an item that increases max hooks
@@ -155,7 +155,7 @@ func override_stats_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
 		if item_traits.overrides_stats_at_start_of_fishing:
-			var item_level : int = backpack.item_level(item_name)
+			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.override_stats_at_start_of_fishing)
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
@@ -168,7 +168,7 @@ func set_up_items_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
 		if item_traits.set_up_bobber_item_at_start_of_fishing:
-			var item_level : int = backpack.item_level(item_name)
+			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_bobber_item_at_start_of_fishing)
 
@@ -177,7 +177,7 @@ func on_lost_all_hooks() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
 		if item_traits.triggers_when_lose_all_hooks:
-			var item_level : int = backpack.item_level(item_name)
+			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.lost_all_hooks)
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
@@ -188,7 +188,7 @@ func on_caught_fish() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
 		if item_traits.triggers_when_catch_fish:
-			var item_level : int = backpack.item_level(item_name)
+			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.caught_fish)
 	if bobber_stats.hooks_amount > bobber_stats.max_hooks_amount:
@@ -199,6 +199,6 @@ func set_up_orb_spawners_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
 		if item_traits.spawns_orbs:
-			var item_level : int = backpack.item_level(item_name)
+			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_orb_spawners_at_start_of_fishing)

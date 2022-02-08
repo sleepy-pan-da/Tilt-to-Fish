@@ -12,7 +12,8 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = true
 name = "Stun Grenade"
-cost = 0
+buying_cost = 1
+selling_cost = [ 1, 2, 4 ]
 description = "Delay: AOE stun (includes you)
 8s Cooldown"
 rarity = 0

@@ -3,5 +3,5 @@ extends TextureRect
 
 onready var label = $Label
 
-func update_label(bobber_stats : BobberStats) -> void:
-	label.text = str(bobber_stats.hooks_amount) + "/" + str(bobber_stats.max_hooks_amount)
+func update_label(current_hooks_amount : int, max_hooks_amount : int) -> void:
+	label.text = str(current_hooks_amount) + "/" + str(max_hooks_amount)

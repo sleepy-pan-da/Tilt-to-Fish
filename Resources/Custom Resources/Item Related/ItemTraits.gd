@@ -12,7 +12,8 @@ export(bool) var triggers_when_catch_fish
 export(bool) var spawns_orbs
 
 export(String) var name
-export(int) var cost 
+export(int) var buying_cost
+export(Array, int) var selling_cost 
 export(String, MULTILINE) var description
 
 enum RARITY_TYPES {COMMON, UNCOMMON, RARE}

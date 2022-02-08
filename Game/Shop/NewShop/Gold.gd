@@ -3,8 +3,7 @@ extends TextureRect
 
 onready var label = $Label
 
-func update_label(bobber_stats : BobberStats) -> void:
-	var gold_amount : int = bobber_stats.gold_amount
+func update_label(gold_amount : int) -> void:
 	if gold_amount >= 10:
 		label.text = str(gold_amount)
 	else:

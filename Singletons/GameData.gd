@@ -18,16 +18,22 @@ func reset_game_upon_new_run() -> void:
 	reset_round_number()
 	reset_difficulty_modifier()
 
+
 func reset_wave_number() -> void:
 	current_wave_number = 1
+
+
+func reset_round_number() -> void:
+	round_number = 1
+	
+
+func reset_difficulty_modifier() -> void:
+	difficulty_modifier = 0
 
 
 func increment_wave_number() -> void:
 	current_wave_number += 1
 
-
-func reset_round_number() -> void:
-	round_number = 1
 
 func increment_round_number() -> void:
 	round_number += 1
@@ -35,10 +41,6 @@ func increment_round_number() -> void:
 		increment_difficulty()
 #	if round_number % 5 == 1 and round_number != 1:
 #		increment_difficulty()
-
-
-func reset_difficulty_modifier() -> void:
-	difficulty_modifier = 0
 
 
 func increment_difficulty() -> void:

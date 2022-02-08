@@ -4,7 +4,6 @@ class_name ItemPool
 
 export(Array, Resource) var items
 
-
 func get_item(item_name : String) -> Resource:
 	var item_index : int = get_item_index(item_name)
 	if item_index == -1:
