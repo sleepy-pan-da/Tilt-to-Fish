@@ -12,8 +12,8 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = false
 name = "Quick Reload"
-buying_cost = 1
-selling_cost = [ 1, 2, 4 ]
+buying_cost = 7
+selling_cost = [ 7, 10, 13 ]
 description = "Max orbs in play = 1
 Orbs cooldown decreased by 10/20/40%"
-rarity = 0
+rarity = 2

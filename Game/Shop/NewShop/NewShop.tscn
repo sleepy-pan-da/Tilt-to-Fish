@@ -284,7 +284,7 @@ rect_min_size = Vector2( 74, 18 )
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Exp: 0/6"
+text = "Exp: 0/3"
 script = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": false

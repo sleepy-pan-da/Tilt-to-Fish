@@ -13,7 +13,7 @@ triggers_when_catch_fish = false
 spawns_orbs = false
 name = "False God"
 buying_cost = 1
-selling_cost = [ 1, 2, 4 ]
+selling_cost = [ 1, 3, 5 ]
 description = "+3 reel damage
 Die in 1 hit"
 rarity = 0

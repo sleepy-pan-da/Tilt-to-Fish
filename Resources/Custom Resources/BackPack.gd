@@ -3,7 +3,8 @@ extends Resource
 class_name BackPack
 
 var backpack_max_capacity : int = 5
-const MAX_ITEM_EXP : int = 6 
+const ITEM_EXP_FOR_LVL3 : int = 3
+const ITEM_EXP_FOR_LVL2 : int = 1
 
 
 var held_items = 	{
@@ -39,9 +40,9 @@ func add_item(item_name : String) -> void:
 
 
 func get_item_level(item_name : String) -> int:
-	if held_items[item_name] == MAX_ITEM_EXP:
+	if held_items[item_name] == ITEM_EXP_FOR_LVL3:
 		return 3
-	elif held_items[item_name] >= 2:
+	elif held_items[item_name] >= ITEM_EXP_FOR_LVL2:
 		return 2
 	else:
 		return 1
@@ -67,7 +68,7 @@ func item_is_maxed_out(item_name : String) -> bool:
 	if !has_item(item_name):
 		return false
 	else:
-		return held_items[item_name] == MAX_ITEM_EXP		
+		return held_items[item_name] == ITEM_EXP_FOR_LVL3		
 
 
 func has_space() -> bool:

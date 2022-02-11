@@ -28,5 +28,20 @@ func get_item_index(item_name : String) -> int:
 
 func pick_an_item_randomly() -> ItemTraits:
 	randomize()
+	
+	#var rarity_picked : int = pick_a_rarity_randomly()
+	
 	var random_index : int = randi() % items.size()
 	return items[random_index]
+
+
+func pick_a_rarity_randomly() -> int:
+	randomize()
+	
+	var rarity_generated : int = randi() % 10
+	if rarity_generated >= 8: # 20% chance
+		return ItemTraits.RARITY_TYPES.RARE
+	elif rarity_generated >= 3: # 30% chance
+		return ItemTraits.RARITY_TYPES.UNCOMMON
+	else: 
+		return ItemTraits.RARITY_TYPES.COMMON

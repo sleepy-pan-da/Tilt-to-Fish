@@ -12,9 +12,9 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 spawns_orbs = true
 name = "Field Medic"
-buying_cost = 1
-selling_cost = [ 1, 2, 4 ]
+buying_cost = 3
+selling_cost = [ 3, 5, 7 ]
 description = "Hover: Gain Health (Fish can health too)
 Lasts for 5/10/20s
 10s Cooldown"
-rarity = 0
+rarity = 1

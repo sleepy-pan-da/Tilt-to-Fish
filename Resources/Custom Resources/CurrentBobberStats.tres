@@ -8,4 +8,4 @@ initial_reel_damage = 3.0
 initial_reel_attack_rate = 10.0
 initial_max_hooks_amount = 7
 initial_max_orbs = 2
-initial_gold_amount = 1
+initial_gold_amount = 7

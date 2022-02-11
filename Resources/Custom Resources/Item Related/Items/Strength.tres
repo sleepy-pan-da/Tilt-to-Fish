@@ -13,6 +13,6 @@ triggers_when_catch_fish = false
 spawns_orbs = false
 name = "Strength"
 buying_cost = 1
-selling_cost = [ 1, 2, 4 ]
+selling_cost = [ 1, 2, 3 ]
 description = "+1/2/4 reel damage"
 rarity = 0
