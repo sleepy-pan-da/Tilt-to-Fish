@@ -10,11 +10,12 @@ overrides_stats_at_start_of_fishing = false
 set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
+triggers_when_sold = false
 spawns_orbs = true
 name = "Field Medic"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Hover: Gain Health (Fish can health too)
-Lasts for 5/10/20s
-10s Cooldown"
+description = "Hover: Gain Hook
+Lasts for 5s
+Cooldown: 15/10/5s"
 rarity = 1

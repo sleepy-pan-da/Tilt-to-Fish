@@ -6,6 +6,7 @@ onready var item_name = $ItemName
 onready var item_description = $ItemDescription
 onready var item_cost = $RightSide/ItemCost
 onready var item_rarity = $RightSide/ItemRarity
+onready var item_selling_costs = $RightSide/ItemSellingCosts
 onready var item_exp = $RightSide/ItemExp
 onready var buy_sell_button = $BuySellButton
 onready var speech_bubble_edges = $SpeechBubbleEdges
@@ -40,5 +41,7 @@ func update_description_box_from_backpack_slots(backpack : BackPack, item : Stri
 func update_description_box_with_item_details(item_details : ItemTraits) -> void:
 	item_name.update_item_name(item_details.resource_name)
 	item_description.update_item_description(item_details.description)
-	item_rarity.update_item_rarity(item_details.rarity)
+	item_selling_costs.update_item_selling_costs(item_details.selling_cost)
+	
+	#item_rarity.update_item_rarity(item_details.rarity)
 	

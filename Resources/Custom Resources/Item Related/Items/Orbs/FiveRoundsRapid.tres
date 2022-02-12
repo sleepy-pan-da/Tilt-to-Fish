@@ -10,10 +10,12 @@ overrides_stats_at_start_of_fishing = false
 set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
+triggers_when_sold = false
 spawns_orbs = true
 name = "Five Rounds Rapid"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Place an automated turret that fires at nearby targets (includes you) for 5/10/20s
-10s Cooldown"
+description = "Place an automated turret that deals 4/8/16 damage
+Lasts for 10s
+Cooldown: 20/10/5s"
 rarity = 1

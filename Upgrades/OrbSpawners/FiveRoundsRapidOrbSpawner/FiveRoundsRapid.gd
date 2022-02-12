@@ -58,7 +58,7 @@ func rotate_if_needed() -> void:
 		else:
 			desired_angle += 2*PI
 	
-	if angle_diff > 10:
+	if angle_diff > 5:
 		is_rotating = true
 		tween.interpolate_method(self, "compute_turret_rotation", 
 		current_angle, 

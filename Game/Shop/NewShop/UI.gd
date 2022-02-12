@@ -2,6 +2,7 @@ extends Control
 
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 export(Resource) var backpack = backpack as BackPack
+export(Resource) var item_pool = item_pool as ItemPool
 export(String, FILE, "*.tscn") var game_scene 
 
 onready var hooks = $UpperLeftCorner/Hooks
@@ -12,6 +13,7 @@ onready var backpack_slots = $ShopPanel/ItemSlots
 onready var items_sold = $ShopPanel/ItemsSold
 #onready var lock_button = $Lock
 #onready var reroll_button = $Reroll
+onready var hooks_button = get_node("Hooks?")
 onready var screen_transition = $ScreenTransition
 
 var index_of_currently_pressed_item : int = -1
@@ -37,7 +39,7 @@ func _ready() -> void:
 	backpack_slots.get_child(3).connect("pressed", self, "on_pressed_backpack_slot", [3])
 	backpack_slots.get_child(4).connect("pressed", self, "on_pressed_backpack_slot", [4])
 	screen_transition.connect("transitioned_out", self, "go_back_to_fishing")
-	
+	GameEvents.connect("bobber_gained_hook", self, "on_bobber_gained_hook")
 
 #func on_clicked_reroll() -> void:
 #	if bobber_stats.gold_amount >= 2:
@@ -98,7 +100,15 @@ func on_clicked_buy_sell_button() -> void:
 				backpack_slots.update_backpack_ui(backpack)
 
 	elif button_icon == description_box.buy_sell_button.SellButtonTexture:
+		
+		var item_traits : ItemTraits = item_pool.get_item(name_of_item)
+		if item_traits.triggers_when_sold:
+			var item_level : int = backpack.get_item_level(name_of_item)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(name_of_item)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.sold_this_item)
+		
 		backpack.remove_item_from_backpack(name_of_item)
+		
 		description_box.hide()
 		backpack_slots.update_backpack_ui(backpack)
 		# earn money from selling item
@@ -116,3 +126,18 @@ func go_back_to_fishing() -> void:
 #	else:
 #		items_sold.forget_locked_items()
 	get_tree().change_scene(game_scene)
+
+
+func _on_Hooks_pressed() -> void:
+	var cost_to_get_hook : int = hooks_button.get_current_cost()
+	var can_afford : bool = bobber_stats.gold_amount >= cost_to_get_hook
+	var can_gain_hook : bool = bobber_stats.hooks_amount < bobber_stats.max_hooks_amount
+	if can_afford and can_gain_hook:
+		bobber_stats.change_gold(-cost_to_get_hook)
+		gold.update_label(bobber_stats.gold_amount)
+		bobber_stats.gain_hook(1)
+		hooks_button.update_label_on_successful_purchase()
+		
+
+func on_bobber_gained_hook(num_of_hook_gained: int) -> void:
+	hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)	

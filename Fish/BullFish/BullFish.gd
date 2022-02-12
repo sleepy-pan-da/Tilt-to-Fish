@@ -30,3 +30,9 @@ func on_lost_bobber() -> void:
 
 func on_bobber_entered_hitbox() -> void:
 	GameEvents.emit_signal("bobber_took_damage", damage)
+
+
+func on_stunned(new_stun_duration : float) -> void:
+	if state_machine.state.name == 'Collided':
+		lunge_at_bobber.collided_timer.stop()
+	state_machine.transition_to("Stunned", {stun_duration = new_stun_duration})	

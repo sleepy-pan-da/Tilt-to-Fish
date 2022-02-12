@@ -39,7 +39,6 @@ increment_values_at_diff_levels = [ 1.0, 3.0, 5.0 ]
 [node name="FiveRoundsRapid" parent="." instance=ExtResource( 11 )]
 
 [node name="FieldMedic" parent="." instance=ExtResource( 12 )]
-increment_total_fill_amount_at_diff_levels = [ 85.0, 65.0, 45.0 ]
 
 [node name="StunGrenade" parent="." instance=ExtResource( 13 )]
 increment_stun_duration = [ 1.0, 2.0, 4.0 ]
@@ -47,3 +46,4 @@ increment_stun_duration = [ 1.0, 2.0, 4.0 ]
 [node name="QuickReload" parent="." instance=ExtResource( 7 )]
 
 [node name="InfinitePower" parent="." instance=ExtResource( 14 )]
+increment_max_orbs_at_diff_levels = [ 1.0, 2.0, 4.0 ]

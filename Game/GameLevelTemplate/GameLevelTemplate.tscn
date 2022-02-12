@@ -329,9 +329,8 @@ text = "Highest round reached:"
 align = 1
 valign = 1
 
-[node name="ScreenTransition" parent="UI" instance=ExtResource( 11 )]
-
 [node name="DebugUI" type="Control" parent="UI"]
+visible = false
 margin_left = 22.0
 margin_top = 103.0
 margin_right = 246.0
@@ -375,6 +374,10 @@ size_flags_vertical = 1
 custom_fonts/font = SubResource( 10 )
 text = "Reel Rate: "
 
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="ScreenTransition" parent="UI/CanvasLayer" instance=ExtResource( 11 )]
+
 [node name="PausingManager" type="Node2D" parent="."]
 pause_mode = 2
 script = ExtResource( 18 )
@@ -402,4 +405,4 @@ bobber_stats = ExtResource( 25 )
 [connection signal="button_up" from="UI/GameOver/Button" to="UI/GameOver" method="_on_Button_button_up"]
 [connection signal="tween_all_completed" from="UI/GameOver/Button/PlayAgain/Tween" to="UI/GameOver" method="_on_Tween_tween_all_completed"]
 
-[editable path="UI/ScreenTransition"]
+[editable path="UI/CanvasLayer/ScreenTransition"]

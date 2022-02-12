@@ -7,7 +7,8 @@ enum TRIGGER_CAUSES {
 	override_stats_at_start_of_fishing,
 	lost_all_hooks,
 	caught_fish,
-	set_up_orb_spawners_at_start_of_fishing
+	set_up_orb_spawners_at_start_of_fishing,
+	sold_this_item
 	}
 
 func trigger(item_level : int, trigger_cause : int) -> void:

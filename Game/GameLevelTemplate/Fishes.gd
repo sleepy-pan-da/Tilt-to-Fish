@@ -49,8 +49,8 @@ func spawn_fish():
 			number_of_fish_to_spawn = 5
 	else:
 		# from round 6 to 8 onwards, 
-		# spawn 3 to 5 fish per wave
-		number_of_fish_to_spawn = (GameData.round_number % 3) + 3
+		# spawn 5 to 8 fish per wave
+		number_of_fish_to_spawn = (GameData.round_number % 3) + 5
 	
 	for i in range(number_of_fish_to_spawn):
 		add_fish_to_scene()

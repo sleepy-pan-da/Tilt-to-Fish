@@ -10,10 +10,11 @@ overrides_stats_at_start_of_fishing = false
 set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
+triggers_when_sold = false
 spawns_orbs = true
 name = "Stun Grenade"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Delay: AOE stun (includes you)
-8s Cooldown"
+description = "Delay: AOE stun for 1/2/4s
+Cooldown: 16/8/4s"
 rarity = 1

@@ -18,7 +18,7 @@ onready var wave_number_label = $UI/WaveNumber/CurrentWave
 onready var total_waves = $UI/WaveNumber/TotalWaves
 onready var wave_number_progress_bar = $UI/WaveNumber/ProgressBar
 onready var game_over = $UI/GameOver
-onready var screen_transition = $UI/ScreenTransition
+onready var screen_transition = $UI/CanvasLayer/ScreenTransition
 onready var debug_ui = $UI/DebugUI
 onready var items_that_require_level = $ItemsThatRequireLevel
 onready var orb_manager = $OrbManager
@@ -145,6 +145,7 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 				proceeding_to_next_wave = true
 				GameData.increment_round_number()
 				#bobber.bobber_stats.change_gold(2 + GameData.difficulty_modifier)
+				bobber.bobber_stats.change_gold(1)
 				print(bobber.bobber_stats.gold_amount)
 				bobber.queue_free()
 				screen_transition.transition_out()

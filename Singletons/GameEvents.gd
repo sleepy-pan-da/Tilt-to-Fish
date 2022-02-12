@@ -10,7 +10,7 @@ extends Node
 # This globalscript therefore helps solve this problem.
 
 signal bobber_took_damage(damage_taken) # need to pass damage taken to manage confidence
-signal bobber_gained_hook(num_of_hook_gained) # need to pass num_of_hook_gained to manage confidence
+signal bobber_gained_hook(num_of_hook_gained) # connected to GameLevelTemplate.tscn and NewShop/UI.gd
 signal successfully_caught_fish (fish_position) # need to pass fish_position to manage intimidation
 
 signal bobber_touched_orb() # connected to GameLevelTemplate/OrbManager.gd, this manages the spawning of next orb

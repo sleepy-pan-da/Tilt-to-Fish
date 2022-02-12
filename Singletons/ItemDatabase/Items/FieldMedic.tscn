@@ -4,5 +4,5 @@
 
 [node name="FieldMedic" type="Node"]
 script = ExtResource( 1 )
-increment_total_fill_amount_at_diff_levels = [ 50.0, 25.0, 10.0 ]
-increment_cooldown_at_diff_levels = [ 25.0, 15.0, 10.0 ]
+increment_total_fill_amount_at_diff_levels = [ 40.0, 35.0, 30.0 ]
+increment_cooldown_at_diff_levels = [ 15.0, 10.0, 5.0 ]
