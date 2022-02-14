@@ -30,7 +30,7 @@
 [ext_resource path="res://Game/Shop/NewShop/ItemRarity.gd" type="Script" id=28]
 [ext_resource path="res://Game/Shop/NewShop/ItemExp.gd" type="Script" id=29]
 [ext_resource path="res://Game/Shop/NewShop/ItemSellingCosts.gd" type="Script" id=30]
-[ext_resource path="res://Game/Shop/NewShop/Hooks?.gd" type="Script" id=31]
+[ext_resource path="res://Game/Shop/NewShop/MoreHooks.gd" type="Script" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
