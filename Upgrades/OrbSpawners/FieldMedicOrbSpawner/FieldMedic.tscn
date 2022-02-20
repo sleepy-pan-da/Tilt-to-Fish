@@ -7,7 +7,7 @@
 [ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 89.4427
+radius = 48.0
 
 [sub_resource type="Animation" id=2]
 resource_name = "Collapse"
@@ -55,7 +55,6 @@ tracks/0/keys = {
 }
 
 [node name="FieldMedic" type="Area2D"]
-modulate = Color( 1, 1, 1, 0 )
 monitorable = false
 collision_layer = 0
 collision_mask = 2
@@ -78,6 +77,7 @@ margin_left = -93.0
 margin_top = -93.0
 margin_right = 93.0
 margin_bottom = 93.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 93, 93 )
 rounded = true
 texture_under = ExtResource( 2 )
@@ -97,7 +97,7 @@ autostart = true
 
 [node name="CheckIfAnythingIsInside" type="Timer" parent="."]
 wait_time = 0.1
-one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_FieldMedic_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_FieldMedic_body_exited"]

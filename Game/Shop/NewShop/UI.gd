@@ -3,7 +3,7 @@ extends Control
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 export(Resource) var backpack = backpack as BackPack
 export(Resource) var item_pool = item_pool as ItemPool
-export(PackedScene) onready var current_bobber # need this to reconfigure max hooks when on sold
+export(PackedScene) onready var current_bobber # need this to reconfigure max hooks when on buy/sold
 export(String, FILE, "*.tscn") var game_scene 
 
 onready var hooks = $UpperLeftCorner/Hooks

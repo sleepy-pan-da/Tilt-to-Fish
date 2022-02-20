@@ -5,7 +5,7 @@ export(Resource) var bobber_stats = bobber_stats as BobberStats
 onready var animation_player = $AnimationPlayer
 onready var progress_bar = $ProgressBar
 onready var check_if_anything_is_inside = $CheckIfAnythingIsInside
-
+var is_occupied : bool = false
 
 func _ready() -> void:
 	progress_bar.connect("progress_bar_filled", self, "on_progress_bar_filled")
@@ -27,15 +27,17 @@ func _on_LifeSpan_timeout():
 
 
 func _on_CheckIfAnythingIsInside_timeout():
-	progress_bar.increment()
-	if !get_overlapping_bodies().empty():
-		check_if_anything_is_inside.start()
+	if is_occupied:
+		progress_bar.increment()
+	else:
+		progress_bar.decrement()
+#	if !get_overlapping_bodies().empty():
+#		check_if_anything_is_inside.start()
 
 
 func _on_FieldMedic_body_entered(body):
-	check_if_anything_is_inside.start()
+	is_occupied = true
 
 
 func _on_FieldMedic_body_exited(body):
-	check_if_anything_is_inside.stop()
-	
+	is_occupied = false

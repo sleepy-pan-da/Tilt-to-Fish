@@ -14,5 +14,9 @@ func increment() -> void:
 		pass
 
 
+func decrement() -> void:
+	value = max(value - amount_filled_per_tick, min_value)
+
+
 func reset() -> void:
 	value = 0
