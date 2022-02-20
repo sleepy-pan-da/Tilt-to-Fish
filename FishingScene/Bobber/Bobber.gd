@@ -202,3 +202,25 @@ func set_up_orb_spawners_at_start_of_fishing() -> void:
 			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_orb_spawners_at_start_of_fishing)
+
+
+func on_buy_item(item_name : String) -> void:
+	var item_traits : ItemTraits = item_pool.get_item(item_name)
+	if item_traits.triggers_when_bought:
+		var item_level : int = 1	# items start at this level
+		var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+		item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.bought_this_item)
+
+
+func on_sell_item(item_name : String, item_level : int) -> void:
+	var item_traits : ItemTraits = item_pool.get_item(item_name)
+	if item_traits.triggers_when_sold:
+		var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+		item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.sold_this_item)
+
+
+# as of now this is only needed for falsegod since it overwrites hooks and max hooks to 1
+func recompute_hooks_and_max_hooks() -> void:
+	bobber_stats.reset_hooks_and_max_hooks()
+	set_up_stats_at_start_of_fishing()
+	override_stats_at_start_of_fishing()

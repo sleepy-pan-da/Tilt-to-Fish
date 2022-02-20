@@ -3,6 +3,7 @@ extends Control
 export(Resource) var bobber_stats = bobber_stats as BobberStats
 export(Resource) var backpack = backpack as BackPack
 export(Resource) var item_pool = item_pool as ItemPool
+export(PackedScene) onready var current_bobber # need this to reconfigure max hooks when on sold
 export(String, FILE, "*.tscn") var game_scene 
 
 onready var hooks = $UpperLeftCorner/Hooks
@@ -17,8 +18,10 @@ onready var hooks_button = get_node("Hooks?")
 onready var screen_transition = $ScreenTransition
 
 var index_of_currently_pressed_item : int = -1
+var bobber : Bobber
 
 func _ready() -> void:
+	create_bobber_instance()
 	screen_transition.transition_in()
 	backpack.level_up_all_held_items()
 	hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
@@ -40,6 +43,7 @@ func _ready() -> void:
 	backpack_slots.get_child(4).connect("pressed", self, "on_pressed_backpack_slot", [4])
 	screen_transition.connect("transitioned_out", self, "go_back_to_fishing")
 	GameEvents.connect("bobber_gained_hook", self, "on_bobber_gained_hook")
+	GameEvents.connect("need_to_recompute_bobber_hooks_and_max_hooks", self, "recompute_hooks_and_max_hooks")
 
 #func on_clicked_reroll() -> void:
 #	if bobber_stats.gold_amount >= 2:
@@ -48,6 +52,18 @@ func _ready() -> void:
 #		items_sold.pick_items_sold()
 #		description_box.hide()
 #		index_of_currently_pressed_item = -1
+
+
+# For easier testing
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.scancode == KEY_T:
+			items_sold.set_up_items_sold(backpack)
+
+
+func create_bobber_instance() -> void:
+	if current_bobber != null: # helps to test without bobber
+		bobber = current_bobber.instance()
 
 
 func on_pressed_items_sold(child_index : int) -> void:
@@ -80,40 +96,37 @@ func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
 
 
 func on_clicked_buy_sell_button() -> void:
-	var name_of_item : String = description_box.item_name.get_item_name()
-	var cost_of_item : int = description_box.item_cost.get_item_cost()
-	if name_of_item == "": 
+	var item_name : String = description_box.item_name.get_item_name()
+	var item_cost : int = description_box.item_cost.get_item_cost()
+	if item_name == "": 
 		return
 	
 	var button_icon : Texture = description_box.buy_sell_button.texture_normal
 	if button_icon == description_box.buy_sell_button.BuyButtonTexture:
-		var can_afford : bool = bobber_stats.gold_amount >= cost_of_item
+		var can_afford : bool = bobber_stats.gold_amount >= item_cost
 		
 		if can_afford: 
-			if !backpack.has_item(name_of_item) and backpack.has_space():
-				#add item to backpack
-				bobber_stats.change_gold(-cost_of_item)
-				gold.update_label(bobber_stats.gold_amount)
-				backpack.add_item(name_of_item)
-				items_sold.get_child(index_of_currently_pressed_item).text = ""
+			if !backpack.has_item(item_name) and backpack.has_space():
+				backpack.add_item(item_name)
+				bobber.on_buy_item(item_name)
+				
 				description_box.hide()
 				backpack_slots.update_backpack_ui(backpack)
+				bobber_stats.change_gold(-item_cost)
+				gold.update_label(bobber_stats.gold_amount)
+				hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
+				items_sold.get_child(index_of_currently_pressed_item).text = ""
 
 	elif button_icon == description_box.buy_sell_button.SellButtonTexture:
-		
-		var item_traits : ItemTraits = item_pool.get_item(name_of_item)
-		if item_traits.triggers_when_sold:
-			var item_level : int = backpack.get_item_level(name_of_item)
-			var item_specifications : ItemSpecification = ItemDatabase.get_node(name_of_item)
-			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.sold_this_item)
-		
-		backpack.remove_item_from_backpack(name_of_item)
+		var item_level : int = backpack.get_item_level(item_name)
+		backpack.remove_item_from_backpack(item_name)
+		bobber.on_sell_item(item_name, item_level)
 		
 		description_box.hide()
 		backpack_slots.update_backpack_ui(backpack)
-		# earn money from selling item
-		bobber_stats.change_gold(cost_of_item)
+		bobber_stats.change_gold(item_cost)
 		gold.update_label(bobber_stats.gold_amount)
+		hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
 
 
 func _on_NextWave_pressed() -> void:
@@ -141,3 +154,7 @@ func _on_Hooks_pressed() -> void:
 
 func on_bobber_gained_hook(num_of_hook_gained: int) -> void:
 	hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)	
+
+
+func recompute_hooks_and_max_hooks() -> void:
+	bobber.recompute_hooks_and_max_hooks()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Game/Shop/NewShop/ItemExp.gd" type="Script" id=29]
 [ext_resource path="res://Game/Shop/NewShop/ItemSellingCosts.gd" type="Script" id=30]
 [ext_resource path="res://Game/Shop/NewShop/MoreHooks.gd" type="Script" id=31]
+[ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=32]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -99,6 +100,7 @@ __meta__ = {
 bobber_stats = ExtResource( 26 )
 backpack = ExtResource( 27 )
 item_pool = ExtResource( 7 )
+current_bobber = ExtResource( 32 )
 game_scene = "res://Game/WaveSystem/WaveLevel.tscn"
 
 [node name="UpperLeftCorner" type="VBoxContainer" parent="UI"]

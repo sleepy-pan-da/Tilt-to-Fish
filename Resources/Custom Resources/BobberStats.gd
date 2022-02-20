@@ -34,6 +34,11 @@ func set_up_initial_stats() -> void:
 	slows_down_time_by = 1.0
 
 
+func reset_hooks_and_max_hooks() -> void:
+	max_hooks_amount = initial_max_hooks_amount
+	hooks_amount = max_hooks_amount
+	
+
 func minus_hook(damage : int) -> void:
 	hooks_amount -= damage
 	if hooks_amount < 0:
@@ -50,7 +55,6 @@ func gain_hook(num_of_hook_gained : int) -> void:
 # In the scenario where hook > max hook, hook needs to be reconfigured 
 func reconfigure_hook() -> void:
 	hooks_amount = max_hooks_amount
-	GameEvents.emit_signal("bobber_gained_hook", 0)
 	
 
 func change_max_hook(change_in_max_hook : int) -> void:
