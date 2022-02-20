@@ -15,6 +15,6 @@ spawns_orbs = true
 name = "Stun Grenade"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Delay: AOE stun for 1/2/4s
+description = "Delay: AOE stun for 1/2/4s, deals 10/20/40 damage
 Cooldown: 16/8/4s"
 rarity = 1

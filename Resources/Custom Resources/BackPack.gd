@@ -24,7 +24,7 @@ var held_items = 	{
 						#"AntimatterWave"	:	6,
 						#"FiveRoundsRapid"	:	6,
 						#"FieldMedic"	:	0,
-						#"StunGrenade"	:	6,
+						#"StunGrenade"	:	3,
 						#"QuickReload"	:	6,
 						#"InfinitePower"	:	6
 					}

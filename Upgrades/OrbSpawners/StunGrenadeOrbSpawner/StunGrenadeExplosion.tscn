@@ -4,7 +4,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/StunGrenadeOrbSpawner/StunGrenadeExplosion.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 232.0
+radius = 129.0
 
 [node name="StunGrenadeExplosion" type="Area2D"]
 collision_layer = 64
