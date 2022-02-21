@@ -39,6 +39,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Fish/Behaviours/FishHitBox/FishHitBox.gd"
 }, {
+"base": "Resource",
+"class": "FishIndex",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/Fish Related/FishIndex.gd"
+}, {
+"base": "Resource",
+"class": "FishInfo",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/Fish Related/Fishes/FishInfo.gd"
+}, {
 "base": "Node2D",
 "class": "FishManager",
 "language": "GDScript",
@@ -146,6 +156,8 @@ _global_script_class_icons={
 "BobberStats": "",
 "ControlConfig": "",
 "FishHitbox": "",
+"FishIndex": "",
+"FishInfo": "",
 "FishManager": "",
 "FishState": "",
 "FishTemplate": "",

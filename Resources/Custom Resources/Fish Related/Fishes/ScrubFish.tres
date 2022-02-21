@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/Fish Related/Fishes/FishInfo.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fishing Scene/Fishes/scrubfish/scrubfish(thick)_right.PNG" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "ScrubFish"
+sprite = ExtResource( 2 )
+can_touch = true
+description = "Insert funny description"
