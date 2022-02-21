@@ -47,7 +47,7 @@ __meta__ = {
 }
 
 [node name="Header" type="Label" parent="UI/VBoxContainer"]
-margin_right = 1464.0
+margin_right = 1284.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 1280, 80 )
 custom_fonts/font = SubResource( 1 )
