@@ -21,3 +21,5 @@ signal set_up_bobber_item_at_start_of_fishing(item_name, incremented_values) # c
 
 signal triggered_item_on_caught_fish(item_name, incremented_values) # connected to GameLevelTemplate.tscn
 signal set_up_orb_spawner_at_start_of_fishing(item_name, incremented_values) # connected to GameLevelTemplate.tscn
+
+signal pressed_fish_button_in_index(fish_name) # connected to FishIndex/Body.gd

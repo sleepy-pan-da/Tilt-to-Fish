@@ -1,7 +1,7 @@
 extends Control
 
-onready var start_label = $StartButton/StartLabel
-onready var tween = $StartButton/StartLabel/Tween
+onready var start_label = $StartLabel
+onready var tween = $StartLabel/Tween
 var released_button : bool = false
 signal clicked_start
 

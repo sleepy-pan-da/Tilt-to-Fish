@@ -8,4 +8,4 @@ script = ExtResource( 1 )
 name = "Sea Urchin"
 sprite = ExtResource( 2 )
 can_touch = false
-description = ""
+description = "Insert funny description for Sea Urchin"

@@ -1,15 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Game/Index/FishIndex/Body.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Custom Resources/Fish Related/AlphaFishIndex.tres" type="Resource" id=5]
+[ext_resource path="res://Game/Index/FishIndex/FishButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Game/Index/FishIndex/Grid.gd" type="Script" id=7]
+[ext_resource path="res://Game/Index/FishIndex/DisplayedFishInfo.gd" type="Script" id=8]
+[ext_resource path="res://Game/Index/FishIndex/Hostile.gd" type="Script" id=9]
+[ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game/Index/FishIndex/UI.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -17,10 +29,6 @@ size = 24
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 24
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 2 )
 
@@ -35,9 +43,11 @@ current = true
 [node name="UI" type="Control" parent="."]
 margin_right = 1280.0
 margin_bottom = 720.0
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+start_scene = "res://Game/MainMenu/MainMenu.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 margin_right = 1284.0
@@ -47,7 +57,7 @@ __meta__ = {
 }
 
 [node name="Header" type="Label" parent="UI/VBoxContainer"]
-margin_right = 1284.0
+margin_right = 1292.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 1280, 80 )
 custom_fonts/font = SubResource( 1 )
@@ -57,79 +67,120 @@ valign = 1
 
 [node name="Body" type="HBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 84.0
-margin_right = 1284.0
+margin_right = 1292.0
 margin_bottom = 624.0
 rect_min_size = Vector2( 1280, 540 )
+script = ExtResource( 4 )
+fish_index = ExtResource( 5 )
 
-[node name="Left" type="GridContainer" parent="UI/VBoxContainer/Body"]
-margin_right = 900.0
+[node name="Spacer1" type="Control" parent="UI/VBoxContainer/Body"]
+margin_right = 10.0
 margin_bottom = 540.0
-rect_min_size = Vector2( 900, 540 )
-columns = 2
+rect_min_size = Vector2( 10, 540 )
 
-[node name="Right" type="VBoxContainer" parent="UI/VBoxContainer/Body"]
-margin_left = 904.0
-margin_right = 1284.0
+[node name="Left" type="ColorRect" parent="UI/VBoxContainer/Body"]
+margin_left = 14.0
+margin_right = 874.0
 margin_bottom = 540.0
+rect_min_size = Vector2( 860, 540 )
+color = Color( 0, 0, 0, 0.576471 )
+
+[node name="Grid" type="GridContainer" parent="UI/VBoxContainer/Body/Left"]
+margin_right = 860.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 860, 540 )
+columns = 5
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+fish_button = ExtResource( 6 )
+
+[node name="Spacer2" type="Control" parent="UI/VBoxContainer/Body"]
+margin_left = 878.0
+margin_right = 888.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 10, 540 )
+
+[node name="Right" type="ColorRect" parent="UI/VBoxContainer/Body"]
+margin_left = 892.0
+margin_right = 1292.0
+margin_bottom = 540.0
+rect_min_size = Vector2( 400, 540 )
+color = Color( 0, 0, 0, 0.576471 )
+
+[node name="DisplayedFishInfo" type="VBoxContainer" parent="UI/VBoxContainer/Body/Right"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -190.0
+margin_top = -270.0
+margin_right = 190.0
+margin_bottom = 270.0
 rect_min_size = Vector2( 380, 540 )
+custom_constants/separation = 20
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/VBoxContainer/Body/Right"]
+[node name="Sprite" type="TextureRect" parent="UI/VBoxContainer/Body/Right/DisplayedFishInfo"]
 margin_right = 380.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 380, 150 )
-custom_constants/margin_left = 115
-
-[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/Body/Right/MarginContainer"]
-margin_left = 115.0
-margin_right = 265.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 150, 150 )
 texture = ExtResource( 3 )
+expand = true
 stretch_mode = 6
 
-[node name="FishName" type="Label" parent="UI/VBoxContainer/Body/Right"]
-margin_top = 154.0
+[node name="Name" type="Label" parent="UI/VBoxContainer/Body/Right/DisplayedFishInfo"]
+margin_top = 170.0
 margin_right = 380.0
-margin_bottom = 188.0
-custom_fonts/font = SubResource( 3 )
+margin_bottom = 204.0
+custom_fonts/font = SubResource( 2 )
 text = "Fish Name"
 align = 1
 valign = 1
 
-[node name="Description" type="Label" parent="UI/VBoxContainer/Body/Right"]
-margin_top = 192.0
+[node name="Description" type="Label" parent="UI/VBoxContainer/Body/Right/DisplayedFishInfo"]
+margin_top = 224.0
 margin_right = 380.0
-margin_bottom = 292.0
+margin_bottom = 324.0
 rect_min_size = Vector2( 380, 100 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Insert fish description"
 autowrap = true
 
-[node name="Hostile" type="Label" parent="UI/VBoxContainer/Body/Right"]
-margin_top = 296.0
+[node name="Hostile" type="Label" parent="UI/VBoxContainer/Body/Right/DisplayedFishInfo"]
+margin_top = 344.0
 margin_right = 380.0
-margin_bottom = 322.0
-custom_fonts/font = SubResource( 5 )
-text = "Hostile or not"
+margin_bottom = 370.0
+custom_fonts/font = SubResource( 4 )
+text = "Hostile or not:"
+script = ExtResource( 9 )
 
-[node name="TimesCaught" type="Label" parent="UI/VBoxContainer/Body/Right"]
-margin_top = 326.0
+[node name="TimesCaught" type="Label" parent="UI/VBoxContainer/Body/Right/DisplayedFishInfo"]
+margin_top = 390.0
 margin_right = 380.0
-margin_bottom = 352.0
-custom_fonts/font = SubResource( 5 )
+margin_bottom = 416.0
+custom_fonts/font = SubResource( 4 )
 text = "Times caught:"
 
-[node name="Button" type="Button" parent="UI"]
+[node name="Back" type="Button" parent="UI"]
 margin_left = 24.0
 margin_top = 628.0
 margin_right = 125.0
 margin_bottom = 688.0
 rect_min_size = Vector2( 101, 60 )
 focus_mode = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 5 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ScreenTransition" parent="UI" instance=ExtResource( 10 )]
+
+[connection signal="pressed" from="UI/Back" to="UI" method="_on_Back_pressed"]
