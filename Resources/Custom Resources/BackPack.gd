@@ -10,8 +10,8 @@ const ITEM_EXP_FOR_LVL2 : int = 1
 var held_items = 	{
 						# key pair here is item_name(String) : exp_pts(int)	
 						# e.g. item_A	:	0 (number here refers to exp pts)
-						# Lvl1-2 (2 exp needed)
-						# Lvl2-3 (4 exp needed) 
+						# Lvl1-2 (1 exp needed)
+						# Lvl2-3 (2 exp needed) 
 						
 						#"Strength"		:	0,
 						#"Constitution"	:	2,
@@ -23,7 +23,7 @@ var held_items = 	{
 						#"Arrow"	:	3,
 						#"AntimatterWave"	:	3,
 						#"FiveRoundsRapid"	:	3,
-						#"FieldMedic"	:	3,
+						#"FieldMedic"	:	0,
 						#"StunGrenade"	:	3,
 						#"QuickReload"	:	3,
 						#"InfinitePower"	:	3

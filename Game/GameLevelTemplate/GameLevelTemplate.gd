@@ -92,7 +92,7 @@ func on_bobber_entered_scene() -> void:
 func _on_bobber_took_damage(damage_taken : int) -> void:
 	freeze_game()
 	Input.vibrate_handheld(100) # to give haptic feedback to player
-	bobber.bobber_stats.minus_hook(damage_taken)
+	bobber.bobber_stats.minus_hook(damage_taken * bobber.bobber_stats.damage_taken_multiplier)
 	update_hooks_label()
 	bobber.start_immunity()
 	if bobber.bobber_stats.hooks_amount <= 0:

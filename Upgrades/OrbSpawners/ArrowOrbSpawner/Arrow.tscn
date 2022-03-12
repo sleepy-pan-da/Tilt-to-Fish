@@ -4,7 +4,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/ArrowOrbSpawner/Arrow.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 35, 22 )
+extents = Vector2( 53.2328, 44.5212 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Charging"
@@ -47,13 +47,12 @@ position = Vector2( -1.7243, -0.244934 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-scale = Vector2( 3, 3 )
+scale = Vector2( 4.5, 4.5 )
 texture = ExtResource( 1 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
-position = Vector2( -2, 0.25 )
-scale = Vector2( 3.525, 2.225 )
+position = Vector2( -3.49832, 0.62457 )
+scale = Vector2( 5.24805, 3.76076 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Charging = SubResource( 2 )

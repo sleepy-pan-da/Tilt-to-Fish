@@ -15,6 +15,7 @@ var reel_attack_rate : float
 var max_orbs : int
 var orb_cooldown_reduction : float = 1.0
 var slows_down_time_by : float = 1.0
+var damage_taken_multiplier : float = 1.0
 
 var first_time_setting_up : bool = true
 
@@ -32,6 +33,7 @@ func set_up_initial_stats() -> void:
 	max_orbs = initial_max_orbs
 	orb_cooldown_reduction = 1.0
 	slows_down_time_by = 1.0
+	damage_taken_multiplier = 1.0
 
 
 func reset_hooks_and_max_hooks() -> void:
@@ -71,6 +73,10 @@ func change_max_orbs(change_in_max_orbs : int) -> void:
 
 func change_orb_cooldown_reduction(change_in_cooldown_reduction : float) -> void:
 	orb_cooldown_reduction += change_in_cooldown_reduction
+
+
+func multiply_damage_taken_multiplier(multiplier : float) -> void:
+	damage_taken_multiplier *= multiplier
 
 
 func set_max_orbs(number_to_set : int) -> void:

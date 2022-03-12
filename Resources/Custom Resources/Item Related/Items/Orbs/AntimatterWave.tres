@@ -16,6 +16,6 @@ spawns_orbs = true
 name = "Antimatter Wave"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Delay: Fires a wave that passes through and deals 10/20/40 damage
+description = "Delay: Fires a wave that passes through and deals 15/30/60 damage
 Cooldown: 8/4/2s"
 rarity = 1

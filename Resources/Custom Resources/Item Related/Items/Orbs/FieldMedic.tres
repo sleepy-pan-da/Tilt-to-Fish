@@ -18,5 +18,6 @@ buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
 description = "Hover: Gain Hook
 Lasts for 5s
-Cooldown: 15/10/5s"
+Max hooks to be gained: 1/2/3
+Cooldown: 10s"
 rarity = 1

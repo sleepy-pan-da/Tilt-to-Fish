@@ -71,7 +71,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
 projectile = ExtResource( 3 )
-projectile_speed = 500.0
+projectile_speed = 3000.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -64, -24, -72, -24, -72, 24, -64, 24, -40, 40, -24, 40, 0, 40, 32, 16, 40, 8, 72, 8, 72, -8, 40, -8, 32, -16, 0, -40, -40, -40 )

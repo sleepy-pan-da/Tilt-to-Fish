@@ -14,6 +14,4 @@ func set_damage(new_damage) -> void:
 
 # overridden function
 func _on_HitBox_body_entered(body : Bobber) -> void:
-	if !body.immune:
-		GameEvents.emit_signal("bobber_took_damage", 1)
-		queue_free() # added functionality
+	pass

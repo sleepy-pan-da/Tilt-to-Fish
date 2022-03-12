@@ -16,6 +16,6 @@ spawns_orbs = true
 name = "Arrow"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Delay: Fires an arrow that deals 15/30/60 damage
+description = "Delay: Fires an arrow that deals 20/40/80 damage
 Cooldown: 8/4/2s "
 rarity = 1
