@@ -2,6 +2,6 @@
 
 [ext_resource path="res://Singletons/ItemDatabase/Items/BulletTime.gd" type="Script" id=1]
 
-[node name="BulletTime" type="Node"]
+[node name="Bullet Time" type="Node"]
 script = ExtResource( 1 )
 increment_values_at_diff_levels = [ 1.0, 1.5, 2.0 ]

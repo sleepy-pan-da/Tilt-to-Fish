@@ -14,7 +14,7 @@ export(bool) var triggers_when_sold
 export(bool) var triggers_when_visit_shop
 export(bool) var spawns_orbs
 
-export(String) var name
+export(String) var display_name
 export(int) var buying_cost
 export(Array, int) var selling_cost 
 export(String, MULTILINE) var description

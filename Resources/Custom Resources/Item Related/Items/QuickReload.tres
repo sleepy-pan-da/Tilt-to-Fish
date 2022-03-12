@@ -14,7 +14,7 @@ triggers_when_bought = false
 triggers_when_sold = false
 triggers_when_visit_shop = false
 spawns_orbs = false
-name = "Quick Reload"
+display_name = "Quick Reload"
 buying_cost = 7
 selling_cost = [ 7, 10, 13 ]
 description = "Max orbs in play = 1

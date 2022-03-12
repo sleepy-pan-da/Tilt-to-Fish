@@ -18,10 +18,9 @@ func has_item(item_name : String) -> bool:
 	return true
 
 
-# Querying a resource by resource_name
 func get_item_index(item_name : String) -> int:
 	for i in items.size():
-		if items[i].resource_name == item_name:
+		if items[i].display_name == item_name:
 			return i
 	return -1
 

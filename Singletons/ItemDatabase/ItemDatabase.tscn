@@ -23,33 +23,30 @@
 
 [node name="Constitution" parent="." instance=ExtResource( 2 )]
 
-[node name="FalseGod" parent="." instance=ExtResource( 3 )]
+[node name="False God" parent="." instance=ExtResource( 3 )]
 
-[node name="NotToday" parent="." instance=ExtResource( 4 )]
-increment_values_at_diff_levels = [ 1.0, 3.0, 5.0 ]
+[node name="Not Today" parent="." instance=ExtResource( 4 )]
 
 [node name="Cccombo" parent="." instance=ExtResource( 5 )]
 
-[node name="TimeLordVictorious" parent="." instance=ExtResource( 6 )]
+[node name="Time Lord Victorious" parent="." instance=ExtResource( 6 )]
 
-[node name="BulletTime" parent="." instance=ExtResource( 8 )]
+[node name="Bullet Time" parent="." instance=ExtResource( 8 )]
 
 [node name="Arrow" parent="." instance=ExtResource( 9 )]
 
-[node name="AntimatterWave" parent="." instance=ExtResource( 10 )]
+[node name="Antimatter Wave" parent="." instance=ExtResource( 10 )]
 
-[node name="FiveRoundsRapid" parent="." instance=ExtResource( 11 )]
+[node name="Five Rounds Rapid" parent="." instance=ExtResource( 11 )]
 
-[node name="FieldMedic" parent="." instance=ExtResource( 12 )]
+[node name="Field Medic" parent="." instance=ExtResource( 12 )]
 
-[node name="StunGrenade" parent="." instance=ExtResource( 13 )]
-increment_stun_duration = [ 1.0, 2.0, 4.0 ]
+[node name="Stun Grenade" parent="." instance=ExtResource( 13 )]
 
-[node name="QuickReload" parent="." instance=ExtResource( 7 )]
+[node name="Quick Reload" parent="." instance=ExtResource( 7 )]
 
-[node name="InfinitePower" parent="." instance=ExtResource( 14 )]
-increment_max_orbs_at_diff_levels = [ 1.0, 2.0, 4.0 ]
+[node name="Infinite Power" parent="." instance=ExtResource( 14 )]
 
-[node name="PiggyBank" parent="." instance=ExtResource( 15 )]
+[node name="Piggy Bank" parent="." instance=ExtResource( 15 )]
 
-[node name="BiscuitTin" parent="." instance=ExtResource( 16 )]
+[node name="Biscuit Tin" parent="." instance=ExtResource( 16 )]

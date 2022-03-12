@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Singletons/ItemDatabase/Items/FieldMedic.gd" type="Script" id=1]
 
-[node name="FieldMedic" type="Node"]
+[node name="Field Medic" type="Node"]
 script = ExtResource( 1 )
 increment_total_fill_amount_at_diff_levels = [ 40.0, 20.0, 15.0 ]
 increment_cooldown_at_diff_levels = [ 10.0, 10.0, 10.0 ]

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Singletons/ItemDatabase/Items/AntimatterWave.gd" type="Script" id=1]
 
-[node name="AntimatterWave" type="Node"]
+[node name="Antimatter Wave" type="Node"]
 script = ExtResource( 1 )
 increment_damage_at_diff_levels = [ 15.0, 30.0, 60.0 ]
 increment_cooldown_at_diff_levels = [ 8.0, 4.0, 2.0 ]

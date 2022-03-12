@@ -24,10 +24,10 @@ func pick_items_sold(backpack : BackPack) -> void:
 	items_sold.clear()
 	while items_sold.size() != 3:
 		var chosen_item : ItemTraits = item_pool.pick_an_item_randomly()
-		if !items_sold.has(chosen_item) and !backpack.has_item(chosen_item.resource_name):
+		if !items_sold.has(chosen_item) and !backpack.has_item(chosen_item.display_name):
 			items_sold.append(chosen_item)
 			var index_of_added_item : int = items_sold.size() - 1
-			get_child(index_of_added_item).text = items_sold[index_of_added_item].resource_name
+			get_child(index_of_added_item).text = items_sold[index_of_added_item].display_name
 
 
 

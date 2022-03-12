@@ -38,7 +38,7 @@ func _ready():
 
 
 func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_values) -> void:
-	var triggered_item = items_that_require_bobber.get(item_name)
+	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
 	add_child(triggered_instance)
 	triggered_instance.set_value(incremented_values)
