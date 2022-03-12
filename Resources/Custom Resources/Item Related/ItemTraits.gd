@@ -11,6 +11,7 @@ export(bool) var triggers_when_lose_all_hooks
 export(bool) var triggers_when_catch_fish
 export(bool) var triggers_when_bought
 export(bool) var triggers_when_sold
+export(bool) var triggers_when_visit_shop
 export(bool) var spawns_orbs
 
 export(String) var name

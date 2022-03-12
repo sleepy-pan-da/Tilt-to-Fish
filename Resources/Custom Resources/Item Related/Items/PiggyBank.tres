@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "FiveRoundsRapid"
+resource_name = "PiggyBank"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -12,12 +12,10 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_bought = false
 triggers_when_sold = false
-triggers_when_visit_shop = false
-spawns_orbs = true
-name = "Five Rounds Rapid"
+triggers_when_visit_shop = true
+spawns_orbs = false
+name = "Piggy Bank"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Place an automated turret that deals 4/8/16 damage
-Lasts for 10s
-Cooldown: 20/10/5s"
+description = "Visit shop: +1/2/3 gold per 5 gold owned"
 rarity = 1

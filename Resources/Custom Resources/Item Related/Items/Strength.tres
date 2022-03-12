@@ -12,6 +12,7 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_bought = false
 triggers_when_sold = false
+triggers_when_visit_shop = false
 spawns_orbs = false
 name = "Strength"
 buying_cost = 1

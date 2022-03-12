@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "FiveRoundsRapid"
+resource_name = "BiscuitTin"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -11,13 +11,14 @@ set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_bought = false
-triggers_when_sold = false
-triggers_when_visit_shop = false
-spawns_orbs = true
-name = "Five Rounds Rapid"
+triggers_when_sold = true
+triggers_when_visit_shop = true
+spawns_orbs = false
+name = "Biscuit Tin"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Place an automated turret that deals 4/8/16 damage
-Lasts for 10s
-Cooldown: 20/10/5s"
+description = "Visit shop + did not take damage : Gain a stack. Gain 1/2/3 gold equal to stack count
+Visit shop + took damage: reset stack count
+
+Stack count: "
 rarity = 1

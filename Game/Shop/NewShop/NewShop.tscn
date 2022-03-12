@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Game/Shop/NewShop/ItemSellingCosts.gd" type="Script" id=30]
 [ext_resource path="res://Game/Shop/NewShop/MoreHooks.gd" type="Script" id=31]
 [ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Game/Shop/NewShop/ItemType.gd" type="Script" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -61,7 +62,6 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
@@ -73,13 +73,17 @@ size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 32
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=12]
+size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=13]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 2 )
 
 [node name="Shop" type="Node"]
@@ -219,16 +223,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 item_pool = ExtResource( 7 )
+bobber_stats = ExtResource( 26 )
 
-[node name="ItemName" type="Label" parent="UI/ShopPanel/DescriptionBox"]
+[node name="Header" type="HBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
 margin_left = 35.0
-margin_top = 20.0
-margin_right = 237.0
-margin_bottom = 54.0
+margin_top = 12.0
+margin_right = 479.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
+margin_top = 8.0
+margin_right = 139.0
+margin_bottom = 32.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Item Name"
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemType" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
+margin_left = 143.0
+margin_top = 11.0
+margin_right = 277.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "- Orb/passive"
+script = ExtResource( 33 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -238,7 +264,7 @@ margin_left = 36.0
 margin_top = 60.0
 margin_right = 604.0
 margin_bottom = 180.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Item Description"
 autowrap = true
@@ -276,7 +302,7 @@ margin_right = 129.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 109, 39 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Rarity:
 Super Rare"
@@ -291,7 +317,7 @@ margin_right = 129.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 109, 39 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Selling cost:
 1/2/3"
@@ -306,7 +332,7 @@ margin_right = 129.0
 margin_bottom = 99.0
 rect_min_size = Vector2( 74, 18 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Exp: 0/3"
 script = ExtResource( 29 )
@@ -349,6 +375,9 @@ rect_scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 14 )
 stretch_mode = 6
 flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SpeechBubbleEdgeItemSold2" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
 margin_left = 380.0
@@ -451,7 +480,7 @@ margin_right = 212.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 enabled_focus_mode = 0
 flat = true
 clip_text = true
@@ -462,7 +491,7 @@ margin_right = 474.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 enabled_focus_mode = 0
 flat = true
 
@@ -472,7 +501,7 @@ margin_right = 736.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 enabled_focus_mode = 0
 flat = true
 
@@ -516,7 +545,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -538,7 +567,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -560,7 +589,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -582,7 +611,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -604,7 +633,7 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
@@ -616,7 +645,7 @@ margin_left = 1112.0
 margin_top = 648.0
 margin_right = 1272.0
 margin_bottom = 704.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "Next wave"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -627,7 +656,7 @@ margin_left = 18.0
 margin_top = 208.0
 margin_right = 178.0
 margin_bottom = 264.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "Hooks? ($1)"
 script = ExtResource( 31 )
 __meta__ = {

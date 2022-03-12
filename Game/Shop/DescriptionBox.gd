@@ -1,8 +1,10 @@
 extends Control
 
 export(Resource) var item_pool = item_pool as ItemPool
+export(Resource) var bobber_stats = bobber_stats as BobberStats
 
-onready var item_name = $ItemName
+onready var item_name = $Header/ItemName
+onready var item_type = $Header/ItemType
 onready var item_description = $ItemDescription
 onready var item_cost = $RightSide/ItemCost
 onready var item_rarity = $RightSide/ItemRarity
@@ -40,8 +42,11 @@ func update_description_box_from_backpack_slots(backpack : BackPack, item : Stri
 
 func update_description_box_with_item_details(item_details : ItemTraits) -> void:
 	item_name.update_item_name(item_details.resource_name)
+	item_type.update_item_type(item_details.spawns_orbs)
 	item_description.update_item_description(item_details.description)
 	item_selling_costs.update_item_selling_costs(item_details.selling_cost)
 	
+	if item_details.name == "Biscuit Tin":
+		item_description.append_item_description(String(bobber_stats.biscuit_tin_stack_count))
 	#item_rarity.update_item_rarity(item_details.rarity)
 	

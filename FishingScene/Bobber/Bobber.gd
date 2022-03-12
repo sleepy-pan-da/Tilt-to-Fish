@@ -204,6 +204,15 @@ func set_up_orb_spawners_at_start_of_fishing() -> void:
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.set_up_orb_spawners_at_start_of_fishing)
 
 
+func on_visit_shop() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_visit_shop:
+			var item_level : int = backpack.get_item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.visited_shop)
+
+
 func on_buy_item(item_name : String) -> void:
 	var item_traits : ItemTraits = item_pool.get_item(item_name)
 	if item_traits.triggers_when_bought:

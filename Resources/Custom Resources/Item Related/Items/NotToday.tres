@@ -12,6 +12,7 @@ triggers_when_lose_all_hooks = true
 triggers_when_catch_fish = false
 triggers_when_bought = false
 triggers_when_sold = false
+triggers_when_visit_shop = false
 spawns_orbs = false
 name = "Not Today"
 buying_cost = 7

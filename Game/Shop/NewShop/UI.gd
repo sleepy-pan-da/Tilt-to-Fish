@@ -21,9 +21,9 @@ var index_of_currently_pressed_item : int = -1
 var bobber : Bobber
 
 func _ready() -> void:
-	create_bobber_instance()
 	screen_transition.transition_in()
 	backpack.level_up_all_held_items()
+	create_bobber_instance()
 	hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
 	gold.update_label(bobber_stats.gold_amount)
 	round_number.update_round_number(GameData.round_number)
@@ -64,6 +64,7 @@ func _input(event):
 func create_bobber_instance() -> void:
 	if current_bobber != null: # helps to test without bobber
 		bobber = current_bobber.instance()
+		bobber.on_visit_shop()
 
 
 func on_pressed_items_sold(child_index : int) -> void:

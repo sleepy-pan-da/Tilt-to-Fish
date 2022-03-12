@@ -9,7 +9,8 @@ enum TRIGGER_CAUSES {
 	caught_fish,
 	set_up_orb_spawners_at_start_of_fishing,
 	bought_this_item, # this is needed to update shop ui
-	sold_this_item # this is needed to update shop ui
+	sold_this_item, # this is needed to update shop ui
+	visited_shop
 	}
 
 func trigger(item_level : int, trigger_cause : int) -> void:
