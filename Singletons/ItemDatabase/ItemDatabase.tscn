@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Singletons/ItemDatabase/Items/Strength.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Constitution.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Singletons/ItemDatabase/Items/InfinitePower.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Singletons/ItemDatabase/Items/PiggyBank.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Singletons/ItemDatabase/Items/BiscuitTin.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Singletons/ItemDatabase/Items/Room For More.tscn" type="PackedScene" id=17]
 
 [node name="ItemDatabase" type="Node"]
 
@@ -50,3 +51,5 @@
 [node name="Piggy Bank" parent="." instance=ExtResource( 15 )]
 
 [node name="Biscuit Tin" parent="." instance=ExtResource( 16 )]
+
+[node name="Room For More" parent="." instance=ExtResource( 17 )]
