@@ -148,6 +148,8 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 				bobber.bobber_stats.change_gold(1)
 				print(bobber.bobber_stats.gold_amount)
 				bobber.queue_free()
+				if Engine.time_scale != 1.0: # For Time Lord Victorious
+					Engine.time_scale = 1.0
 				screen_transition.transition_out()
 			else:
 				proceed_to_next_wave()

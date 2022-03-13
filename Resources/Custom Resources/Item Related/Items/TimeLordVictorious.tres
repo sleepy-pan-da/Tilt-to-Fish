@@ -17,5 +17,6 @@ spawns_orbs = false
 display_name = "Time Lord Victorious"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Time slows down by 50/70/90% when you don't move"
+description = "Time slows down by 50/70/90% when you don't move
+Deal 0 reeling damage when time slows down"
 rarity = 1

@@ -11,6 +11,7 @@ var gold_amount : int
 var max_hooks_amount : int
 var hooks_amount : int
 var reel_damage : float 
+var previous_reel_damage : float = 0.0 # Need this for time lord victorious
 var reel_attack_rate : float 
 var max_orbs : int
 var orb_cooldown_reduction : float = 1.0
@@ -30,8 +31,9 @@ func set_up_initial_stats() -> void:
 		gold_amount = initial_gold_amount
 		first_time_setting_up = false
 		biscuit_tin_stack_count = 0
-
+	
 	reel_damage = initial_reel_damage
+	previous_reel_damage = 0
 	reel_attack_rate = initial_reel_attack_rate
 	max_orbs = initial_max_orbs
 	orb_cooldown_reduction = 1.0
