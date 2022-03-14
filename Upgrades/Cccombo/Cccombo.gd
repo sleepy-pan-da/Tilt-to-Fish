@@ -13,7 +13,7 @@ func _physics_process(delta):
 
 
 func get_class() -> String:
-	return "Intimidate"
+	return "Cccombo"
 
 
 func set_value(new_damage : float):

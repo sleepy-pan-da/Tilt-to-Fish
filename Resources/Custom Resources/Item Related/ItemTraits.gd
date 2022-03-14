@@ -9,8 +9,11 @@ export(bool) var overrides_stats_at_start_of_fishing
 export(bool) var set_up_bobber_item_at_start_of_fishing
 export(bool) var triggers_when_lose_all_hooks
 export(bool) var triggers_when_catch_fish
+export(bool) var triggers_when_lose_hook
 export(bool) var triggers_when_bought
 export(bool) var triggers_when_sold
+export(bool) var triggers_when_bought_other_item
+export(bool) var triggers_when_sold_other_item
 export(bool) var triggers_when_visit_shop
 export(bool) var spawns_orbs
 

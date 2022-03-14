@@ -3,10 +3,10 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "QuickReload"
+resource_name = "LongRest"
 script = ExtResource( 1 )
-modifies_stats_at_start_of_fishing = true
-overrides_stats_at_start_of_fishing = true
+modifies_stats_at_start_of_fishing = false
+overrides_stats_at_start_of_fishing = false
 set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
@@ -16,10 +16,11 @@ triggers_when_sold = false
 triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
-spawns_orbs = false
-display_name = "Quick Reload"
-buying_cost = 7
-selling_cost = [ 7, 10, 13 ]
-description = "Max orbs in play = 1
-Orbs cooldown decreased by 10/20/40%"
-rarity = 2
+spawns_orbs = true
+display_name = "Long Rest"
+buying_cost = 3
+selling_cost = [ 3, 5, 7 ]
+description = "15/10/5s Delay: Fully restore hook count 
+During delay, take double damage
+Cooldown: 20/15/10s"
+rarity = 0

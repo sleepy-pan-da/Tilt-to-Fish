@@ -93,6 +93,7 @@ func _on_bobber_took_damage(damage_taken : int) -> void:
 	freeze_game()
 	Input.vibrate_handheld(100) # to give haptic feedback to player
 	bobber.bobber_stats.minus_hook(damage_taken * bobber.bobber_stats.damage_taken_multiplier)
+	bobber.on_lost_hook()
 	update_hooks_label()
 	bobber.start_immunity()
 	if bobber.bobber_stats.hooks_amount <= 0:
@@ -123,7 +124,7 @@ func on_triggered_item_on_caught_fish(item_name : String, incremented_values) ->
 	triggered_instance.set_value(incremented_values)
 	add_child(triggered_instance)
 	
-	# Have to hardcode the item names here to the sheer difference in item behaviour
+	# Have to hardcode the item names here due to the sheer difference in item behaviour
 	# This allows for flexibility in the future
 	if item_name == "Cccombo":
 		triggered_instance.global_position = previous_caught_fish_position

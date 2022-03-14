@@ -16,5 +16,5 @@ func get_class() -> String:
 	return "Retaliation"
 
 
-func set_damage(new_damage : float):
+func set_value(new_damage : float):
 	damage = new_damage

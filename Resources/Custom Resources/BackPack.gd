@@ -29,7 +29,10 @@ var held_items = 	{
 						#"Infinite Power"	:	3,
 						#"Piggy Bank"	: 0,
 						#"Biscuit Tin"	:	0,
-						"Room For More"	:	0
+						#"Room For More"	:	0,
+						#"Loyalty Card"	:	0,
+						#"Retaliation"	:	0,
+						#"Long Rest"	:	3
 					}
 
 

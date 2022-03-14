@@ -82,7 +82,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Intimidate",
 "language": "GDScript",
-"path": "res://Upgrades/Intimidate/Intimidation.gd"
+"path": "res://Upgrades/Cccombo/Cccombo.gd"
 }, {
 "base": "Resource",
 "class": "ItemPool",

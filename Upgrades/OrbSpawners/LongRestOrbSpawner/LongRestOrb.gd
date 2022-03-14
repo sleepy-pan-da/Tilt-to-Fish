@@ -1,9 +1,8 @@
 extends Orb
 
-
-func _on_AntimatterWaveOrb_body_entered(body):
+func _on_LongRestOrb_body_entered(body):
 	GameEvents.emit_signal("bobber_touched_orb")
-	GameEvents.emit_signal("triggered_orb_that_requires_bobber", "Antimatter Wave", incremented_values)
+	GameEvents.emit_signal("triggered_orb_that_requires_bobber", "Long Rest", incremented_values)
 	queue_free()
 
 

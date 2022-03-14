@@ -34,6 +34,7 @@ func _ready():
 	emit_signal("bobber_entered_scene")
 	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
 	GameEvents.connect("triggered_orb_that_requires_bobber", self, "on_triggered_orb_that_requires_bobber")
+	GameEvents.connect("triggered_item_on_lost_hook_that_requires_bobber", self, "on_triggered_item_on_lost_hook_that_requires_bobber")
 	set_up_items_at_start_of_fishing()
 
 
@@ -43,18 +44,27 @@ func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_v
 	add_child(triggered_instance)
 	triggered_instance.set_value(incremented_values)
 	
-	if item_name == "BulletTime":
+	if item_name == "Bullet Time":
 		pass
 
 
 func on_triggered_orb_that_requires_bobber(item_name : String, incremented_values) -> void:
-	var triggered_item = items_that_require_bobber.get(item_name)
+	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
 	add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)
-	triggered_instance.set_bobber_reference(self)
 	
-	
+	if item_name == "Arrow" or item_name == "Antimatter Wave":
+		triggered_instance.set_bobber_reference(self)
+
+
+func on_triggered_item_on_lost_hook_that_requires_bobber(item_name : String, incremented_values) -> void:
+	var triggered_item = items_that_require_bobber.get_reference(item_name)
+	var triggered_instance = triggered_item.instance()
+	add_child(triggered_instance)
+	triggered_instance.set_value(incremented_values)
+
+
 func _physics_process(delta : float) -> void:
 	if !testing_on_pc:
 		move(Input.get_accelerometer())
@@ -205,6 +215,15 @@ func on_caught_fish() -> void:
 		bobber_stats.reconfigure_hook()
 
 
+func on_lost_hook() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_lose_hook:
+			var item_level : int = backpack.get_item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.lost_hook)
+
+
 func set_up_orb_spawners_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:
 		var item_traits : ItemTraits = item_pool.get_item(item_name)
@@ -236,6 +255,24 @@ func on_sell_item(item_name : String, item_level : int) -> void:
 	if item_traits.triggers_when_sold:
 		var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 		item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.sold_this_item)
+
+
+func on_buy_other_item() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_bought_other_item:
+			var item_level : int = backpack.get_item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.bought_other_item)
+
+
+func on_sell_other_item() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_sold_other_item:
+			var item_level : int = backpack.get_item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.sold_other_item)
 
 
 # as of now this is only needed for falsegod since it overwrites hooks and max hooks to 1

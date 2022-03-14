@@ -108,6 +108,7 @@ func on_clicked_buy_sell_button() -> void:
 		
 		if can_afford: 
 			if !backpack.has_item(item_name) and backpack.has_space():
+				bobber.on_buy_other_item() # this is before add item to prevent buying the item from triggering itself
 				backpack.add_item(item_name)
 				bobber.on_buy_item(item_name)
 				
@@ -122,6 +123,7 @@ func on_clicked_buy_sell_button() -> void:
 		var item_level : int = backpack.get_item_level(item_name)
 		backpack.remove_item_from_backpack(item_name)
 		bobber.on_sell_item(item_name, item_level)
+		bobber.on_sell_other_item()
 		
 		description_box.hide()
 		backpack_slots.update_backpack_ui(backpack)

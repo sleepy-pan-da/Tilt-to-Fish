@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -21,7 +21,7 @@
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Game/GameLevelTemplate/DebugUI.gd" type="Script" id=20]
 [ext_resource path="res://Game/GameLevelTemplate/ItemsThatRequireLevel.gd" type="Script" id=21]
-[ext_resource path="res://Upgrades/Intimidate/Intimidation.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Upgrades/Cccombo/Cccombo.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Upgrades/OrbSpawners/ArrowOrbSpawner/ArrowOrbSpawner.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Game/GameLevelTemplate/OrbManager.gd" type="Script" id=24]
 [ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=25]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/FiveRoundsRapidOrbSpawner/FiveRoundsRapidOrbSpawner.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Upgrades/OrbSpawners/FieldMedicOrbSpawner/FieldMedicOrbSpawner.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Upgrades/OrbSpawners/StunGrenadeOrbSpawner/StunGrenadeOrbSpawner.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Upgrades/OrbSpawners/LongRestOrbSpawner/LongRestOrbSpawner.tscn" type="PackedScene" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -394,6 +395,7 @@ AntimatterWave = ExtResource( 26 )
 FiveRoundsRapid = ExtResource( 27 )
 FieldMedic = ExtResource( 28 )
 StunGrenade = ExtResource( 29 )
+LongRest = ExtResource( 30 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )
