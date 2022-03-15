@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/FieldMedicOrbSpawner/FieldMedicOrbSpawner.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Upgrades/OrbSpawners/StunGrenadeOrbSpawner/StunGrenadeOrbSpawner.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Upgrades/OrbSpawners/LongRestOrbSpawner/LongRestOrbSpawner.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Upgrades/OrbSpawners/InvulnerabilityOrbSpawner/InvulnerabilityOrbSpawner.tscn" type="PackedScene" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -396,6 +397,7 @@ FiveRoundsRapid = ExtResource( 27 )
 FieldMedic = ExtResource( 28 )
 StunGrenade = ExtResource( 29 )
 LongRest = ExtResource( 30 )
+Invulnerability = ExtResource( 31 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )
