@@ -32,8 +32,10 @@ var held_items = 	{
 						#"Room For More"	:	0,
 						#"Loyalty Card"	:	0,
 						#"Retaliation"	:	0,
-						"Long Rest"	:	3,
-						"Invulnerability"	:	3
+						#"Long Rest"	:	3,
+						#"Invulnerability"	:	3,
+						#"Rejuvenation"	:	0,
+						"Sticky Goo"	:	0
 					}
 
 

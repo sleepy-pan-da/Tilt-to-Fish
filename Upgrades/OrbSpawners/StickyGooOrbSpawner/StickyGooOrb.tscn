@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Upgrades/OrbSpawners/Orb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Upgrades/OrbSpawners/StickyGooOrbSpawner/StickyGooOrb.gd" type="Script" id=2]
+[ext_resource path="res://Upgrades/OrbSpawners/StickyGooOrbSpawner/StickyGoo.tscn" type="PackedScene" id=3]
+
+[node name="StickyGooOrb" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+StickyGoo = ExtResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_StickyGooOrb_body_entered"]

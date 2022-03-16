@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/Rejuvenation.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Custom Resources/CurrentBobberStats.tres" type="Resource" id=2]
+
+[node name="Rejuvenation" type="Node"]
+script = ExtResource( 1 )
+bobber_stats = ExtResource( 2 )
+increment_damage_taken_multiplier = [ 3.0, 2.0, 1.0 ]

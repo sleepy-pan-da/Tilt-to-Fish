@@ -3,9 +3,9 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "StunGrenade"
+resource_name = "Rejuvenation"
 script = ExtResource( 1 )
-modifies_stats_at_start_of_fishing = false
+modifies_stats_at_start_of_fishing = true
 overrides_stats_at_start_of_fishing = false
 set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
@@ -15,11 +15,11 @@ triggers_when_bought = false
 triggers_when_sold = false
 triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
-triggers_when_visit_shop = false
-spawns_orbs = true
-display_name = "Stun Grenade"
+triggers_when_visit_shop = true
+spawns_orbs = false
+display_name = "Rejuvenation"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Activate: AOE stun for 1/2/4s, deals 10/20/40 damage
-Cooldown: 16/8/4s"
-rarity = 1
+description = "Visit shop: fully restore hook count
+Damage taken is multiplied by 3/2/1"
+rarity = 0

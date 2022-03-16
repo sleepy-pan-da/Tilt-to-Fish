@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "StunGrenade"
+resource_name = "Mjolner"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -17,9 +17,8 @@ triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
-display_name = "Stun Grenade"
+display_name = "Mjolner"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Activate: AOE stun for 1/2/4s, deals 10/20/40 damage
-Cooldown: 16/8/4s"
-rarity = 1
+description = "Activate: Flies back to you, dealing damage to fishes caught in it’s path"
+rarity = 0
