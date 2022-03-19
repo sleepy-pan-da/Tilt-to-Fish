@@ -11,7 +11,7 @@ export(PackedScene) onready var StunGrenade
 export(PackedScene) onready var LongRest
 export(PackedScene) onready var Invulnerability
 export(PackedScene) onready var StickyGoo
-export(PackedScene) onready var Mjolner
+export(PackedScene) onready var Mjolnir
 
 func get_reference(item_name : String) -> PackedScene:
 	item_name = item_name.replace(" ", "")

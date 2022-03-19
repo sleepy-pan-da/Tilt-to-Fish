@@ -1,10 +1,10 @@
 extends Orb
 
-export(PackedScene) onready var Mjolner
+export(PackedScene) onready var Mjolnir
 
-func _on_MjolnerOrb_body_entered(body):
+func _on_MjolnirOrb_body_entered(body):
 	GameEvents.emit_signal("bobber_touched_orb")
-	var triggered_instance = Mjolner.instance()
+	var triggered_instance = Mjolnir.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)
 	triggered_instance.global_position = global_position

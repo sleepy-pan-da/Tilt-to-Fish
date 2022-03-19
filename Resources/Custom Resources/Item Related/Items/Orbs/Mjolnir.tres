@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "Mjolner"
+resource_name = "Mjolnir"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -17,8 +17,9 @@ triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
-display_name = "Mjolner"
+display_name = "Mjolnir"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "Activate: Flies back to you, dealing damage to fishes caught in it’s path"
+description = "Activate: Flies back to you, dealing 5/10/20 damage to fishes caught in it’s path
+Cooldown: 10/5/3s"
 rarity = 0

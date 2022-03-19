@@ -36,7 +36,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "EndInvulnerable"
 length = 1.5
 tracks/0/type = "value"
@@ -66,7 +66,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -82,8 +82,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Invulnerable"
+[sub_resource type="Animation" id=5]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("BobberSprite:modulate")
@@ -119,6 +118,7 @@ bobber_stats = ExtResource( 5 )
 backpack = ExtResource( 8 )
 item_pool = ExtResource( 9 )
 control_config = ExtResource( 7 )
+testing_on_pc = true
 
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )
@@ -143,9 +143,9 @@ script = ExtResource( 3 )
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/EndImmune = SubResource( 2 )
-anims/EndInvulnerable = SubResource( 5 )
-anims/Immune = SubResource( 3 )
-anims/Invulnerable = SubResource( 4 )
+anims/EndInvulnerable = SubResource( 3 )
+anims/Immune = SubResource( 4 )
+anims/Invulnerable = SubResource( 5 )
 
 [node name="ImmunityTimer" type="Timer" parent="."]
 process_mode = 0

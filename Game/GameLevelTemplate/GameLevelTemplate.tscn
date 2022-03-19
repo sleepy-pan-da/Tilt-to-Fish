@@ -32,7 +32,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/LongRestOrbSpawner/LongRestOrbSpawner.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Upgrades/OrbSpawners/InvulnerabilityOrbSpawner/InvulnerabilityOrbSpawner.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Upgrades/OrbSpawners/StickyGooOrbSpawner/StickyGooOrbSpawner.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Upgrades/OrbSpawners/MjolnerOrbSpawner/MjolnerOrbSpawner.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Upgrades/OrbSpawners/MjolnirOrbSpawner/MjolnirOrbSpawner.tscn" type="PackedScene" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -401,7 +401,7 @@ StunGrenade = ExtResource( 29 )
 LongRest = ExtResource( 30 )
 Invulnerability = ExtResource( 31 )
 StickyGoo = ExtResource( 32 )
-Mjolner = ExtResource( 33 )
+Mjolnir = ExtResource( 33 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )

@@ -24,7 +24,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/Items/Orbs/Invulnerability.tres" type="Resource" id=22]
 [ext_resource path="res://Resources/Custom Resources/Item Related/Items/Rejuvenation.tres" type="Resource" id=23]
 [ext_resource path="res://Resources/Custom Resources/Item Related/Items/Orbs/StickyGoo.tres" type="Resource" id=24]
-[ext_resource path="res://Resources/Custom Resources/Item Related/Items/Orbs/Mjolner.tres" type="Resource" id=25]
+[ext_resource path="res://Resources/Custom Resources/Item Related/Items/Orbs/Mjolnir.tres" type="Resource" id=25]
 
 [resource]
 script = ExtResource( 1 )

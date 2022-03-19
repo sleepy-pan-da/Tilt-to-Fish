@@ -19,14 +19,14 @@ func on_finished_set_up() -> void:
 
 func set_incremented_values(new_incremented_values) -> void:
 	damage = new_incremented_values[0]
-	print("Mjolner's damage is " + str(damage))
+	#print("Mjolnir's damage is " + str(damage))
 
 
-func _on_Mjolner_body_entered(body : Bobber):
+func _on_Mjolnir_body_entered(body : Bobber):
 	if !is_triggered:
 		is_triggered = true
 		bobber_reference = body
-		animation_player.play("Triggered")
+		animation_player.play("Triggered")	
 
 
 func on_finished_triggered() -> void:
@@ -60,8 +60,11 @@ func _physics_process(delta):
 
 
 func get_name() -> String:
-	return "Mjolner"
+	return "Mjolnir"
 
 
 func _on_FollowLifespan_timeout():
 	queue_free()
+
+
+

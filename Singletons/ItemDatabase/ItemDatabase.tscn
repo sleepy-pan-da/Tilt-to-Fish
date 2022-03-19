@@ -23,7 +23,7 @@
 [ext_resource path="res://Singletons/ItemDatabase/Items/Invulnerability.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Rejuvenation.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Singletons/ItemDatabase/Items/StickyGoo.tscn" type="PackedScene" id=23]
-[ext_resource path="res://Singletons/ItemDatabase/Items/Mjolner.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Singletons/ItemDatabase/Items/Mjolnir.tscn" type="PackedScene" id=24]
 
 [node name="ItemDatabase" type="Node"]
 
@@ -73,5 +73,4 @@
 
 [node name="Sticky Goo" parent="." instance=ExtResource( 23 )]
 
-[node name="Mjolner" parent="." instance=ExtResource( 24 )]
-increment_damage_at_diff_levels = [ 5.0, 10.0, 20.0 ]
+[node name="Mjolnir" parent="." instance=ExtResource( 24 )]
