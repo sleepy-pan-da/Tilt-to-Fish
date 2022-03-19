@@ -20,7 +20,7 @@ var held_items = 	{
 						#"Cccombo"		:	0,
 						#"Time Lord Victorious"	:	0,
 						#"Bullet Time"	:	2,
-						#"Arrow"	:	3,
+						"Arrow"	:	3,
 						#"Antimatter Wave"	:	3,
 						#"Five Rounds Rapid"	:	3,
 						#"Field Medic"	:	0,
@@ -33,10 +33,10 @@ var held_items = 	{
 						#"Loyalty Card"	:	0,
 						#"Retaliation"	:	0,
 						#"Long Rest"	:	3,
-						#"Invulnerability"	:	0,
+						"Invulnerability"	:	3,
 						#"Rejuvenation"	:	0,
 						#"Sticky Goo"	:	0,
-						"Mjolnir"	:	0
+						#"Mjolnir"	:	0
 					}
 
 

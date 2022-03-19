@@ -14,10 +14,12 @@ onready var arrow = $Arrow
 onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
 onready var items_that_require_bobber = $ItemsThatRequireBobber
+onready var proximity_area_timers = $ProximityAreaTimers
 
 var have_immunity : bool = true 
 var is_immune : int = 0 # int instead of bool to allow multiple triggers  of invulnerability orb
 var is_moving : bool = false
+var no_of_proximity_areas_in : int = 0
 
 signal bobber_entered_scene
 
@@ -33,6 +35,7 @@ func _ready():
 		start_immunity()
 	emit_signal("bobber_entered_scene")
 	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
+	GameEvents.connect("set_up_bobber_proximity_area_timers_at_start_of_fishing", self, "on_set_up_bobber_proximity_area_timers_at_start_of_fishing")
 	GameEvents.connect("triggered_orb_that_requires_bobber", self, "on_triggered_orb_that_requires_bobber")
 	GameEvents.connect("triggered_item_on_lost_hook_that_requires_bobber", self, "on_triggered_item_on_lost_hook_that_requires_bobber")
 	set_up_items_at_start_of_fishing()
@@ -46,6 +49,16 @@ func on_set_up_bobber_item_at_start_of_fishing(item_name : String, incremented_v
 	
 	if item_name == "Bullet Time":
 		pass
+
+
+func on_set_up_bobber_proximity_area_timers_at_start_of_fishing(item_name : String, incremented_values) -> void:
+	var triggered_item = items_that_require_bobber.get_reference(item_name)
+	var triggered_instance = triggered_item.instance()
+	triggered_instance.set_value(incremented_values)
+	proximity_area_timers.add_child(triggered_instance)
+	
+#	if item_name == "Bullet Time":
+#		pass
 
 
 func on_triggered_orb_that_requires_bobber(item_name : String, incremented_values) -> void:
@@ -148,8 +161,16 @@ func end_immunity():
 	change_immune_stack_by(-1)
 
 
-func change_immune_stack_by(change : int):
+func change_immune_stack_by(change : int) -> void:
 	is_immune += change
+
+
+func change_num_of_proximity_areas_in_by(change : int) -> void:
+	if change > 0 and no_of_proximity_areas_in == 0:
+		proximity_area_timers.resume_all_timers()
+	elif change < 0 and no_of_proximity_areas_in == 1:
+		proximity_area_timers.pause_all_timers()
+	no_of_proximity_areas_in += change
 
 
 func reset_upon_new_run() -> void:

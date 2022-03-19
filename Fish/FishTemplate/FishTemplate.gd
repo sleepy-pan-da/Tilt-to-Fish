@@ -45,11 +45,13 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
-
+	body.change_num_of_proximity_areas_in_by(1)
+	
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
+	body.change_num_of_proximity_areas_in_by(-1)	
 
 
 func enable_ripple() -> void:
