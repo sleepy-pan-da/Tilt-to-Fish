@@ -16,7 +16,7 @@ onready var immunity_timer = $ImmunityTimer
 onready var items_that_require_bobber = $ItemsThatRequireBobber
 
 var have_immunity : bool = true 
-var immune : bool = false 
+var is_immune : int = 0 # int instead of bool to allow multiple triggers  of invulnerability orb
 var is_moving : bool = false
 
 signal bobber_entered_scene
@@ -135,7 +135,7 @@ func recalibrate_regular_movement_direction_vector(accelerometer_vector : Vector
 
 func start_immunity():
 	blink_animation_player.play("Immune")
-	immune = true
+	change_immune_stack_by(1)
 	immunity_timer.start()
 
 
@@ -145,7 +145,11 @@ func _on_ImmunityTimer_timeout():
 
 func end_immunity():
 	blink_animation_player.play("EndImmune")
-	immune = false
+	change_immune_stack_by(-1)
+
+
+func change_immune_stack_by(change : int):
+	is_immune += change
 
 
 func reset_upon_new_run() -> void:

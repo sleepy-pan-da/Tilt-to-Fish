@@ -21,7 +21,6 @@ var biscuit_tin_stack_count : int = 0
 
 var first_time_setting_up : bool = true
 var took_damage_in_round : bool = false
-var is_invulnerable : int = 0 # int instead of bool to allow multiple triggers  of invulnerability orb
 
 # called in ready function of bobber
 # helps to reset stats upon fishing after leaving shop
@@ -41,7 +40,7 @@ func set_up_initial_stats() -> void:
 	slows_down_time_by = 1.0
 	damage_taken_multiplier = 1.0
 	took_damage_in_round = false
-	is_invulnerable = 0
+
 
 func reset_hooks_and_max_hooks() -> void:
 	max_hooks_amount = initial_max_hooks_amount

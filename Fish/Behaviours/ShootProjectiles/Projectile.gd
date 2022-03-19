@@ -18,7 +18,7 @@ func get_class() -> String:
 
 # overridden function
 func _on_HitBox_body_entered(body : Bobber) -> void:
-	if !body.immune:
+	if !body.is_immune:
 		emit_signal("bobber_entered_hitbox")
 		queue_free() # added functionality
 

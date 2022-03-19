@@ -31,5 +31,5 @@ func set_damage(new_damage : float):
 	
 
 func _on_StunGrenadeExplosion_body_entered(body : Bobber):
-	if !body.immune:
+	if !body.is_immune:
 		GameEvents.emit_signal("bobber_took_damage", 1)

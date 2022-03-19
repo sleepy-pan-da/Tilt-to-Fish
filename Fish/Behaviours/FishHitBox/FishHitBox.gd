@@ -13,7 +13,7 @@ var can_deal_damage : bool = false
 
 
 func _on_HitBox_body_entered(body : Bobber) -> void:
-	if !body.immune:
+	if !body.is_immune:
 		emit_signal("bobber_entered_hitbox")
 
 
