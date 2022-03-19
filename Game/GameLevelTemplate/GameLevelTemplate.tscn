@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/LongRestOrbSpawner/LongRestOrbSpawner.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Upgrades/OrbSpawners/InvulnerabilityOrbSpawner/InvulnerabilityOrbSpawner.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Upgrades/OrbSpawners/StickyGooOrbSpawner/StickyGooOrbSpawner.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Upgrades/OrbSpawners/MjolnerOrbSpawner/MjolnerOrbSpawner.tscn" type="PackedScene" id=33]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -400,6 +401,7 @@ StunGrenade = ExtResource( 29 )
 LongRest = ExtResource( 30 )
 Invulnerability = ExtResource( 31 )
 StickyGoo = ExtResource( 32 )
+Mjolner = ExtResource( 33 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )

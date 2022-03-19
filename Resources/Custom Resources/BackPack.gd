@@ -35,7 +35,8 @@ var held_items = 	{
 						#"Long Rest"	:	3,
 						#"Invulnerability"	:	0,
 						#"Rejuvenation"	:	0,
-						#"Sticky Goo"	:	0
+						#"Sticky Goo"	:	0,
+						"Mjolner"	:	0
 					}
 
 
