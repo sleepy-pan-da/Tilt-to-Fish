@@ -1,7 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="Area2D" type="Area2D"]
+[ext_resource path="res://Assets/radial_bar.png" type="Texture" id=1]
+[ext_resource path="res://Upgrades/PlasmaField/PlasmaField.gd" type="Script" id=2]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[sub_resource type="CircleShape2D" id=1]
+radius = 86.7353
+
+[node name="PlasmaField" type="Area2D"]
+modulate = Color( 1, 1, 1, 0.258824 )
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 64
+collision_mask = 0
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.501961, 0, 1, 1 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

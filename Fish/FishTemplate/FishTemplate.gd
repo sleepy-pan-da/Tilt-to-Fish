@@ -45,13 +45,11 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
-	body.change_num_of_proximity_areas_in_by(1)
-	
+
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
 	disable_ripple()
 	manage_timers_when_proximity_area_exited()
-	body.change_num_of_proximity_areas_in_by(-1)	
 
 
 func enable_ripple() -> void:
@@ -146,13 +144,22 @@ func _on_Hurtbox_area_entered(area):
 		on_stunned(area.stun_duration)
 	elif area.get_name() == "Mjolnir":
 		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "PlasmaField":
+		progress_bar.increment_bar(area.damage)
 	elif area.get_class() == "FishHitbox":
 		if area.within_hurtbox:
 			if !area.can_deal_damage:
 				area.can_deal_damage = true
 			else:
 				progress_bar.increment_bar(amount_needed_to_catch * 0.2)
-	
+
+
+func _on_Hurtbox_area_exited(area):
+	if area.get_name() == "PlasmaField":
+		progress_bar.appear()
+		fish_sprite.react_upon_getting_hurtbox_hit()
+		progress_bar.increment_bar(area.damage)
+
 
 func make_fish_tankier_with_difficulty_modifier(difficulty_modifier : int):
 	amount_needed_to_catch *= pow(1.5, difficulty_modifier)

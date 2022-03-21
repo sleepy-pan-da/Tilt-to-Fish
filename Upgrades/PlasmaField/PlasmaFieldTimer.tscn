@@ -5,7 +5,6 @@
 
 [node name="PlasmaFieldTimer" type="Timer"]
 wait_time = 5.0
-one_shot = true
 script = ExtResource( 1 )
 plasma_field = ExtResource( 2 )
 

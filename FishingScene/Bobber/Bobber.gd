@@ -56,9 +56,6 @@ func on_set_up_bobber_proximity_area_timers_at_start_of_fishing(item_name : Stri
 	var triggered_instance = triggered_item.instance()
 	triggered_instance.set_value(incremented_values)
 	proximity_area_timers.add_child(triggered_instance)
-	
-#	if item_name == "Bullet Time":
-#		pass
 
 
 func on_triggered_orb_that_requires_bobber(item_name : String, incremented_values) -> void:
@@ -166,11 +163,16 @@ func change_immune_stack_by(change : int) -> void:
 
 
 func change_num_of_proximity_areas_in_by(change : int) -> void:
-	if change > 0 and no_of_proximity_areas_in == 0:
-		proximity_area_timers.resume_all_timers()
-	elif change < 0 and no_of_proximity_areas_in == 1:
-		proximity_area_timers.pause_all_timers()
+	var original_no_of_proximity_areas_in = no_of_proximity_areas_in
 	no_of_proximity_areas_in += change
+	if no_of_proximity_areas_in < 0:
+		no_of_proximity_areas_in = 0
+
+	if original_no_of_proximity_areas_in == 0 and no_of_proximity_areas_in > 0:
+		proximity_area_timers.resume_all_timers()
+	elif no_of_proximity_areas_in == 0:
+		proximity_area_timers.pause_all_timers()
+	print("no_of_proximity_areas_in changed from " + str(original_no_of_proximity_areas_in) + " to " + str(no_of_proximity_areas_in))
 
 
 func reset_upon_new_run() -> void:
@@ -305,3 +307,11 @@ func recompute_hooks_and_max_hooks() -> void:
 	bobber_stats.reset_hooks_and_max_hooks()
 	set_up_stats_at_start_of_fishing()
 	override_stats_at_start_of_fishing()
+
+
+func _on_ProximityAreaDetector_area_entered(area):
+	change_num_of_proximity_areas_in_by(1)
+
+
+func _on_ProximityAreaDetector_area_exited(area):
+	change_num_of_proximity_areas_in_by(-1)

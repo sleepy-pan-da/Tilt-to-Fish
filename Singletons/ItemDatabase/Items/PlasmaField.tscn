@@ -4,4 +4,5 @@
 
 [node name="Plasma Field" type="Node"]
 script = ExtResource( 1 )
-increment_damage_at_diff_levels = [ 15.0, 30.0, 60.0 ]
+increment_damage_at_diff_levels = [ 2.0, 4.0, 10.0 ]
+increment_cooldown_at_diff_levels = [ 2.0, 2.0, 2.0 ]

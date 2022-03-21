@@ -20,5 +20,5 @@ spawns_orbs = false
 display_name = "Plasma Field"
 buying_cost = 3
 selling_cost = [ 3, 5, 7 ]
-description = "5s In proximity area: bobber releases a damaging wave of energy that expands and contracts"
+description = "2s In proximity area: release a wave of volatile energy that damages for 2/4/10"
 rarity = 0
