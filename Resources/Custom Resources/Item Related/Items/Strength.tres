@@ -19,6 +19,6 @@ triggers_when_visit_shop = false
 spawns_orbs = false
 display_name = "Strength"
 buying_cost = 1
-selling_cost = [ 1, 2, 3 ]
+selling_cost = [ 0, 2, 4 ]
 description = "+1/2/4 reel damage"
 rarity = 0

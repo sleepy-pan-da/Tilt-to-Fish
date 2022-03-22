@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = false
 display_name = "Quick Reload"
-buying_cost = 7
-selling_cost = [ 7, 10, 13 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
 description = "Max orbs in play = 1
 Orbs cooldown decreased by 10/20/40%"
-rarity = 2
+rarity = 1

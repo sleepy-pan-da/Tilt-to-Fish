@@ -18,8 +18,8 @@ triggers_when_sold_other_item = true
 triggers_when_visit_shop = false
 spawns_orbs = false
 display_name = "Loyalty Card"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 1
+selling_cost = [ 0, 2, 4 ]
 description = "Buy an item: Gain 1/2/3 gold
 Sell an item: Gain 1/2/3 gold"
 rarity = 0

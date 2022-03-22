@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
 display_name = "Mjolnir"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
 description = "Activate: Flies back to you, dealing 5/10/20 damage to fishes caught in it’s path
 Cooldown: 10/5/3s"
-rarity = 0
+rarity = 1

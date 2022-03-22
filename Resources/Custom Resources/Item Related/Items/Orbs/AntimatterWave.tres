@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
 display_name = "Antimatter Wave"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
 description = "Delay: Fires a wave that passes through and deals 15/30/60 damage
 Cooldown: 8/4/2s"
 rarity = 1

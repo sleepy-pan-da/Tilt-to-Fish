@@ -146,7 +146,6 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 		if is_instance_valid(bobber) and !proceeding_to_next_wave:
 			if GameData.current_wave_number % 3 == 0: # final wave of the round
 				proceeding_to_next_wave = true
-				GameData.increment_round_number()
 				#bobber.bobber_stats.change_gold(2 + GameData.difficulty_modifier)
 				bobber.bobber_stats.change_gold(1)
 				print(bobber.bobber_stats.gold_amount)

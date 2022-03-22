@@ -18,9 +18,9 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
 display_name = "Long Rest"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
 description = "15/10/5s Delay: Fully restore hook count 
 During delay, take double damage
 Cooldown: 20/15/10s"
-rarity = 0
+rarity = 1

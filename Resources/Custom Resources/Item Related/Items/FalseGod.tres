@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = false
 display_name = "False God"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 8 ]
 description = "+3/6/12 reel damage
 Double damage taken"
 rarity = 1

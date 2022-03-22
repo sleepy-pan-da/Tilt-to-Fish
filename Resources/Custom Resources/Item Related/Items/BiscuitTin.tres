@@ -18,10 +18,10 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = true
 spawns_orbs = false
 display_name = "Biscuit Tin"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 1
+selling_cost = [ 0, 2, 4 ]
 description = "Visit shop + did not take damage : Gain a stack. Gain 1/2/3 gold equal to stack count
 Visit shop + took damage: reset stack count
 
 Stack count: "
-rarity = 1
+rarity = 0

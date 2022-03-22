@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = true
 spawns_orbs = false
 display_name = "Rejuvenation"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
 description = "Visit shop: fully restore hook count
 Damage taken is multiplied by 3/2/1"
-rarity = 0
+rarity = 1

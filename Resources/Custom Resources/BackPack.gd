@@ -3,8 +3,8 @@ extends Resource
 class_name BackPack
 
 var backpack_max_capacity : int = 5
-const ITEM_EXP_FOR_LVL3 : int = 3
-const ITEM_EXP_FOR_LVL2 : int = 1
+const ITEM_EXP_FOR_LVL3 : int = 4
+const ITEM_EXP_FOR_LVL2 : int = 2
 
 
 var held_items = 	{
@@ -37,7 +37,7 @@ var held_items = 	{
 						#"Rejuvenation"	:	0,
 						#"Sticky Goo"	:	0,
 						#"Mjolnir"	:	0,
-						"Plasma Field"	:	0
+						#"Plasma Field"	:	0
 					}
 
 

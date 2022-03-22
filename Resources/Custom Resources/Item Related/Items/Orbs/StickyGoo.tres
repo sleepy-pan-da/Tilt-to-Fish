@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
 display_name = "Sticky Goo"
-buying_cost = 3
-selling_cost = [ 3, 5, 7 ]
+buying_cost = 1
+selling_cost = [ 0, 2, 4 ]
 description = "Drop an area of goo that slows down targets by 30/50/70%
 Cooldown: 12/8/4s"
 rarity = 0

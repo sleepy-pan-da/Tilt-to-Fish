@@ -30,7 +30,6 @@ func pick_items_sold(backpack : BackPack) -> void:
 			get_child(index_of_added_item).text = items_sold[index_of_added_item].display_name
 
 
-
 #func lock_items() -> void:
 #	items_sold.clear()
 #	for i in range(3):
