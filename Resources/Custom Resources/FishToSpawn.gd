@@ -6,5 +6,30 @@ export(Array, PackedScene) var fishes
 
 func generate_random_index_for_fish() -> int:
 	randomize()
-	var index : int = randi() % fishes.size()
+	var start_index : int
+	var end_index : int
+	match GameData.round_number:
+		1:
+			# only slothfish, just to teach basic mechanics
+			start_index = 0
+			end_index = 0
+		2:
+			start_index = 0
+			end_index = 3 # sea urchin is added to teach players that some fish can't be touched
+		3:
+			start_index = 1
+			end_index = 5 # dvdfish and babyshark are added
+		4:
+			start_index = 1
+			end_index = 6 # armyfish is added
+		5:
+			start_index = 1
+			end_index = 7 # bullfish is added
+		_:
+			start_index = 2
+			end_index = 8 # bootlegfish is added
+			
+
+	var current_indexes : Array = range(start_index, end_index + 1)
+	var index : int = current_indexes[randi() % current_indexes.size()]
 	return index

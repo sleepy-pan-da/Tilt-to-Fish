@@ -6,4 +6,4 @@
 [node name="Rejuvenation" type="Node"]
 script = ExtResource( 1 )
 bobber_stats = ExtResource( 2 )
-increment_damage_taken_multiplier = [ 3.0, 2.0, 1.0 ]
+increment_damage_taken_multiplier = [ 2.0, 1.5, 1.0 ]
