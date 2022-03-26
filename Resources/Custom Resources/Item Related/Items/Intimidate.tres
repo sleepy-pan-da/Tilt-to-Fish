@@ -3,11 +3,11 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "LongRest"
+resource_name = "Intimidate"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
-set_up_bobber_item_at_start_of_fishing = false
+set_up_bobber_item_at_start_of_fishing = true
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_lose_hook = false
@@ -16,11 +16,9 @@ triggers_when_sold = false
 triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
-spawns_orbs = true
-display_name = "Long Rest"
+spawns_orbs = false
+display_name = "Intimidate"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "7/5/3s Delay: Fully restore hook count 
-During delay, take double damage
-Cooldown: 10s"
+description = "3/2/1s in proximity area: AOE stun for 0.5s"
 rarity = 1

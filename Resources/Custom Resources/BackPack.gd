@@ -37,7 +37,9 @@ var held_items = 	{
 						#"Rejuvenation"	:	2,
 						#"Sticky Goo"	:	0,
 						#"Mjolnir"	:	0,
-						#"Plasma Field"	:	0
+						#"Plasma Field"	:	0,
+						#"Intimidate"	:	0,
+						#"Acid"	:	0
 					}
 
 

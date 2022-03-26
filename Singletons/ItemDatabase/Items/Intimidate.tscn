@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/Intimidate.gd" type="Script" id=1]
+
+[node name="Intimidate" type="Node"]
+script = ExtResource( 1 )
+increment_stun_duration_at_diff_levels = [ 0.5, 0.5, 0.5 ]
+increment_cooldown_at_diff_levels = [ 3.0, 2.0, 1.0 ]

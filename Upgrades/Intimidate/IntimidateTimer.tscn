@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Upgrades/Intimidate/IntimidateTimer.gd" type="Script" id=1]
+[ext_resource path="res://Upgrades/Intimidate/Intimidate.tscn" type="PackedScene" id=2]
+
+[node name="IntimidateTimer" type="Timer"]
+wait_time = 5.0
+script = ExtResource( 1 )
+intimidate = ExtResource( 2 )
+
+[connection signal="timeout" from="." to="." method="_on_IntimidateTimer_timeout"]

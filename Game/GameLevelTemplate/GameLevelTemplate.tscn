@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -13,10 +13,7 @@
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Game/GameLevelTemplate/GameOver.gd" type="Script" id=12]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Upgrades/FreeMoney/FreeMoney.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Upgrades/PumpingIron/PumpingIron.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Upgrades/PeriodicLifeGain/PeriodicLifeGain.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Upgrades/Rejuvenated/Rejuvenated.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Upgrades/OrbSpawners/AcidOrbSpawner/AcidOrbSpawner.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Game/GameLevelTemplate/PausingManager.gd" type="Script" id=18]
 [ext_resource path="res://Assets/Fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Game/GameLevelTemplate/DebugUI.gd" type="Script" id=20]
@@ -77,10 +74,6 @@ font_data = ExtResource( 19 )
 [node name="GameLevelTemplate" type="Node2D"]
 script = ExtResource( 2 )
 current_bobber = ExtResource( 4 )
-free_money = ExtResource( 14 )
-pumping_iron = ExtResource( 15 )
-periodic_life_gain = ExtResource( 16 )
-rejuvenated = ExtResource( 17 )
 wave_system_enabled = false
 
 [node name="Pond" parent="." instance=ExtResource( 5 )]
@@ -402,6 +395,7 @@ LongRest = ExtResource( 30 )
 Invulnerability = ExtResource( 31 )
 StickyGoo = ExtResource( 32 )
 Mjolnir = ExtResource( 33 )
+Acid = ExtResource( 14 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )

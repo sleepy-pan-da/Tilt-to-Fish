@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Fish/FishTemplate/FishTemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Fish/Behaviours/LungeAtBobber/LungeAtBobber.tscn" type="PackedScene" id=2]
@@ -15,19 +15,22 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "FacingRight",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "FacingLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "FacingRight",
 "speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 1542.49
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 41.8462, 13.6779 )
 
 [sub_resource type="CircleShape2D" id=3]
 resource_local_to_scene = true
@@ -67,6 +70,10 @@ shape = SubResource( 2 )
 collision_layer = 72
 within_hurtbox = true
 
+[node name="CollisionShape2D" parent="KinematicBody/HitBox" index="0"]
+position = Vector2( 9, 9 )
+shape = SubResource( 4 )
+
 [node name="LungeAtBobber" parent="KinematicBody" index="8" instance=ExtResource( 2 )]
 speed = 500
 num_of_lunges_before_rest = 1
@@ -78,4 +85,5 @@ shape = SubResource( 3 )
 [connection signal="timeout" from="KinematicBody/LungeAtBobber/CollidedTimer" to="KinematicBody/StateMachine/Collided" method="_on_CollidedTimer_timeout"]
 
 [editable path="KinematicBody/DetectionArea"]
+[editable path="KinematicBody/HitBox"]
 [editable path="KinematicBody/LungeAtBobber"]

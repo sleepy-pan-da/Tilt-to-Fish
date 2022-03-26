@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/Acid.gd" type="Script" id=1]
+
+[node name="Acid" type="Node"]
+script = ExtResource( 1 )
+increment_damage_at_diff_levels = [ 1.0, 2.0, 3.0 ]
+increment_cooldown_at_diff_levels = [ 9.0, 7.0, 5.0 ]

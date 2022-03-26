@@ -2,11 +2,6 @@ extends Node2D
 
 export(PackedScene) onready var next_scene 
 export(PackedScene) onready var current_bobber
-export(PackedScene) onready var free_money
-export(PackedScene) onready var pumping_iron
-export(PackedScene) onready var periodic_life_gain
-export(PackedScene) onready var rejuvenated
-export(PackedScene) onready var long_rest
 export var wave_system_enabled : bool = true # used for disabling wave system and testing individual fish
 
 onready var fishes = $Fishes

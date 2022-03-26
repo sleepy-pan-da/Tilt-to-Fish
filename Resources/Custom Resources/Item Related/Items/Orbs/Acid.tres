@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "LongRest"
+resource_name = "Acid"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -17,10 +17,9 @@ triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
-display_name = "Long Rest"
+display_name = "Acid"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "7/5/3s Delay: Fully restore hook count 
-During delay, take double damage
-Cooldown: 10s"
+description = "For 5s, leave a trail of acid that deals 1/2/3 damage when touched
+Cooldown: 9/7/5s"
 rarity = 1

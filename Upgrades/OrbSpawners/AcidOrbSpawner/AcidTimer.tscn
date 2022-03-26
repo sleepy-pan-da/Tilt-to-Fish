@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Upgrades/OrbSpawners/AcidOrbSpawner/AcidTimer.gd" type="Script" id=1]
+[ext_resource path="res://Upgrades/OrbSpawners/AcidOrbSpawner/Acid.tscn" type="PackedScene" id=2]
+
+[node name="AcidTimer" type="Timer"]
+script = ExtResource( 1 )
+acid = ExtResource( 2 )
+
+[node name="LifespanTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="." to="." method="_on_AcidTimer_timeout"]
+[connection signal="timeout" from="LifespanTimer" to="." method="_on_LifespanTimer_timeout"]
