@@ -20,6 +20,6 @@ spawns_orbs = true
 display_name = "Mjolnir"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "Activate: Flies back to you, dealing 10/20/40 damage to fishes caught in it’s path
+description = "Activate: Flies back to you, dealing 15/30/60 damage to fishes caught in it’s path
 Cooldown: 10/5/3s"
 rarity = 1

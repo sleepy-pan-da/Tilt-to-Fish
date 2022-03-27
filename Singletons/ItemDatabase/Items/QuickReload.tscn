@@ -6,4 +6,4 @@
 [node name="Quick Reload" type="Node"]
 script = ExtResource( 1 )
 bobber_stats = ExtResource( 2 )
-increment_cooldown_reduction_at_diff_levels = [ -0.1, -0.2, -0.4 ]
+increment_cooldown_reduction_at_diff_levels = [ -0.15, -0.3, -0.6 ]

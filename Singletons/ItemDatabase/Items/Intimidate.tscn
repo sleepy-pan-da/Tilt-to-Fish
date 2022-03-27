@@ -4,5 +4,5 @@
 
 [node name="Intimidate" type="Node"]
 script = ExtResource( 1 )
-increment_stun_duration_at_diff_levels = [ 0.5, 0.5, 0.5 ]
+increment_stun_duration_at_diff_levels = [ 1.0, 1.0, 1.0 ]
 increment_cooldown_at_diff_levels = [ 3.0, 2.0, 1.0 ]

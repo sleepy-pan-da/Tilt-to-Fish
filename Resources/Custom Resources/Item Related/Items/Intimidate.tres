@@ -20,5 +20,5 @@ spawns_orbs = false
 display_name = "Intimidate"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "3/2/1s in proximity area: AOE stun for 0.5s"
+description = "3/2/1s in proximity area: AOE stun for 1s"
 rarity = 1

@@ -22,10 +22,10 @@ var held_items = 	{
 						#"Bullet Time"	:	2,
 						#"Arrow"	:	3,
 						#"Antimatter Wave"	:	3,
-						#"Five Rounds Rapid"	:	3,
+						#"Five Rounds Rapid"	:	0,
 						#"Field Medic"	:	0,
 						#"Stun Grenade"	:	3,
-						#"Quick Reload"	:	3,
+						#"Quick Reload"	:	6,
 						#"Infinite Power"	:	3,
 						#"Piggy Bank"	: 0,
 						#"Biscuit Tin"	:	0,
@@ -39,7 +39,7 @@ var held_items = 	{
 						#"Mjolnir"	:	0,
 						#"Plasma Field"	:	0,
 						#"Intimidate"	:	0,
-						#"Acid"	:	0
+						#"Acid"	:	6
 					}
 
 
