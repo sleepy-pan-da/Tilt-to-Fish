@@ -74,7 +74,7 @@ monitorable = false
 collision_layer = 64
 collision_mask = 2
 script = ExtResource( 2 )
-speed = 1500
+speed = 500
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 8, 8 )

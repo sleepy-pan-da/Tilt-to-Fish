@@ -18,8 +18,8 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = false
 display_name = "Time Lord Victorious"
-buying_cost = 10
-selling_cost = [ 5, 14, 22 ]
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
 description = "Time slows down by 50/70/90% when you don't move
 Deal 0 reeling damage when time slows down"
-rarity = 2
+rarity = 1

@@ -31,7 +31,7 @@ func _on_Mjolnir_body_entered(body : Bobber):
 
 func on_finished_triggered() -> void:
 	monitorable = true
-	follow_lifespan.start()
+	#follow_lifespan.start()
 
 
 func compute_vector_to_move_towards_bobber(bobber : Bobber) -> Vector2:
@@ -53,7 +53,7 @@ func compute_vector_to_move_towards_bobber(bobber : Bobber) -> Vector2:
 
 func _physics_process(delta):
 	if monitorable:
-		rotate(2 * PI * delta)
+		rotate(PI * delta)
 		var vector_to_move : Vector2 = compute_vector_to_move_towards_bobber(bobber_reference)
 		global_position += vector_to_move * delta
 	#fish.collision = fish.kinematic_body.move_and_collide(fish.movement_vector * _delta)
