@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "AlphaOrbs",
-"language": "GDScript",
-"path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsAlpha/AlphaOrbs/AlphaOrbs.gd"
-}, {
 "base": "Resource",
 "class": "BackPack",
 "language": "GDScript",
@@ -110,11 +105,6 @@ _global_script_classes=[ {
 "path": "res://Upgrades/OrbSpawners/OrbSpawner.gd"
 }, {
 "base": "Node2D",
-"class": "OrbitingOrbsAlpha",
-"language": "GDScript",
-"path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsAlpha/OrbitingOrbsAlpha.gd"
-}, {
-"base": "Node2D",
 "class": "OrbitingOrbsGamma",
 "language": "GDScript",
 "path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsGamma/OrbitingOrbsGamma.gd"
@@ -150,7 +140,6 @@ _global_script_classes=[ {
 "path": "res://TurretProjectile.gd"
 } ]
 _global_script_class_icons={
-"AlphaOrbs": "",
 "BackPack": "",
 "Bobber": "",
 "BobberStats": "",
@@ -170,7 +159,6 @@ _global_script_class_icons={
 "ItemTraits": "",
 "Orb": "",
 "OrbSpawner": "",
-"OrbitingOrbsAlpha": "",
 "OrbitingOrbsGamma": "",
 "Projectile": "",
 "Retaliation": "",

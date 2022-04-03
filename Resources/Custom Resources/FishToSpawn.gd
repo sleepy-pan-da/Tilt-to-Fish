@@ -12,7 +12,7 @@ func generate_random_index_for_fish() -> int:
 		1:
 			# only slothfish, just to teach basic mechanics
 			start_index = 0
-			end_index = 0
+			end_index = 1
 		2:
 			start_index = 0
 			end_index = 3 # sea urchin is added to teach players that some fish can't be touched

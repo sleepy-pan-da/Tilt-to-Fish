@@ -1,12 +1,10 @@
 extends KinematicBody2D
 
-class_name AlphaOrbs
-
 onready var sprite = $Sprite
 var damage : float
+var stun_duration : float = 1
 
-
-func get_class() -> String:
+func get_name() -> String:
 	return "AlphaOrbs" 
 
 

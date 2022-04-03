@@ -2,6 +2,7 @@ extends Node
 
 export(PackedScene) onready var BulletTime
 export(PackedScene) onready var Retaliation
+export(PackedScene) onready var SafeDistancing
 
 # Orbs
 export(PackedScene) onready var Arrow

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Singletons/ItemDatabase/Items/Thunder.gd" type="Script" id=1]
+
+[node name="Thunder" type="Node"]
+script = ExtResource( 1 )
+increment_damage_at_diff_levels = [ 7.0, 14.0, 28.0 ]
+increment_cooldown_at_diff_levels = [ 3.0, 2.0, 1.0 ]

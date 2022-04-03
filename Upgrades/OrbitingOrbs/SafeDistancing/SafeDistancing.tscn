@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Upgrades/OrbitingOrbs/SafeDistancing/AlphaOrbs/AlphaOrbs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Upgrades/OrbitingOrbs/SafeDistancing/SafeDistancing.gd" type="Script" id=2]
+
+[node name="SafeDistancing" type="Node2D"]
+script = ExtResource( 2 )
+angular_velocity = 3.142
+
+[node name="AlphaOrbs1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 0 )
+
+[node name="AlphaOrbs2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -192, -331.5 )
+
+[node name="AlphaOrbs3" parent="." instance=ExtResource( 1 )]
+position = Vector2( -192, 331.5 )

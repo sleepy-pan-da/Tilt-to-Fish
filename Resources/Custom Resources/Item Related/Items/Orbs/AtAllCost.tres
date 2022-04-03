@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "Invulnerability"
+resource_name = "AtAllCost"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -17,9 +17,9 @@ triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
-display_name = "Invulnerability"
+display_name = "At All Cost"
 buying_cost = 10
 selling_cost = [ 5, 14, 22 ]
-description = "Cannot take damage and deal reeling damage for 3/6/12s
-Cooldown: 5s"
+description = "Lose 1 hook: deal 10/20/40 damage to all fish
+Cooldown: 3/2/1s"
 rarity = 2

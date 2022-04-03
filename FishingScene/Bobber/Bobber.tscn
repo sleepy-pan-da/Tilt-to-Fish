@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Fishing Scene/UI elements/arrow-01.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/bobber-01.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Upgrades/PlasmaField/PlasmaFieldTimer.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Upgrades/Intimidate/IntimidateTimer.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Upgrades/OrbSpawners/AcidOrbSpawner/AcidTimer.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Upgrades/OrbitingOrbs/SafeDistancing/SafeDistancing.tscn" type="PackedScene" id=22]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0
@@ -162,6 +163,7 @@ one_shot = true
 script = ExtResource( 10 )
 BulletTime = ExtResource( 11 )
 Retaliation = ExtResource( 15 )
+SafeDistancing = ExtResource( 22 )
 Arrow = ExtResource( 12 )
 AntimatterWave = ExtResource( 13 )
 LongRest = ExtResource( 16 )

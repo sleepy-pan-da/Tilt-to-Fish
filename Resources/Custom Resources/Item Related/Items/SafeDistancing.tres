@@ -3,11 +3,11 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "Invulnerability"
+resource_name = "SafeDistancing"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
-set_up_bobber_item_at_start_of_fishing = false
+set_up_bobber_item_at_start_of_fishing = true
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_lose_hook = false
@@ -16,10 +16,9 @@ triggers_when_sold = false
 triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
-spawns_orbs = true
-display_name = "Invulnerability"
-buying_cost = 10
-selling_cost = [ 5, 14, 22 ]
-description = "Cannot take damage and deal reeling damage for 3/6/12s
-Cooldown: 5s"
-rarity = 2
+spawns_orbs = false
+display_name = "Safe Distancing"
+buying_cost = 4
+selling_cost = [ 2, 6, 10 ]
+description = "Spheres orbit around you, dealing 10/20/40 damage and stunning for 1s"
+rarity = 1

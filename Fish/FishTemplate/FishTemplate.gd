@@ -35,6 +35,10 @@ func on_stunned(new_stun_duration : float) -> void:
 	state_machine.transition_to("Stunned", {stun_duration = new_stun_duration})	
 
 
+func is_stunned() -> bool:
+	return state_machine.state.get_name() == "Stunned"
+
+
 func set_up_progress_bar() -> void:
 	progress_bar.set_max_value(amount_needed_to_catch)
 	progress_bar.hide()
@@ -112,10 +116,11 @@ func obtain_bobber_reference(bobber : Bobber) -> void:
 
 
 func _on_Hurtbox_body_entered(body):
-	if body.get_class() == "AlphaOrbs":
+	if body.get_name() == "AlphaOrbs":
 		progress_bar.appear()
 		fish_sprite.react_upon_getting_hurtbox_hit()
 		progress_bar.increment_bar(body.damage)
+		on_stunned(body.stun_duration)
 	elif body.get_class() == "GammaOrbs":
 		progress_bar.appear()
 		fish_sprite.react_upon_getting_hurtbox_hit()
@@ -150,6 +155,13 @@ func _on_Hurtbox_area_entered(area):
 		on_stunned(area.stun_duration)
 	elif area.get_name() == "Acid":
 		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "AtAllCost":
+		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "Thunder":
+		if is_stunned():
+			progress_bar.increment_bar(area.damage)
+		else:
+			on_stunned(area.stun_duration)
 	elif area.get_class() == "FishHitbox":
 		if area.within_hurtbox:
 			if !area.can_deal_damage:

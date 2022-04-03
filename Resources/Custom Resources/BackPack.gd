@@ -24,7 +24,7 @@ var held_items = 	{
 						#"Antimatter Wave"	:	3,
 						#"Five Rounds Rapid"	:	0,
 						#"Field Medic"	:	0,
-						#"Stun Grenade"	:	3,
+						#"Stun Grenade"	:	6,
 						#"Quick Reload"	:	6,
 						#"Infinite Power"	:	3,
 						#"Piggy Bank"	: 0,
@@ -33,13 +33,16 @@ var held_items = 	{
 						#"Loyalty Card"	:	0,
 						#"Retaliation"	:	0,
 						#"Long Rest"	:	3,
-						#"Invulnerability"	:	3,
+						#"Invulnerability"	:	6,
 						#"Rejuvenation"	:	2,
 						#"Sticky Goo"	:	0,
 						#"Mjolnir"	:	0,
 						#"Plasma Field"	:	0,
-						#"Intimidate"	:	0,
-						#"Acid"	:	6
+						#"Intimidate"	:	3,
+						#"Acid"	:	6,
+						#"At All Cost"	:	0,
+						#"Safe Distancing"	:	0,
+						#"Thunder"	:	0
 					}
 
 
