@@ -21,7 +21,7 @@ signal set_up_bobber_item_at_start_of_fishing(item_name, incremented_values) # c
 signal set_up_bobber_proximity_area_timers_at_start_of_fishing(item_name, incremented_values) # connected to Bobber.tscn
 
 signal triggered_item_on_caught_fish(item_name, incremented_values) # connected to GameLevelTemplate.tscn
-signal triggered_item_on_lost_hook_that_requires_bobber(item_name, incremented_values) # connected to Bobber.tscn
+signal triggered_item_that_requires_bobber(item_name, incremented_values) # connected to Bobber.tscn
 signal set_up_orb_spawner_at_start_of_fishing(item_name, incremented_values) # connected to GameLevelTemplate.tscn
 
 signal pressed_fish_button_in_index(fish_name) # connected to FishIndex/Body.gd

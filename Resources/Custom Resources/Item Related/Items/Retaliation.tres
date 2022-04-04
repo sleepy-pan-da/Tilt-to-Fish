@@ -11,6 +11,7 @@ set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_lose_hook = true
+triggers_when_enter_proximity_area_of_stunned_fish = false
 triggers_when_bought = false
 triggers_when_sold = false
 triggers_when_bought_other_item = false

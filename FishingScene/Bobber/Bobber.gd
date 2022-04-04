@@ -37,7 +37,7 @@ func _ready():
 	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
 	GameEvents.connect("set_up_bobber_proximity_area_timers_at_start_of_fishing", self, "on_set_up_bobber_proximity_area_timers_at_start_of_fishing")
 	GameEvents.connect("triggered_orb_that_requires_bobber", self, "on_triggered_orb_that_requires_bobber")
-	GameEvents.connect("triggered_item_on_lost_hook_that_requires_bobber", self, "on_triggered_item_on_lost_hook_that_requires_bobber")
+	GameEvents.connect("triggered_item_that_requires_bobber", self, "on_triggered_item_that_requires_bobber")
 	set_up_items_at_start_of_fishing()
 
 
@@ -68,7 +68,7 @@ func on_triggered_orb_that_requires_bobber(item_name : String, incremented_value
 		triggered_instance.set_bobber_reference(self)
 
 
-func on_triggered_item_on_lost_hook_that_requires_bobber(item_name : String, incremented_values) -> void:
+func on_triggered_item_that_requires_bobber(item_name : String, incremented_values) -> void:
 	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
 	add_child(triggered_instance)
@@ -260,6 +260,15 @@ func on_lost_hook() -> void:
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.lost_hook)
 
+
+func on_entered_proximity_area_of_stunned_fish() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_enter_proximity_area_of_stunned_fish:
+			var item_level : int = backpack.get_item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.entered_proximity_area)
+	
 
 func set_up_orb_spawners_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:

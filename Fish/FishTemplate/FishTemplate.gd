@@ -49,6 +49,8 @@ func _on_ProximityArea_body_entered(body : Bobber) -> void:
 	progress_bar.appear()
 	enable_ripple()
 	manage_timers_when_proximity_area_entered() 
+	if is_stunned():
+		body.on_entered_proximity_area_of_stunned_fish()
 
 
 func _on_ProximityArea_body_exited(body : Bobber) -> void:
@@ -157,6 +159,8 @@ func _on_Hurtbox_area_entered(area):
 		progress_bar.increment_bar(area.damage)
 	elif area.get_name() == "AtAllCost":
 		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "StaticField":
+		progress_bar.increment_bar(area.damage)		
 	elif area.get_name() == "Thunder":
 		if is_stunned():
 			progress_bar.increment_bar(area.damage)

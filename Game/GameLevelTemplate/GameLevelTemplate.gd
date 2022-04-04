@@ -116,7 +116,7 @@ func _on_successfully_caught_fish(fish_position : Vector2) -> void:
 		
 
 func on_triggered_item_on_caught_fish(item_name : String, incremented_values) -> void:
-	var triggered_item = items_that_require_level.get(item_name)
+	var triggered_item = items_that_require_level.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
 	triggered_instance.set_value(incremented_values)
 	add_child(triggered_instance)

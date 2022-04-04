@@ -7,6 +7,7 @@ enum TRIGGER_CAUSES {
 	override_stats_at_start_of_fishing,
 	lost_all_hooks,
 	lost_hook,
+	entered_proximity_area,
 	caught_fish,
 	set_up_orb_spawners_at_start_of_fishing,
 	bought_this_item, # this is needed to update shop ui

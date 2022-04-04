@@ -3,7 +3,7 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "FiveRoundsRapid"
+resource_name = "StaticField"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
@@ -11,17 +11,15 @@ set_up_bobber_item_at_start_of_fishing = false
 triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_lose_hook = false
-triggers_when_enter_proximity_area_of_stunned_fish = false
+triggers_when_enter_proximity_area_of_stunned_fish = true
 triggers_when_bought = false
 triggers_when_sold = false
 triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
-spawns_orbs = true
-display_name = "Five Rounds Rapid"
+spawns_orbs = false
+display_name = "Static Field"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "Place an automated turret that deals 4/8/16 damage
-Lasts for 10s
-Cooldown: 20/10/5s"
+description = "Enter proximity area of stunned fish: deal 5/10/20 aoe damage "
 rarity = 1
