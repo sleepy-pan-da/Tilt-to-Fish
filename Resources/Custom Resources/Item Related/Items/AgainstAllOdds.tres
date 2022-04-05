@@ -3,24 +3,24 @@
 [ext_resource path="res://Resources/Custom Resources/Item Related/ItemTraits.gd" type="Script" id=1]
 
 [resource]
-resource_name = "NotToday"
+resource_name = "AgainstAllOdds"
 script = ExtResource( 1 )
 modifies_stats_at_start_of_fishing = false
 overrides_stats_at_start_of_fishing = false
 set_up_bobber_item_at_start_of_fishing = false
-triggers_when_lose_all_hooks = true
+triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_lose_hook = false
 triggers_when_enter_proximity_area_of_stunned_fish = false
-triggers_when_enter_proximity_area = false
+triggers_when_enter_proximity_area = true
 triggers_when_bought = false
 triggers_when_sold = false
 triggers_when_bought_other_item = false
 triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = false
-display_name = "Not Today"
-buying_cost = 10
-selling_cost = [ 5, 14, 22 ]
-description = "Respawn once on death with 1/3/5 hooks"
-rarity = 2
+display_name = "Against All Odds"
+buying_cost = 1
+selling_cost = [ 0, 2, 4 ]
+description = "Enter proximity area of 3 fish and above: deal 5/10/20 aoe damage"
+rarity = 0

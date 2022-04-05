@@ -17,7 +17,7 @@ enum TRIGGER_CAUSES {
 	sold_other_item
 	}
 
-func trigger(item_level : int, trigger_cause : int) -> void:
+func trigger(item_level : int, trigger_cause : int, additional_arguments = []) -> void:
 	match item_level:
 		1:
 			trigger_at_level_1(trigger_cause)
@@ -29,7 +29,6 @@ func trigger(item_level : int, trigger_cause : int) -> void:
 			print("item level not registered")
 
 
-
 func trigger_at_level_1(trigger_cause : int) -> void:
 	pass
 	
@@ -38,6 +37,6 @@ func trigger_at_level_2(trigger_cause : int) -> void:
 	pass
 
 
-func trigger_at_level_3(triggered_by : int) -> void:
-	pass 
-	
+func trigger_at_level_3(trigger_cause : int) -> void:
+	pass
+

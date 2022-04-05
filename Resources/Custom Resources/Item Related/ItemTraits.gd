@@ -11,6 +11,7 @@ export(bool) var triggers_when_lose_all_hooks
 export(bool) var triggers_when_catch_fish
 export(bool) var triggers_when_lose_hook
 export(bool) var triggers_when_enter_proximity_area_of_stunned_fish
+export(bool) var triggers_when_enter_proximity_area
 export(bool) var triggers_when_bought
 export(bool) var triggers_when_sold
 export(bool) var triggers_when_bought_other_item

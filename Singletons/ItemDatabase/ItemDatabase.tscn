@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Singletons/ItemDatabase/Items/Strength.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Constitution.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://Singletons/ItemDatabase/Items/SafeDistancing.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Thunder.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Singletons/ItemDatabase/Items/StaticField.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Singletons/ItemDatabase/Items/AgainstAllOdds.tscn" type="PackedScene" id=32]
 
 [node name="ItemDatabase" type="Node"]
 
@@ -95,3 +96,5 @@
 [node name="Thunder" parent="." instance=ExtResource( 30 )]
 
 [node name="Static Field" parent="." instance=ExtResource( 31 )]
+
+[node name="Against All Odds" parent="." instance=ExtResource( 32 )]

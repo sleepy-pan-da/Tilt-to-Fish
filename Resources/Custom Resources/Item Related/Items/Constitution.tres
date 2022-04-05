@@ -12,6 +12,7 @@ triggers_when_lose_all_hooks = false
 triggers_when_catch_fish = false
 triggers_when_lose_hook = false
 triggers_when_enter_proximity_area_of_stunned_fish = false
+triggers_when_enter_proximity_area = false
 triggers_when_bought = true
 triggers_when_sold = true
 triggers_when_bought_other_item = false

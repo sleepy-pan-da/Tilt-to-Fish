@@ -42,8 +42,9 @@ var held_items = 	{
 						#"Acid"	:	6,
 						#"At All Cost"	:	0,
 						#"Safe Distancing"	:	0,
-						"Thunder"	:	0,
-						"Static Field"	:	0
+						#"Thunder"	:	0,
+						#"Static Field"	:	0,
+						#"Against All Odds"	:	0
 					}
 
 

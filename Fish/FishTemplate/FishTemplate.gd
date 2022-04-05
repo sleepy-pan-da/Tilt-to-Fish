@@ -160,7 +160,9 @@ func _on_Hurtbox_area_entered(area):
 	elif area.get_name() == "AtAllCost":
 		progress_bar.increment_bar(area.damage)
 	elif area.get_name() == "StaticField":
-		progress_bar.increment_bar(area.damage)		
+		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "AgainstAllOdds":
+		progress_bar.increment_bar(area.damage)
 	elif area.get_name() == "Thunder":
 		if is_stunned():
 			progress_bar.increment_bar(area.damage)

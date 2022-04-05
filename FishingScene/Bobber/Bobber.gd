@@ -268,7 +268,18 @@ func on_entered_proximity_area_of_stunned_fish() -> void:
 			var item_level : int = backpack.get_item_level(item_name)
 			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.entered_proximity_area)
-	
+
+
+func on_entered_proximity_area() -> void:
+	for item_name in backpack.held_items:
+		var item_traits : ItemTraits = item_pool.get_item(item_name)
+		if item_traits.triggers_when_enter_proximity_area:
+			if item_name == "Against All Odds" and no_of_proximity_areas_in < 3:
+				return
+			var item_level : int = backpack.get_item_level(item_name)
+			var item_specifications : ItemSpecification = ItemDatabase.get_node(item_name)
+			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.entered_proximity_area)
+
 
 func set_up_orb_spawners_at_start_of_fishing() -> void:
 	for item_name in backpack.held_items:
@@ -330,6 +341,7 @@ func recompute_hooks_and_max_hooks() -> void:
 
 func _on_ProximityAreaDetector_area_entered(area):
 	change_num_of_proximity_areas_in_by(1)
+	on_entered_proximity_area()
 
 
 func _on_ProximityAreaDetector_area_exited(area):

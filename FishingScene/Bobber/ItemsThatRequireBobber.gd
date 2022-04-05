@@ -4,6 +4,7 @@ export(PackedScene) onready var BulletTime
 export(PackedScene) onready var Retaliation
 export(PackedScene) onready var SafeDistancing
 export(PackedScene) onready var StaticField
+export(PackedScene) onready var AgainstAllOdds
 
 # Orbs
 export(PackedScene) onready var Arrow
