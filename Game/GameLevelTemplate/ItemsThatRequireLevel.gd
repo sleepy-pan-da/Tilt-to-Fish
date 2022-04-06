@@ -15,6 +15,7 @@ export(PackedScene) onready var Mjolnir
 export(PackedScene) onready var Acid
 export(PackedScene) onready var AtAllCost
 export(PackedScene) onready var Thunder
+export(PackedScene) onready var CookTheGrenade
 
 func get_reference(item_name : String) -> PackedScene:
 	item_name = item_name.replace(" ", "")

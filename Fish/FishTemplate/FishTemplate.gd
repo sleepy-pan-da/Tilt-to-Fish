@@ -163,6 +163,8 @@ func _on_Hurtbox_area_entered(area):
 		progress_bar.increment_bar(area.damage)
 	elif area.get_name() == "AgainstAllOdds":
 		progress_bar.increment_bar(area.damage)
+	elif area.get_name() == "GrenadeExplosion":
+		progress_bar.increment_bar(area.damage)		
 	elif area.get_name() == "Thunder":
 		if is_stunned():
 			progress_bar.increment_bar(area.damage)

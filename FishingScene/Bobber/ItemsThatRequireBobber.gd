@@ -12,6 +12,7 @@ export(PackedScene) onready var AntimatterWave
 export(PackedScene) onready var LongRest
 export(PackedScene) onready var Invulnerability
 export(PackedScene) onready var Acid
+export(PackedScene) onready var CookTheGrenade
 
 # Proximity Area Timers
 export(PackedScene) onready var PlasmaField
