@@ -14,6 +14,7 @@ export(Resource) var actual_animated_sprites
 
 var movement_vector : Vector2
 var collision : KinematicCollision2D
+var morphed : bool = false # added this to handle stun
 
 # State Transitions
 # ComputeNewPtToSwimTo -> Swimming

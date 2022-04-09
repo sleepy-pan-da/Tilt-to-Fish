@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Fishing Scene/UI elements/arrow-01.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/bobber-01.png" type="Texture" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Upgrades/StaticField/StaticField.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Upgrades/AgainstAllOdds/AgainstAllOdds.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Upgrades/OrbSpawners/CookTheGrenadeOrbSpawner/CookTheGrenade.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/TNTCharges.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/Detonator.tscn" type="PackedScene" id=27]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0
@@ -175,6 +177,8 @@ LongRest = ExtResource( 16 )
 Invulnerability = ExtResource( 17 )
 Acid = ExtResource( 21 )
 CookTheGrenade = ExtResource( 25 )
+TNT = ExtResource( 26 )
+Detonator = ExtResource( 27 )
 PlasmaField = ExtResource( 19 )
 Intimidate = ExtResource( 20 )
 

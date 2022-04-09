@@ -6,6 +6,7 @@ onready var animation_player = $AnimationPlayer
 
 var damage : float
 var max_damage : float
+var can_pass_to_fish : bool = false
 
 func _ready():
 	animation_player.play("Cooking")
@@ -13,6 +14,12 @@ func _ready():
 
 func set_incremented_values(new_incremented_values) -> void:
 	max_damage = new_incremented_values[0]
+
+# grenade can only be passed after a while of holding
+# prevents the scenario where u pick up the grenade in the fish's proximity area
+# and got forced to pass it to that fish
+func make_grenade_ready_to_be_passed() -> void: 
+	can_pass_to_fish = true
 
 
 func explode() -> void:
@@ -25,7 +32,8 @@ func explode() -> void:
 
 # entered a proximity area
 func _on_CookTheGrenade_area_entered(area):
-	pass_to_fish(area)
+	if can_pass_to_fish:
+		pass_to_fish(area)
 
 
 func pass_to_fish(area) -> void:

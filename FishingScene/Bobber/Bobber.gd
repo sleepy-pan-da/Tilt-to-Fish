@@ -59,6 +59,15 @@ func on_set_up_bobber_proximity_area_timers_at_start_of_fishing(item_name : Stri
 
 
 func on_triggered_orb_that_requires_bobber(item_name : String, incremented_values) -> void:
+	if item_name == "TNT" and has_node("TNT"):
+		get_node("TNT").update_qty_from_orb(incremented_values)
+		return
+	elif item_name == "TNT" and !has_node("TNT"):
+		var detonator = items_that_require_bobber.get_reference("Detonator")
+		var detonator_instance = detonator.instance()
+		get_parent().add_child(detonator_instance)
+		detonator_instance.global_position = global_position
+	
 	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
 	add_child(triggered_instance)
@@ -66,6 +75,9 @@ func on_triggered_orb_that_requires_bobber(item_name : String, incremented_value
 	
 	if item_name == "Arrow" or item_name == "Antimatter Wave":
 		triggered_instance.set_bobber_reference(self)
+	if item_name == "TNT":
+		triggered_instance.name = item_name
+		
 
 
 func on_triggered_item_that_requires_bobber(item_name : String, incremented_values) -> void:

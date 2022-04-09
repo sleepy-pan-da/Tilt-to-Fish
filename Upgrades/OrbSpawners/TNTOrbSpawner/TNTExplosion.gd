@@ -17,13 +17,13 @@ func _physics_process(delta):
 
 
 func get_name() -> String:
-	return "GrenadeExplosion"
+	return "TNTExplosion"
 
 
 func set_damage(new_damage : float):
 	damage = new_damage
 
 
-func _on_GrenadeExplosion_body_entered(body : Bobber):
+func _on_TNTExplosion_body_entered(body : Bobber):
 	if !body.is_immune:
 		GameEvents.emit_signal("bobber_took_damage", 1)

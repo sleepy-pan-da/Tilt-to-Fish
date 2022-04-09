@@ -45,7 +45,8 @@ var held_items = 	{
 						#"Thunder"	:	0,
 						#"Static Field"	:	0,
 						#"Against All Odds"	:	0,
-						"Cook The Grenade"	:	0
+						#"Cook The Grenade"	:	0,
+						#"TNT"	:	0
 					}
 
 

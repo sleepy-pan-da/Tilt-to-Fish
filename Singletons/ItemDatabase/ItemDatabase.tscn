@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Singletons/ItemDatabase/Items/Strength.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Singletons/ItemDatabase/Items/Constitution.tscn" type="PackedScene" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Singletons/ItemDatabase/Items/StaticField.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Singletons/ItemDatabase/Items/AgainstAllOdds.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Singletons/ItemDatabase/Items/CookTheGrenade.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Singletons/ItemDatabase/Items/TNT.tscn" type="PackedScene" id=34]
 
 [node name="ItemDatabase" type="Node"]
 
@@ -101,3 +102,5 @@
 [node name="Against All Odds" parent="." instance=ExtResource( 32 )]
 
 [node name="Cook The Grenade" parent="." instance=ExtResource( 33 )]
+
+[node name="TNT" parent="." instance=ExtResource( 34 )]

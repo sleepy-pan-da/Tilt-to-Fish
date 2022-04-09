@@ -7,4 +7,5 @@ func enter(_msg := {}) -> void:
 
 
 func finished_morphing() -> void:
+	fish.morphed = true
 	state_machine.transition_to("FollowBobber")

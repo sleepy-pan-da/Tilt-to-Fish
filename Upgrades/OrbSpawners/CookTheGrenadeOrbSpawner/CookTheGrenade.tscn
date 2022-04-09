@@ -27,16 +27,19 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.5, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "make_grenade_ready_to_be_passed"
+}, {
 "args": [  ],
 "method": "explode"
 } ]
 }
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 52.3489
+radius = 28.0
 
 [node name="CookTheGrenade" type="Area2D"]
 collision_layer = 0

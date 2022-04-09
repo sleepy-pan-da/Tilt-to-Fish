@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -33,6 +33,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/InvulnerabilityOrbSpawner/InvulnerabilityOrbSpawner.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Upgrades/OrbSpawners/StickyGooOrbSpawner/StickyGooOrbSpawner.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Upgrades/OrbSpawners/MjolnirOrbSpawner/MjolnirOrbSpawner.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/TNTOrbSpawner.tscn" type="PackedScene" id=34]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -402,6 +403,7 @@ Acid = ExtResource( 14 )
 AtAllCost = ExtResource( 15 )
 Thunder = ExtResource( 16 )
 CookTheGrenade = ExtResource( 17 )
+TNT = ExtResource( 34 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )
