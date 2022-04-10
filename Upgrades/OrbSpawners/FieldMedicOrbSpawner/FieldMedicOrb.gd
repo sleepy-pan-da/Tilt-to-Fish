@@ -3,7 +3,7 @@ extends Orb
 export(PackedScene) onready var FieldMedic
 
 func _on_FieldMedicOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", "Field Medic")
 	var triggered_instance = FieldMedic.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)

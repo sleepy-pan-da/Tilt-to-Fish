@@ -4,7 +4,7 @@ export(PackedScene) onready var StickyGoo
 
 
 func _on_StickyGooOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", "Sticky Goo")
 	var triggered_instance = StickyGoo.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)

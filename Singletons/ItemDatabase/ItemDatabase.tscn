@@ -76,6 +76,7 @@
 [node name="Retaliation" parent="." instance=ExtResource( 19 )]
 
 [node name="Long Rest" parent="." instance=ExtResource( 20 )]
+increment_cooldown_at_diff_levels = [ 7.0, 7.0, 7.0 ]
 
 [node name="Invulnerability" parent="." instance=ExtResource( 21 )]
 

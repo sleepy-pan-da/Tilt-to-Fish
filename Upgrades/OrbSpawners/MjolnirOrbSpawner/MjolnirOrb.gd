@@ -3,7 +3,7 @@ extends Orb
 export(PackedScene) onready var Mjolnir
 
 func _on_MjolnirOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", "Mjolnir")
 	var triggered_instance = Mjolnir.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)

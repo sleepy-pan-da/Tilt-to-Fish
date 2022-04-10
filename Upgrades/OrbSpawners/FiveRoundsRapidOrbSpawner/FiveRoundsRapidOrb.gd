@@ -3,7 +3,7 @@ extends Orb
 export(PackedScene) onready var FiveRoundsRapid
 
 func _on_FiveRoundsRapidOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", 'Five Rounds Rapid')
 	var triggered_instance = FiveRoundsRapid.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)

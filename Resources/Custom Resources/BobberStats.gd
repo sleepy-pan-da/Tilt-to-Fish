@@ -99,7 +99,7 @@ func change_gold(change_in_gold : int) -> void:
 
 
 func compute_interest() -> int:
-	var interest : int = gold_amount / 5
+	var interest : int = gold_amount / 3
 	return interest
 
 

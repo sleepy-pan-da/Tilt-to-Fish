@@ -29,7 +29,7 @@ radius = 112.0
 
 [node name="SlothFish" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-amount_needed_to_catch = 50.0
+amount_needed_to_catch = 65.0
 
 [node name="StateMachine" parent="KinematicBody" index="0"]
 initial_state = NodePath("ComputeNewPtToSwimTo")

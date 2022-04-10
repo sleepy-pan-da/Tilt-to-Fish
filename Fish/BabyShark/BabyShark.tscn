@@ -30,7 +30,7 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 300.0
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 36, 15 )
 
 [sub_resource type="CircleShape2D" id=4]
@@ -39,7 +39,7 @@ radius = 140.0
 
 [node name="BabyShark" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
-amount_needed_to_catch = 50.0
+amount_needed_to_catch = 65.0
 damage = 1
 
 [node name="KinematicBody" parent="." index="0"]
@@ -78,7 +78,7 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D" parent="KinematicBody/HitBox" index="0"]
 position = Vector2( 4, 5 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="FollowBobber" parent="KinematicBody" index="8" instance=ExtResource( 6 )]
 speed = 250

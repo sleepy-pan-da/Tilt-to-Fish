@@ -3,7 +3,7 @@ extends Orb
 export(PackedScene) onready var AtAllCost
 
 func _on_AtAllCostOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", "At All Cost")
 	var triggered_instance = AtAllCost.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)

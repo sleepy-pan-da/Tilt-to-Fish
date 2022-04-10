@@ -22,7 +22,7 @@ spawns_orbs = true
 display_name = "Cook The Grenade"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "For 4s: Your grenade cooks and grows up to 20/40/80 in AOE damage
+description = "For 4s: Your grenade cooks and grows up to 35/70/140 in AOE damage
 Afterwards: it detonates
 Enter proximity area: pass your grenade to the fish
 Cooldown: 5s"

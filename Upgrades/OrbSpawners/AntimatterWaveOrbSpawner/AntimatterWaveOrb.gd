@@ -2,7 +2,7 @@ extends Orb
 
 
 func _on_AntimatterWaveOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", "Antimatter Wave")
 	GameEvents.emit_signal("triggered_orb_that_requires_bobber", "Antimatter Wave", incremented_values)
 	queue_free()
 

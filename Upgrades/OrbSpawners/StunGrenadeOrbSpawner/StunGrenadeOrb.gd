@@ -3,7 +3,7 @@ extends Orb
 export(PackedScene) onready var StunGrenade
 
 func _on_StunGrenadeOrb_body_entered(body):
-	GameEvents.emit_signal("bobber_touched_orb")
+	GameEvents.emit_signal("bobber_touched_orb", "Stun Grenade")
 	var triggered_instance = StunGrenade.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_incremented_values(incremented_values)

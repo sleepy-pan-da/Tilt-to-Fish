@@ -6,4 +6,5 @@
 [node name="Loyalty Card" type="Node"]
 script = ExtResource( 1 )
 bobber_stats = ExtResource( 2 )
-increment_gold_earned_at_diff_levels = [ 1.0, 2.0, 3.0 ]
+increment_gold_earned_when_bought_at_diff_levels = [ 1.0, 2.0, 3.0 ]
+increment_gold_earned_when_sold_at_diff_levels = [ 0.0, 1.0, 2.0 ]

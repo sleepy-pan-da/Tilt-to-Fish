@@ -34,7 +34,7 @@ radius = 113.537
 
 [node name="ArmyFish" instance=ExtResource( 2 )]
 script = ExtResource( 5 )
-amount_needed_to_catch = 50.0
+amount_needed_to_catch = 65.0
 damage = 1
 number_of_projectiles_shot_each_round = 1
 

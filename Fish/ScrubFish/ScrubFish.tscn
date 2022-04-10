@@ -15,7 +15,7 @@ radius = 127.0
 
 [node name="ScrubFish" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-amount_needed_to_catch = 50.0
+amount_needed_to_catch = 65.0
 
 [node name="StateMachine" parent="KinematicBody" index="0"]
 initial_state = NodePath("ComputeNewPtToSwimTo")

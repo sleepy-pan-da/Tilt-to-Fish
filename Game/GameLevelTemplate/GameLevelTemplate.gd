@@ -141,9 +141,16 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 		if is_instance_valid(bobber) and !proceeding_to_next_wave:
 			if GameData.current_wave_number % 3 == 0: # final wave of the round
 				proceeding_to_next_wave = true
-				#bobber.bobber_stats.change_gold(2 + GameData.difficulty_modifier)
-				bobber.bobber_stats.change_gold(1)
-				print(bobber.bobber_stats.gold_amount)
+				
+				var earned_gold_for_the_round : int
+				if GameData.round_number <= 3:
+					earned_gold_for_the_round = 1
+				elif GameData.round_number <= 6:
+					earned_gold_for_the_round = 2
+				else:
+					earned_gold_for_the_round = 3
+				bobber.bobber_stats.change_gold(earned_gold_for_the_round)
+				
 				bobber.queue_free()
 				if Engine.time_scale != 1.0: # For Time Lord Victorious
 					Engine.time_scale = 1.0

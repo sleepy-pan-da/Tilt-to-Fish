@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-initial_reel_damage = 3.0
+initial_reel_damage = 2.0
 initial_reel_attack_rate = 10.0
 initial_max_hooks_amount = 5
 initial_max_orbs = 2

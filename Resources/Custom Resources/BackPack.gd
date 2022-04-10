@@ -26,7 +26,7 @@ var held_items = 	{
 						#"Field Medic"	:	0,
 						#"Stun Grenade"	:	6,
 						#"Quick Reload"	:	6,
-						#"Infinite Power"	:	3,
+						#"Infinite Power"	:	0,
 						#"Piggy Bank"	: 0,
 						#"Biscuit Tin"	:	0,
 						#"Room For More"	:	0,

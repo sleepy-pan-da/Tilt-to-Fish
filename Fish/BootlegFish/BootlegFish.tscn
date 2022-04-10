@@ -73,7 +73,7 @@ radius = 200.0
 
 [node name="BootlegFish" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-amount_needed_to_catch = 75.0
+amount_needed_to_catch = 65.0
 damage = 1
 initial_animated_sprites = ExtResource( 8 )
 actual_animated_sprites = ExtResource( 10 )
@@ -127,7 +127,7 @@ position = Vector2( -10, 7 )
 shape = SubResource( 3 )
 
 [node name="SteeringBehaviour" parent="KinematicBody" index="10" instance=ExtResource( 5 )]
-max_speed = 300.0
+max_speed = 500.0
 mass = 45.0
 
 [node name="CollisionShape2D" parent="KinematicBody/ProximityArea" index="0"]

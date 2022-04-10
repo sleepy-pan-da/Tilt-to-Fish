@@ -7,10 +7,10 @@
 [ext_resource path="res://Assets/Fishing Scene/Fishes/seaurchin/sea_urchin_right.PNG" type="Texture" id=5]
 [ext_resource path="res://Fish/SeaUrchin/Default.gd" type="Script" id=6]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 radius = 38.0
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
@@ -29,13 +29,13 @@ radius = 160.0
 
 [node name="SeaUrchin" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-amount_needed_to_catch = 50.0
+amount_needed_to_catch = 65.0
 damage = 2
 
 [node name="HitBox" parent="KinematicBody" index="0" instance=ExtResource( 3 )]
 
 [node name="CollisionShape2D" parent="KinematicBody/HitBox" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="StateMachine" parent="KinematicBody" index="1"]
 initial_state = NodePath("Default")
@@ -45,7 +45,7 @@ nodepath_of_state_after_recover = NodePath("Default")
 script = ExtResource( 6 )
 
 [node name="FishSprite" parent="KinematicBody" index="4"]
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 
 [node name="RippleSprite" parent="KinematicBody" index="5"]
 scale = Vector2( 0.17, 0.17 )
