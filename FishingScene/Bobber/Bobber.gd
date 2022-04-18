@@ -16,6 +16,11 @@ onready var immunity_timer = $ImmunityTimer
 onready var items_that_require_bobber = $ItemsThatRequireBobber
 onready var proximity_area_timers = $ProximityAreaTimers
 
+# variables that have to do with movement
+const ACCELERATION := 8000
+const MAX_SPEED := 1500
+var current_velocity : Vector2
+
 var have_immunity : bool = true 
 var is_immune : int = 0 # int instead of bool to allow multiple triggers  of invulnerability orb
 var is_moving : bool = false
@@ -89,7 +94,7 @@ func on_triggered_item_that_requires_bobber(item_name : String, incremented_valu
 
 func _physics_process(delta : float) -> void:
 	if !testing_on_pc:
-		move(Input.get_accelerometer())
+		move(Input.get_accelerometer(), delta)
 	else:
 		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -116,31 +121,34 @@ func _physics_process(delta : float) -> void:
 		Engine.time_scale = 1.0
 
 
-func move(accelerometer_vector : Vector3) -> void:
+func move(accelerometer_vector : Vector3, delta : float) -> void:
 	var speed_multiplier : int
 	var x_velocity : float
 	var y_velocity : float
-	var velocity : Vector2
+	var desired_velocity : Vector2
+
 	
 	if control_config.holding_preference == "regular":
 		accelerometer_vector = recalibrate_regular_movement_direction_vector(accelerometer_vector)
 	
 	speed_multiplier = compute_speed_multiplier()	
 	
-	velocity =  Vector2(accelerometer_vector.x, accelerometer_vector.y)
+	desired_velocity =  Vector2(accelerometer_vector.x, accelerometer_vector.y)
 	
-	#is_moving = velocity.length() > 0.5
-	if velocity.length() > 0.5:
-		velocity.x = velocity.x * speed_multiplier
-		velocity.y = -velocity.y * speed_multiplier 
+	if desired_velocity.length() > 0.5:
+		desired_velocity.x = desired_velocity.x * speed_multiplier
+		desired_velocity.y = -desired_velocity.y * speed_multiplier 
 		is_moving = true
 	else:
-		velocity.x = velocity.x * speed_multiplier / 2
-		velocity.y = -velocity.y * speed_multiplier / 2
+		desired_velocity.x = desired_velocity.x * speed_multiplier / 2
+		desired_velocity.y = -desired_velocity.y * speed_multiplier / 2
 		is_moving = false
 	
-	arrow.configure_arrow_location(velocity)
-	move_and_slide(velocity)
+	arrow.configure_arrow_location(desired_velocity)
+	if desired_velocity.length() > MAX_SPEED:
+		desired_velocity = desired_velocity.normalized() * MAX_SPEED
+	current_velocity = current_velocity.move_toward(desired_velocity, ACCELERATION * delta)
+	move_and_slide(current_velocity)
 
 
 func compute_speed_multiplier() -> int:
