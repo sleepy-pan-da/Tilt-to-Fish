@@ -40,7 +40,7 @@ number_of_projectiles_shot_each_round = 1
 
 [node name="StateMachine" parent="KinematicBody" index="0"]
 initial_state = NodePath("Alert")
-nodepath_of_state_after_recover = NodePath("Firing")
+nodepath_of_state_after_recover = NodePath("Resting")
 
 [node name="Alert" type="Node" parent="KinematicBody/StateMachine" index="0"]
 script = ExtResource( 9 )
