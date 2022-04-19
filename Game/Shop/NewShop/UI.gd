@@ -75,7 +75,7 @@ func on_pressed_items_sold(child_index : int) -> void:
 	if item_name != "": # bought the item alr, no more item offered for sale
 		if !description_box.visible:
 			description_box.show() 
-		description_box.update_description_box_from_items_sold(item_name, child_index)
+		description_box.update_description_box_from_items_sold(item_name)
 	else:
 		description_box.hide()
 		return
@@ -94,8 +94,7 @@ func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
 	if item_name != "":
 		if !description_box.visible:
 			description_box.show() 
-		# need to add 3 to compensate for the first 3 edges pointing to items sold
-		description_box.update_description_box_from_backpack_slots(backpack, item_name, index_of_backpack_keys + 3) 
+		description_box.update_description_box_from_backpack_slots(backpack, item_name) 
 
 
 func on_clicked_buy_sell_button() -> void:

@@ -1,24 +1,24 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/altar_base_v3.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/hook_button_2.0.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/coin_ui.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Shop/BaseUI/shop_base_ui-01-01.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_description.png" type="Texture" id=5]
 [ext_resource path="res://Game/Shop/RoundNumber.gd" type="Script" id=6]
 [ext_resource path="res://Resources/Custom Resources/Item Related/AlphaItemPool.tres" type="Resource" id=7]
 [ext_resource path="res://Game/Shop/ItemName.gd" type="Script" id=8]
 [ext_resource path="res://Game/Shop/BuySellButton.gd" type="Script" id=9]
-[ext_resource path="res://Assets/Shop/BaseUI/shop_buy-01.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_buy_2dig.png" type="Texture" id=10]
 [ext_resource path="res://Game/Shop/ItemCost.gd" type="Script" id=11]
 [ext_resource path="res://Game/Shop/ItemDescription.gd" type="Script" id=12]
 [ext_resource path="res://Game/Shop/DescriptionBox.gd" type="Script" id=13]
-[ext_resource path="res://Assets/Shop/BaseUI/speech_bubble_edge-01.png" type="Texture" id=14]
-[ext_resource path="res://Game/Shop/SpeechBubbleEdges.gd" type="Script" id=15]
-[ext_resource path="res://Assets/Shop/BaseUI/shop_sell-01.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Shop/BaseUI/speech_base_large-01.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_buy_1dig.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_sell_2dig.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_nextround.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/backpack.png" type="Texture" id=17]
 [ext_resource path="res://Game/Shop/ItemsSold.gd" type="Script" id=18]
-[ext_resource path="res://Assets/Shop/BaseUI/inventory.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/inv_5.PNG" type="Texture" id=19]
 [ext_resource path="res://Game/Shop/BackpackPlaceHolder.tres" type="Texture" id=20]
 [ext_resource path="res://Game/Shop/ItemSlots.gd" type="Script" id=21]
 [ext_resource path="res://Game/Shop/NewShop/Hooks.gd" type="Script" id=22]
@@ -35,60 +35,55 @@
 [ext_resource path="res://Game/Shop/NewShop/ItemType.gd" type="Script" id=33]
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
-use_filter = true
+size = 22
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 30
-use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 22
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 22
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=8]
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 10
+size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 10
+size = 30
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 10
+size = 30
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 32
+size = 22
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=14]
-font_data = ExtResource( 2 )
-
 [node name="Shop" type="Node"]
-
-[node name="Pond" parent="." instance=ExtResource( 1 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 640, 360 )
@@ -106,6 +101,398 @@ backpack = ExtResource( 27 )
 item_pool = ExtResource( 7 )
 current_bobber = ExtResource( 32 )
 game_scene = "res://Game/WaveSystem/WaveLevel.tscn"
+
+[node name="Background" type="ColorRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -728.0
+margin_top = -376.0
+margin_right = 912.0
+margin_bottom = 320.0
+color = Color( 0.0745098, 0.0941176, 0.176471, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopPanel" type="TextureRect" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -9.0
+margin_right = 144.0
+margin_bottom = 95.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DescriptionBox" type="NinePatchRect" parent="UI/ShopPanel"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -472.0
+margin_top = 32.0
+margin_right = -176.0
+margin_bottom = 680.0
+rect_pivot_offset = Vector2( 979, 182 )
+texture = ExtResource( 5 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_pool = ExtResource( 7 )
+bobber_stats = ExtResource( 26 )
+
+[node name="Header" type="VBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+margin_left = 22.0
+margin_top = 22.0
+margin_right = 278.0
+margin_bottom = 82.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemName" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 256, 24 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Item Name"
+autowrap = true
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemType" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
+margin_top = 28.0
+margin_right = 256.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Orb/passive"
+script = ExtResource( 33 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemDescription" type="Label" parent="UI/ShopPanel/DescriptionBox"]
+margin_left = 21.0
+margin_top = 96.0
+margin_right = 269.0
+margin_bottom = 336.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Item Description"
+autowrap = true
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body" type="VBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+margin_left = 24.0
+margin_top = 384.0
+margin_right = 272.0
+margin_bottom = 483.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemCost" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+margin_right = 248.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 105, 34 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Cost:"
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemRarity" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+visible = false
+margin_top = 38.0
+margin_right = 248.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 109, 39 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Rarity:
+Super Rare"
+script = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSellingCosts" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+margin_top = 38.0
+margin_right = 248.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 109, 39 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Selling cost:
+1/2/3"
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemExp" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+margin_top = 81.0
+margin_right = 248.0
+margin_bottom = 99.0
+rect_min_size = Vector2( 74, 18 )
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Exp: 0/3"
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bottom" type="HBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -130.0
+margin_top = -73.0
+margin_right = 124.0
+margin_bottom = -13.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuySellButton" type="TextureButton" parent="UI/ShopPanel/DescriptionBox/Bottom"]
+margin_right = 150.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 150, 60 )
+texture_normal = ExtResource( 10 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+BuyButtonTexture = ExtResource( 14 )
+SellButtonTexture = ExtResource( 15 )
+
+[node name="Tween" type="Tween" parent="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton"]
+
+[node name="NextWave" type="TextureButton" parent="UI/ShopPanel/DescriptionBox/Bottom"]
+margin_left = 154.0
+margin_right = 254.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 50 )
+texture_normal = ExtResource( 16 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemsSold" type="HBoxContainer" parent="UI/ShopPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -432.0
+margin_top = -100.0
+margin_right = 136.0
+margin_bottom = 100.0
+custom_constants/separation = 20
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+item_pool = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="UI/ShopPanel/ItemsSold"]
+margin_right = 176.0
+margin_bottom = 200.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 6 )
+enabled_focus_mode = 0
+flat = true
+clip_text = true
+
+[node name="Button2" type="Button" parent="UI/ShopPanel/ItemsSold"]
+margin_left = 196.0
+margin_right = 372.0
+margin_bottom = 200.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 7 )
+enabled_focus_mode = 0
+flat = true
+
+[node name="Button3" type="Button" parent="UI/ShopPanel/ItemsSold"]
+margin_left = 392.0
+margin_right = 568.0
+margin_bottom = 200.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 8 )
+enabled_focus_mode = 0
+flat = true
+
+[node name="ItemSlotsTexture" type="TextureRect" parent="UI/ShopPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 346.0
+margin_top = 478.0
+margin_right = -598.0
+margin_bottom = -74.0
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackpackSprite" type="TextureRect" parent="UI/ShopPanel"]
+margin_left = 118.0
+margin_top = 530.0
+margin_right = 464.0
+margin_bottom = 729.0
+rect_min_size = Vector2( 240, 138 )
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemSlots" type="HBoxContainer" parent="UI/ShopPanel"]
+margin_left = 364.0
+margin_top = 564.0
+margin_right = 804.0
+margin_bottom = 654.0
+size_flags_horizontal = 3
+custom_constants/separation = 30
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+occupied_item_icon = ExtResource( 20 )
+
+[node name="Button" type="Button" parent="UI/ShopPanel/ItemSlots"]
+margin_right = 64.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 64, 90 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button"]
+margin_left = 52.0
+margin_top = -8.0
+margin_right = 82.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button2" type="Button" parent="UI/ShopPanel/ItemSlots"]
+margin_left = 94.0
+margin_right = 158.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 64, 90 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button2"]
+margin_left = 52.0
+margin_top = -8.0
+margin_right = 82.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button3" type="Button" parent="UI/ShopPanel/ItemSlots"]
+margin_left = 188.0
+margin_right = 252.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 64, 90 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button3"]
+margin_left = 52.0
+margin_top = -8.0
+margin_right = 82.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button4" type="Button" parent="UI/ShopPanel/ItemSlots"]
+margin_left = 282.0
+margin_right = 346.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 64, 90 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button4"]
+margin_left = 52.0
+margin_top = -8.0
+margin_right = 82.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button5" type="Button" parent="UI/ShopPanel/ItemSlots"]
+margin_left = 376.0
+margin_right = 440.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 64, 90 )
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+expand_icon = true
+
+[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button5"]
+margin_left = 52.0
+margin_top = -8.0
+margin_right = 82.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "9"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="UpperLeftCorner" type="VBoxContainer" parent="UI"]
 margin_left = 18.0
@@ -137,7 +524,7 @@ margin_left = -86.0
 margin_top = -14.0
 margin_right = -12.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 10 )
 text = "9/9"
 align = 1
 valign = 1
@@ -167,7 +554,7 @@ margin_left = -83.0
 margin_top = -23.0
 margin_right = -19.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 11 )
 text = "99"
 align = 1
 valign = 1
@@ -182,471 +569,10 @@ margin_left = -125.5
 margin_top = 25.0
 margin_right = 125.5
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 0.780392 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Round 99 complete"
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ShopPanel" type="TextureRect" parent="UI"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -450.0
-margin_top = -337.0
-margin_right = 450.0
-margin_bottom = 311.0
-texture = ExtResource( 5 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="DescriptionBox" type="NinePatchRect" parent="UI/ShopPanel"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -396.0
-margin_top = 8.0
-margin_right = 396.0
-margin_bottom = 216.0
-rect_pivot_offset = Vector2( 979, 182 )
-texture = ExtResource( 17 )
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-item_pool = ExtResource( 7 )
-bobber_stats = ExtResource( 26 )
-
-[node name="Header" type="HBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
-margin_left = 35.0
-margin_top = 12.0
-margin_right = 479.0
-margin_bottom = 52.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemName" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
-margin_top = 8.0
-margin_right = 139.0
-margin_bottom = 32.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Item Name"
-script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemType" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
-margin_left = 143.0
-margin_top = 11.0
-margin_right = 277.0
-margin_bottom = 29.0
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "- Orb/passive"
-script = ExtResource( 33 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemDescription" type="Label" parent="UI/ShopPanel/DescriptionBox"]
-margin_left = 36.0
-margin_top = 60.0
-margin_right = 604.0
-margin_bottom = 180.0
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Item Description"
-autowrap = true
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RightSide" type="VBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
-margin_left = 636.0
-margin_top = 20.0
-margin_right = 765.0
-margin_bottom = 119.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemCost" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
-margin_right = 129.0
-margin_bottom = 34.0
-rect_min_size = Vector2( 105, 34 )
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Cost:"
-script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemRarity" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
-visible = false
-margin_top = 38.0
-margin_right = 129.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 109, 39 )
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Rarity:
-Super Rare"
-script = ExtResource( 28 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemSellingCosts" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
-margin_top = 38.0
-margin_right = 129.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 109, 39 )
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Selling cost:
-1/2/3"
-script = ExtResource( 30 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemExp" type="Label" parent="UI/ShopPanel/DescriptionBox/RightSide"]
-margin_top = 81.0
-margin_right = 129.0
-margin_bottom = 99.0
-rect_min_size = Vector2( 74, 18 )
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Exp: 0/3"
-script = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BuySellButton" type="TextureButton" parent="UI/ShopPanel/DescriptionBox"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -1041.0
-margin_top = -239.0
-margin_right = 857.0
-margin_bottom = 545.0
-rect_scale = Vector2( 0.064, 0.064 )
-rect_pivot_offset = Vector2( 949, 392 )
-texture_normal = ExtResource( 10 )
-stretch_mode = 5
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-BuyButtonTexture = ExtResource( 10 )
-SellButtonTexture = ExtResource( 16 )
-
-[node name="Tween" type="Tween" parent="UI/ShopPanel/DescriptionBox/BuySellButton"]
-
-[node name="SpeechBubbleEdges" type="Control" parent="UI/ShopPanel/DescriptionBox"]
-script = ExtResource( 15 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeechBubbleEdgeItemSold1" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 92.0
-margin_top = -15.0
-margin_right = 2140.0
-margin_bottom = 2033.0
-rect_scale = Vector2( 0.02, 0.02 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-flip_v = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeechBubbleEdgeItemSold2" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 380.0
-margin_top = -15.0
-margin_right = 2428.0
-margin_bottom = 2033.0
-rect_scale = Vector2( 0.02, 0.02 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-flip_v = true
-
-[node name="SpeechBubbleEdgeItemSold3" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 668.0
-margin_top = -15.0
-margin_right = 2716.0
-margin_bottom = 2033.0
-rect_scale = Vector2( 0.02, 0.02 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-flip_v = true
-
-[node name="SpeechBubbleEdgeBackpack1" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 275.0
-margin_top = 171.0
-margin_right = 2323.0
-margin_bottom = 2219.0
-rect_scale = Vector2( 0.023, 0.023 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeechBubbleEdgeBackpack2" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 383.0
-margin_top = 171.0
-margin_right = 2431.0
-margin_bottom = 2219.0
-rect_scale = Vector2( 0.023, 0.023 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeechBubbleEdgeBackpack3" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 491.0
-margin_top = 171.0
-margin_right = 2539.0
-margin_bottom = 2219.0
-rect_scale = Vector2( 0.023, 0.023 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeechBubbleEdgeBackpack4" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 599.0
-margin_top = 171.0
-margin_right = 2647.0
-margin_bottom = 2219.0
-rect_scale = Vector2( 0.023, 0.023 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SpeechBubbleEdgeBackpack5" type="TextureRect" parent="UI/ShopPanel/DescriptionBox/SpeechBubbleEdges"]
-margin_left = 707.0
-margin_top = 171.0
-margin_right = 2755.0
-margin_bottom = 2219.0
-rect_scale = Vector2( 0.023, 0.023 )
-texture = ExtResource( 14 )
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemsSold" type="HBoxContainer" parent="UI/ShopPanel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -368.0
-margin_top = -202.0
-margin_right = 368.0
-margin_bottom = -2.0
-custom_constants/separation = 50
-script = ExtResource( 18 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-item_pool = ExtResource( 7 )
-
-[node name="Button" type="Button" parent="UI/ShopPanel/ItemsSold"]
-margin_right = 212.0
-margin_bottom = 200.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 9 )
-enabled_focus_mode = 0
-flat = true
-clip_text = true
-
-[node name="Button2" type="Button" parent="UI/ShopPanel/ItemsSold"]
-margin_left = 262.0
-margin_right = 474.0
-margin_bottom = 200.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 10 )
-enabled_focus_mode = 0
-flat = true
-
-[node name="Button3" type="Button" parent="UI/ShopPanel/ItemsSold"]
-margin_left = 524.0
-margin_right = 736.0
-margin_bottom = 200.0
-focus_mode = 0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 11 )
-enabled_focus_mode = 0
-flat = true
-
-[node name="BackpackSprite" type="TextureRect" parent="UI/ShopPanel"]
-margin_left = 50.0
-margin_top = 521.0
-margin_right = 290.0
-margin_bottom = 659.0
-rect_min_size = Vector2( 240, 138 )
-texture = ExtResource( 19 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemSlots" type="HBoxContainer" parent="UI/ShopPanel"]
-margin_left = 314.0
-margin_top = 553.0
-margin_right = 814.0
-margin_bottom = 625.0
-size_flags_horizontal = 3
-custom_constants/separation = 25
-script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-occupied_item_icon = ExtResource( 20 )
-
-[node name="Button" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_right = 80.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 80, 72 )
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-expand_icon = true
-
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button"]
-margin_left = 52.0
-margin_top = -8.0
-margin_right = 82.0
-margin_bottom = 44.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Button2" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 105.0
-margin_right = 185.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 80, 72 )
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-expand_icon = true
-
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button2"]
-margin_left = 52.0
-margin_top = -8.0
-margin_right = 82.0
-margin_bottom = 44.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Button3" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 210.0
-margin_right = 290.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 80, 72 )
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-expand_icon = true
-
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button3"]
-margin_left = 52.0
-margin_top = -8.0
-margin_right = 82.0
-margin_bottom = 44.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Button4" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 315.0
-margin_right = 395.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 80, 72 )
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-expand_icon = true
-
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button4"]
-margin_left = 52.0
-margin_top = -8.0
-margin_right = 82.0
-margin_bottom = 44.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Button5" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 420.0
-margin_right = 500.0
-margin_bottom = 72.0
-rect_min_size = Vector2( 80, 72 )
-focus_mode = 0
-enabled_focus_mode = 0
-flat = true
-expand_icon = true
-
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button5"]
-margin_left = 52.0
-margin_top = -8.0
-margin_right = 82.0
-margin_bottom = 44.0
-custom_fonts/font = SubResource( 12 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "9"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="NextWave" type="Button" parent="UI"]
-margin_left = 1112.0
-margin_top = 648.0
-margin_right = 1272.0
-margin_bottom = 704.0
-custom_fonts/font = SubResource( 13 )
-text = "Next wave"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -656,7 +582,7 @@ margin_left = 18.0
 margin_top = 208.0
 margin_right = 178.0
 margin_bottom = 264.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 13 )
 text = "Hooks? ($1)"
 script = ExtResource( 31 )
 __meta__ = {
@@ -665,8 +591,8 @@ __meta__ = {
 
 [node name="ScreenTransition" parent="UI" instance=ExtResource( 24 )]
 
-[connection signal="button_down" from="UI/ShopPanel/DescriptionBox/BuySellButton" to="UI/ShopPanel/DescriptionBox/BuySellButton" method="_on_BuySellButton_button_down"]
-[connection signal="button_up" from="UI/ShopPanel/DescriptionBox/BuySellButton" to="UI/ShopPanel/DescriptionBox/BuySellButton" method="_on_BuySellButton_button_up"]
-[connection signal="tween_all_completed" from="UI/ShopPanel/DescriptionBox/BuySellButton/Tween" to="UI/ShopPanel/DescriptionBox/BuySellButton" method="_on_Tween_tween_all_completed"]
-[connection signal="pressed" from="UI/NextWave" to="UI" method="_on_NextWave_pressed"]
+[connection signal="button_down" from="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_down"]
+[connection signal="button_up" from="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_up"]
+[connection signal="tween_all_completed" from="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton/Tween" to="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_Tween_tween_all_completed"]
+[connection signal="pressed" from="UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="UI" method="_on_NextWave_pressed"]
 [connection signal="pressed" from="UI/Hooks?" to="UI" method="_on_Hooks_pressed"]

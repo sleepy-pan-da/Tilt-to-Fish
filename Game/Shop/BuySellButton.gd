@@ -16,13 +16,13 @@ func update_to_sell() -> void:
 
 
 func _on_BuySellButton_button_down():
-	tween.interpolate_property(self, "rect_scale", Vector2(0.064, 0.064), Vector2(0.056, 0.056), 0.08, Tween.TRANS_LINEAR)
+	tween.interpolate_property(self, "rect_scale", Vector2(1, 1), Vector2(0.7, 0.7), 0.08, Tween.TRANS_LINEAR)
 	tween.start()
 
 
 func _on_BuySellButton_button_up():
 	released_button = true
-	tween.interpolate_property(self, "rect_scale", Vector2(0.056, 0.056), Vector2(0.064, 0.064), 0.08, Tween.TRANS_LINEAR)
+	tween.interpolate_property(self, "rect_scale", Vector2(0.7, 0.7), Vector2(1, 1), 0.08, Tween.TRANS_LINEAR)
 	tween.start()
 
 

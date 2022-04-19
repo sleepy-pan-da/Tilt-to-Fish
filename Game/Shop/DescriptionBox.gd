@@ -6,14 +6,13 @@ export(Resource) var bobber_stats = bobber_stats as BobberStats
 onready var item_name = $Header/ItemName
 onready var item_type = $Header/ItemType
 onready var item_description = $ItemDescription
-onready var item_cost = $RightSide/ItemCost
-onready var item_rarity = $RightSide/ItemRarity
-onready var item_selling_costs = $RightSide/ItemSellingCosts
-onready var item_exp = $RightSide/ItemExp
-onready var buy_sell_button = $BuySellButton
-onready var speech_bubble_edges = $SpeechBubbleEdges
+onready var item_cost = $Body/ItemCost
+onready var item_rarity = $Body/ItemRarity
+onready var item_selling_costs = $Body/ItemSellingCosts
+onready var item_exp = $Body/ItemExp
+onready var buy_sell_button = $Bottom/BuySellButton
 
-func update_description_box_from_items_sold(item : String, speech_bubble_index : int) -> void:	
+func update_description_box_from_items_sold(item : String) -> void:	
 	var item_details : ItemTraits = item_pool.get_item(item)
 	if item_details == null:
 		return
@@ -22,11 +21,10 @@ func update_description_box_from_items_sold(item : String, speech_bubble_index :
 	item_cost.update_item_cost(item_details.buying_cost)	
 	
 	item_exp.update_item_exp(0)
-	speech_bubble_edges.update_bubble_edges(speech_bubble_index)
 	buy_sell_button.update_to_buy()
 
 
-func update_description_box_from_backpack_slots(backpack : BackPack, item : String, speech_bubble_index : int) -> void:
+func update_description_box_from_backpack_slots(backpack : BackPack, item : String) -> void:
 	var item_details : ItemTraits = item_pool.get_item(item)
 	if item_details == null:
 		return
@@ -36,7 +34,6 @@ func update_description_box_from_backpack_slots(backpack : BackPack, item : Stri
 	item_cost.update_item_cost(item_details.selling_cost[item_level - 1])		
 	
 	item_exp.update_item_exp(backpack.held_items[item_details.display_name])
-	speech_bubble_edges.update_bubble_edges(speech_bubble_index)
 	buy_sell_button.update_to_sell()
 
 
