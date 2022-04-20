@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/hook_button_2.0.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Fishing Scene/UI elements/coin_ui.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_description.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/shop_description_compressed.png" type="Texture" id=5]
 [ext_resource path="res://Game/Shop/RoundNumber.gd" type="Script" id=6]
 [ext_resource path="res://Resources/Custom Resources/Item Related/AlphaItemPool.tres" type="Resource" id=7]
 [ext_resource path="res://Game/Shop/ItemName.gd" type="Script" id=8]
@@ -117,9 +117,10 @@ __meta__ = {
 [node name="ShopPanel" type="TextureRect" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -9.0
-margin_right = 144.0
-margin_bottom = 95.0
+margin_left = -15.0
+margin_top = -81.0
+margin_right = 279.0
+margin_bottom = 110.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
@@ -128,12 +129,13 @@ __meta__ = {
 }
 
 [node name="DescriptionBox" type="NinePatchRect" parent="UI/ShopPanel"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -472.0
-margin_top = 32.0
-margin_right = -176.0
-margin_bottom = 680.0
+margin_left = -601.0
+margin_top = 117.0
+margin_right = -304.0
+margin_bottom = 767.0
 rect_pivot_offset = Vector2( 979, 182 )
 texture = ExtResource( 5 )
 script = ExtResource( 13 )
@@ -304,11 +306,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -432.0
-margin_top = -100.0
-margin_right = 136.0
-margin_bottom = 100.0
-custom_constants/separation = 20
+margin_left = -468.0
+margin_top = -99.5
+margin_right = 148.0
+margin_bottom = 100.5
+custom_constants/separation = 50
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -316,7 +318,7 @@ __meta__ = {
 item_pool = ExtResource( 7 )
 
 [node name="Button" type="Button" parent="UI/ShopPanel/ItemsSold"]
-margin_right = 176.0
+margin_right = 172.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
@@ -326,8 +328,8 @@ flat = true
 clip_text = true
 
 [node name="Button2" type="Button" parent="UI/ShopPanel/ItemsSold"]
-margin_left = 196.0
-margin_right = 372.0
+margin_left = 222.0
+margin_right = 394.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
@@ -336,8 +338,8 @@ enabled_focus_mode = 0
 flat = true
 
 [node name="Button3" type="Button" parent="UI/ShopPanel/ItemsSold"]
-margin_left = 392.0
-margin_right = 568.0
+margin_left = 444.0
+margin_right = 616.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
@@ -348,10 +350,10 @@ flat = true
 [node name="ItemSlotsTexture" type="TextureRect" parent="UI/ShopPanel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 346.0
-margin_top = 478.0
-margin_right = -598.0
-margin_bottom = -74.0
+margin_left = 382.0
+margin_top = 527.0
+margin_right = -663.0
+margin_bottom = -83.0
 texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
@@ -361,9 +363,9 @@ __meta__ = {
 
 [node name="BackpackSprite" type="TextureRect" parent="UI/ShopPanel"]
 margin_left = 118.0
-margin_top = 530.0
+margin_top = 603.0
 margin_right = 464.0
-margin_bottom = 729.0
+margin_bottom = 802.0
 rect_min_size = Vector2( 240, 138 )
 texture = ExtResource( 17 )
 expand = true
@@ -373,12 +375,12 @@ __meta__ = {
 }
 
 [node name="ItemSlots" type="HBoxContainer" parent="UI/ShopPanel"]
-margin_left = 364.0
-margin_top = 564.0
-margin_right = 804.0
-margin_bottom = 654.0
+margin_left = 396.0
+margin_top = 621.0
+margin_right = 903.0
+margin_bottom = 729.0
 size_flags_horizontal = 3
-custom_constants/separation = 30
+custom_constants/separation = 15
 script = ExtResource( 21 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -386,15 +388,19 @@ __meta__ = {
 occupied_item_icon = ExtResource( 20 )
 
 [node name="Button" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_right = 64.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 64, 90 )
+margin_right = 88.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
 [node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button"]
+anchor_left = -0.215909
+anchor_top = 0.768519
+anchor_right = -0.215909
+anchor_bottom = 0.768519
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
@@ -407,16 +413,20 @@ __meta__ = {
 }
 
 [node name="Button2" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 94.0
-margin_right = 158.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 64, 90 )
+margin_left = 103.0
+margin_right = 191.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
 [node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button2"]
+anchor_left = -0.261364
+anchor_top = 0.768519
+anchor_right = -0.261364
+anchor_bottom = 0.768519
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
@@ -429,16 +439,20 @@ __meta__ = {
 }
 
 [node name="Button3" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 188.0
-margin_right = 252.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 64, 90 )
+margin_left = 206.0
+margin_right = 294.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
 [node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button3"]
+anchor_left = -0.272727
+anchor_top = 0.768519
+anchor_right = -0.272727
+anchor_bottom = 0.768519
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
@@ -451,16 +465,20 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 282.0
-margin_right = 346.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 64, 90 )
+margin_left = 309.0
+margin_right = 397.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
 [node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button4"]
+anchor_left = -0.227273
+anchor_top = 0.777778
+anchor_right = -0.227273
+anchor_bottom = 0.777778
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
@@ -473,16 +491,20 @@ __meta__ = {
 }
 
 [node name="Button5" type="Button" parent="UI/ShopPanel/ItemSlots"]
-margin_left = 376.0
-margin_right = 440.0
-margin_bottom = 90.0
-rect_min_size = Vector2( 64, 90 )
+margin_left = 412.0
+margin_right = 500.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
 [node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button5"]
+anchor_left = -0.170455
+anchor_top = 0.787037
+anchor_right = -0.170455
+anchor_bottom = 0.787037
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0

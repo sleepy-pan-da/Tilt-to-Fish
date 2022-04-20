@@ -21,6 +21,8 @@ var index_of_currently_pressed_item : int = -1
 var bobber : Bobber
 
 func _ready() -> void:
+	#rect_min_size =  Vector2(1500, 720)#OS.get_real_window_size()
+	#print(rect_min_size)
 	screen_transition.transition_in()
 	backpack.level_up_all_held_items()
 	create_bobber_instance()
