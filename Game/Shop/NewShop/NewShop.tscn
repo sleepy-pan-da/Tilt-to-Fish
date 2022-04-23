@@ -89,9 +89,11 @@ font_data = ExtResource( 2 )
 position = Vector2( 640, 360 )
 current = true
 
-[node name="UI" type="Control" parent="."]
-margin_right = 1280.0
-margin_bottom = 720.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -102,7 +104,7 @@ item_pool = ExtResource( 7 )
 current_bobber = ExtResource( 32 )
 game_scene = "res://Game/WaveSystem/WaveLevel.tscn"
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Background" type="ColorRect" parent="CanvasLayer/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -728.0
@@ -114,7 +116,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ShopPanel" type="TextureRect" parent="UI"]
+[node name="ShopPanel" type="TextureRect" parent="CanvasLayer/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -15.0
@@ -128,7 +130,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DescriptionBox" type="NinePatchRect" parent="UI/ShopPanel"]
+[node name="DescriptionBox" type="NinePatchRect" parent="CanvasLayer/UI/ShopPanel"]
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0
@@ -136,7 +138,6 @@ margin_left = -601.0
 margin_top = 117.0
 margin_right = -304.0
 margin_bottom = 767.0
-rect_pivot_offset = Vector2( 979, 182 )
 texture = ExtResource( 5 )
 script = ExtResource( 13 )
 __meta__ = {
@@ -145,7 +146,7 @@ __meta__ = {
 item_pool = ExtResource( 7 )
 bobber_stats = ExtResource( 26 )
 
-[node name="Header" type="VBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+[node name="Header" type="VBoxContainer" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
 margin_left = 22.0
 margin_top = 22.0
 margin_right = 278.0
@@ -154,7 +155,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemName" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
+[node name="ItemName" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
 margin_right = 256.0
 margin_bottom = 24.0
 rect_min_size = Vector2( 256, 24 )
@@ -167,7 +168,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemType" type="Label" parent="UI/ShopPanel/DescriptionBox/Header"]
+[node name="ItemType" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
 margin_top = 28.0
 margin_right = 256.0
 margin_bottom = 46.0
@@ -179,7 +180,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemDescription" type="Label" parent="UI/ShopPanel/DescriptionBox"]
+[node name="ItemDescription" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
 margin_left = 21.0
 margin_top = 96.0
 margin_right = 269.0
@@ -193,7 +194,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Body" type="VBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+[node name="Body" type="VBoxContainer" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
 margin_left = 24.0
 margin_top = 384.0
 margin_right = 272.0
@@ -202,7 +203,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemCost" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+[node name="ItemCost" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
 margin_right = 248.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 105, 34 )
@@ -215,7 +216,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemRarity" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+[node name="ItemRarity" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
 visible = false
 margin_top = 38.0
 margin_right = 248.0
@@ -231,7 +232,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemSellingCosts" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+[node name="ItemSellingCosts" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
 margin_top = 38.0
 margin_right = 248.0
 margin_bottom = 77.0
@@ -246,7 +247,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemExp" type="Label" parent="UI/ShopPanel/DescriptionBox/Body"]
+[node name="ItemExp" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
 margin_top = 81.0
 margin_right = 248.0
 margin_bottom = 99.0
@@ -260,7 +261,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bottom" type="HBoxContainer" parent="UI/ShopPanel/DescriptionBox"]
+[node name="Bottom" type="HBoxContainer" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -273,7 +274,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuySellButton" type="TextureButton" parent="UI/ShopPanel/DescriptionBox/Bottom"]
+[node name="BuySellButton" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom"]
 margin_right = 150.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 150, 60 )
@@ -287,9 +288,9 @@ __meta__ = {
 BuyButtonTexture = ExtResource( 14 )
 SellButtonTexture = ExtResource( 15 )
 
-[node name="Tween" type="Tween" parent="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton"]
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton"]
 
-[node name="NextWave" type="TextureButton" parent="UI/ShopPanel/DescriptionBox/Bottom"]
+[node name="NextWave" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom"]
 margin_left = 154.0
 margin_right = 254.0
 margin_bottom = 60.0
@@ -301,7 +302,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemsSold" type="HBoxContainer" parent="UI/ShopPanel"]
+[node name="ItemsSold" type="HBoxContainer" parent="CanvasLayer/UI/ShopPanel"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -317,7 +318,7 @@ __meta__ = {
 }
 item_pool = ExtResource( 7 )
 
-[node name="Button" type="Button" parent="UI/ShopPanel/ItemsSold"]
+[node name="Button" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemsSold"]
 margin_right = 172.0
 margin_bottom = 200.0
 focus_mode = 0
@@ -327,7 +328,7 @@ enabled_focus_mode = 0
 flat = true
 clip_text = true
 
-[node name="Button2" type="Button" parent="UI/ShopPanel/ItemsSold"]
+[node name="Button2" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemsSold"]
 margin_left = 222.0
 margin_right = 394.0
 margin_bottom = 200.0
@@ -337,7 +338,7 @@ custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 0
 flat = true
 
-[node name="Button3" type="Button" parent="UI/ShopPanel/ItemsSold"]
+[node name="Button3" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemsSold"]
 margin_left = 444.0
 margin_right = 616.0
 margin_bottom = 200.0
@@ -347,13 +348,15 @@ custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 flat = true
 
-[node name="ItemSlotsTexture" type="TextureRect" parent="UI/ShopPanel"]
-anchor_right = 1.0
+[node name="ItemSlotsTexture" type="TextureRect" parent="CanvasLayer/UI/ShopPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 382.0
-margin_top = 527.0
-margin_right = -663.0
-margin_bottom = -83.0
+margin_left = -405.5
+margin_top = -387.0
+margin_right = 123.5
+margin_bottom = -86.0
 texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
@@ -361,11 +364,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BackpackSprite" type="TextureRect" parent="UI/ShopPanel"]
-margin_left = 118.0
-margin_top = 603.0
-margin_right = 464.0
-margin_bottom = 802.0
+[node name="BackpackSprite" type="TextureRect" parent="CanvasLayer/UI/ShopPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -643.0
+margin_top = -302.0
+margin_right = -297.0
+margin_bottom = -103.0
 rect_min_size = Vector2( 240, 138 )
 texture = ExtResource( 17 )
 expand = true
@@ -374,11 +381,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemSlots" type="HBoxContainer" parent="UI/ShopPanel"]
-margin_left = 396.0
-margin_top = 621.0
-margin_right = 903.0
-margin_bottom = 729.0
+[node name="ItemSlots" type="HBoxContainer" parent="CanvasLayer/UI/ShopPanel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -391.0
+margin_top = -289.0
+margin_right = 116.0
+margin_bottom = -181.0
 size_flags_horizontal = 3
 custom_constants/separation = 15
 script = ExtResource( 21 )
@@ -387,7 +398,7 @@ __meta__ = {
 }
 occupied_item_icon = ExtResource( 20 )
 
-[node name="Button" type="Button" parent="UI/ShopPanel/ItemSlots"]
+[node name="Button" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_right = 88.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 88, 90 )
@@ -396,7 +407,7 @@ enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button"]
+[node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button"]
 anchor_left = -0.215909
 anchor_top = 0.768519
 anchor_right = -0.215909
@@ -412,7 +423,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button2" type="Button" parent="UI/ShopPanel/ItemSlots"]
+[node name="Button2" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 103.0
 margin_right = 191.0
 margin_bottom = 108.0
@@ -422,7 +433,7 @@ enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button2"]
+[node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button2"]
 anchor_left = -0.261364
 anchor_top = 0.768519
 anchor_right = -0.261364
@@ -438,7 +449,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button3" type="Button" parent="UI/ShopPanel/ItemSlots"]
+[node name="Button3" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 206.0
 margin_right = 294.0
 margin_bottom = 108.0
@@ -448,7 +459,7 @@ enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button3"]
+[node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button3"]
 anchor_left = -0.272727
 anchor_top = 0.768519
 anchor_right = -0.272727
@@ -464,7 +475,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button4" type="Button" parent="UI/ShopPanel/ItemSlots"]
+[node name="Button4" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 309.0
 margin_right = 397.0
 margin_bottom = 108.0
@@ -474,7 +485,7 @@ enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button4"]
+[node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button4"]
 anchor_left = -0.227273
 anchor_top = 0.777778
 anchor_right = -0.227273
@@ -490,7 +501,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button5" type="Button" parent="UI/ShopPanel/ItemSlots"]
+[node name="Button5" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 412.0
 margin_right = 500.0
 margin_bottom = 108.0
@@ -500,7 +511,7 @@ enabled_focus_mode = 0
 flat = true
 expand_icon = true
 
-[node name="Quantity" type="Label" parent="UI/ShopPanel/ItemSlots/Button5"]
+[node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button5"]
 anchor_left = -0.170455
 anchor_top = 0.787037
 anchor_right = -0.170455
@@ -516,16 +527,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="UpperLeftCorner" type="VBoxContainer" parent="UI"]
-margin_left = 18.0
+[node name="UpperLeftCorner" type="VBoxContainer" parent="CanvasLayer/UI"]
+margin_left = 35.0
 margin_top = 28.0
-margin_right = 168.0
+margin_right = 185.0
 margin_bottom = 208.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hooks" type="TextureRect" parent="UI/UpperLeftCorner"]
+[node name="Hooks" type="TextureRect" parent="CanvasLayer/UI/UpperLeftCorner"]
 margin_right = 150.0
 margin_bottom = 88.0
 rect_min_size = Vector2( 150, 88 )
@@ -537,7 +548,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/UpperLeftCorner/Hooks"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/UpperLeftCorner/Hooks"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -554,7 +565,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Gold" type="TextureRect" parent="UI/UpperLeftCorner"]
+[node name="Gold" type="TextureRect" parent="CanvasLayer/UI/UpperLeftCorner"]
 margin_top = 92.0
 margin_right = 150.0
 margin_bottom = 180.0
@@ -567,7 +578,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/UpperLeftCorner/Gold"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/UpperLeftCorner/Gold"]
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -584,7 +595,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RoundNumber" type="Label" parent="UI"]
+[node name="RoundNumber" type="Label" parent="CanvasLayer/UI"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -125.5
@@ -599,10 +610,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hooks\?" type="Button" parent="UI"]
-margin_left = 18.0
+[node name="Hooks\?" type="Button" parent="CanvasLayer/UI"]
+margin_left = 35.0
 margin_top = 208.0
-margin_right = 178.0
+margin_right = 195.0
 margin_bottom = 264.0
 custom_fonts/font = SubResource( 13 )
 text = "Hooks? ($1)"
@@ -611,10 +622,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScreenTransition" parent="UI" instance=ExtResource( 24 )]
+[node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 24 )]
 
-[connection signal="button_down" from="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_down"]
-[connection signal="button_up" from="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_up"]
-[connection signal="tween_all_completed" from="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton/Tween" to="UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_Tween_tween_all_completed"]
-[connection signal="pressed" from="UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="UI" method="_on_NextWave_pressed"]
-[connection signal="pressed" from="UI/Hooks?" to="UI" method="_on_Hooks_pressed"]
+[connection signal="button_down" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton/Tween" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_Tween_tween_all_completed"]
+[connection signal="pressed" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="CanvasLayer/UI" method="_on_NextWave_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/Hooks?" to="CanvasLayer/UI" method="_on_Hooks_pressed"]

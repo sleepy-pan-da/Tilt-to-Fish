@@ -3,9 +3,9 @@ extends Node2D
 export(String, FILE, "*.tscn") var option_scene 
 export(String, FILE, "*.tscn") var index_scene 
 
-onready var start = $UI/Labels/VBoxContainer/StartButton
-onready var index = $UI/Labels/VBoxContainer/IndexButton
-onready var screen_transition = $UI/ScreenTransition
+onready var start = $CanvasLayer/UI/Labels/VBoxContainer/StartButton
+onready var index = $CanvasLayer/UI/Labels/VBoxContainer/IndexButton
+onready var screen_transition = $CanvasLayer/UI/ScreenTransition
 
 var button_clicked_to_determine_next_scene : String
 var buttons = ["start", "index"]

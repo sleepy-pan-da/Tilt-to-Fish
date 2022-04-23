@@ -5,15 +5,15 @@ export(String, FILE, "*.tscn") var game_scene
 export(Resource) var control_config = control_config as ControlConfig
 export(PackedScene) onready var current_bobber
 
-onready var topdown_button = $UI/HoldingPreference/TopDownButton
-onready var regular_button = $UI/HoldingPreference/RegularButton
-onready var back_button = $UI/BackButton
-onready var play_button = $UI/PlayButton
-onready var tilt_sensitivity = $UI/TiltSensitivity
-onready var toggle_bobber_button = $UI/ToggleBobberButton
-onready var screen_transition = $UI/ScreenTransition
+onready var topdown_button = $CanvasLayer/UI/HoldingPreference/TopDownButton
+onready var regular_button = $CanvasLayer/UI/HoldingPreference/RegularButton
+onready var back_button = $CanvasLayer/UI/BackButton
+onready var play_button = $CanvasLayer/UI/PlayButton
+onready var tilt_sensitivity = $CanvasLayer/UI/TiltSensitivity
+onready var toggle_bobber_button = $CanvasLayer/UI/ToggleBobberButton
+onready var screen_transition = $CanvasLayer/UI/ScreenTransition
 onready var bobber_spawn_pt = $BobberSpawnPt
-onready var ui = $UI
+onready var ui = $CanvasLayer/UI
 
 var bobber : Bobber
 var button_clicked_to_determine_next_scene : String

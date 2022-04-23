@@ -6,15 +6,15 @@ export var wave_system_enabled : bool = true # used for disabling wave system an
 
 onready var fishes = $Fishes
 onready var bobber_spawn_pt = $BobberSpawnPt
-onready var hooks_label = $UI/Hooks/HooksLabel
-onready var countdown = $UI/Countdown
-onready var congrats = $UI/Congrats
-onready var wave_number_label = $UI/WaveNumber/CurrentWave
-onready var total_waves = $UI/WaveNumber/TotalWaves
-onready var wave_number_progress_bar = $UI/WaveNumber/ProgressBar
-onready var game_over = $UI/GameOver
-onready var screen_transition = $UI/CanvasLayer/ScreenTransition
-onready var debug_ui = $UI/DebugUI
+onready var hooks_label = $CanvasLayer/UI/Hooks/HooksLabel
+onready var countdown = $CanvasLayer/UI/Countdown
+onready var congrats = $CanvasLayer/UI/Congrats
+onready var wave_number_label = $CanvasLayer/UI/WaveNumber/CurrentWave
+onready var total_waves = $CanvasLayer/UI/WaveNumber/TotalWaves
+onready var wave_number_progress_bar = $CanvasLayer/UI/WaveNumber/ProgressBar
+onready var game_over = $CanvasLayer/UI/GameOver
+onready var screen_transition = $CanvasLayer/UI/ScreenTransition
+onready var debug_ui = $CanvasLayer/UI/DebugUI
 onready var items_that_require_level = $ItemsThatRequireLevel
 onready var orb_manager = $OrbManager
 

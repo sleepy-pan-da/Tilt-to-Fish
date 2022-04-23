@@ -91,23 +91,23 @@ script = ExtResource( 7 )
 [node name="BobberSpawnPt" type="Position2D" parent="."]
 position = Vector2( 640, 360 )
 
-[node name="UI" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hooks" type="Control" parent="CanvasLayer/UI"]
 margin_right = 1280.0
 margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hooks" type="Control" parent="UI"]
-margin_right = 1280.0
-margin_bottom = 720.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="UI/Hooks"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Hooks"]
 margin_left = 31.0
 margin_top = 20.0
 margin_right = 3507.0
@@ -120,7 +120,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HooksLabel" type="Label" parent="UI/Hooks"]
+[node name="HooksLabel" type="Label" parent="CanvasLayer/UI/Hooks"]
 margin_left = 99.0
 margin_top = 48.0
 margin_right = 165.0
@@ -131,15 +131,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Countdown" type="Control" parent="UI"]
-margin_right = 1280.0
-margin_bottom = 720.0
+[node name="Countdown" type="Control" parent="CanvasLayer/UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/Countdown"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/Countdown"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -156,20 +162,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="UI/Countdown"]
+[node name="Timer" type="Timer" parent="CanvasLayer/UI/Countdown"]
 process_mode = 0
 one_shot = true
 autostart = true
 
-[node name="Congrats" type="Control" parent="UI"]
+[node name="Congrats" type="Control" parent="CanvasLayer/UI"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="UI/Congrats"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/Congrats"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -186,7 +198,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="UI/Congrats"]
+[node name="Label2" type="Label" parent="CanvasLayer/UI/Congrats"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -203,17 +215,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WaveNumber" type="Control" parent="UI"]
+[node name="WaveNumber" type="Control" parent="CanvasLayer/UI"]
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
+margin_left = -1280.0
+margin_bottom = 720.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CurrentWave" type="Label" parent="UI/WaveNumber"]
-margin_left = 776.0
+[node name="CurrentWave" type="Label" parent="CanvasLayer/UI/WaveNumber"]
+margin_left = 886.0
 margin_top = 41.0
-margin_right = 994.0
+margin_right = 1104.0
 margin_bottom = 101.0
 custom_fonts/font = SubResource( 5 )
 text = "Wave 1"
@@ -221,10 +235,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TotalWaves" type="Label" parent="UI/WaveNumber"]
-margin_left = 1000.0
+[node name="TotalWaves" type="Label" parent="CanvasLayer/UI/WaveNumber"]
+margin_left = 1110.0
 margin_top = 41.0
-margin_right = 1218.0
+margin_right = 1328.0
 margin_bottom = 101.0
 custom_fonts/font = SubResource( 5 )
 text = "/9"
@@ -232,10 +246,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="TextureProgress" parent="UI/WaveNumber"]
-margin_left = 1093.0
+[node name="ProgressBar" type="TextureProgress" parent="CanvasLayer/UI/WaveNumber"]
+margin_left = 1203.0
 margin_top = 41.0
-margin_right = 1279.0
+margin_right = 1389.0
 margin_bottom = 227.0
 rect_scale = Vector2( 0.25, 0.25 )
 max_value = 30.0
@@ -247,26 +261,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="UI/WaveNumber/ProgressBar"]
+[node name="Timer" type="Timer" parent="CanvasLayer/UI/WaveNumber/ProgressBar"]
 process_mode = 0
 
-[node name="Stats" type="Control" parent="UI"]
+[node name="Stats" type="Control" parent="CanvasLayer/UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Control" parent="UI"]
+[node name="GameOver" type="Control" parent="CanvasLayer/UI"]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -360.0
+margin_right = 640.0
+margin_bottom = 360.0
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="UI/GameOver"]
+[node name="Button" type="Button" parent="CanvasLayer/UI/GameOver"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -283,7 +303,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayAgain" type="Label" parent="UI/GameOver/Button"]
+[node name="PlayAgain" type="Label" parent="CanvasLayer/UI/GameOver/Button"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -300,9 +320,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="UI/GameOver/Button/PlayAgain"]
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/GameOver/Button/PlayAgain"]
 
-[node name="Label" type="Label" parent="UI/GameOver"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/GameOver"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -316,7 +336,7 @@ text = "Game over"
 align = 1
 valign = 1
 
-[node name="HighScore" type="Label" parent="UI/GameOver"]
+[node name="HighScore" type="Label" parent="CanvasLayer/UI/GameOver"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -330,7 +350,7 @@ text = "Highest round reached:"
 align = 1
 valign = 1
 
-[node name="DebugUI" type="Control" parent="UI"]
+[node name="DebugUI" type="Control" parent="CanvasLayer/UI"]
 visible = false
 margin_left = 22.0
 margin_top = 103.0
@@ -341,7 +361,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Header" type="Label" parent="UI/DebugUI"]
+[node name="Header" type="Label" parent="CanvasLayer/UI/DebugUI"]
 margin_right = 194.0
 margin_bottom = 42.0
 custom_fonts/font = SubResource( 9 )
@@ -350,7 +370,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Content" type="VBoxContainer" parent="UI/DebugUI"]
+[node name="Content" type="VBoxContainer" parent="CanvasLayer/UI/DebugUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 57.0
@@ -358,7 +378,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReelDamage" type="Label" parent="UI/DebugUI/Content"]
+[node name="ReelDamage" type="Label" parent="CanvasLayer/UI/DebugUI/Content"]
 margin_right = 224.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 224, 21 )
@@ -366,7 +386,7 @@ size_flags_vertical = 1
 custom_fonts/font = SubResource( 10 )
 text = "Reel Damage: "
 
-[node name="ReelRate" type="Label" parent="UI/DebugUI/Content"]
+[node name="ReelRate" type="Label" parent="CanvasLayer/UI/DebugUI/Content"]
 margin_top = 25.0
 margin_right = 224.0
 margin_bottom = 46.0
@@ -375,9 +395,7 @@ size_flags_vertical = 1
 custom_fonts/font = SubResource( 10 )
 text = "Reel Rate: "
 
-[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
-
-[node name="ScreenTransition" parent="UI/CanvasLayer" instance=ExtResource( 11 )]
+[node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 11 )]
 
 [node name="PausingManager" type="Node2D" parent="."]
 pause_mode = 2
@@ -409,10 +427,10 @@ TNT = ExtResource( 34 )
 script = ExtResource( 24 )
 bobber_stats = ExtResource( 25 )
 
-[connection signal="timeout" from="UI/Countdown/Timer" to="UI/Countdown" method="_on_Timer_timeout"]
-[connection signal="timeout" from="UI/WaveNumber/ProgressBar/Timer" to="UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]
-[connection signal="button_down" from="UI/GameOver/Button" to="UI/GameOver" method="_on_Button_button_down"]
-[connection signal="button_up" from="UI/GameOver/Button" to="UI/GameOver" method="_on_Button_button_up"]
-[connection signal="tween_all_completed" from="UI/GameOver/Button/PlayAgain/Tween" to="UI/GameOver" method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="CanvasLayer/UI/Countdown/Timer" to="CanvasLayer/UI/Countdown" method="_on_Timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/UI/WaveNumber/ProgressBar/Timer" to="CanvasLayer/UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]
+[connection signal="button_down" from="CanvasLayer/UI/GameOver/Button" to="CanvasLayer/UI/GameOver" method="_on_Button_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/GameOver/Button" to="CanvasLayer/UI/GameOver" method="_on_Button_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/GameOver/Button/PlayAgain/Tween" to="CanvasLayer/UI/GameOver" method="_on_Tween_tween_all_completed"]
 
-[editable path="UI/CanvasLayer/ScreenTransition"]
+[editable path="CanvasLayer/UI/ScreenTransition"]
