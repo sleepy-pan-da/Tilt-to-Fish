@@ -22,7 +22,7 @@ const MAX_SPEED := 1500
 var current_velocity : Vector2
 
 var have_immunity : bool = true 
-var is_immune : int = 0 # int instead of bool to allow multiple triggers  of invulnerability orb
+var is_immune : int = 0 # int instead of bool to allow multiple triggers of invulnerability orb
 var is_moving : bool = false
 var no_of_proximity_areas_in : int = 0
 var immunity_stacks_to_be_removed : int = 0
@@ -164,14 +164,18 @@ func recalibrate_regular_movement_direction_vector(accelerometer_vector : Vector
 
 
 func start_immunity():
+	# You cannot start immunity if you are currently in Invulnerable or EndInvulnerable animation
+	if blink_animation_player.current_animation == "Invulnerable" or blink_animation_player.current_animation == "EndInvulnerable":
+		return
 	blink_animation_player.play("Immune")
 	change_immune_stack_by(1)
 	
-	# This var is needed for the scenario where this function is triggered on top of itself 
+	# This var is needed to keep track of the immunity stacks to be removed.
+	# This is due to the scenario where this function is triggered on top of itself.
 	# e.g. taking damage and calling this function right before a new wave which also triggers this function.
 	# This causes a scenario where if not for this var, when immunity timer times out, only one immunity stack is removed,
 	# causing is_immune > 0, making u forever immune for that round.
-	# This problem is unique from invulnerability power up as that one has multiple independent timers managing it as compared
+	# This problem is unique and different compared to invulnerability power up as that one has multiple independent timers managing it as compared
 	# to this which only has one
 	immunity_stacks_to_be_removed += 1 
 	
@@ -183,14 +187,16 @@ func _on_ImmunityTimer_timeout():
 
 
 func end_immunity():
-	blink_animation_player.play("EndImmune")
+	if blink_animation_player.current_animation != "Invulnerable" or blink_animation_player.current_animation != "EndInvulnerable":
+		blink_animation_player.play("EndImmune")
 	change_immune_stack_by(-immunity_stacks_to_be_removed)
 	immunity_stacks_to_be_removed = 0
 
 
 func change_immune_stack_by(change : int) -> void:
+	#print("Immune stack: " + str(is_immune) + " -> " + str(is_immune + change))
 	is_immune += change
-
+	
 
 func change_num_of_proximity_areas_in_by(change : int) -> void:
 	var original_no_of_proximity_areas_in = no_of_proximity_areas_in
@@ -202,7 +208,7 @@ func change_num_of_proximity_areas_in_by(change : int) -> void:
 		proximity_area_timers.resume_all_timers()
 	elif no_of_proximity_areas_in == 0:
 		proximity_area_timers.pause_all_timers()
-	print("no_of_proximity_areas_in changed from " + str(original_no_of_proximity_areas_in) + " to " + str(no_of_proximity_areas_in))
+	#print("no_of_proximity_areas_in changed from " + str(original_no_of_proximity_areas_in) + " to " + str(no_of_proximity_areas_in))
 
 
 func reset_upon_new_run() -> void:
