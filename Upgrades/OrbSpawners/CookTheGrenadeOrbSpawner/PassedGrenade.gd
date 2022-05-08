@@ -17,5 +17,5 @@ func explode() -> void:
 	gamelevel_template_reference.add_child(triggered_instance) 
 	triggered_instance.set_damage(damage)
 	triggered_instance.global_position = global_position
-	print("accumulated_damage: " + str(triggered_instance.damage))
+	#print("accumulated_damage: " + str(triggered_instance.damage))
 	queue_free()

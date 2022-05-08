@@ -21,8 +21,6 @@ var index_of_currently_pressed_item : int = -1
 var bobber : Bobber
 
 func _ready() -> void:
-	#rect_min_size =  Vector2(1500, 720)#OS.get_real_window_size()
-	#print(rect_min_size)
 	screen_transition.transition_in()
 	backpack.level_up_all_held_items()
 	create_bobber_instance()
@@ -106,7 +104,7 @@ func on_clicked_buy_sell_button() -> void:
 		return
 	
 	var button_icon : Texture = description_box.buy_sell_button.texture_normal
-	if button_icon == description_box.buy_sell_button.BuyButtonTexture:
+	if button_icon == description_box.buy_sell_button.BuyButtonTexture1Digit or button_icon == description_box.buy_sell_button.BuyButtonTexture2Digit:
 		var can_afford : bool = bobber_stats.gold_amount >= item_cost
 		
 		if can_afford: 
@@ -122,7 +120,7 @@ func on_clicked_buy_sell_button() -> void:
 				hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
 				items_sold.get_child(index_of_currently_pressed_item).text = ""
 
-	elif button_icon == description_box.buy_sell_button.SellButtonTexture:
+	elif button_icon == description_box.buy_sell_button.SellButtonTexture1Digit or button_icon == description_box.buy_sell_button.SellButtonTexture2Digit:
 		var item_level : int = backpack.get_item_level(item_name)
 		backpack.remove_item_from_backpack(item_name)
 		bobber.on_sell_item(item_name, item_level)

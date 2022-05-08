@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/StickyGooOrbSpawner/StickyGooOrbSpawner.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Upgrades/OrbSpawners/MjolnirOrbSpawner/MjolnirOrbSpawner.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/TNTOrbSpawner.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Game/GameLevelTemplate/FpsLabel.gd" type="Script" id=35]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -41,7 +42,6 @@ use_filter = true
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 144
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -49,30 +49,34 @@ size = 144
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 96
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 56
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 64
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=7]
 size = 144
 font_data = ExtResource( 8 )
 
+[sub_resource type="DynamicFont" id=5]
+size = 96
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 56
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 64
+font_data = ExtResource( 8 )
+
 [sub_resource type="DynamicFont" id=8]
-size = 48
+size = 144
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=9]
+size = 48
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=10]
 size = 32
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 19 )
 
 [node name="GameLevelTemplate" type="Node2D"]
@@ -131,6 +135,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Fps" type="Control" parent="CanvasLayer/UI"]
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FpsLabel" type="Label" parent="CanvasLayer/UI/Fps"]
+margin_left = 32.0
+margin_top = 112.0
+margin_right = 184.0
+margin_bottom = 184.0
+custom_fonts/font = SubResource( 2 )
+text = "FPS: "
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Countdown" type="Control" parent="CanvasLayer/UI"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -154,7 +177,7 @@ margin_left = -505.0
 margin_top = -208.0
 margin_right = 505.0
 margin_bottom = -23.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "countdown"
 align = 1
 valign = 1
@@ -190,7 +213,7 @@ margin_left = -418.0
 margin_top = -248.0
 margin_right = 418.0
 margin_bottom = -63.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Congrats"
 align = 1
 valign = 1
@@ -207,7 +230,7 @@ margin_left = -475.5
 margin_top = 88.0
 margin_right = 475.5
 margin_bottom = 273.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Tap to continue"
 align = 1
 valign = 1
@@ -229,7 +252,7 @@ margin_left = 886.0
 margin_top = 41.0
 margin_right = 1104.0
 margin_bottom = 101.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "Wave 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -240,7 +263,7 @@ margin_left = 1110.0
 margin_top = 41.0
 margin_right = 1328.0
 margin_bottom = 101.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "/9"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -313,7 +336,7 @@ margin_top = -32.0
 margin_right = 208.0
 margin_bottom = 36.0
 rect_pivot_offset = Vector2( 208, 34 )
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 text = "Play again"
 align = 1
 __meta__ = {
@@ -331,7 +354,7 @@ margin_left = -450.5
 margin_top = -194.0
 margin_right = 450.5
 margin_bottom = -41.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 text = "Game over"
 align = 1
 valign = 1
@@ -345,7 +368,7 @@ margin_left = -439.0
 margin_top = -26.0
 margin_right = 439.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Highest round reached:"
 align = 1
 valign = 1
@@ -364,7 +387,7 @@ __meta__ = {
 [node name="Header" type="Label" parent="CanvasLayer/UI/DebugUI"]
 margin_right = 194.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 text = "Debug Panel"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -383,7 +406,7 @@ margin_right = 224.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 224, 21 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Reel Damage: "
 
 [node name="ReelRate" type="Label" parent="CanvasLayer/UI/DebugUI/Content"]
@@ -392,7 +415,7 @@ margin_right = 224.0
 margin_bottom = 46.0
 rect_min_size = Vector2( 224, 21 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Reel Rate: "
 
 [node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 11 )]

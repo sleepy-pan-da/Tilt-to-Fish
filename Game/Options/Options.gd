@@ -31,12 +31,6 @@ func _ready() -> void:
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 
 
-#func _process(delta):
-#	print(OS.get_window_size())
-#	ui.rect_size = OS.get_window_size()
-#	print(ui.rect_position)
-
-
 func update_current_holding_preference() -> void:
 	hide_all_ticks()
 	var current_holding_preference : String = control_config.holding_preference

@@ -22,8 +22,8 @@ spawns_orbs = true
 display_name = "TNT"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "You hold 2/4/8 demolition charges
+description = "You hold 2/3/4 demolition charges
 Enter proximity area: attach your charges onto the fish
-Reactivate: detonate all charges, each dealing 10 damage
+Reactivate: detonate all charges, each dealing 15/20/30 damage
 Cooldown: 5s"
 rarity = 1

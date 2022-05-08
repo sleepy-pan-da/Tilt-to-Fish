@@ -48,7 +48,7 @@ func _physics_process(delta):
 
 func set_incremented_values(new_incremented_values) -> void:
 	damage = new_incremented_values[0]
-	print("AntimatterWave damage is " + str(damage))
+	#print("AntimatterWave damage is " + str(damage))
 
 
 func on_screen_exited() -> void:

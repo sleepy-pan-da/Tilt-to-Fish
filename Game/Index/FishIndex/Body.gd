@@ -18,6 +18,6 @@ func populate_fish_buttons() -> void:
 func on_pressed_fish_button_in_index(fish_name : String) -> void:
 	var fish_info : FishInfo = fish_index.get_fish_info(fish_name)
 	displayed_fish_info.update_info(fish_info)
-	print(fish_info.name)
-	print(fish_info.can_touch)
-	print(fish_info.description)
+	#print(fish_info.name)
+	#print(fish_info.can_touch)
+	#print(fish_info.description)

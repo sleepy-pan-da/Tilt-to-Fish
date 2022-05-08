@@ -14,7 +14,6 @@ export(PackedScene) onready var Invulnerability
 export(PackedScene) onready var Acid
 export(PackedScene) onready var CookTheGrenade
 export(PackedScene) onready var TNT
-export(PackedScene) onready var Detonator # for TNT
 
 # Proximity Area Timers
 export(PackedScene) onready var PlasmaField

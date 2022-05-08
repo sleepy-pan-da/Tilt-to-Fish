@@ -17,9 +17,9 @@ func on_finished_set_up() -> void:
 
 func set_incremented_values(new_incremented_values) -> void:
 	stun_duration = new_incremented_values[0]
-	print("StunGrenade's stun is " + str(stun_duration) + "s")
+	#print("StunGrenade's stun is " + str(stun_duration) + "s")
 	damage = new_incremented_values[2]
-	print("StunGrenade's damage is " + str(damage))
+	#print("StunGrenade's damage is " + str(damage))
 
 
 func _on_StunGrenade_body_entered(body):

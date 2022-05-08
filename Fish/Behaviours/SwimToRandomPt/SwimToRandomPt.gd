@@ -26,7 +26,7 @@ func swim() -> Vector2:
 	direction_to_swim = (computed_pt - global_position).normalized()
 	var velocity : Vector2 = direction_to_swim * speed
 	swimming = true
-	print(computed_pt)
+	#print(computed_pt)
 	return velocity
 	
 	
@@ -36,7 +36,6 @@ func compute_pt_to_swim_to() -> void:
 	var y_coordinate : int = randi() % 720
 	computed_pt = Vector2(x_coordinate, y_coordinate)
 	if is_computed_pt_near_to_fish():
-		print("recur")
 		compute_pt_to_swim_to()
 
 

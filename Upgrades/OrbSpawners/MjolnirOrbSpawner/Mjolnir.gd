@@ -6,6 +6,7 @@ onready var follow_lifespan = $FollowLifespan
 export(int) var speed : float
 
 var damage : float
+var stun_duration : float
 var is_triggered : bool = false
 var bobber_reference : Bobber
 
@@ -19,6 +20,7 @@ func on_finished_set_up() -> void:
 
 func set_incremented_values(new_incremented_values) -> void:
 	damage = new_incremented_values[0]
+	stun_duration = new_incremented_values[2]
 	#print("Mjolnir's damage is " + str(damage))
 
 

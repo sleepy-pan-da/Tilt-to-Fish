@@ -33,7 +33,7 @@ var held_items = 	{
 						#"Loyalty Card"	:	0,
 						#"Retaliation"	:	0,
 						#"Long Rest"	:	3,
-						#"Invulnerability"	:	3,
+						#"Invulnerability"	:	0,
 						#"Rejuvenation"	:	2,
 						#"Sticky Goo"	:	6,
 						#"Mjolnir"	:	0,
@@ -74,8 +74,8 @@ func remove_item_from_backpack(item_name : String) -> void:
 
 
 func level_up_all_held_items() -> void:
-	var held_items : Array = get_items_of_backpack()
-	for item_name in held_items:
+	var currently_held_items : Array = get_items_of_backpack()
+	for item_name in currently_held_items:
 		gain_exp(item_name)
 
 

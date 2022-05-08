@@ -32,8 +32,8 @@ func set_incremented_values(new_incremented_values) -> void:
 
 func set_cooldown_duration(new_cooldown_duration : float) -> void:
 	cooldown_duration = new_cooldown_duration
-	print("raw cooldown duration is " + str(cooldown_duration))
+	#print("raw cooldown duration is " + str(cooldown_duration))
 	var cooldown_reduction : float = bobber_stats.orb_cooldown_reduction
 	cooldown_duration *= cooldown_reduction
 	cooldown.set_duration(cooldown_duration)
-	print("new cooldown duration is " + str(cooldown.max_value))
+	#print("new cooldown duration is " + str(cooldown.max_value))

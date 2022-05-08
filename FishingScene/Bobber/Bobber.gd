@@ -67,11 +67,6 @@ func on_triggered_orb_that_requires_bobber(item_name : String, incremented_value
 	if item_name == "TNT" and has_node("TNT"):
 		get_node("TNT").update_qty_from_orb(incremented_values)
 		return
-	elif item_name == "TNT" and !has_node("TNT"):
-		var detonator = items_that_require_bobber.get_reference("Detonator")
-		var detonator_instance = detonator.instance()
-		get_parent().add_child(detonator_instance)
-		detonator_instance.global_position = global_position
 	
 	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
@@ -123,10 +118,7 @@ func _physics_process(delta : float) -> void:
 
 func move(accelerometer_vector : Vector3, delta : float) -> void:
 	var speed_multiplier : int
-	var x_velocity : float
-	var y_velocity : float
 	var desired_velocity : Vector2
-
 	
 	if control_config.holding_preference == "regular":
 		accelerometer_vector = recalibrate_regular_movement_direction_vector(accelerometer_vector)

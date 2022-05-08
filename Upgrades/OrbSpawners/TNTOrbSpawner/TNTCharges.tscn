@@ -7,11 +7,11 @@
 [ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/AttachedCharge.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/TNTExplosion.tscn" type="PackedScene" id=6]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 128
 font_data = ExtResource( 2 )
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=2]
 radius = 28.0
 
 [node name="TNTCharges" type="Area2D"]
@@ -31,7 +31,7 @@ margin_left = 192.907
 margin_top = -78.6612
 margin_right = 471.907
 margin_bottom = 56.3388
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "3"
 script = ExtResource( 4 )
 __meta__ = {
@@ -39,6 +39,6 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [connection signal="area_entered" from="." to="." method="_on_TNTCharges_area_entered"]

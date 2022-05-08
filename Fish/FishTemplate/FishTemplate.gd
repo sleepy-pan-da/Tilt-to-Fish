@@ -151,6 +151,7 @@ func _on_Hurtbox_area_entered(area):
 		on_stunned(area.stun_duration)
 	elif area.get_name() == "Mjolnir":
 		progress_bar.increment_bar(area.damage)
+		on_stunned(area.stun_duration)
 	elif area.get_name() == "PlasmaField":
 		progress_bar.increment_bar(area.damage)
 	elif area.get_name() == "Intimidate":

@@ -5,7 +5,7 @@ export(PackedScene) onready var explosion
 
 onready var qty_label = $Sprite/QtyLabel
 
-var damage : float = 10
+var damage : float
 var qty : int
 
 func _ready() -> void:
@@ -15,6 +15,7 @@ func _ready() -> void:
 func set_incremented_values(new_incremented_values) -> void:
 	qty = new_incremented_values[0]
 	qty_label.update_text(qty)
+	damage = new_incremented_values[2]
 
 
 func update_qty_from_orb(new_incremented_values) -> void:

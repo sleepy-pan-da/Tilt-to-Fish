@@ -27,7 +27,7 @@ func explode() -> void:
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_damage(max_damage)
 	triggered_instance.global_position = global_position
-	print("accumulated_damage: " + str(triggered_instance.damage))
+	#print("accumulated_damage: " + str(triggered_instance.damage))
 	queue_free()
 
 # entered a proximity area
