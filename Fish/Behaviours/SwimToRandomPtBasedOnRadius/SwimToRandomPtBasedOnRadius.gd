@@ -34,5 +34,6 @@ func compute_random_direction():
 
 	
 func compute_pt_to_swim_to() -> void:
-	computed_pt = direction_to_swim * radius + global_position
+	if is_inside_tree():
+		computed_pt = direction_to_swim * radius + global_position
 

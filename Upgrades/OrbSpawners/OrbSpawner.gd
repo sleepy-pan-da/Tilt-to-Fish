@@ -10,9 +10,9 @@ func set_incremented_values(new_incremented_values) -> void:
 
 func spawn_orb(node_to_add_to : Node) -> void:
 	var orb_instance : Orb = orb.instance()
-	node_to_add_to.add_child(orb_instance)
-	orb_instance.global_position = generate_random_pt_on_screen()
-	orb_instance.set_incremented_values(incremented_values)
+	node_to_add_to.call_deferred("add_child", orb_instance)
+	orb_instance.set_deferred("global_position", generate_random_pt_on_screen())
+	orb_instance.call_deferred("set_incremented_values", incremented_values)
 
 
 func generate_random_pt_on_screen() -> Vector2:

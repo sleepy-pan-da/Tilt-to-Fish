@@ -77,7 +77,8 @@ func manage_timers_when_proximity_area_entered() -> void:
 
 func manage_timers_when_proximity_area_exited() -> void:
 	check_bobber_in_proximity_area_timer.stop()
-	recovery_timer.start()
+	if recovery_timer.is_inside_tree(): # this is added to resolve an error where the timer is started when the fish is caught
+		recovery_timer.start()
 	
 	
 # will be called if you stay in proximity area for the duration of bobber's attack rate	

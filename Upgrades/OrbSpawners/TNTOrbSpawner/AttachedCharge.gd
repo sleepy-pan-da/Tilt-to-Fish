@@ -23,7 +23,7 @@ func increment_qty() -> void:
 func explode() -> void:
 	var triggered_instance = explosion.instance()
 	var gamelevel_template_reference = get_parent().get_parent().get_parent().get_parent()
-	gamelevel_template_reference.add_child(triggered_instance) 
-	triggered_instance.set_damage(damage * qty)
-	triggered_instance.global_position = global_position
+	gamelevel_template_reference.call_deferred("add_child", triggered_instance)
+	triggered_instance.call_deferred("set_damage", damage * qty)
+	triggered_instance.set_deferred("global_position", global_position)
 	queue_free()

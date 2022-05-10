@@ -70,8 +70,8 @@ func on_triggered_orb_that_requires_bobber(item_name : String, incremented_value
 	
 	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
-	add_child(triggered_instance)
-	triggered_instance.set_incremented_values(incremented_values)
+	call_deferred("add_child", triggered_instance)
+	triggered_instance.call_deferred("set_incremented_values", incremented_values)
 	
 	if item_name == "Arrow" or item_name == "Antimatter Wave":
 		triggered_instance.set_bobber_reference(self)
@@ -83,8 +83,8 @@ func on_triggered_orb_that_requires_bobber(item_name : String, incremented_value
 func on_triggered_item_that_requires_bobber(item_name : String, incremented_values) -> void:
 	var triggered_item = items_that_require_bobber.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
-	add_child(triggered_instance)
-	triggered_instance.set_value(incremented_values)
+	call_deferred("add_child", triggered_instance)
+	triggered_instance.call_deferred("set_value", incremented_values)
 
 
 func _physics_process(delta : float) -> void:
