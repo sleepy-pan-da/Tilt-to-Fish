@@ -38,6 +38,7 @@ func _ready() -> void:
 	items_sold.get_child(1).connect("pressed", self, "on_pressed_items_sold", [1])
 	items_sold.get_child(2).connect("pressed", self, "on_pressed_items_sold", [2])
 	description_box.buy_sell_button.connect("clicked_buy_sell_button", self, "on_clicked_buy_sell_button")
+	description_box.next_wave_button.connect("clicked_next_wave_button", self, "_on_NextWave_pressed")
 	backpack_slots.get_child(0).connect("pressed", self, "on_pressed_backpack_slot", [0])
 	backpack_slots.get_child(1).connect("pressed", self, "on_pressed_backpack_slot", [1])
 	backpack_slots.get_child(2).connect("pressed", self, "on_pressed_backpack_slot", [2])

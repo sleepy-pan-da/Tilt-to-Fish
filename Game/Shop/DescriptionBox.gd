@@ -12,6 +12,7 @@ onready var item_rarity = $Body/ItemRarity
 onready var item_selling_costs = $Body/ItemSellingCosts
 onready var item_exp = $Body/ItemExp
 onready var buy_sell_button = $Bottom/BuySellButton
+onready var next_wave_button = $Bottom/NextWave
 
 func update_description_box_from_items_sold(item : String) -> void:	
 	var item_details : ItemTraits = item_pool.get_item(item)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Energetic_music.mp3-c1207283a6725546f73af8ee46e51847.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Energetic_music.mp3"
+dest_files=[ "res://.import/Energetic_music.mp3-c1207283a6725546f73af8ee46e51847.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Assets/Shop/BaseUI_V2/altar_base_v3.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -34,6 +34,12 @@
 [ext_resource path="res://FishingScene/Bobber/Bobber.tscn" type="PackedScene" id=32]
 [ext_resource path="res://Game/Shop/NewShop/ItemType.gd" type="Script" id=33]
 [ext_resource path="res://Assets/Shop/BaseUI_V2/shop_sell_1dig.png" type="Texture" id=34]
+[ext_resource path="res://Game/Shop/NewShop/NextWave.gd" type="Script" id=35]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/paper_1.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/paper_3.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/paper_2.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/paper_5.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Shop/BaseUI_V2/paper_4.png" type="Texture" id=40]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -51,12 +57,8 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=14]
-size = 18
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=6]
-size = 10
+size = 18
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -68,12 +70,11 @@ size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 32
+size = 10
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=10]
-size = 30
-use_filter = true
+size = 32
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=11]
@@ -82,10 +83,15 @@ use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=12]
-size = 22
+size = 30
+use_filter = true
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=13]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 2 )
 
 [node name="Shop" type="Node"]
@@ -303,7 +309,7 @@ margin_left = -51.0
 margin_top = 5.0
 margin_right = -10.0
 margin_bottom = 45.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 6 )
 text = "9"
 align = 1
 valign = 1
@@ -319,12 +325,16 @@ margin_left = 154.0
 margin_right = 254.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 100, 50 )
+rect_pivot_offset = Vector2( 50, 30 )
 texture_normal = ExtResource( 16 )
 expand = true
 stretch_mode = 4
+script = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave"]
 
 [node name="ItemsSold" type="HBoxContainer" parent="CanvasLayer/UI/ShopPanel"]
 anchor_left = 0.5
@@ -347,7 +357,7 @@ margin_right = 172.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 0
 flat = true
 clip_text = true
@@ -358,7 +368,7 @@ margin_right = 394.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 0
 flat = true
 
@@ -368,11 +378,12 @@ margin_right = 616.0
 margin_bottom = 200.0
 focus_mode = 0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 enabled_focus_mode = 0
 flat = true
 
 [node name="ItemSlotsTexture" type="TextureRect" parent="CanvasLayer/UI/ShopPanel"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -410,11 +421,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -391.0
-margin_top = -289.0
-margin_right = 116.0
-margin_bottom = -181.0
+margin_left = -393.0
+margin_top = -286.0
+margin_right = 107.0
+margin_bottom = -182.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 15
 script = ExtResource( 21 )
 __meta__ = {
@@ -422,14 +434,15 @@ __meta__ = {
 }
 occupied_item_icon = ExtResource( 20 )
 
-[node name="Button" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
+[node name="Button" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_right = 88.0
-margin_bottom = 108.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 36 )
+expand = true
+stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button"]
 anchor_left = -0.215909
@@ -440,22 +453,34 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button2" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
+[node name="OccupiedItem" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button"]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 85.0
+margin_bottom = 73.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 103.0
 margin_right = 191.0
-margin_bottom = 108.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 38 )
+expand = true
+stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button2"]
 anchor_left = -0.261364
@@ -466,22 +491,34 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button3" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
+[node name="OccupiedItem" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button2"]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 85.0
+margin_bottom = 73.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 206.0
 margin_right = 294.0
-margin_bottom = 108.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 37 )
+expand = true
+stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button3"]
 anchor_left = -0.272727
@@ -492,22 +529,34 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button4" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
+[node name="OccupiedItem" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button3"]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 85.0
+margin_bottom = 73.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 309.0
 margin_right = 397.0
-margin_bottom = 108.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 40 )
+expand = true
+stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button4"]
 anchor_left = -0.227273
@@ -518,22 +567,34 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button5" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
+[node name="OccupiedItem" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button4"]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 85.0
+margin_bottom = 73.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 412.0
 margin_right = 500.0
-margin_bottom = 108.0
+margin_bottom = 104.0
 rect_min_size = Vector2( 88, 90 )
 focus_mode = 0
 enabled_focus_mode = 0
-flat = true
-expand_icon = true
+texture_normal = ExtResource( 39 )
+expand = true
+stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button5"]
 anchor_left = -0.170455
@@ -544,11 +605,22 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
+}
+
+[node name="OccupiedItem" type="TextureRect" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button5"]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 85.0
+margin_bottom = 73.0
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
 }
 
 [node name="UpperLeftCorner" type="VBoxContainer" parent="CanvasLayer/UI"]
@@ -581,7 +653,7 @@ margin_left = -86.0
 margin_top = -14.0
 margin_right = -12.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "9/9"
 align = 1
 valign = 1
@@ -611,7 +683,7 @@ margin_left = -83.0
 margin_top = -23.0
 margin_right = -19.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "99"
 align = 1
 valign = 1
@@ -626,7 +698,7 @@ margin_left = -125.5
 margin_top = 25.0
 margin_right = 125.5
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Round 99 complete"
 script = ExtResource( 6 )
@@ -639,7 +711,7 @@ margin_left = 35.0
 margin_top = 208.0
 margin_right = 195.0
 margin_bottom = 264.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "Hooks? ($1)"
 script = ExtResource( 31 )
 __meta__ = {
@@ -651,5 +723,7 @@ __meta__ = {
 [connection signal="button_down" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_down"]
 [connection signal="button_up" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton/Tween" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_Tween_tween_all_completed"]
-[connection signal="pressed" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="CanvasLayer/UI" method="_on_NextWave_pressed"]
+[connection signal="button_down" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" method="_on_NextWave_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" method="_on_NextWave_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave/Tween" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" method="_on_Tween_tween_all_completed"]
 [connection signal="pressed" from="CanvasLayer/UI/Hooks?" to="CanvasLayer/UI" method="_on_Hooks_pressed"]

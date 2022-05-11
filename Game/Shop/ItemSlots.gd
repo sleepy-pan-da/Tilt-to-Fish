@@ -11,10 +11,10 @@ func update_backpack_ui(backpack : BackPack) -> void:
 		var current_item : String = array_of_items[i]
 		var item_level : int = backpack.get_item_level(current_item)
 		get_child(i).get_child(0).text = str(item_level)
-		get_child(i).set_button_icon(occupied_item_icon)
+		get_child(i).get_node("OccupiedItem").texture = occupied_item_icon
 
 
 func reset_backpack_ui() -> void:
 	for i in range(5):
-		get_child(i).set_button_icon(null)
+		get_child(i).get_node("OccupiedItem").texture = null
 		get_child(i).get_child(0).text = ""
