@@ -421,9 +421,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -393.0
+margin_left = -394.0
 margin_top = -286.0
-margin_right = 107.0
+margin_right = 106.0
 margin_bottom = -182.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -445,9 +445,9 @@ expand = true
 stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button"]
-anchor_left = -0.215909
+anchor_left = -0.25
 anchor_top = 0.768519
-anchor_right = -0.215909
+anchor_right = -0.25
 anchor_bottom = 0.768519
 margin_left = 52.0
 margin_top = -8.0
@@ -483,10 +483,10 @@ expand = true
 stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button2"]
-anchor_left = -0.261364
-anchor_top = 0.768519
-anchor_right = -0.261364
-anchor_bottom = 0.768519
+anchor_left = -0.238636
+anchor_top = 0.778134
+anchor_right = -0.238636
+anchor_bottom = 0.778134
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
@@ -521,9 +521,9 @@ expand = true
 stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button3"]
-anchor_left = -0.272727
+anchor_left = -0.215909
 anchor_top = 0.768519
-anchor_right = -0.272727
+anchor_right = -0.215909
 anchor_bottom = 0.768519
 margin_left = 52.0
 margin_top = -8.0
@@ -559,9 +559,9 @@ expand = true
 stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button4"]
-anchor_left = -0.227273
+anchor_left = -0.215909
 anchor_top = 0.777778
-anchor_right = -0.227273
+anchor_right = -0.215909
 anchor_bottom = 0.777778
 margin_left = 52.0
 margin_top = -8.0
@@ -597,10 +597,10 @@ expand = true
 stretch_mode = 5
 
 [node name="Quantity" type="Label" parent="CanvasLayer/UI/ShopPanel/ItemSlots/Button5"]
-anchor_left = -0.170455
-anchor_top = 0.787037
-anchor_right = -0.170455
-anchor_bottom = 0.787037
+anchor_left = -0.21591
+anchor_top = 0.758191
+anchor_right = -0.21591
+anchor_bottom = 0.758191
 margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
@@ -718,6 +718,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="NextWave" type="TextureButton" parent="CanvasLayer/UI"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -149.0
+margin_top = -107.0
+margin_right = -49.0
+margin_bottom = -47.0
+rect_min_size = Vector2( 100, 50 )
+rect_pivot_offset = Vector2( 50, 30 )
+texture_normal = ExtResource( 16 )
+expand = true
+stretch_mode = 4
+script = ExtResource( 35 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/NextWave"]
+
 [node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 24 )]
 
 [connection signal="button_down" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton" method="_on_BuySellButton_button_down"]
@@ -727,3 +748,6 @@ __meta__ = {
 [connection signal="button_up" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" method="_on_NextWave_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave/Tween" to="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/NextWave" method="_on_Tween_tween_all_completed"]
 [connection signal="pressed" from="CanvasLayer/UI/Hooks?" to="CanvasLayer/UI" method="_on_Hooks_pressed"]
+[connection signal="button_down" from="CanvasLayer/UI/NextWave" to="CanvasLayer/UI/NextWave" method="_on_NextWave_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/NextWave" to="CanvasLayer/UI/NextWave" method="_on_NextWave_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/NextWave/Tween" to="CanvasLayer/UI/NextWave" method="_on_Tween_tween_all_completed"]

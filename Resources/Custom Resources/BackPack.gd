@@ -16,7 +16,7 @@ var held_items = 	{
 						#"Strength"		:	0,
 						#"Constitution"	:	2,
 						#"False God"		:	0,
-						#"Not Today"		:	3,
+						#"Not Today"		:	0,
 						#"Cccombo"		:	0,
 						#"Time Lord Victorious"	:	0,
 						#"Bullet Time"	:	2,

@@ -12,6 +12,7 @@ onready var round_number = $RoundNumber
 onready var description_box = $ShopPanel/DescriptionBox
 onready var backpack_slots = $ShopPanel/ItemSlots
 onready var items_sold = $ShopPanel/ItemsSold
+onready var next_wave = $NextWave
 #onready var lock_button = $Lock
 #onready var reroll_button = $Reroll
 onready var hooks_button = get_node("Hooks?")
@@ -21,6 +22,7 @@ var index_of_currently_pressed_item : int = -1
 var bobber : Bobber
 
 func _ready() -> void:
+	SongManager.fade_out()
 	screen_transition.transition_in()
 	backpack.level_up_all_held_items()
 	create_bobber_instance()
@@ -39,6 +41,7 @@ func _ready() -> void:
 	items_sold.get_child(2).connect("pressed", self, "on_pressed_items_sold", [2])
 	description_box.buy_sell_button.connect("clicked_buy_sell_button", self, "on_clicked_buy_sell_button")
 	description_box.next_wave_button.connect("clicked_next_wave_button", self, "_on_NextWave_pressed")
+	next_wave.connect("clicked_next_wave_button", self, "_on_NextWave_pressed")
 	backpack_slots.get_child(0).connect("pressed", self, "on_pressed_backpack_slot", [0])
 	backpack_slots.get_child(1).connect("pressed", self, "on_pressed_backpack_slot", [1])
 	backpack_slots.get_child(2).connect("pressed", self, "on_pressed_backpack_slot", [2])
@@ -76,9 +79,11 @@ func on_pressed_items_sold(child_index : int) -> void:
 	if item_name != "": # bought the item alr, no more item offered for sale
 		if !description_box.visible:
 			description_box.show() 
+			next_wave.hide()
 		description_box.update_description_box_from_items_sold(item_name)
 	else:
 		description_box.hide()
+		next_wave.show()
 		return
 
 
@@ -90,11 +95,13 @@ func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
 		item_name = array_of_backpack_keys[index_of_backpack_keys]
 	else:
 		description_box.hide()
+		next_wave.show()
 		return
 
 	if item_name != "":
 		if !description_box.visible:
 			description_box.show() 
+			next_wave.hide()
 		description_box.update_description_box_from_backpack_slots(backpack, item_name) 
 
 
@@ -115,6 +122,7 @@ func on_clicked_buy_sell_button() -> void:
 				bobber.on_buy_item(item_name)
 				
 				description_box.hide()
+				next_wave.show()
 				backpack_slots.update_backpack_ui(backpack)
 				bobber_stats.change_gold(-item_cost)
 				gold.update_label(bobber_stats.gold_amount)
@@ -128,6 +136,7 @@ func on_clicked_buy_sell_button() -> void:
 		bobber.on_sell_other_item()
 		
 		description_box.hide()
+		next_wave.show()
 		backpack_slots.update_backpack_ui(backpack)
 		bobber_stats.change_gold(item_cost)
 		gold.update_label(bobber_stats.gold_amount)
@@ -145,6 +154,7 @@ func go_back_to_fishing() -> void:
 #	else:
 #		items_sold.forget_locked_items()
 	get_tree().change_scene(game_scene)
+	SongManager.fade_in()
 
 
 func _on_Hooks_pressed() -> void:

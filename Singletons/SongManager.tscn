@@ -8,6 +8,8 @@
 [node name="SongManager" type="Node"]
 script = ExtResource( 4 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [node name="CaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 
