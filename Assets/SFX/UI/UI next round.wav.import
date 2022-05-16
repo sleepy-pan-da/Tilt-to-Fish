@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UI next round.wav-98be9ed449327480ceaca92a1e782038.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/UI/UI next round.wav"
+dest_files=[ "res://.import/UI next round.wav-98be9ed449327480ceaca92a1e782038.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

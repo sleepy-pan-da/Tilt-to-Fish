@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UI enter altar.wav-eb2b6350f6def64d1a77d6ef7bbd83aa.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/UI/UI enter altar.wav"
+dest_files=[ "res://.import/UI enter altar.wav-eb2b6350f6def64d1a77d6ef7bbd83aa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

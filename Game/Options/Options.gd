@@ -75,7 +75,6 @@ func go_to_next_scene() -> void:
 			get_tree().change_scene(main_menu)
 		"play":
 			get_tree().change_scene(game_scene)
-			
 
 
 func _on_HSlider_value_changed(value) -> void:

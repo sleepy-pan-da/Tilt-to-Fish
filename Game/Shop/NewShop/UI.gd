@@ -23,6 +23,7 @@ var bobber : Bobber
 
 func _ready() -> void:
 	SongManager.fade_out()
+	SfxManager.ui.play("Enter altar")
 	screen_transition.transition_in()
 	backpack.level_up_all_held_items()
 	create_bobber_instance()
@@ -120,6 +121,7 @@ func on_clicked_buy_sell_button() -> void:
 				bobber.on_buy_other_item() # this is before add item to prevent buying the item from triggering itself
 				backpack.add_item(item_name)
 				bobber.on_buy_item(item_name)
+				SfxManager.ui.play("Bought item")
 				
 				description_box.hide()
 				next_wave.show()
@@ -128,12 +130,14 @@ func on_clicked_buy_sell_button() -> void:
 				gold.update_label(bobber_stats.gold_amount)
 				hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
 				items_sold.get_child(index_of_currently_pressed_item).text = ""
-
+		else:
+			SfxManager.ui.play("Error")
 	elif button_icon == description_box.buy_sell_button.SellButtonTexture1Digit or button_icon == description_box.buy_sell_button.SellButtonTexture2Digit:
 		var item_level : int = backpack.get_item_level(item_name)
 		backpack.remove_item_from_backpack(item_name)
 		bobber.on_sell_item(item_name, item_level)
 		bobber.on_sell_other_item()
+		SfxManager.ui.play("Sold item")
 		
 		description_box.hide()
 		next_wave.show()
@@ -166,6 +170,9 @@ func _on_Hooks_pressed() -> void:
 		gold.update_label(bobber_stats.gold_amount)
 		bobber_stats.gain_hook(1)
 		hooks_button.update_label_on_successful_purchase()
+		SfxManager.ui.play("Restore hook")	
+	else:
+		SfxManager.ui.play("Error")
 		
 
 func on_bobber_gained_hook(num_of_hook_gained: int) -> void:

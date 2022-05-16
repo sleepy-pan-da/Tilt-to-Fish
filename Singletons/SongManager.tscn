@@ -12,12 +12,15 @@ script = ExtResource( 4 )
 
 [node name="CaveMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+bus = "Music"
 
 [node name="HypeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "Music"
 
 [node name="SurfaceMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+bus = "Music"
 
 [connection signal="finished" from="CaveMusic" to="." method="_on_CaveMusic_finished"]
 [connection signal="finished" from="HypeMusic" to="." method="_on_HypeMusic_finished"]

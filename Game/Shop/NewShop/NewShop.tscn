@@ -723,11 +723,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -149.0
-margin_top = -107.0
-margin_right = -49.0
-margin_bottom = -47.0
+margin_left = -194.0
+margin_top = -105.0
+margin_right = -94.0
+margin_bottom = -45.0
 rect_min_size = Vector2( 100, 50 )
+rect_scale = Vector2( 1.5, 1.5 )
 rect_pivot_offset = Vector2( 50, 30 )
 texture_normal = ExtResource( 16 )
 expand = true
@@ -736,6 +737,7 @@ script = ExtResource( 35 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+is_big = true
 
 [node name="Tween" type="Tween" parent="CanvasLayer/UI/NextWave"]
 

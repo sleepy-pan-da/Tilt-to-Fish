@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Took damage.wav-e1181a86b7e5aeb1f2d74858a7ea5f05.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Took damage.wav"
+dest_files=[ "res://.import/Took damage.wav-e1181a86b7e5aeb1f2d74858a7ea5f05.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

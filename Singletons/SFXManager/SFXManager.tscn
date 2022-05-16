@@ -1,0 +1,74 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
+[ext_resource path="res://Assets/SFX/UI/UI back.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=3]
+[ext_resource path="res://Singletons/SFXManager/UI.gd" type="Script" id=4]
+[ext_resource path="res://Assets/SFX/UI/UI-sold-item.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/SFX/UI/UI bought item.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SFX/UI/UI error.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SFX/UI/UI restore hook with penny.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/SFX/Bobber/Took damage.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/SFX/Fish/Pickup_coin 4.wav" type="AudioStream" id=10]
+[ext_resource path="res://Assets/SFX/UI/UI enter altar.wav" type="AudioStream" id=11]
+[ext_resource path="res://Assets/SFX/UI/UI next round.wav" type="AudioStream" id=12]
+
+[node name="SFXManager" type="Node"]
+script = ExtResource( 1 )
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Confirm" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 3 )
+volume_db = 6.0
+bus = "UiSfx"
+
+[node name="Back" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 2 )
+volume_db = 6.0
+bus = "UiSfx"
+
+[node name="Bought item" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 6 )
+volume_db = -3.0
+bus = "UiSfx"
+
+[node name="Sold item" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 5 )
+volume_db = -3.0
+bus = "UiSfx"
+
+[node name="Error" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 7 )
+volume_db = 3.0
+bus = "UiSfx"
+
+[node name="Restore hook" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 8 )
+volume_db = -3.0
+bus = "UiSfx"
+
+[node name="Enter altar" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 11 )
+bus = "UiSfx"
+
+[node name="Next round" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 12 )
+bus = "UiSfx"
+
+[node name="Bobber" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Took damage" type="AudioStreamPlayer" parent="Bobber"]
+stream = ExtResource( 9 )
+volume_db = -9.0
+bus = "Sfx"
+
+[node name="Fish" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Caught fish" type="AudioStreamPlayer" parent="Fish"]
+stream = ExtResource( 10 )
+volume_db = -12.0
+bus = "Sfx"

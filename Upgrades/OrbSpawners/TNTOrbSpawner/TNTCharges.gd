@@ -49,8 +49,8 @@ func attached_charge_is_in(area) -> bool:
 
 
 func explode() -> void:
-	var triggered_instance = explosion.instance()
-	get_parent().get_parent().add_child(triggered_instance)
-	triggered_instance.set_damage(damage * qty)
-	triggered_instance.global_position = global_position
+	var triggered_instance = explosion.instance()	
+	get_parent().get_parent().call_deferred("add_child", triggered_instance)
+	triggered_instance.call_deferred("set_damage", damage * qty)
+	triggered_instance.set_deferred("global_position", global_position)
 	queue_free()

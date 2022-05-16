@@ -16,6 +16,7 @@ func populate_fish_buttons() -> void:
 
 
 func on_pressed_fish_button_in_index(fish_name : String) -> void:
+	SfxManager.ui.play("Confirm")
 	var fish_info : FishInfo = fish_index.get_fish_info(fish_name)
 	displayed_fish_info.update_info(fish_info)
 	#print(fish_info.name)

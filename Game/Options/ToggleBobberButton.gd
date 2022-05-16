@@ -15,6 +15,7 @@ func _on_ToggleBobberButton_button_up():
 	released_button = true
 	tween.interpolate_property(toggle_bobber_label, "rect_scale", Vector2(0.9,0.9), Vector2(1, 1), 0.1, Tween.TRANS_LINEAR)
 	tween.start()
+	SfxManager.ui.play("Confirm")
 
 
 func _on_Tween_tween_all_completed() -> void:

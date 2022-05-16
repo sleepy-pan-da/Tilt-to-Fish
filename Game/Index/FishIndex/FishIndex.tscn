@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Game/Index/FishIndex/Hostile.gd" type="Script" id=9]
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Game/Index/FishIndex/UI.gd" type="Script" id=11]
+[ext_resource path="res://Game/Index/FishIndex/Back.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -182,15 +183,21 @@ margin_top = -69.0
 margin_right = 125.0
 margin_bottom = -9.0
 rect_min_size = Vector2( 101, 60 )
+rect_pivot_offset = Vector2( 50, 30 )
 focus_mode = 0
 custom_fonts/font = SubResource( 5 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/Back"]
+
 [node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 10 )]
 
-[connection signal="pressed" from="CanvasLayer/UI/Back" to="CanvasLayer/UI" method="_on_Back_pressed"]
+[connection signal="button_down" from="CanvasLayer/UI/Back" to="CanvasLayer/UI/Back" method="_on_Back_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/Back" to="CanvasLayer/UI/Back" method="_on_Back_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/Back/Tween" to="CanvasLayer/UI/Back" method="_on_Tween_tween_all_completed"]
