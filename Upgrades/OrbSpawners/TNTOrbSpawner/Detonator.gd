@@ -5,5 +5,6 @@ func _on_SetUpTimer_timeout():
 
 
 func _on_Detonator_body_entered(body):
+	SfxManager.bobber.tnt.play("Detonate")
 	GameEvents.emit_signal("detonated_charges")
 	queue_free()

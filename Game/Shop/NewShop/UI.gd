@@ -75,6 +75,7 @@ func create_bobber_instance() -> void:
 
 
 func on_pressed_items_sold(child_index : int) -> void:
+	SfxManager.ui.play("Clicked item")
 	index_of_currently_pressed_item = child_index
 	var item_name : String = items_sold.get_child(child_index).text
 	if item_name != "": # bought the item alr, no more item offered for sale
@@ -89,6 +90,7 @@ func on_pressed_items_sold(child_index : int) -> void:
 
 
 func on_pressed_backpack_slot(index_of_backpack_keys : int) -> void:
+	SfxManager.ui.play("Clicked held item")
 	var array_of_backpack_keys : Array = backpack.get_items_of_backpack()
 	var item_name : String 
 

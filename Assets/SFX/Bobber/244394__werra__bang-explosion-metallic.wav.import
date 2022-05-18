@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/244394__werra__bang-explosion-metallic.wav-7aa48991520eba7faa2b9671ac71474b.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/244394__werra__bang-explosion-metallic.wav"
+dest_files=[ "res://.import/244394__werra__bang-explosion-metallic.wav-7aa48991520eba7faa2b9671ac71474b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

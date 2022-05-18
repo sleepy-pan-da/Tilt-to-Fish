@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Deploy stun grenade.wav-ab9993dbf56cda731abdde07dc1e1986.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Deploy stun grenade.wav"
+dest_files=[ "res://.import/Deploy stun grenade.wav-ab9993dbf56cda731abdde07dc1e1986.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

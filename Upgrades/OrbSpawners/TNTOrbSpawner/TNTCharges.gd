@@ -33,6 +33,7 @@ func _on_TNTCharges_area_entered(area):
 
 
 func attach_charge_to_fish(area) -> void:
+	SfxManager.bobber.tnt.play("Attach charge")
 	if !attached_charge_is_in(area):
 		var attached_charge_instance = attached_charge.instance()
 		attached_charge_instance.name = "attached_charge"

@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
-[ext_resource path="res://Assets/SFX/UI/UI back.wav" type="AudioStream" id=2]
-[ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/SFX/UI/UI back.wav" type="AudioStream" id=3]
 [ext_resource path="res://Singletons/SFXManager/UI.gd" type="Script" id=4]
 [ext_resource path="res://Assets/SFX/UI/UI-sold-item.wav" type="AudioStream" id=5]
 [ext_resource path="res://Assets/SFX/UI/UI bought item.wav" type="AudioStream" id=6]
@@ -12,6 +12,12 @@
 [ext_resource path="res://Assets/SFX/Fish/Pickup_coin 4.wav" type="AudioStream" id=10]
 [ext_resource path="res://Assets/SFX/UI/UI enter altar.wav" type="AudioStream" id=11]
 [ext_resource path="res://Assets/SFX/UI/UI next round.wav" type="AudioStream" id=12]
+[ext_resource path="res://Assets/SFX/UI/UI click item.wav" type="AudioStream" id=13]
+[ext_resource path="res://Assets/SFX/UI/UI click held item.wav" type="AudioStream" id=14]
+[ext_resource path="res://Assets/SFX/Bobber/Attach tnt.wav" type="AudioStream" id=15]
+[ext_resource path="res://Singletons/SFXManager/Bobber.gd" type="Script" id=16]
+[ext_resource path="res://Assets/SFX/Bobber/Detonate tnt.wav" type="AudioStream" id=17]
+[ext_resource path="res://Assets/SFX/Bobber/244394__werra__bang-explosion-metallic.wav" type="AudioStream" id=18]
 
 [node name="SFXManager" type="Node"]
 script = ExtResource( 1 )
@@ -20,18 +26,18 @@ script = ExtResource( 1 )
 script = ExtResource( 4 )
 
 [node name="Confirm" type="AudioStreamPlayer" parent="UI"]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 volume_db = 6.0
 bus = "UiSfx"
 
 [node name="Back" type="AudioStreamPlayer" parent="UI"]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = 6.0
 bus = "UiSfx"
 
 [node name="Bought item" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 6 )
-volume_db = -3.0
+volume_db = -6.0
 bus = "UiSfx"
 
 [node name="Sold item" type="AudioStreamPlayer" parent="UI"]
@@ -51,24 +57,48 @@ bus = "UiSfx"
 
 [node name="Enter altar" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 11 )
+volume_db = 3.0
 bus = "UiSfx"
 
 [node name="Next round" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 12 )
 bus = "UiSfx"
 
+[node name="Clicked item" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 13 )
+volume_db = 6.0
+bus = "UiSfx"
+
+[node name="Clicked held item" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 14 )
+volume_db = 6.0
+bus = "UiSfx"
+
 [node name="Bobber" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 16 )
 
 [node name="Took damage" type="AudioStreamPlayer" parent="Bobber"]
 stream = ExtResource( 9 )
 volume_db = -9.0
 bus = "Sfx"
 
+[node name="Tnt" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Attach charge" type="AudioStreamPlayer" parent="Bobber/Tnt"]
+stream = ExtResource( 15 )
+bus = "Sfx"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="Bobber/Tnt"]
+stream = ExtResource( 18 )
+
+[node name="Detonate" type="AudioStreamPlayer" parent="Bobber/Tnt"]
+stream = ExtResource( 17 )
+
 [node name="Fish" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="Caught fish" type="AudioStreamPlayer" parent="Fish"]
 stream = ExtResource( 10 )
-volume_db = -12.0
+volume_db = -6.0
 bus = "Sfx"

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/34200__themfish__bamf.wav-e7530bae1b92aaffbcae2e9512774dbb.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/34200__themfish__bamf.wav"
+dest_files=[ "res://.import/34200__themfish__bamf.wav-e7530bae1b92aaffbcae2e9512774dbb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
