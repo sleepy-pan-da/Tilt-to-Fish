@@ -5,7 +5,7 @@ onready var collision_shape = $CollisionShape2D
 var damage : float
 
 func _ready():
-	SfxManager.bobber.tnt.play("Explosion")
+	SfxManager.bobber.tnt.play("Explode")
 	collision_shape.shape.radius = 129
 
 func _physics_process(delta):

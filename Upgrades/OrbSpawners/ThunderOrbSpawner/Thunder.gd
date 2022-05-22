@@ -6,6 +6,7 @@ var damage : float
 var stun_duration : float = 1
 
 func _ready():
+	SfxManager.bobber.thunder.play("Thunder")
 	tween.interpolate_property(sprite, "modulate",
 		Color(0, 0, 1, 1), Color(0, 0, 1, 0), 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_OUT)

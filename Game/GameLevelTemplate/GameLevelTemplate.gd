@@ -117,11 +117,11 @@ func _on_successfully_caught_fish(fish_position : Vector2) -> void:
 		bobber.on_caught_fish()
 		
 
-func on_triggered_item_on_caught_fish(item_name : String, incremented_values) -> void:
+func on_triggered_item_on_caught_fish(item_name : String, incremented_values) -> void:	
 	var triggered_item = items_that_require_level.get_reference(item_name)
 	var triggered_instance = triggered_item.instance()
-	triggered_instance.set_value(incremented_values)
-	add_child(triggered_instance)
+	call_deferred("add_child", triggered_instance)
+	triggered_instance.call_deferred("set_value", incremented_values)
 	
 	# Have to hardcode the item names here due to the sheer difference in item behaviour
 	# This allows for flexibility in the future

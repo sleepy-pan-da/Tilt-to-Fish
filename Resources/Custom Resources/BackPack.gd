@@ -24,7 +24,7 @@ var held_items = 	{
 						#"Antimatter Wave"	:	3,
 						#"Five Rounds Rapid"	:	0,
 						#"Field Medic"	:	0,
-						#"Stun Grenade"	:	6,
+						#"Stun Grenade"	:	0,
 						#"Quick Reload"	:	6,
 						#"Infinite Power"	:	0,
 						#"Piggy Bank"	: 0,

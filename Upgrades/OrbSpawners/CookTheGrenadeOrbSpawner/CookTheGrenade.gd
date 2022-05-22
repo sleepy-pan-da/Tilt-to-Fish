@@ -10,6 +10,8 @@ var can_pass_to_fish : bool = false
 
 func _ready():
 	animation_player.play("Cooking")
+	SfxManager.bobber.cook_the_grenade.play("Pull pin")
+	SfxManager.bobber.cook_the_grenade.play("Fuse")
 
 
 func set_incremented_values(new_incremented_values) -> void:
@@ -23,6 +25,9 @@ func make_grenade_ready_to_be_passed() -> void:
 
 
 func explode() -> void:
+	if SfxManager.bobber.cook_the_grenade.get_node("Fuse").playing:
+		SfxManager.bobber.cook_the_grenade.stop('Fuse')
+	SfxManager.bobber.cook_the_grenade.play('Explode')
 	var triggered_instance = explosion.instance()
 	get_parent().get_parent().add_child(triggered_instance)
 	triggered_instance.set_damage(max_damage)
@@ -37,6 +42,7 @@ func _on_CookTheGrenade_area_entered(area):
 
 
 func pass_to_fish(area) -> void:
+	SfxManager.bobber.cook_the_grenade.play("Pass grenade")
 	var passed_grenade_instance = passed_grenade.instance()
 	area.get_parent().add_child(passed_grenade_instance)
 	passed_grenade_instance.global_position = area.get_parent().global_position
@@ -49,3 +55,8 @@ func compute_accumulated_damage(time_spent_cooking : float) -> float:
 	var total_time : float = animation_player.current_animation_length
 	var accumulated_damage : float = (time_spent_cooking / total_time) * max_damage
 	return accumulated_damage
+	
+
+func _exit_tree():
+	if SfxManager.bobber.cook_the_grenade.get_node("Fuse").playing:
+		SfxManager.bobber.cook_the_grenade.stop('Fuse')

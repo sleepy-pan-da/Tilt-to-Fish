@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
@@ -17,7 +17,16 @@
 [ext_resource path="res://Assets/SFX/Bobber/Attach tnt.wav" type="AudioStream" id=15]
 [ext_resource path="res://Singletons/SFXManager/Bobber.gd" type="Script" id=16]
 [ext_resource path="res://Assets/SFX/Bobber/Detonate tnt.wav" type="AudioStream" id=17]
-[ext_resource path="res://Assets/SFX/Bobber/244394__werra__bang-explosion-metallic.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/SFX/Bobber/Explode bomb.wav" type="AudioStream" id=18]
+[ext_resource path="res://Assets/SFX/Bobber/Deploy stun grenade.wav" type="AudioStream" id=19]
+[ext_resource path="res://Assets/SFX/Bobber/Detonate stun grenade.wav" type="AudioStream" id=20]
+[ext_resource path="res://Assets/SFX/Bobber/Bomb fuse.wav" type="AudioStream" id=21]
+[ext_resource path="res://Singletons/SFXManager/Stun grenade.gd" type="Script" id=22]
+[ext_resource path="res://Assets/SFX/Bobber/Pull grenade pin.wav" type="AudioStream" id=23]
+[ext_resource path="res://Assets/SFX/Bobber/Thunder.wav" type="AudioStream" id=24]
+[ext_resource path="res://Assets/SFX/Bobber/Against all odds.wav" type="AudioStream" id=25]
+[ext_resource path="res://Assets/SFX/Bobber/Not today.wav" type="AudioStream" id=26]
+[ext_resource path="res://Assets/SFX/Bobber/Cccombo explosion.wav" type="AudioStream" id=27]
 
 [node name="SFXManager" type="Node"]
 script = ExtResource( 1 )
@@ -87,18 +96,114 @@ script = ExtResource( 4 )
 
 [node name="Attach charge" type="AudioStreamPlayer" parent="Bobber/Tnt"]
 stream = ExtResource( 15 )
+volume_db = -6.0
 bus = "Sfx"
 
-[node name="Explosion" type="AudioStreamPlayer" parent="Bobber/Tnt"]
+[node name="Explode" type="AudioStreamPlayer" parent="Bobber/Tnt"]
 stream = ExtResource( 18 )
+volume_db = 9.0
+bus = "Sfx"
 
 [node name="Detonate" type="AudioStreamPlayer" parent="Bobber/Tnt"]
 stream = ExtResource( 17 )
+volume_db = 6.0
+bus = "Sfx"
+
+[node name="Stun grenade" type="Node" parent="Bobber"]
+script = ExtResource( 22 )
+
+[node name="Deploy" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
+stream = ExtResource( 19 )
+volume_db = -6.0
+bus = "Sfx"
+
+[node name="Detonate" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
+stream = ExtResource( 20 )
+volume_db = -6.0
+bus = "Sfx"
+
+[node name="Explode" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
+stream = ExtResource( 18 )
+volume_db = 9.0
+bus = "Sfx"
+
+[node name="Fuse" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
+stream = ExtResource( 21 )
+bus = "Sfx"
+
+[node name="Cook the grenade" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Pull pin" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
+stream = ExtResource( 23 )
+volume_db = -6.0
+bus = "Sfx"
+
+[node name="Fuse" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
+stream = ExtResource( 21 )
+bus = "Sfx"
+
+[node name="Explode" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
+stream = ExtResource( 18 )
+volume_db = 9.0
+bus = "Sfx"
+
+[node name="Pass grenade" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
+stream = ExtResource( 15 )
+volume_db = -6.0
+bus = "Sfx"
+
+[node name="Thunder" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Thunder" type="AudioStreamPlayer" parent="Bobber/Thunder"]
+stream = ExtResource( 24 )
+bus = "Sfx"
+
+[node name="Against all odds" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="Bobber/Against all odds"]
+stream = ExtResource( 27 )
+volume_db = 3.0
+pitch_scale = 0.5
+bus = "Sfx"
+
+[node name="Not today" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Not today" type="AudioStreamPlayer" parent="Bobber/Not today"]
+stream = ExtResource( 26 )
+volume_db = -6.0
+bus = "Sfx"
+
+[node name="Cccombo" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="Bobber/Cccombo"]
+stream = ExtResource( 27 )
+bus = "Sfx"
+
+[node name="Retaliation" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Explode" type="AudioStreamPlayer" parent="Bobber/Retaliation"]
+stream = ExtResource( 27 )
+pitch_scale = 0.7
+bus = "Sfx"
+
+[node name="Safe distancing" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Slap" type="AudioStreamPlayer" parent="Bobber/Safe distancing"]
+stream = ExtResource( 25 )
+volume_db = 3.0
+pitch_scale = 0.3
 
 [node name="Fish" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="Caught fish" type="AudioStreamPlayer" parent="Fish"]
 stream = ExtResource( 10 )
-volume_db = -6.0
+volume_db = -9.0
 bus = "Sfx"

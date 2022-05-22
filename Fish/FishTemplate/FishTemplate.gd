@@ -120,6 +120,7 @@ func obtain_bobber_reference(bobber : Bobber) -> void:
 
 func _on_Hurtbox_body_entered(body):
 	if body.get_name() == "AlphaOrbs":
+		SfxManager.bobber.safe_distancing.play("Slap")
 		progress_bar.appear()
 		fish_sprite.react_upon_getting_hurtbox_hit()
 		progress_bar.increment_bar(body.damage)

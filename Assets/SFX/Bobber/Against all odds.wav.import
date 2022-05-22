@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Against all odds.wav-536495da0cf4fb0f7df94fa89900162e.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Against all odds.wav"
+dest_files=[ "res://.import/Against all odds.wav-536495da0cf4fb0f7df94fa89900162e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

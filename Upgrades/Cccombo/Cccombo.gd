@@ -5,6 +5,9 @@ class_name Intimidate
 onready var aura = $Aura
 var damage : float
 
+func _ready() -> void:
+	SfxManager.bobber.cccombo.play("Explode")
+
 func _physics_process(delta):
 	aura.frame += 1
 	aura.frame += 1

@@ -5,6 +5,9 @@ class_name Retaliation
 onready var aura = $Aura
 var damage : float
 
+func _ready() -> void:
+	SfxManager.bobber.retaliation.play("Explode")
+
 func _physics_process(delta):
 	aura.frame += 1
 	aura.frame += 1

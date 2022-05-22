@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/88552__movingplaid__slap-concrete-02.wav-2934426b66b18324abb494a2c1a3f0c6.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/88552__movingplaid__slap-concrete-02.wav"
+dest_files=[ "res://.import/88552__movingplaid__slap-concrete-02.wav-2934426b66b18324abb494a2c1a3f0c6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
