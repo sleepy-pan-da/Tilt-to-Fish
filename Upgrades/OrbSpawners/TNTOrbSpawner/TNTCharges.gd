@@ -9,6 +9,7 @@ var damage : float
 var qty : int
 
 func _ready() -> void:
+	SfxManager.bobber.tnt.play("Carry")
 	GameEvents.connect("detonated_charges", self, "explode")
 
 

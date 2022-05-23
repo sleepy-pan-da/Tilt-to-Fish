@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Five rounds rapid tear down.wav-12f11a77c8468a747e03fd181b0968b6.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Five rounds rapid tear down.wav"
+dest_files=[ "res://.import/Five rounds rapid tear down.wav-12f11a77c8468a747e03fd181b0968b6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

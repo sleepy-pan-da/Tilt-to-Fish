@@ -22,7 +22,7 @@ var held_items = 	{
 						#"Bullet Time"	:	2,
 						#"Arrow"	:	3,
 						#"Antimatter Wave"	:	3,
-						#"Five Rounds Rapid"	:	0,
+						#"Five Rounds Rapid"	:	6,
 						#"Field Medic"	:	0,
 						#"Stun Grenade"	:	0,
 						#"Quick Reload"	:	6,

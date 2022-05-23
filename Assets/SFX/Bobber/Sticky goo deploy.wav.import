@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sticky goo deploy.wav-b1f7c1a4d84da2737eb2719ff83cf428.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Sticky goo deploy.wav"
+dest_files=[ "res://.import/Sticky goo deploy.wav-b1f7c1a4d84da2737eb2719ff83cf428.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -9,3 +9,6 @@ onready var not_today = get_node("Not today")
 onready var cccombo = $Cccombo
 onready var retaliation = $Retaliation
 onready var safe_distancing = get_node("Safe distancing")
+onready var five_rounds_rapid = get_node("Five rounds rapid")
+onready var field_medic = get_node("Field medic")
+onready var sticky_goo = get_node("Sticky goo")

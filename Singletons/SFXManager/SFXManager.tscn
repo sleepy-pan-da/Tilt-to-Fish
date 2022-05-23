@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
@@ -27,6 +27,11 @@
 [ext_resource path="res://Assets/SFX/Bobber/Against all odds.wav" type="AudioStream" id=25]
 [ext_resource path="res://Assets/SFX/Bobber/Not today.wav" type="AudioStream" id=26]
 [ext_resource path="res://Assets/SFX/Bobber/Cccombo explosion.wav" type="AudioStream" id=27]
+[ext_resource path="res://Assets/SFX/Bobber/Five rounds rapid fire.wav" type="AudioStream" id=28]
+[ext_resource path="res://Assets/SFX/Bobber/Five rounds rapid tear down.wav" type="AudioStream" id=29]
+[ext_resource path="res://Assets/SFX/Bobber/Tnt carry.wav" type="AudioStream" id=30]
+[ext_resource path="res://Assets/SFX/Bobber/Field medic gain hook.wav" type="AudioStream" id=31]
+[ext_resource path="res://Assets/SFX/Bobber/Sticky goo deploy.wav" type="AudioStream" id=32]
 
 [node name="SFXManager" type="Node"]
 script = ExtResource( 1 )
@@ -93,6 +98,11 @@ bus = "Sfx"
 
 [node name="Tnt" type="Node" parent="Bobber"]
 script = ExtResource( 4 )
+
+[node name="Carry" type="AudioStreamPlayer" parent="Bobber/Tnt"]
+stream = ExtResource( 30 )
+volume_db = -6.0
+bus = "Sfx"
 
 [node name="Attach charge" type="AudioStreamPlayer" parent="Bobber/Tnt"]
 stream = ExtResource( 15 )
@@ -199,6 +209,42 @@ script = ExtResource( 4 )
 stream = ExtResource( 25 )
 volume_db = 3.0
 pitch_scale = 0.3
+bus = "Sfx"
+
+[node name="Five rounds rapid" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Deploy" type="AudioStreamPlayer" parent="Bobber/Five rounds rapid"]
+stream = ExtResource( 15 )
+pitch_scale = 0.7
+bus = "Sfx"
+
+[node name="Fire" type="AudioStreamPlayer" parent="Bobber/Five rounds rapid"]
+stream = ExtResource( 28 )
+volume_db = -18.0
+bus = "Sfx"
+
+[node name="Tear down" type="AudioStreamPlayer" parent="Bobber/Five rounds rapid"]
+stream = ExtResource( 29 )
+volume_db = 3.0
+pitch_scale = 0.7
+bus = "Sfx"
+
+[node name="Field medic" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Filled fully" type="AudioStreamPlayer" parent="Bobber/Field medic"]
+stream = ExtResource( 31 )
+volume_db = 6.0
+bus = "Sfx"
+
+[node name="Sticky goo" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Deploy" type="AudioStreamPlayer" parent="Bobber/Sticky goo"]
+stream = ExtResource( 32 )
+volume_db = 6.0
+bus = "Sfx"
 
 [node name="Fish" type="Node" parent="."]
 script = ExtResource( 4 )

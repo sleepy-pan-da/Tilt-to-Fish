@@ -4,6 +4,7 @@ onready var animation_player = $AnimationPlayer
 var slow_by : float
 
 func _ready() -> void:
+	SfxManager.bobber.sticky_goo.play("Deploy")
 	animation_player.play("SetUp")
 
 

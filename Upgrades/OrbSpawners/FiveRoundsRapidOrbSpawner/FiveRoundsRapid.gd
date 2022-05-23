@@ -12,6 +12,7 @@ var detected_fish = [] #FIFO Queue
 var is_rotating : bool = false
 
 func _ready() -> void:
+	SfxManager.bobber.five_rounds_rapid.play("Deploy")
 	animation_player.play("SetUp")
 
 
@@ -24,6 +25,7 @@ func _on_FiringCooldown_timeout():
 
 
 func fire() -> void:
+	SfxManager.bobber.five_rounds_rapid.play("Fire")
 	var new_projectile : TurretProjectile = projectile.instance()
 	var level = get_parent()
 	level.add_child(new_projectile)
@@ -58,12 +60,12 @@ func rotate_if_needed() -> void:
 		else:
 			desired_angle += 2*PI
 	
-	if angle_diff > 5:
+	if angle_diff > 2:#5:
 		is_rotating = true
 		tween.interpolate_method(self, "compute_turret_rotation", 
 		current_angle, 
 		desired_angle, 
-		0.12, Tween.TRANS_SINE, Tween.EASE_OUT_IN)
+		0.1, Tween.TRANS_SINE, Tween.EASE_OUT_IN)
 		tween.start()
 
 
@@ -77,6 +79,10 @@ func compute_turret_rotation(angle_wrt_x_axis : float):
 	
 func _on_Lifespan_timeout():
 	animation_player.play("Collapse")
+
+
+func _exit_tree() -> void:
+	SfxManager.bobber.five_rounds_rapid.play("Tear down")
 
 
 func _on_Detection_body_entered(body):

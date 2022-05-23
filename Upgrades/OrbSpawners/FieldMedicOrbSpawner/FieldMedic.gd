@@ -13,6 +13,7 @@ func _ready() -> void:
 
 
 func on_progress_bar_filled() -> void:
+	SfxManager.bobber.field_medic.play("Filled fully")
 	bobber_stats.gain_hook(1)
 	progress_bar.reset()
 

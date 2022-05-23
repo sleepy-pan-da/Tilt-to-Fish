@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Five rounds rapid fire.wav-a27b23dc4e0370a7c0c668303f6e441d.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Five rounds rapid fire.wav"
+dest_files=[ "res://.import/Five rounds rapid fire.wav-a27b23dc4e0370a7c0c668303f6e441d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0
