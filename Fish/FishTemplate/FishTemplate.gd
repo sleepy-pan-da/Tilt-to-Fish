@@ -152,6 +152,7 @@ func _on_Hurtbox_area_entered(area):
 		progress_bar.increment_bar(area.damage)
 		on_stunned(area.stun_duration)
 	elif area.get_name() == "Mjolnir":
+		SfxManager.bobber.mjolnir.play("Electrocute")
 		progress_bar.increment_bar(area.damage)
 		on_stunned(area.stun_duration)
 	elif area.get_name() == "PlasmaField":

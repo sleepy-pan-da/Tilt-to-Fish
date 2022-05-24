@@ -12,3 +12,5 @@ onready var safe_distancing = get_node("Safe distancing")
 onready var five_rounds_rapid = get_node("Five rounds rapid")
 onready var field_medic = get_node("Field medic")
 onready var sticky_goo = get_node("Sticky goo")
+onready var static_field = get_node("Static field")
+onready var mjolnir = $Mjolnir

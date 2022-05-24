@@ -81,6 +81,7 @@ position = Vector2( 8, 8 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 10, 0 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 1 )

@@ -29,9 +29,10 @@ func _on_Mjolnir_body_entered(body : Bobber):
 		is_triggered = true
 		bobber_reference = body
 		animation_player.play("Triggered")	
-
+		SfxManager.bobber.mjolnir.play("Charging")
 
 func on_finished_triggered() -> void:
+	SfxManager.bobber.mjolnir.play("Finished charging")
 	monitorable = true
 	#follow_lifespan.start()
 

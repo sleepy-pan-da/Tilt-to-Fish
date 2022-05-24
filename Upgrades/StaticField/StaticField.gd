@@ -3,6 +3,10 @@ extends Node2D
 onready var aura = $Aura
 var damage : float
 
+func _ready() -> void:
+	SfxManager.bobber.static_field.play("Electrocute")
+
+
 func _physics_process(delta):
 	aura.frame += 1
 	aura.frame += 1

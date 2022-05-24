@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
@@ -32,6 +32,9 @@
 [ext_resource path="res://Assets/SFX/Bobber/Tnt carry.wav" type="AudioStream" id=30]
 [ext_resource path="res://Assets/SFX/Bobber/Field medic gain hook.wav" type="AudioStream" id=31]
 [ext_resource path="res://Assets/SFX/Bobber/Sticky goo deploy.wav" type="AudioStream" id=32]
+[ext_resource path="res://Assets/SFX/Bobber/Static field.wav" type="AudioStream" id=33]
+[ext_resource path="res://Assets/SFX/Bobber/Mjolnir charging.wav" type="AudioStream" id=34]
+[ext_resource path="res://Assets/SFX/Bobber/powerUp.wav" type="AudioStream" id=35]
 
 [node name="SFXManager" type="Node"]
 script = ExtResource( 1 )
@@ -85,7 +88,6 @@ bus = "UiSfx"
 
 [node name="Clicked held item" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 14 )
-volume_db = 6.0
 bus = "UiSfx"
 
 [node name="Bobber" type="Node" parent="."]
@@ -124,7 +126,7 @@ script = ExtResource( 22 )
 
 [node name="Deploy" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
 stream = ExtResource( 19 )
-volume_db = -6.0
+volume_db = -3.0
 bus = "Sfx"
 
 [node name="Detonate" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
@@ -139,6 +141,7 @@ bus = "Sfx"
 
 [node name="Fuse" type="AudioStreamPlayer" parent="Bobber/Stun grenade"]
 stream = ExtResource( 21 )
+volume_db = 3.0
 bus = "Sfx"
 
 [node name="Cook the grenade" type="Node" parent="Bobber"]
@@ -146,11 +149,12 @@ script = ExtResource( 4 )
 
 [node name="Pull pin" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
 stream = ExtResource( 23 )
-volume_db = -6.0
+volume_db = -3.0
 bus = "Sfx"
 
 [node name="Fuse" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
 stream = ExtResource( 21 )
+volume_db = 3.0
 bus = "Sfx"
 
 [node name="Explode" type="AudioStreamPlayer" parent="Bobber/Cook the grenade"]
@@ -221,7 +225,7 @@ bus = "Sfx"
 
 [node name="Fire" type="AudioStreamPlayer" parent="Bobber/Five rounds rapid"]
 stream = ExtResource( 28 )
-volume_db = -18.0
+volume_db = -12.0
 bus = "Sfx"
 
 [node name="Tear down" type="AudioStreamPlayer" parent="Bobber/Five rounds rapid"]
@@ -244,6 +248,31 @@ script = ExtResource( 4 )
 [node name="Deploy" type="AudioStreamPlayer" parent="Bobber/Sticky goo"]
 stream = ExtResource( 32 )
 volume_db = 6.0
+bus = "Sfx"
+
+[node name="Static field" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Electrocute" type="AudioStreamPlayer" parent="Bobber/Static field"]
+stream = ExtResource( 33 )
+volume_db = -3.0
+bus = "Sfx"
+
+[node name="Mjolnir" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Electrocute" type="AudioStreamPlayer" parent="Bobber/Mjolnir"]
+stream = ExtResource( 33 )
+volume_db = -3.0
+pitch_scale = 0.7
+bus = "Sfx"
+
+[node name="Charging" type="AudioStreamPlayer" parent="Bobber/Mjolnir"]
+stream = ExtResource( 34 )
+bus = "Sfx"
+
+[node name="Finished charging" type="AudioStreamPlayer" parent="Bobber/Mjolnir"]
+stream = ExtResource( 35 )
 bus = "Sfx"
 
 [node name="Fish" type="Node" parent="."]
