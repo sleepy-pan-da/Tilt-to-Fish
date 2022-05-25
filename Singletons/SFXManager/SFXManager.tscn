@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
@@ -30,11 +30,15 @@
 [ext_resource path="res://Assets/SFX/Bobber/Five rounds rapid fire.wav" type="AudioStream" id=28]
 [ext_resource path="res://Assets/SFX/Bobber/Five rounds rapid tear down.wav" type="AudioStream" id=29]
 [ext_resource path="res://Assets/SFX/Bobber/Tnt carry.wav" type="AudioStream" id=30]
-[ext_resource path="res://Assets/SFX/Bobber/Field medic gain hook.wav" type="AudioStream" id=31]
+[ext_resource path="res://Assets/SFX/Bobber/Field medic.wav" type="AudioStream" id=31]
 [ext_resource path="res://Assets/SFX/Bobber/Sticky goo deploy.wav" type="AudioStream" id=32]
 [ext_resource path="res://Assets/SFX/Bobber/Static field.wav" type="AudioStream" id=33]
 [ext_resource path="res://Assets/SFX/Bobber/Mjolnir charging.wav" type="AudioStream" id=34]
-[ext_resource path="res://Assets/SFX/Bobber/powerUp.wav" type="AudioStream" id=35]
+[ext_resource path="res://Assets/SFX/Bobber/Mjolnir finished charging.wav" type="AudioStream" id=35]
+[ext_resource path="res://Assets/SFX/Bobber/Arrow charging.wav" type="AudioStream" id=36]
+[ext_resource path="res://Assets/SFX/Bobber/Antimatter wave charging.wav" type="AudioStream" id=37]
+[ext_resource path="res://Assets/SFX/Bobber/At all cost.wav" type="AudioStream" id=38]
+[ext_resource path="res://Assets/SFX/Bobber/Long rest.wav" type="AudioStream" id=39]
 
 [node name="SFXManager" type="Node"]
 script = ExtResource( 1 )
@@ -239,7 +243,7 @@ script = ExtResource( 4 )
 
 [node name="Filled fully" type="AudioStreamPlayer" parent="Bobber/Field medic"]
 stream = ExtResource( 31 )
-volume_db = 6.0
+volume_db = 3.0
 bus = "Sfx"
 
 [node name="Sticky goo" type="Node" parent="Bobber"]
@@ -273,6 +277,35 @@ bus = "Sfx"
 
 [node name="Finished charging" type="AudioStreamPlayer" parent="Bobber/Mjolnir"]
 stream = ExtResource( 35 )
+bus = "Sfx"
+
+[node name="Arrow" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Charging" type="AudioStreamPlayer" parent="Bobber/Arrow"]
+stream = ExtResource( 36 )
+pitch_scale = 0.95
+bus = "Sfx"
+
+[node name="Antimatter wave" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Charging" type="AudioStreamPlayer" parent="Bobber/Antimatter wave"]
+stream = ExtResource( 37 )
+bus = "Sfx"
+
+[node name="At all cost" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="At all cost" type="AudioStreamPlayer" parent="Bobber/At all cost"]
+stream = ExtResource( 38 )
+bus = "Sfx"
+
+[node name="Long rest" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Full restore" type="AudioStreamPlayer" parent="Bobber/Long rest"]
+stream = ExtResource( 39 )
 bus = "Sfx"
 
 [node name="Fish" type="Node" parent="."]

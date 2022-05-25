@@ -19,6 +19,7 @@ func _on_CheckEvery1s_timeout() -> void:
 
 
 func on_progress_bar_filled() -> void:
+	SfxManager.bobber.long_rest.play("Full restore")
 	var remaining_hooks : int = bobber_stats.max_hooks_amount - bobber_stats.hooks_amount
 	if remaining_hooks > 0:
 		bobber_stats.gain_hook(remaining_hooks)

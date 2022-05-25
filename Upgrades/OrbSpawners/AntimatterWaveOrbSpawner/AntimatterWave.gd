@@ -11,6 +11,7 @@ var velocity : Vector2 = Vector2(0, 0)
 var bobber : Bobber
 
 func _ready():
+	SfxManager.bobber.antimatter_wave.play("Charging")
 	animation_player.play("Charging")
 
 

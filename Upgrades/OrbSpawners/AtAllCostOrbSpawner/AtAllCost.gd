@@ -5,6 +5,7 @@ onready var tween = $Tween
 var damage : float
 
 func _ready():
+	SfxManager.bobber.at_all_cost.play("At all cost")
 	tween.interpolate_property(sprite, "modulate",
 		Color(1, 1, 1, 1), Color(1, 1, 1, 0), 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_OUT)

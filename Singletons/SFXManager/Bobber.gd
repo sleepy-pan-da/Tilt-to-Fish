@@ -14,3 +14,7 @@ onready var field_medic = get_node("Field medic")
 onready var sticky_goo = get_node("Sticky goo")
 onready var static_field = get_node("Static field")
 onready var mjolnir = $Mjolnir
+onready var arrow = $Arrow
+onready var antimatter_wave = get_node("Antimatter wave")
+onready var at_all_cost = get_node("At all cost")
+onready var long_rest = get_node("Long rest")
