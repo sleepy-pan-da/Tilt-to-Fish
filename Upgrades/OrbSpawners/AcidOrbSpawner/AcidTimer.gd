@@ -9,6 +9,8 @@ var spawn_time : float = 0.1
 var life_span : float = 5
 
 func _ready() -> void:
+	SfxManager.bobber.acid.acid_triggers_on_stack += 1
+	SfxManager.bobber.acid.play("Trigger")
 	wait_time = spawn_time
 	lifespan_timer.wait_time = life_span
 	start()
@@ -27,4 +29,12 @@ func set_incremented_values(incremented_values) -> void:
 
 
 func _on_LifespanTimer_timeout():
+	SfxManager.bobber.acid.acid_triggers_on_stack -= 1
+	if SfxManager.bobber.acid.acid_triggers_on_stack <= 0: 
+		SfxManager.bobber.acid.stop('Trigger')
 	queue_free()
+
+
+func _exit_tree():
+	if SfxManager.bobber.acid.get_node("Trigger").playing:
+		SfxManager.bobber.acid.stop('Trigger')

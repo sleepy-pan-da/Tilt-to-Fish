@@ -5,6 +5,7 @@ onready var tween = $Tween
 var stun_duration : float
 
 func _ready():
+	SfxManager.bobber.intimidate.play("Trigger")
 	tween.interpolate_property(self, "scale",
 		Vector2(0.5, 0.5), Vector2(2, 2), 0.3,
 		Tween.TRANS_ELASTIC, Tween.EASE_OUT)

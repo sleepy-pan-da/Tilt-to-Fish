@@ -33,7 +33,7 @@ var held_items = 	{
 						#"Loyalty Card"	:	0,
 						#"Retaliation"	:	0,
 						#"Long Rest"	:	3,
-						#"Invulnerability"	:	0,
+						#"Invulnerability"	:	6,
 						#"Rejuvenation"	:	2,
 						#"Sticky Goo"	:	6,
 						#"Mjolnir"	:	6,

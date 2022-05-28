@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
@@ -39,6 +39,12 @@
 [ext_resource path="res://Assets/SFX/Bobber/Antimatter wave charging.wav" type="AudioStream" id=37]
 [ext_resource path="res://Assets/SFX/Bobber/At all cost.wav" type="AudioStream" id=38]
 [ext_resource path="res://Assets/SFX/Bobber/Long rest.wav" type="AudioStream" id=39]
+[ext_resource path="res://Assets/SFX/Bobber/Invulnerable fade out.wav" type="AudioStream" id=40]
+[ext_resource path="res://Assets/SFX/Bobber/Invulnerable fade in.wav" type="AudioStream" id=41]
+[ext_resource path="res://Assets/SFX/Bobber/Plasma field trigger.wav" type="AudioStream" id=42]
+[ext_resource path="res://Assets/SFX/Bobber/Intimidate trigger.wav" type="AudioStream" id=43]
+[ext_resource path="res://Assets/SFX/Bobber/Acid trigger.wav" type="AudioStream" id=44]
+[ext_resource path="res://Singletons/SFXManager/Acid.gd" type="Script" id=45]
 
 [node name="SFXManager" type="Node"]
 script = ExtResource( 1 )
@@ -277,6 +283,7 @@ bus = "Sfx"
 
 [node name="Finished charging" type="AudioStreamPlayer" parent="Bobber/Mjolnir"]
 stream = ExtResource( 35 )
+volume_db = -9.0
 bus = "Sfx"
 
 [node name="Arrow" type="Node" parent="Bobber"]
@@ -308,10 +315,46 @@ script = ExtResource( 4 )
 stream = ExtResource( 39 )
 bus = "Sfx"
 
+[node name="Invulnerability" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Fade in" type="AudioStreamPlayer" parent="Bobber/Invulnerability"]
+stream = ExtResource( 41 )
+bus = "Sfx"
+
+[node name="Fade out" type="AudioStreamPlayer" parent="Bobber/Invulnerability"]
+stream = ExtResource( 40 )
+volume_db = 3.0
+bus = "Sfx"
+
+[node name="Plasma field" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Trigger" type="AudioStreamPlayer" parent="Bobber/Plasma field"]
+stream = ExtResource( 42 )
+volume_db = 3.0
+bus = "Sfx"
+
+[node name="Intimidate" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Trigger" type="AudioStreamPlayer" parent="Bobber/Intimidate"]
+stream = ExtResource( 43 )
+volume_db = 6.0
+bus = "Sfx"
+
+[node name="Acid" type="Node" parent="Bobber"]
+script = ExtResource( 45 )
+
+[node name="Trigger" type="AudioStreamPlayer" parent="Bobber/Acid"]
+stream = ExtResource( 44 )
+volume_db = 3.0
+bus = "Sfx"
+
 [node name="Fish" type="Node" parent="."]
 script = ExtResource( 4 )
 
 [node name="Caught fish" type="AudioStreamPlayer" parent="Fish"]
 stream = ExtResource( 10 )
-volume_db = -9.0
+volume_db = -12.0
 bus = "Sfx"

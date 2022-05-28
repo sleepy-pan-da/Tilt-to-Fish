@@ -18,3 +18,7 @@ onready var arrow = $Arrow
 onready var antimatter_wave = get_node("Antimatter wave")
 onready var at_all_cost = get_node("At all cost")
 onready var long_rest = get_node("Long rest")
+onready var invulnerability = $Invulnerability
+onready var plasma_field = get_node("Plasma field")
+onready var intimidate = $Intimidate
+onready var acid = $Acid

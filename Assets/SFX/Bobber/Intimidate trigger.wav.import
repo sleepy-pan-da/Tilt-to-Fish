@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Intimidate trigger.wav-82c998bb2921cc67083aaa05ef7bfd0d.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bobber/Intimidate trigger.wav"
+dest_files=[ "res://.import/Intimidate trigger.wav-82c998bb2921cc67083aaa05ef7bfd0d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

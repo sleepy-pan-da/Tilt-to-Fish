@@ -6,6 +6,7 @@ var damage : float
 var expanded : bool = false
 
 func _ready():
+	SfxManager.bobber.plasma_field.play("Trigger")
 	tween.interpolate_property(self, "scale",
 		Vector2(0.5, 0.5), Vector2(3, 3), 0.5,
 		Tween.TRANS_LINEAR, Tween.EASE_OUT)
