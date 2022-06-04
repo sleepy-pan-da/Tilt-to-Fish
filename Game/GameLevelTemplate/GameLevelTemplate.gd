@@ -222,4 +222,5 @@ func on_clicked_play_again() -> void:
 
 func restart() -> void:
 	GameData.reset_game_upon_new_run()
+	SongManager.on_restart()
 	get_tree().reload_current_scene()	

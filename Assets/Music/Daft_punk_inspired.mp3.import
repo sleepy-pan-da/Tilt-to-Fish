@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Daft_punk_inspired.mp3-434c5d3e11ecf91e84f1d758326b4309.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Daft_punk_inspired.mp3"
+dest_files=[ "res://.import/Daft_punk_inspired.mp3-434c5d3e11ecf91e84f1d758326b4309.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

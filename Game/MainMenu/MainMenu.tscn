@@ -21,21 +21,15 @@ index_scene = "res://Game/Index/FishIndex/FishIndex.tscn"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" type="Control" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -640.0
-margin_top = -360.0
-margin_right = 640.0
-margin_bottom = 360.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Labels" type="Control" parent="CanvasLayer/UI"]
-margin_right = 1280.0
-margin_bottom = 720.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,8 +63,14 @@ __meta__ = {
 }
 
 [node name="StartLabel" type="Label" parent="CanvasLayer/UI/Labels/VBoxContainer/StartButton"]
-margin_right = 234.0
-margin_bottom = 68.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.0
+margin_top = -34.0
+margin_right = 117.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 117, 34 )
 custom_fonts/font = SubResource( 1 )
 text = "start"
@@ -97,8 +97,14 @@ __meta__ = {
 }
 
 [node name="IndexLabel" type="Label" parent="CanvasLayer/UI/Labels/VBoxContainer/IndexButton"]
-margin_right = 234.0
-margin_bottom = 68.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.0
+margin_top = -34.0
+margin_right = 117.0
+margin_bottom = 34.0
 rect_pivot_offset = Vector2( 117, 34 )
 custom_fonts/font = SubResource( 1 )
 text = "Index"

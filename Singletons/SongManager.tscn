@@ -1,26 +1,35 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Music/Game_Music_1.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Assets/Music/Energetic_music.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Music/Surface.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Singletons/SongManager.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Music/Daft_punk_inspired.mp3" type="AudioStream" id=5]
 
 [node name="SongManager" type="Node"]
 script = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="CaveMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 1 )
-bus = "Music"
-
-[node name="HypeMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-bus = "Music"
-
 [node name="SurfaceMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "Music"
 
-[connection signal="finished" from="CaveMusic" to="." method="_on_CaveMusic_finished"]
-[connection signal="finished" from="HypeMusic" to="." method="_on_HypeMusic_finished"]
+[node name="FishingMusic" type="Node" parent="."]
+
+[node name="CaveMusic" type="AudioStreamPlayer" parent="FishingMusic"]
+stream = ExtResource( 1 )
+bus = "Music"
+
+[node name="DaftPunkInspiredMusic" type="AudioStreamPlayer" parent="FishingMusic"]
+stream = ExtResource( 5 )
+volume_db = 6.0
+bus = "Music"
+
+[node name="HypeMusic" type="AudioStreamPlayer" parent="FishingMusic"]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[connection signal="finished" from="FishingMusic/CaveMusic" to="." method="_on_CaveMusic_finished"]
+[connection signal="finished" from="FishingMusic/DaftPunkInspiredMusic" to="." method="_on_DaftPunkInspiredMusic_finished"]
+[connection signal="finished" from="FishingMusic/HypeMusic" to="." method="_on_HypeMusic_finished"]
