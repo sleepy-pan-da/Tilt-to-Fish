@@ -15,7 +15,7 @@ onready var blink_animation_player = $BlinkAnimationPlayer
 onready var immunity_timer = $ImmunityTimer
 onready var items_that_require_bobber = $ItemsThatRequireBobber
 onready var proximity_area_timers = $ProximityAreaTimers
-onready var analog_stick = $AnalogStickLayer
+#onready var analog_stick = $AnalogStickLayer # To reference for the moveable character in the future
 
 # variables that have to do with movement
 const ACCELERATION := 8000
@@ -40,7 +40,7 @@ func _ready():
 	if have_immunity: # will not have_immunity if toggled bobber in the options page
 		start_immunity()
 	emit_signal("bobber_entered_scene")
-	analog_stick.connect("computed_move_vector_from_analog_stick", self, "move_with_analog_stick")
+	#analog_stick.connect("computed_move_vector_from_analog_stick", self, "move_with_analog_stick")
 	GameEvents.connect("set_up_bobber_item_at_start_of_fishing", self, "on_set_up_bobber_item_at_start_of_fishing")
 	GameEvents.connect("set_up_bobber_proximity_area_timers_at_start_of_fishing", self, "on_set_up_bobber_proximity_area_timers_at_start_of_fishing")
 	GameEvents.connect("triggered_orb_that_requires_bobber", self, "on_triggered_orb_that_requires_bobber")
@@ -92,16 +92,16 @@ func on_triggered_item_that_requires_bobber(item_name : String, incremented_valu
 func _physics_process(delta : float) -> void:
 	if !testing_on_pc:
 		move(Input.get_accelerometer(), delta)
-#	else:
-#		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
-#		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-#
-#		is_moving = !(vertical_direction == 0 and horizontal_direction == 0)
-#
-#		var speed : float = 500
-#		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
-#		arrow.configure_arrow_location(velocity)
-#		move_and_slide(velocity)
+	else:
+		var vertical_direction : int = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+		var horizontal_direction : int =  int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+
+		is_moving = !(vertical_direction == 0 and horizontal_direction == 0)
+
+		var speed : float = 500
+		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
+		arrow.configure_arrow_location(velocity)
+		move_and_slide(velocity)
 	
 	if backpack.has_item("Time Lord Victorious"):
 		if is_moving:
@@ -145,24 +145,24 @@ func move(accelerometer_vector : Vector3, delta : float) -> void:
 	move_and_slide(current_velocity)
 
 
-func move_with_analog_stick(analog_stick_move_vector : Vector2) -> void:
-	var speed_multiplier : int = 5
-	var desired_velocity : Vector2 
-	
-	desired_velocity =  Vector2(analog_stick_move_vector.x, analog_stick_move_vector.y)
-	desired_velocity *= speed_multiplier
-	
-	if analog_stick_move_vector.length() > 0: 
-		is_moving = true
-	else: 
-		is_moving = false
-	
-	arrow.configure_arrow_location(desired_velocity)
-	if desired_velocity.length() > MAX_SPEED:
-		desired_velocity = desired_velocity.normalized() * MAX_SPEED
-	current_velocity = current_velocity.move_toward(desired_velocity, ACCELERATION * get_physics_process_delta_time())
-	#print(current_velocity)
-	move_and_slide(current_velocity)
+#func move_with_analog_stick(analog_stick_move_vector : Vector2) -> void:
+#	var speed_multiplier : int = 5
+#	var desired_velocity : Vector2 
+#
+#	desired_velocity =  Vector2(analog_stick_move_vector.x, analog_stick_move_vector.y)
+#	desired_velocity *= speed_multiplier
+#
+#	if analog_stick_move_vector.length() > 0: 
+#		is_moving = true
+#	else: 
+#		is_moving = false
+#
+#	arrow.configure_arrow_location(desired_velocity)
+#	if desired_velocity.length() > MAX_SPEED:
+#		desired_velocity = desired_velocity.normalized() * MAX_SPEED
+#	current_velocity = current_velocity.move_toward(desired_velocity, ACCELERATION * get_physics_process_delta_time())
+#	#print(current_velocity)
+#	move_and_slide(current_velocity)
 
 
 func compute_speed_multiplier() -> int:

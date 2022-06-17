@@ -1,10 +1,9 @@
 extends Control
 
-onready var options_label = $OptionsButton/OptionsLabel
-onready var tween = $OptionsButton/OptionsLabel/Tween
+onready var options_label = $OptionsLabel
+onready var tween = $OptionsLabel/Tween
 var released_button : bool = false
 signal clicked_options
-
 
 func _on_OptionsButton_button_down() -> void:
 	tween.interpolate_property(options_label, "rect_scale", Vector2(1,1), Vector2(0.9, 0.9), 0.1, Tween.TRANS_LINEAR)
@@ -15,6 +14,7 @@ func _on_OptionsButton_button_up() -> void:
 	released_button = true
 	tween.interpolate_property(options_label, "rect_scale", Vector2(0.9,0.9), Vector2(1, 1), 0.1, Tween.TRANS_LINEAR)
 	tween.start()
+	SfxManager.ui.play("Confirm")
 
 
 func _on_Tween_tween_all_completed() -> void:

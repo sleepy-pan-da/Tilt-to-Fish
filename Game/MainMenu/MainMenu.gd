@@ -5,15 +5,17 @@ export(String, FILE, "*.tscn") var index_scene
 
 onready var start = $CanvasLayer/UI/Labels/VBoxContainer/StartButton
 onready var index = $CanvasLayer/UI/Labels/VBoxContainer/IndexButton
+onready var options = $CanvasLayer/UI/Labels/VBoxContainer/OptionsButton
 onready var screen_transition = $CanvasLayer/UI/ScreenTransition
 
 var button_clicked_to_determine_next_scene : String
-var buttons = ["start", "index"]
+var buttons = ["start", "index", "options"]
 
 func _ready() -> void:
 	screen_transition.transition_in()
 	start.connect("clicked_start", self, "on_clicked_start")
 	index.connect("clicked_index", self, "on_clicked_index")
+	options.connect("clicked_options", self, 'on_clicked_options')
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 	screen_metrics()
 
@@ -28,12 +30,19 @@ func on_clicked_index() -> void:
 	screen_transition.transition_out()
 
 
+func on_clicked_options() -> void:
+	button_clicked_to_determine_next_scene = buttons[2]
+	screen_transition.transition_out()
+
+
 func go_to_next_scene() -> void:
 	match button_clicked_to_determine_next_scene:
 		"start":
 			get_tree().change_scene(option_scene)
 		"index":
 			get_tree().change_scene(index_scene)
+		"options":
+			print("Leggo to options!")
 
 
 func screen_metrics():
