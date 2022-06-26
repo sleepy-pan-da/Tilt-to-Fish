@@ -6,11 +6,11 @@
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Settings/Back.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 2 )
 
@@ -40,7 +40,7 @@ margin_left = -646.0
 margin_right = 646.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 1280, 80 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Settings"
 align = 1
 valign = 1
@@ -58,7 +58,7 @@ margin_bottom = -9.0
 rect_min_size = Vector2( 101, 60 )
 rect_pivot_offset = Vector2( 50, 30 )
 focus_mode = 0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 enabled_focus_mode = 0
 text = "Back"
 flat = true

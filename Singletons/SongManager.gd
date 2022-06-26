@@ -13,7 +13,7 @@ func _ready() -> void:
 	cave_music.play()
 
 func play_next_fishing_music() -> void:
-	if GameData.round_number >= 6:
+	if GameData.round_number >= 8:
 		fishing_music.get_child(2).play()
 	elif GameData.round_number >= 4:
 		fishing_music.get_child(1).play()

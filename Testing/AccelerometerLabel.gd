@@ -1,6 +1,6 @@
 extends Label
 
-
+# This is mostly for debugging
 
 func _process(delta : float) -> void:
 	var PhoneAccelerometer : Vector2

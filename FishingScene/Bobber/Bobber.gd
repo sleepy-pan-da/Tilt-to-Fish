@@ -18,7 +18,7 @@ onready var proximity_area_timers = $ProximityAreaTimers
 #onready var analog_stick = $AnalogStickLayer # To reference for the moveable character in the future
 
 # variables that have to do with movement
-const ACCELERATION := 8000
+const BASE_ACCELERATION := 8000
 const MAX_SPEED := 1500
 var current_velocity : Vector2
 
@@ -121,27 +121,28 @@ func _physics_process(delta : float) -> void:
 func move(accelerometer_vector : Vector3, delta : float) -> void:
 	var speed_multiplier : int
 	var desired_velocity : Vector2
+	var current_acceleration : float
 	
 	if control_config.holding_preference == "regular":
 		accelerometer_vector = recalibrate_regular_movement_direction_vector(accelerometer_vector)
 	
 	speed_multiplier = compute_speed_multiplier()	
 	
-	desired_velocity =  Vector2(accelerometer_vector.x, accelerometer_vector.y)
-	
-	if desired_velocity.length() > 0.5:
-		desired_velocity.x = desired_velocity.x * speed_multiplier
-		desired_velocity.y = -desired_velocity.y * speed_multiplier 
+	if accelerometer_vector.length() > 0.5:
+		desired_velocity.x = accelerometer_vector.x * speed_multiplier
+		desired_velocity.y = -accelerometer_vector.y * speed_multiplier
+		current_acceleration = BASE_ACCELERATION
 		is_moving = true
 	else:
-		desired_velocity.x = desired_velocity.x * speed_multiplier / 2
-		desired_velocity.y = -desired_velocity.y * speed_multiplier / 2
+		desired_velocity.x = accelerometer_vector.x * speed_multiplier / 2
+		desired_velocity.y = -accelerometer_vector.y * speed_multiplier / 2
+		current_acceleration = BASE_ACCELERATION * (accelerometer_vector.length() * 0.5)
 		is_moving = false
 	
 	arrow.configure_arrow_location(desired_velocity)
 	if desired_velocity.length() > MAX_SPEED:
 		desired_velocity = desired_velocity.normalized() * MAX_SPEED
-	current_velocity = current_velocity.move_toward(desired_velocity, ACCELERATION * delta)
+	current_velocity = current_velocity.move_toward(desired_velocity, current_acceleration * delta)
 	move_and_slide(current_velocity)
 
 
@@ -160,7 +161,7 @@ func move(accelerometer_vector : Vector3, delta : float) -> void:
 #	arrow.configure_arrow_location(desired_velocity)
 #	if desired_velocity.length() > MAX_SPEED:
 #		desired_velocity = desired_velocity.normalized() * MAX_SPEED
-#	current_velocity = current_velocity.move_toward(desired_velocity, ACCELERATION * get_physics_process_delta_time())
+#	current_velocity = current_velocity.move_toward(desired_velocity, BASE_ACCELERATION * get_physics_process_delta_time())
 #	#print(current_velocity)
 #	move_and_slide(current_velocity)
 

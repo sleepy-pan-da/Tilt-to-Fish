@@ -28,6 +28,7 @@ bus = "Music"
 
 [node name="HypeMusic" type="AudioStreamPlayer" parent="FishingMusic"]
 stream = ExtResource( 2 )
+volume_db = -3.0
 bus = "Music"
 
 [connection signal="finished" from="FishingMusic/CaveMusic" to="." method="_on_CaveMusic_finished"]

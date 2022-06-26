@@ -293,6 +293,7 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="CanvasLayer/UI/ToggleBobberButton/Label"]
 
 [node name="AccelerometerLabel" type="Label" parent="CanvasLayer/UI"]
+visible = false
 margin_left = 16.0
 margin_top = 608.0
 margin_right = 56.0

@@ -39,7 +39,7 @@ func _ready() -> void:
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 	fishes.connect("caught_all_fishes", self, "proceed_to_next_wave_after_catching_all_fish")
 	wave_number_progress_bar.connect("wave_timed_out", self, "proceed_to_next_wave_after_timing_out")
-	
+
 
 func create_bobber_instance() -> void:
 	if current_bobber != null: # helps to test without bobber

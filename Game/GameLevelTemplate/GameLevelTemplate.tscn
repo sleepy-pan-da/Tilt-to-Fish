@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/MjolnirOrbSpawner/MjolnirOrbSpawner.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Upgrades/OrbSpawners/TNTOrbSpawner/TNTOrbSpawner.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Game/GameLevelTemplate/FpsLabel.gd" type="Script" id=35]
+[ext_resource path="res://Game/GameLevelTemplate/PauseManager.gd" type="Script" id=36]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -449,6 +450,10 @@ TNT = ExtResource( 34 )
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )
 bobber_stats = ExtResource( 25 )
+
+[node name="PauseManager" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 36 )
 
 [connection signal="timeout" from="CanvasLayer/UI/Countdown/Timer" to="CanvasLayer/UI/Countdown" method="_on_Timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/UI/WaveNumber/ProgressBar/Timer" to="CanvasLayer/UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]
