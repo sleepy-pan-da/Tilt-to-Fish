@@ -9,7 +9,7 @@ onready var surface_music = $SurfaceMusic
 var song_starting_volume : float
 
 func _ready() -> void:
-	song_starting_volume = AudioServer.get_bus_volume_db(1)
+	song_starting_volume = get_music_bus_volume_db()
 	cave_music.play()
 
 func play_next_fishing_music() -> void:
@@ -34,18 +34,20 @@ func on_restart() -> void:
 		if song.playing: 
 			song.stop()
 
-func custom_set_bus_volume_db(desired_volume_db : float) -> void:
+func set_music_bus_volume_db_from_settings(desired_volume_db : float) -> void:
 	AudioServer.set_bus_volume_db(1, desired_volume_db)
+	song_starting_volume = get_music_bus_volume_db()	 
+
+func set_music_bus_volume_db(desired_volume_db : float) -> void:
+	AudioServer.set_bus_volume_db(1, desired_volume_db)	
+
+func get_music_bus_volume_db() -> float:
+	return AudioServer.get_bus_volume_db(1)
 
 func fade_out() -> void:
-	tween.interpolate_method(self, "custom_set_bus_volume_db", song_starting_volume, -12, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
+	tween.interpolate_method(self, "set_music_bus_volume_db", song_starting_volume, song_starting_volume - 18, 1.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
 	tween.start()
 
 func fade_in() -> void:
-	tween.interpolate_method(self, "custom_set_bus_volume_db", -12, song_starting_volume, 1, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
+	tween.interpolate_method(self, "set_music_bus_volume_db", song_starting_volume - 18, song_starting_volume, 1.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
 	tween.start()
-
-
-
-
-

@@ -3,7 +3,7 @@
 [ext_resource path="res://FishingScene/Ponds/Pond.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/MainMenu/IndexButton.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://Game/MainMenu/OptionsButton.gd" type="Script" id=4]
+[ext_resource path="res://Game/MainMenu/SettingsButton.gd" type="Script" id=4]
 [ext_resource path="res://Game/MainMenu/Start.gd" type="Script" id=5]
 [ext_resource path="res://Game/MainMenu/MainMenu.gd" type="Script" id=6]
 [ext_resource path="res://Shaders/CircleScreenTransition/CircleScreenTransition.tscn" type="PackedScene" id=8]
@@ -16,6 +16,7 @@ font_data = ExtResource( 3 )
 script = ExtResource( 6 )
 option_scene = "res://Game/Options/Options.tscn"
 index_scene = "res://Game/Index/FishIndex/FishIndex.tscn"
+settings_scene = "res://Game/Settings/Settings.tscn"
 
 [node name="Pond" parent="." instance=ExtResource( 1 )]
 
@@ -35,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/Labels"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/UI/Labels"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -50,7 +51,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartButton" type="Button" parent="CanvasLayer/UI/Labels/VBoxContainer"]
+[node name="Start" type="Button" parent="CanvasLayer/UI/Labels/Buttons"]
 margin_right = 404.0
 margin_bottom = 56.0
 rect_min_size = Vector2( 232, 56 )
@@ -63,10 +64,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="StartLabel" type="Label" parent="CanvasLayer/UI/Labels/VBoxContainer/StartButton"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/Labels/Buttons/Start"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 117, 34 )
+rect_pivot_offset = Vector2( 202, 34 )
 custom_fonts/font = SubResource( 1 )
 text = "start"
 align = 1
@@ -75,9 +76,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer/UI/Labels/VBoxContainer/StartButton/StartLabel"]
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/Labels/Buttons/Start/Label"]
 
-[node name="IndexButton" type="Button" parent="CanvasLayer/UI/Labels/VBoxContainer"]
+[node name="Index" type="Button" parent="CanvasLayer/UI/Labels/Buttons"]
 margin_top = 81.0
 margin_right = 404.0
 margin_bottom = 137.0
@@ -91,10 +92,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="IndexLabel" type="Label" parent="CanvasLayer/UI/Labels/VBoxContainer/IndexButton"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/Labels/Buttons/Index"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 117, 34 )
+rect_pivot_offset = Vector2( 202, 34 )
 custom_fonts/font = SubResource( 1 )
 text = "Index"
 align = 1
@@ -103,9 +104,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer/UI/Labels/VBoxContainer/IndexButton/IndexLabel"]
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/Labels/Buttons/Index/Label"]
 
-[node name="OptionsButton" type="Button" parent="CanvasLayer/UI/Labels/VBoxContainer"]
+[node name="Settings" type="Button" parent="CanvasLayer/UI/Labels/Buttons"]
 margin_top = 162.0
 margin_right = 404.0
 margin_bottom = 218.0
@@ -119,19 +120,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsLabel" type="Label" parent="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton"]
+[node name="Label" type="Label" parent="CanvasLayer/UI/Labels/Buttons/Settings"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 117, 34 )
+rect_pivot_offset = Vector2( 202, 34 )
 custom_fonts/font = SubResource( 1 )
-text = "Options"
+text = "Settings"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton/OptionsLabel"]
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/Labels/Buttons/Settings/Label"]
 
 [node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 8 )]
 
@@ -139,12 +140,12 @@ __meta__ = {
 position = Vector2( 640, 360 )
 current = true
 
-[connection signal="button_down" from="CanvasLayer/UI/Labels/VBoxContainer/StartButton" to="CanvasLayer/UI/Labels/VBoxContainer/StartButton" method="_on_StartButton_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/Labels/VBoxContainer/StartButton" to="CanvasLayer/UI/Labels/VBoxContainer/StartButton" method="_on_StartButton_button_up"]
-[connection signal="tween_all_completed" from="CanvasLayer/UI/Labels/VBoxContainer/StartButton/StartLabel/Tween" to="CanvasLayer/UI/Labels/VBoxContainer/StartButton" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="CanvasLayer/UI/Labels/VBoxContainer/IndexButton" to="CanvasLayer/UI/Labels/VBoxContainer/IndexButton" method="_on_IndexButton_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/Labels/VBoxContainer/IndexButton" to="CanvasLayer/UI/Labels/VBoxContainer/IndexButton" method="_on_IndexButton_button_up"]
-[connection signal="tween_all_completed" from="CanvasLayer/UI/Labels/VBoxContainer/IndexButton/IndexLabel/Tween" to="CanvasLayer/UI/Labels/VBoxContainer/IndexButton" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton" to="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton" method="_on_OptionsButton_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton" to="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton" method="_on_OptionsButton_button_up"]
-[connection signal="tween_all_completed" from="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton/OptionsLabel/Tween" to="CanvasLayer/UI/Labels/VBoxContainer/OptionsButton" method="_on_Tween_tween_all_completed"]
+[connection signal="button_down" from="CanvasLayer/UI/Labels/Buttons/Start" to="CanvasLayer/UI/Labels/Buttons/Start" method="_on_StartButton_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/Labels/Buttons/Start" to="CanvasLayer/UI/Labels/Buttons/Start" method="_on_StartButton_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/Labels/Buttons/Start/Label/Tween" to="CanvasLayer/UI/Labels/Buttons/Start" method="_on_Tween_tween_all_completed"]
+[connection signal="button_down" from="CanvasLayer/UI/Labels/Buttons/Index" to="CanvasLayer/UI/Labels/Buttons/Index" method="_on_IndexButton_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/Labels/Buttons/Index" to="CanvasLayer/UI/Labels/Buttons/Index" method="_on_IndexButton_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/Labels/Buttons/Index/Label/Tween" to="CanvasLayer/UI/Labels/Buttons/Index" method="_on_Tween_tween_all_completed"]
+[connection signal="button_down" from="CanvasLayer/UI/Labels/Buttons/Settings" to="CanvasLayer/UI/Labels/Buttons/Settings" method="_on_Settings_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/Labels/Buttons/Settings" to="CanvasLayer/UI/Labels/Buttons/Settings" method="_on_Settings_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/Labels/Buttons/Settings/Label/Tween" to="CanvasLayer/UI/Labels/Buttons/Settings" method="_on_Tween_tween_all_completed"]
