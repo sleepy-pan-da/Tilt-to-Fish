@@ -27,3 +27,6 @@ signal set_up_orb_spawner_at_start_of_fishing(item_name, incremented_values) # c
 signal detonated_charges() # connected to tnt's attachedcharge.tscn
 
 signal pressed_fish_button_in_index(fish_name) # connected to FishIndex/Body.gd
+
+signal to_restart_game_from_paused_screen() # connected to GameLevelTemplate.tscn
+signal to_quit_game_from_paused_screen() # connected to GameLevelTemplate.tscn

@@ -2,6 +2,7 @@ extends Node2D
 
 export(PackedScene) onready var next_scene 
 export(PackedScene) onready var current_bobber
+export(PackedScene) onready var main_menu
 export var wave_system_enabled : bool = true # used for disabling wave system and testing individual fish
 
 onready var fishes = $Fishes
@@ -17,6 +18,7 @@ onready var screen_transition = $CanvasLayer/UI/ScreenTransition
 onready var debug_ui = $CanvasLayer/UI/DebugUI
 onready var items_that_require_level = $ItemsThatRequireLevel
 onready var orb_manager = $OrbManager
+onready var pause_manager = $PauseManager
 
 var bobber : Bobber
 var can_descend : bool = false
@@ -35,6 +37,8 @@ func _ready() -> void:
 	GameEvents.connect("successfully_caught_fish", self, "_on_successfully_caught_fish")
 	GameEvents.connect("triggered_item_on_caught_fish", self, "on_triggered_item_on_caught_fish")
 	GameEvents.connect("set_up_orb_spawner_at_start_of_fishing", self, "on_set_up_orb_spawner_at_start_of_fishing")
+	GameEvents.connect("to_restart_game_from_paused_screen", self, "restart_from_paused_screen")
+	GameEvents.connect("to_quit_game_from_paused_screen", self, "quit_from_paused_screen")
 	game_over.connect("clicked_play_again", self, "on_clicked_play_again")
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
 	fishes.connect("caught_all_fishes", self, "proceed_to_next_wave_after_catching_all_fish")
@@ -220,7 +224,25 @@ func on_clicked_play_again() -> void:
 	screen_transition.transition_out()		
 
 
-func restart() -> void:
+func reset_game_state() -> void:
 	GameData.reset_game_upon_new_run()
 	SongManager.on_restart()
+
+func restart() -> void:
+	reset_game_state()
 	get_tree().reload_current_scene()	
+
+
+func restart_from_paused_screen() -> void:
+	bobber.reset_upon_new_run()
+	bobber.queue_free()
+	pause_manager.resume_game()
+	restart()
+
+
+func quit_from_paused_screen() -> void:
+	bobber.reset_upon_new_run()
+	bobber.queue_free()
+	pause_manager.resume_game()
+	reset_game_state()
+	get_tree().change_scene_to(main_menu)

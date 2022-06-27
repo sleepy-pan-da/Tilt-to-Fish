@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://Game/Settings/Back.gd" type="Script" id=2]
+[ext_resource path="res://Game/PausedScreen/Restart.gd" type="Script" id=2]
 [ext_resource path="res://Game/Options/TiltSensitivity.gd" type="Script" id=3]
+[ext_resource path="res://Game/PausedScreen/PausedScreen.gd" type="Script" id=4]
+[ext_resource path="res://Game/PausedScreen/Resume.gd" type="Script" id=5]
+[ext_resource path="res://Game/PausedScreen/Quit.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -29,6 +32,8 @@ size = 32
 font_data = ExtResource( 1 )
 
 [node name="PausedScreen" type="Node"]
+pause_mode = 2
+script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -98,7 +103,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue" type="Button" parent="CanvasLayer/UI/LeftVBoxContainer"]
+[node name="Resume" type="Button" parent="CanvasLayer/UI/LeftVBoxContainer"]
 margin_top = 264.0
 margin_right = 505.0
 margin_bottom = 304.0
@@ -106,14 +111,14 @@ rect_pivot_offset = Vector2( 252, 20 )
 focus_mode = 0
 custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
-text = "Continue"
+text = "Resume"
 flat = true
-script = ExtResource( 2 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tween" type="Tween" parent="CanvasLayer/UI/LeftVBoxContainer/Continue"]
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/LeftVBoxContainer/Resume"]
 
 [node name="Spacer3" type="Control" parent="CanvasLayer/UI/LeftVBoxContainer"]
 margin_top = 308.0
@@ -160,7 +165,7 @@ custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Quit"
 flat = true
-script = ExtResource( 2 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -215,7 +220,6 @@ custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Topdown"
 flat = true
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -232,7 +236,6 @@ custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Regular"
 flat = true
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -339,14 +342,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Continue" to="CanvasLayer/UI/LeftVBoxContainer/Continue" method="_on_Back_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Continue" to="CanvasLayer/UI/LeftVBoxContainer/Continue" method="_on_Back_button_up"]
-[connection signal="tween_all_completed" from="CanvasLayer/UI/LeftVBoxContainer/Continue/Tween" to="CanvasLayer/UI/LeftVBoxContainer/Continue" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Restart" to="CanvasLayer/UI/LeftVBoxContainer/Restart" method="_on_Back_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Restart" to="CanvasLayer/UI/LeftVBoxContainer/Restart" method="_on_Back_button_up"]
+[connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Resume" to="CanvasLayer/UI/LeftVBoxContainer/Resume" method="_on_Resume_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Resume" to="CanvasLayer/UI/LeftVBoxContainer/Resume" method="_on_Resume_button_up"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/LeftVBoxContainer/Resume/Tween" to="CanvasLayer/UI/LeftVBoxContainer/Resume" method="_on_Tween_tween_all_completed"]
+[connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Restart" to="CanvasLayer/UI/LeftVBoxContainer/Restart" method="_on_Restart_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Restart" to="CanvasLayer/UI/LeftVBoxContainer/Restart" method="_on_Restart_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/LeftVBoxContainer/Restart/Tween" to="CanvasLayer/UI/LeftVBoxContainer/Restart" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Quit" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Back_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Quit" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Back_button_up"]
+[connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Quit" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Quit_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Quit" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Quit_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/LeftVBoxContainer/Quit/Tween" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Tween_tween_all_completed"]
 [connection signal="button_down" from="CanvasLayer/UI/RightVBoxContainer/Topdown" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Back_button_down"]
 [connection signal="button_up" from="CanvasLayer/UI/RightVBoxContainer/Topdown" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Back_button_up"]
