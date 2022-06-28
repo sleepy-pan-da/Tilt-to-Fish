@@ -198,6 +198,7 @@ func game_over() -> void:
 			game_over.update_high_score_label(GameData.highest_round_reached)
 		game_over.show()
 		wave_number_progress_bar.stop_progress_bar_timer()
+		pause_manager.disable_pause()
 
 
 func congratulate_player() -> void:
@@ -222,6 +223,7 @@ func go_to_shop() -> void:
 
 func on_clicked_play_again() -> void:
 	screen_transition.transition_out()		
+	pause_manager.disable_pause()
 
 
 func reset_game_state() -> void:

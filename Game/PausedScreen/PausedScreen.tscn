@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Game/PausedScreen/Restart.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Game/PausedScreen/PausedScreen.gd" type="Script" id=4]
 [ext_resource path="res://Game/PausedScreen/Resume.gd" type="Script" id=5]
 [ext_resource path="res://Game/PausedScreen/Quit.gd" type="Script" id=6]
+[ext_resource path="res://Game/PausedScreen/Topdown.gd" type="Script" id=7]
+[ext_resource path="res://Game/PausedScreen/Regular.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -77,6 +79,9 @@ __meta__ = {
 margin_top = 104.0
 margin_right = 505.0
 margin_bottom = 156.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/LeftVBoxContainer/TimeElapsedInRun"]
 margin_right = 394.0
@@ -104,11 +109,14 @@ __meta__ = {
 }
 
 [node name="Resume" type="Button" parent="CanvasLayer/UI/LeftVBoxContainer"]
+margin_left = 175.0
 margin_top = 264.0
-margin_right = 505.0
+margin_right = 329.0
 margin_bottom = 304.0
-rect_pivot_offset = Vector2( 252, 20 )
+rect_pivot_offset = Vector2( 77, 20 )
 focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Resume"
@@ -130,11 +138,14 @@ __meta__ = {
 }
 
 [node name="Restart" type="Button" parent="CanvasLayer/UI/LeftVBoxContainer"]
+margin_left = 165.0
 margin_top = 332.0
-margin_right = 505.0
+margin_right = 339.0
 margin_bottom = 372.0
-rect_pivot_offset = Vector2( 252, 20 )
+rect_pivot_offset = Vector2( 87, 20 )
 focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Restart"
@@ -156,11 +167,14 @@ __meta__ = {
 }
 
 [node name="Quit" type="Button" parent="CanvasLayer/UI/LeftVBoxContainer"]
+margin_left = 201.0
 margin_top = 400.0
-margin_right = 505.0
+margin_right = 303.0
 margin_bottom = 440.0
-rect_pivot_offset = Vector2( 252, 20 )
+rect_pivot_offset = Vector2( 51, 20 )
 focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Quit"
@@ -200,6 +214,9 @@ margin_bottom = 147.0
 custom_fonts/font = SubResource( 4 )
 text = "Tilt config"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Spacer2" type="Control" parent="CanvasLayer/UI/RightVBoxContainer"]
 margin_top = 151.0
@@ -211,15 +228,19 @@ __meta__ = {
 }
 
 [node name="Topdown" type="Button" parent="CanvasLayer/UI/RightVBoxContainer"]
+margin_left = 205.0
 margin_top = 175.0
-margin_right = 600.0
+margin_right = 395.0
 margin_bottom = 215.0
-rect_pivot_offset = Vector2( 300, 20 )
+rect_pivot_offset = Vector2( 95, 20 )
 focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Topdown"
 flat = true
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -227,15 +248,19 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="CanvasLayer/UI/RightVBoxContainer/Topdown"]
 
 [node name="Regular" type="Button" parent="CanvasLayer/UI/RightVBoxContainer"]
+margin_left = 214.0
 margin_top = 219.0
-margin_right = 600.0
+margin_right = 386.0
 margin_bottom = 259.0
-rect_pivot_offset = Vector2( 300, 20 )
+rect_pivot_offset = Vector2( 86, 20 )
 focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 3 )
 enabled_focus_mode = 0
 text = "Regular"
 flat = true
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -351,9 +376,9 @@ __meta__ = {
 [connection signal="button_down" from="CanvasLayer/UI/LeftVBoxContainer/Quit" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Quit_button_down"]
 [connection signal="button_up" from="CanvasLayer/UI/LeftVBoxContainer/Quit" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Quit_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/LeftVBoxContainer/Quit/Tween" to="CanvasLayer/UI/LeftVBoxContainer/Quit" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="CanvasLayer/UI/RightVBoxContainer/Topdown" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Back_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/RightVBoxContainer/Topdown" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Back_button_up"]
+[connection signal="button_down" from="CanvasLayer/UI/RightVBoxContainer/Topdown" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Topdown_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/RightVBoxContainer/Topdown" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Topdown_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/RightVBoxContainer/Topdown/Tween" to="CanvasLayer/UI/RightVBoxContainer/Topdown" method="_on_Tween_tween_all_completed"]
-[connection signal="button_down" from="CanvasLayer/UI/RightVBoxContainer/Regular" to="CanvasLayer/UI/RightVBoxContainer/Regular" method="_on_Back_button_down"]
-[connection signal="button_up" from="CanvasLayer/UI/RightVBoxContainer/Regular" to="CanvasLayer/UI/RightVBoxContainer/Regular" method="_on_Back_button_up"]
+[connection signal="button_down" from="CanvasLayer/UI/RightVBoxContainer/Regular" to="CanvasLayer/UI/RightVBoxContainer/Regular" method="_on_Regular_button_down"]
+[connection signal="button_up" from="CanvasLayer/UI/RightVBoxContainer/Regular" to="CanvasLayer/UI/RightVBoxContainer/Regular" method="_on_Regular_button_up"]
 [connection signal="tween_all_completed" from="CanvasLayer/UI/RightVBoxContainer/Regular/Tween" to="CanvasLayer/UI/RightVBoxContainer/Regular" method="_on_Tween_tween_all_completed"]
