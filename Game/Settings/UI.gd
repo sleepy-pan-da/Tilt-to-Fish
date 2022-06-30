@@ -14,8 +14,8 @@ func _ready() -> void:
 	back.connect("clicked_back_button", self, "on_back_pressed")
 
 func update_setting_fields() -> void:
-	music_slider.value = SongManager.get_music_bus_volume_db()
-	sfx_slider.value = SfxManager.get_sfx_bus_volume_db()
+	music_slider.value = db2linear(SongManager.get_music_bus_volume_db())
+	sfx_slider.value = db2linear(SfxManager.get_sfx_bus_volume_db())
 
 func on_back_pressed() -> void:
 	SfxManager.ui.play("Back")
@@ -26,8 +26,8 @@ func go_to_next_scene() -> void:
 
 func _on_MusicSlider_value_changed(value):
 	#print("Music volume changed to " + str(value))
-	SongManager.set_music_bus_volume_db_from_settings(value)
+	SongManager.set_music_bus_volume_db_from_settings(linear2db(value))
 
 func _on_SfxSlider_value_changed(value):
 	#print("Sfx volume changed to " + str(value))
-	SfxManager.set_sfx_bus_volume_db_from_settings(value)
+	SfxManager.set_sfx_bus_volume_db_from_settings(linear2db(value))

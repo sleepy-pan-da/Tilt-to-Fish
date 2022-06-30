@@ -3,4 +3,5 @@
 [ext_resource path="res://Singletons/GameData.gd" type="Script" id=1]
 
 [node name="GameData" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 1 )

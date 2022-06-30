@@ -233,6 +233,7 @@ func reset_game_state() -> void:
 func restart() -> void:
 	reset_game_state()
 	get_tree().reload_current_scene()	
+	GameData.on_new_run()
 
 
 func restart_from_paused_screen() -> void:

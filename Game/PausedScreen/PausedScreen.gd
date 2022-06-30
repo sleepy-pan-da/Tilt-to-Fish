@@ -1,10 +1,11 @@
 extends Node
 
 onready var ui = $CanvasLayer/UI
+onready var time_elapsed = ui.get_node("LeftVBoxContainer/TimeElapsedInRun/TimeElapsed")
 onready var resume_button = ui.get_node("LeftVBoxContainer/Resume")
 onready var restart_button = ui.get_node("LeftVBoxContainer/Restart")
 onready var quit_button = ui.get_node("LeftVBoxContainer/Quit")
-
+onready var settings = ui.get_node("Settings")
 signal hid_ui
 
 func _ready() -> void:
@@ -14,6 +15,8 @@ func _ready() -> void:
 	quit_button.connect("clicked_quit_button", self, "to_quit_game")	
 	
 func show_ui() -> void:
+	time_elapsed.update_time_elapsed(GameData.get_time_elapsed_in_current_run())
+	settings.update_setting_fields()
 	ui.show()
 
 func hide_ui() -> void:
