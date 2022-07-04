@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Game/Town/PlayerCharacter/PlayerCharacter.gd" type="Script" id=2]
+[ext_resource path="res://AnalogControls/AnalogStickLayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "placeholder",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
+
+[node name="PlayerCharacter" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "placeholder"
+
+[node name="AnalogStickLayer" parent="." instance=ExtResource( 3 )]
+
+[node name="StateMachineLabel" type="Label" parent="."]
+margin_left = -131.0
+margin_top = -72.0
+margin_right = 145.0
+margin_bottom = -38.0
+custom_fonts/font = SubResource( 3 )
+text = "statemachine"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

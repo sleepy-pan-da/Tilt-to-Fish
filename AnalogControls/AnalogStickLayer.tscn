@@ -12,10 +12,9 @@ script = ExtResource( 2 )
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 modulate = Color( 1, 1, 1, 0.392157 )
-scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnalogStick" type="Sprite" parent="."]
-position = Vector2( 150, 150 )
+position = Vector2( 100, 100 )
 texture = ExtResource( 3 )
