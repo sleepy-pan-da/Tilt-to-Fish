@@ -21,8 +21,8 @@ size = 32
 font_data = ExtResource( 4 )
 
 [node name="PlayerCharacter" type="KinematicBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 256
+collision_mask = 128
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

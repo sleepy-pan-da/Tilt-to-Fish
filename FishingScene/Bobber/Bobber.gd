@@ -136,7 +136,7 @@ func move(accelerometer_vector : Vector3, delta : float) -> void:
 	else:
 		desired_velocity.x = accelerometer_vector.x * speed_multiplier / 2
 		desired_velocity.y = -accelerometer_vector.y * speed_multiplier / 2
-		current_acceleration = BASE_ACCELERATION * (accelerometer_vector.length() * 0.5)
+		current_acceleration = BASE_ACCELERATION #* max(1, (accelerometer_vector.length() * 0.3))
 		is_moving = false
 	
 	arrow.configure_arrow_location(desired_velocity)
