@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Singletons/GameSaver.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Custom Resources/CurrentControlConfig.tres" type="Resource" id=2]
+
+[node name="GameSaver" type="Node"]
+script = ExtResource( 1 )
+control_config = ExtResource( 2 )

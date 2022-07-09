@@ -63,6 +63,7 @@ func on_clicked_back() -> void:
 
 
 func on_clicked_play() -> void:
+	GameSaver.save_data()
 	button_clicked_to_determine_next_scene = buttons[1]
 	if toggle_bobber_button.bobber_present:
 		bobber.queue_free()

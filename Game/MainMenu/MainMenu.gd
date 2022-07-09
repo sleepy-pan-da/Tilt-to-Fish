@@ -17,7 +17,10 @@ func _ready() -> void:
 	index.connect("clicked_index", self, "on_clicked_button")
 	settings.connect("clicked_settings", self, 'on_clicked_button')
 	screen_transition.connect("transitioned_out", self, "go_to_next_scene")
+	GameSaver.load_saved_data()
 	screen_metrics()
+	#print(ProjectSettings.globalize_path("user://"))
+	#print(OS.get_user_data_dir())
 
 
 func on_clicked_button(button_name : String) -> void:

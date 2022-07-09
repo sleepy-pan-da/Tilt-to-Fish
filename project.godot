@@ -182,11 +182,11 @@ LoadingManager="res://Singletons/LoadingManager.tscn"
 ItemDatabase="*res://Singletons/ItemDatabase/ItemDatabase.tscn"
 SongManager="*res://Singletons/SongManager.tscn"
 SfxManager="*res://Singletons/SFXManager/SFXManager.tscn"
+GameSaver="*res://Singletons/GameSaver.tscn"
 
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/verbose_stdout=true
 
 [display]
 
