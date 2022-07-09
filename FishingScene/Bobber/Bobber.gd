@@ -21,6 +21,7 @@ onready var proximity_area_timers = $ProximityAreaTimers
 const BASE_ACCELERATION := 8000
 const MAX_SPEED := 1500
 var current_velocity : Vector2
+var previous_accelerometer_vector_length : float
 
 var have_immunity : bool = true 
 var is_immune : int = 0 # int instead of bool to allow multiple triggers of invulnerability orb
@@ -126,17 +127,24 @@ func move(accelerometer_vector : Vector3, delta : float) -> void:
 	if control_config.holding_preference == "regular":
 		accelerometer_vector = recalibrate_regular_movement_direction_vector(accelerometer_vector)
 	
+	
+	if (previous_accelerometer_vector_length != null):
+		current_acceleration = BASE_ACCELERATION * max(1, abs(accelerometer_vector.length() - previous_accelerometer_vector_length)*5)
+	else:
+		current_acceleration = BASE_ACCELERATION
+	previous_accelerometer_vector_length = accelerometer_vector.length()
+	
 	speed_multiplier = compute_speed_multiplier()	
 	
 	if accelerometer_vector.length() > 0.5:
 		desired_velocity.x = accelerometer_vector.x * speed_multiplier
 		desired_velocity.y = -accelerometer_vector.y * speed_multiplier
-		current_acceleration = BASE_ACCELERATION
+		#current_acceleration = BASE_ACCELERATION
 		is_moving = true
 	else:
-		desired_velocity.x = accelerometer_vector.x * speed_multiplier / 2
-		desired_velocity.y = -accelerometer_vector.y * speed_multiplier / 2
-		current_acceleration = BASE_ACCELERATION #* max(1, (accelerometer_vector.length() * 0.3))
+		desired_velocity.x = accelerometer_vector.x * speed_multiplier / 10#2
+		desired_velocity.y = -accelerometer_vector.y * speed_multiplier / 10#2
+		#current_acceleration = BASE_ACCELERATION #* max(1, (accelerometer_vector.length() * 0.3))
 		is_moving = false
 	
 	arrow.configure_arrow_location(desired_velocity)
