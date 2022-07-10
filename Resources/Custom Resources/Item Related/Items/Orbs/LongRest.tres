@@ -26,3 +26,4 @@ description = "7/5/3s Delay: Fully restore hook count
 During delay, take double damage
 Cooldown: 5s"
 rarity = 1
+unlocked = false

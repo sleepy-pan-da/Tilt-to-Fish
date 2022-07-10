@@ -20,7 +20,7 @@ func _ready() -> void:
 	screen_transition.transition_in()
 	hooks.update_hooks_label(bobber_stats.hooks_amount)
 	gold.update_gold_label(bobber_stats.gold_amount)
-	round_number.update_round_number(GameData.round_number)
+	round_number.update_round_number(RunManager.round_number)
 	backpack_slots.update_backpack_ui(backpack)
 	reroll_button.connect("clicked_reroll", self, "on_clicked_reroll")
 	items_sold.get_child(0).connect("pressed", self, "on_pressed_items_sold", [0])

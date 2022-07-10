@@ -24,3 +24,4 @@ buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "Take damage: AOE explosion that deals 10/20/40 damage"
 rarity = 0
+unlocked = false

@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "Orbs cooldown decreased by 15/30/60%"
 rarity = 1
+unlocked = false

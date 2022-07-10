@@ -24,3 +24,4 @@ buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "Visit shop: +1/2/3 gold per 3 gold owned"
 rarity = 0
+unlocked = false

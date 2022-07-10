@@ -24,3 +24,4 @@ buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "Enter proximity area of 3 fish and above: deal 5/10/20 aoe damage"
 rarity = 0
+unlocked = false

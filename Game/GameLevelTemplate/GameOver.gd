@@ -7,7 +7,7 @@ var released_button : bool = false
 signal clicked_play_again
 
 func _ready() -> void:
-	update_high_score_label(GameData.highest_round_reached)
+	update_high_score_label(RunManager.player_statistics.highest_round_reached)
 
 
 func _on_Button_button_down() -> void:

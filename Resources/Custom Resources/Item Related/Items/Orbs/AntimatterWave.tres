@@ -25,3 +25,4 @@ selling_cost = [ 2, 6, 10 ]
 description = "Delay: Fires a wave that passes through and deals 10/20/40 damage
 Cooldown: 2/1/0.5s"
 rarity = 1
+unlocked = false

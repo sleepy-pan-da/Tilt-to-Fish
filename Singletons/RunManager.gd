@@ -1,17 +1,17 @@
 extends Node
 
-var highest_round_reached : int = 1
+export(Resource) var player_statistics = player_statistics as PlayerStatistics
 var current_wave_number : int = 1
 var round_number : int = 1
 var difficulty_modifier : int = 0
 var seconds_elapsed_in_current_run : float
 
 func beat_high_score() -> bool:
-	return round_number > highest_round_reached
+	return round_number > player_statistics.highest_round_reached
 
 
 func update_high_score() -> void:
-	highest_round_reached = round_number
+	player_statistics.highest_round_reached = round_number
 
 
 func reset_game_upon_new_run() -> void:
@@ -64,4 +64,4 @@ func get_time_elapsed_in_current_run() -> String:
 func convert_time_to_readable_format(time_in_seconds : int) -> String:
 	var seconds = time_in_seconds % 60
 	var minutes = (time_in_seconds / 60) % 60
-	return "%smin %ss" % [minutes, seconds]
+	return "%s:%02d" % [minutes, seconds]

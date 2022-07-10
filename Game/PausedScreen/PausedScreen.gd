@@ -15,11 +15,13 @@ func _ready() -> void:
 	quit_button.connect("clicked_quit_button", self, "to_quit_game")	
 	
 func show_ui() -> void:
-	time_elapsed.update_time_elapsed(GameData.get_time_elapsed_in_current_run())
+	SfxManager.ui.play("Back")
+	time_elapsed.update_time_elapsed(RunManager.get_time_elapsed_in_current_run())
 	settings.update_setting_fields()
 	ui.show()
 
 func hide_ui() -> void:
+	GameSaver.save_data()
 	ui.hide()
 	emit_signal("hid_ui")
 

@@ -13,9 +13,9 @@ func _ready() -> void:
 	cave_music.play()
 
 func play_next_fishing_music() -> void:
-	if GameData.round_number >= 8:
+	if RunManager.round_number >= 8:
 		fishing_music.get_child(2).play()
-	elif GameData.round_number >= 4:
+	elif RunManager.round_number >= 4:
 		fishing_music.get_child(1).play()
 	else:
 		fishing_music.get_child(0).play()
@@ -45,9 +45,11 @@ func get_music_bus_volume_db() -> float:
 	return AudioServer.get_bus_volume_db(1)
 
 func fade_out() -> void:
-	tween.interpolate_method(self, "set_music_bus_volume_db", song_starting_volume, song_starting_volume - 18, 1.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
-	tween.start()
+	if song_starting_volume > -INF: # this is added to fix the bug where the sfx volume gets clipped when music vol fades out at -INF
+		tween.interpolate_method(self, "set_music_bus_volume_db", song_starting_volume, song_starting_volume - 18, 1.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
+		tween.start()
 
 func fade_in() -> void:
-	tween.interpolate_method(self, "set_music_bus_volume_db", song_starting_volume - 18, song_starting_volume, 1.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
-	tween.start()
+	if song_starting_volume > -INF:
+		tween.interpolate_method(self, "set_music_bus_volume_db", song_starting_volume - 18, song_starting_volume, 1.5, Tween.TRANS_LINEAR, Tween.EASE_OUT)	
+		tween.start()

@@ -30,7 +30,7 @@ func _ready() -> void:
 	create_bobber_instance()
 	update_hooks_label()
 	update_total_waves()
-	GameData.reset_wave_number()
+	RunManager.reset_wave_number()
 	countdown.connect("countdown_finished", self, "on_countdown_finished")
 	GameEvents.connect("bobber_took_damage", self, "_on_bobber_took_damage")
 	GameEvents.connect("bobber_gained_hook", self, "on_bobber_gained_hook")
@@ -145,13 +145,13 @@ func on_set_up_orb_spawner_at_start_of_fishing(item_name : String, incremented_v
 func proceed_to_next_wave_after_catching_all_fish() -> void:
 	if wave_system_enabled:
 		if is_instance_valid(bobber) and !proceeding_to_next_wave:
-			if GameData.current_wave_number % 3 == 0: # final wave of the round
+			if RunManager.current_wave_number % 3 == 0: # final wave of the round
 				proceeding_to_next_wave = true
 				
 				var earned_gold_for_the_round : int
-				if GameData.round_number <= 3:
+				if RunManager.round_number <= 3:
 					earned_gold_for_the_round = 1
-				elif GameData.round_number <= 6:
+				elif RunManager.round_number <= 6:
 					earned_gold_for_the_round = 2
 				else:
 					earned_gold_for_the_round = 3
@@ -168,7 +168,7 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 func proceed_to_next_wave_after_timing_out() -> void:
 	if wave_system_enabled and is_instance_valid(bobber): 
 		if !proceeding_to_next_wave:
-			if GameData.current_wave_number % 3 != 0: # not final wave of the round
+			if RunManager.current_wave_number % 3 != 0: # not final wave of the round
 				proceed_to_next_wave()
 	
 
@@ -177,7 +177,7 @@ func proceed_to_next_wave() -> void:
 	yield(get_tree().create_timer(1), "timeout") # temporary solution to prevent intimidate from breaking the game
 	bobber.start_immunity() # prevent getting hit unfairly when fish spawn (temp solution)
 	fishes.proceed_to_next_wave()
-	update_wave_number_label(GameData.current_wave_number)
+	update_wave_number_label(RunManager.current_wave_number)
 	wave_number_progress_bar.reset_progress_bar()
 	proceeding_to_next_wave = false
 
@@ -193,12 +193,13 @@ func game_over() -> void:
 	if wave_system_enabled:
 		bobber.reset_upon_new_run()
 		bobber.queue_free()
-		if GameData.beat_high_score():
-			GameData.update_high_score()
-			game_over.update_high_score_label(GameData.highest_round_reached)
+		if RunManager.beat_high_score():
+			RunManager.update_high_score()
+			game_over.update_high_score_label(RunManager.player_statistics.highest_round_reached)
 		game_over.show()
 		wave_number_progress_bar.stop_progress_bar_timer()
 		pause_manager.disable_pause()
+		GameSaver.save_data()
 
 
 func congratulate_player() -> void:
@@ -227,13 +228,13 @@ func on_clicked_play_again() -> void:
 
 
 func reset_game_state() -> void:
-	GameData.reset_game_upon_new_run()
+	RunManager.reset_game_upon_new_run()
 	SongManager.on_restart()
 
 func restart() -> void:
 	reset_game_state()
 	get_tree().reload_current_scene()	
-	GameData.on_new_run()
+	RunManager.on_new_run()
 
 
 func restart_from_paused_screen() -> void:

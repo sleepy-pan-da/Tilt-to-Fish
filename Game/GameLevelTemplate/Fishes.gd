@@ -34,7 +34,7 @@ func update_fishes_remaining() -> void:
 # or
 # wave number timeout
 func proceed_to_next_wave() -> void: 
-	GameData.increment_wave_number()
+	RunManager.increment_wave_number()
 	spawn_fish()
 
 
@@ -43,12 +43,12 @@ func spawn_fish():
 	# round 1 -> spawn 1 fish per wave
 	# round 2 -> spawn 2 fish per wave
 	# round 5 -> spawn 5 fish per wave
-	if GameData.round_number <= 5:
-		number_of_fish_to_spawn = GameData.round_number
+	if RunManager.round_number <= 5:
+		number_of_fish_to_spawn = RunManager.round_number
 	else:
 		# from round 6 to 8 onwards, 
 		# spawn 5 to 8 fish per wave
-		number_of_fish_to_spawn = min(GameData.round_number - 1, 10)
+		number_of_fish_to_spawn = min(RunManager.round_number - 1, 10)
 	
 	for i in range(number_of_fish_to_spawn):
 		add_fish_to_scene()
@@ -57,7 +57,7 @@ func spawn_fish():
 func add_fish_to_scene() -> void:
 	var index: int = fish_to_spawn.generate_random_index_for_fish()
 	var spawned_fish = fish_to_spawn.fishes[index].instance()
-	spawned_fish.make_fish_tankier_with_difficulty_modifier(GameData.difficulty_modifier)
+	spawned_fish.make_fish_tankier_with_difficulty_modifier(RunManager.difficulty_modifier)
 	add_child(spawned_fish)
 	spawned_fish.global_position = generate_random_pt_on_screen()
 

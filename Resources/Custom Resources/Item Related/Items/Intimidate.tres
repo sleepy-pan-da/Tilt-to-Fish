@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "3/2/1s in proximity area: AOE stun for 1s"
 rarity = 1
+unlocked = false

@@ -26,3 +26,4 @@ description = "Stun all unstunned fish for 1s
 Deal 7/14/28 damage to all stunned fish
 Cooldown: 3/2/1s"
 rarity = 2
+unlocked = false

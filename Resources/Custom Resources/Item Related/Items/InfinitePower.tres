@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "+1/2/4 max orbs in play"
 rarity = 1
+unlocked = false

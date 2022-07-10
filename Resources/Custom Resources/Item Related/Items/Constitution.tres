@@ -24,3 +24,4 @@ buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "+1/2/4 max hook"
 rarity = 0
+unlocked = false

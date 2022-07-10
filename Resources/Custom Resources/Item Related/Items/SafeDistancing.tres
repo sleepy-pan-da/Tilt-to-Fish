@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "Spheres orbit around you, dealing 10/20/40 damage and stunning for 1s"
 rarity = 1
+unlocked = false

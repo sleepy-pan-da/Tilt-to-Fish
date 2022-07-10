@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "Visit shop + own 3 items or less: gain 1/2/3 gold"
 rarity = 1
+unlocked = false

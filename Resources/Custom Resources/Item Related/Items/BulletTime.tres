@@ -24,3 +24,4 @@ buying_cost = 10
 selling_cost = [ 5, 14, 22 ]
 description = "Enemies and their projectiles slows down near you"
 rarity = 2
+unlocked = false

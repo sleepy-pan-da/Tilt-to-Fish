@@ -27,3 +27,4 @@ Visit shop + took damage: reset stack count
 
 Stack count: "
 rarity = 0
+unlocked = false

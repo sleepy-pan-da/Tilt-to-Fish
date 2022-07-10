@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "2s In proximity area: release a wave of volatile energy that damages for 2/4/10"
 rarity = 1
+unlocked = false

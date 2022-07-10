@@ -8,7 +8,7 @@ func generate_random_index_for_fish() -> int:
 	randomize()
 	var start_index : int
 	var end_index : int
-	match GameData.round_number:
+	match RunManager.round_number:
 		1:
 			# slothfish and scrubfish, just to teach basic mechanics
 			start_index = 0

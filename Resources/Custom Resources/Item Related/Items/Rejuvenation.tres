@@ -25,3 +25,4 @@ selling_cost = [ 0, 2, 4 ]
 description = "Visit shop: fully restore hook count
 Damage taken is multiplied by 2/1.5/1 (rounded down)"
 rarity = 0
+unlocked = false

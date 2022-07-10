@@ -25,3 +25,4 @@ selling_cost = [ 0, 2, 4 ]
 description = "Drop an area of goo that slows down targets by 30/50/70%
 Cooldown: 8/6/4s"
 rarity = 0
+unlocked = false

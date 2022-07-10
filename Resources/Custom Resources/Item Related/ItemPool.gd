@@ -9,7 +9,7 @@ var uncommon_items : Array
 var rare_items : Array 
 
 func update_on_first_round() -> void:
-	if GameData.round_number == 1:
+	if RunManager.round_number == 1:
 		common_items.clear()
 		uncommon_items.clear()
 		rare_items.clear()
@@ -57,7 +57,7 @@ func pick_an_item_randomly() -> ItemTraits:
 
 
 func get_rarity_distribution() -> Array:
-	var current_round_number : int = GameData.round_number
+	var current_round_number : int = RunManager.round_number
 	if current_round_number >= 8:
 		return [10, 40, 50] 
 	elif current_round_number >= 4:

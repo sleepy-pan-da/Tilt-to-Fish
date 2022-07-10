@@ -18,6 +18,7 @@ func update_setting_fields() -> void:
 	sfx_slider.value = db2linear(SfxManager.get_sfx_bus_volume_db())
 
 func on_back_pressed() -> void:
+	GameSaver.save_data()
 	SfxManager.ui.play("Back")
 	screen_transition.transition_out()
 

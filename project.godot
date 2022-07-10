@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Upgrades/OrbitingOrbs/OrbitingOrbsGamma/OrbitingOrbsGamma.gd"
 }, {
+"base": "Resource",
+"class": "PlayerStatistics",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/PlayerStatistics.gd"
+}, {
 "base": "Area2D",
 "class": "Projectile",
 "language": "GDScript",
@@ -160,6 +165,7 @@ _global_script_class_icons={
 "Orb": "",
 "OrbSpawner": "",
 "OrbitingOrbsGamma": "",
+"PlayerStatistics": "",
 "Projectile": "",
 "Retaliation": "",
 "State": "",
@@ -176,13 +182,13 @@ config/icon="res://Assets/Fishing Scene/Fishes/scrubfish/scrubfish(thick)_right.
 
 [autoload]
 
-GameData="*res://Singletons/GameData.tscn"
-GameEvents="*res://Singletons/GameEvents.tscn"
-LoadingManager="res://Singletons/LoadingManager.tscn"
-ItemDatabase="*res://Singletons/ItemDatabase/ItemDatabase.tscn"
-SongManager="*res://Singletons/SongManager.tscn"
-SfxManager="*res://Singletons/SFXManager/SFXManager.tscn"
 GameSaver="*res://Singletons/GameSaver.tscn"
+SongManager="*res://Singletons/SongManager.tscn"
+RunManager="*res://Singletons/RunManager.tscn"
+GameEvents="*res://Singletons/GameEvents.tscn"
+ItemDatabase="*res://Singletons/ItemDatabase/ItemDatabase.tscn"
+LoadingManager="res://Singletons/LoadingManager.tscn"
+SfxManager="*res://Singletons/SFXManager/SFXManager.tscn"
 
 [debug]
 

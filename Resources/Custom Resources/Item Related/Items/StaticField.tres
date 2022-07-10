@@ -24,3 +24,4 @@ buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "Enter proximity area of stunned fish: deal 5/10/20 aoe damage "
 rarity = 1
+unlocked = false

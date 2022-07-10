@@ -87,17 +87,17 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/LeftVBoxContainer/TimeElapsedInRun"]
-margin_right = 394.0
+margin_right = 382.0
 margin_bottom = 52.0
 custom_fonts/font = SubResource( 1 )
-text = "Time Elapsed: "
+text = "Time Elapsed "
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TimeElapsed" type="Label" parent="CanvasLayer/UI/LeftVBoxContainer/TimeElapsedInRun"]
-margin_left = 398.0
-margin_right = 505.0
+margin_left = 386.0
+margin_right = 493.0
 margin_bottom = 52.0
 custom_fonts/font = SubResource( 2 )
 text = "0:03"

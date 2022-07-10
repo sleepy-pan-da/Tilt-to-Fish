@@ -27,3 +27,4 @@ Enter proximity area: attach your charges onto the fish
 Reactivate: detonate all charges, each dealing 15/20/30 damage
 Cooldown: 5s"
 rarity = 1
+unlocked = false

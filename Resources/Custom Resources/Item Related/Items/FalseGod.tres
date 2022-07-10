@@ -25,3 +25,4 @@ selling_cost = [ 2, 6, 8 ]
 description = "+3/6/12 reel damage
 Double damage taken"
 rarity = 1
+unlocked = false

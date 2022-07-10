@@ -25,3 +25,4 @@ selling_cost = [ 2, 6, 10 ]
 description = "Time slows down by 50/70/90% when you don't move
 Deal 0 reeling damage when time slows down"
 rarity = 1
+unlocked = false

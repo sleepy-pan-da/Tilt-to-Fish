@@ -29,7 +29,7 @@ func _ready() -> void:
 	create_bobber_instance()
 	hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)
 	gold.update_label(bobber_stats.gold_amount)
-	round_number.update_round_number(GameData.round_number)
+	round_number.update_round_number(RunManager.round_number)
 	
 	item_pool.update_on_first_round()
 	items_sold.set_up_items_sold(backpack)
@@ -151,7 +151,7 @@ func on_clicked_buy_sell_button() -> void:
 
 func _on_NextWave_pressed() -> void:
 	screen_transition.transition_out()
-	GameData.increment_round_number()
+	RunManager.increment_round_number()
 
 
 func go_back_to_fishing() -> void:
