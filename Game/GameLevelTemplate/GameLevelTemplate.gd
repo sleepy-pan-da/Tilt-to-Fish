@@ -193,6 +193,7 @@ func game_over() -> void:
 	if wave_system_enabled:
 		bobber.reset_upon_new_run()
 		bobber.queue_free()
+		game_over.update_round_reached_label(RunManager.round_number)
 		if RunManager.beat_high_score():
 			RunManager.update_high_score()
 			game_over.update_high_score_label(RunManager.player_statistics.highest_round_reached)

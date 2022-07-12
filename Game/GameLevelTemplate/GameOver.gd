@@ -1,8 +1,10 @@
 extends Control
 
-onready var button_label = $Button/PlayAgain
-onready var tween = $Button/PlayAgain/Tween
+onready var button_label = $Button
+onready var tween = $Button/Tween
 onready var high_score = $HighScore
+onready var round_reached = $RoundReached
+
 var released_button : bool = false
 signal clicked_play_again
 
@@ -26,6 +28,10 @@ func _on_Tween_tween_all_completed() -> void:
 		released_button = false
 		emit_signal("clicked_play_again")
 
+
+func update_round_reached_label(round_number : int) -> void:
+	round_reached.text = "Round reached: " + str(round_number)
+	
 
 func update_high_score_label(new_high_score) -> void:
 	high_score.text = "Highest round reached: " + str(new_high_score)

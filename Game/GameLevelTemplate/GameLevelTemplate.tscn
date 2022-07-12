@@ -63,22 +63,22 @@ size = 56
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 64
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=8]
 size = 144
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 48
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
+size = 64
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=11]
 size = 32
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 19 )
 
 [node name="GameLevelTemplate" type="Node2D"]
@@ -296,84 +296,68 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GameOver" type="Control" parent="CanvasLayer/UI"]
+[node name="GameOver" type="VBoxContainer" parent="CanvasLayer/UI"]
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -640.0
-margin_top = -360.0
+margin_top = -191.0
 margin_right = 640.0
 margin_bottom = 360.0
+custom_constants/separation = 20
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label" type="Label" parent="CanvasLayer/UI/GameOver"]
+margin_right = 1280.0
+margin_bottom = 153.0
+custom_fonts/font = SubResource( 7 )
+text = "Game over"
+align = 1
+valign = 1
+
+[node name="RoundReached" type="Label" parent="CanvasLayer/UI/GameOver"]
+margin_top = 173.0
+margin_right = 1280.0
+margin_bottom = 225.0
+custom_fonts/font = SubResource( 8 )
+text = "Round reached:"
+align = 1
+valign = 1
+
+[node name="HighScore" type="Label" parent="CanvasLayer/UI/GameOver"]
+margin_top = 245.0
+margin_right = 1280.0
+margin_bottom = 297.0
+custom_fonts/font = SubResource( 8 )
+text = "Highest round reached:"
+align = 1
+valign = 1
+
 [node name="Button" type="Button" parent="CanvasLayer/UI/GameOver"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -208.0
-margin_top = 55.0
-margin_right = 208.0
-margin_bottom = 119.0
+margin_left = 426.0
+margin_top = 317.0
+margin_right = 854.0
+margin_bottom = 391.0
+rect_pivot_offset = Vector2( 214, 37 )
 focus_mode = 0
-shortcut_in_tooltip = false
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
+text = "Play again"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayAgain" type="Label" parent="CanvasLayer/UI/GameOver/Button"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -208.0
-margin_top = -32.0
-margin_right = 208.0
-margin_bottom = 36.0
-rect_pivot_offset = Vector2( 208, 34 )
-custom_fonts/font = SubResource( 7 )
-text = "Play again"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tween" type="Tween" parent="CanvasLayer/UI/GameOver/Button/PlayAgain"]
-
-[node name="Label" type="Label" parent="CanvasLayer/UI/GameOver"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -450.5
-margin_top = -194.0
-margin_right = 450.5
-margin_bottom = -41.0
-custom_fonts/font = SubResource( 8 )
-text = "Game over"
-align = 1
-valign = 1
-
-[node name="HighScore" type="Label" parent="CanvasLayer/UI/GameOver"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -439.0
-margin_top = -26.0
-margin_right = 439.0
-margin_bottom = 26.0
-custom_fonts/font = SubResource( 9 )
-text = "Highest round reached:"
-align = 1
-valign = 1
+[node name="Tween" type="Tween" parent="CanvasLayer/UI/GameOver/Button"]
 
 [node name="DebugUI" type="Control" parent="CanvasLayer/UI"]
 visible = false
@@ -389,7 +373,7 @@ __meta__ = {
 [node name="Header" type="Label" parent="CanvasLayer/UI/DebugUI"]
 margin_right = 194.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 11 )
 text = "Debug Panel"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -408,7 +392,7 @@ margin_right = 224.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 224, 21 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Reel Damage: "
 
 [node name="ReelRate" type="Label" parent="CanvasLayer/UI/DebugUI/Content"]
@@ -417,7 +401,7 @@ margin_right = 224.0
 margin_bottom = 46.0
 rect_min_size = Vector2( 224, 21 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
 text = "Reel Rate: "
 
 [node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 11 )]
@@ -462,6 +446,6 @@ script = ExtResource( 36 )
 [connection signal="timeout" from="CanvasLayer/UI/WaveNumber/ProgressBar/Timer" to="CanvasLayer/UI/WaveNumber/ProgressBar" method="_on_Timer_timeout"]
 [connection signal="button_down" from="CanvasLayer/UI/GameOver/Button" to="CanvasLayer/UI/GameOver" method="_on_Button_button_down"]
 [connection signal="button_up" from="CanvasLayer/UI/GameOver/Button" to="CanvasLayer/UI/GameOver" method="_on_Button_button_up"]
-[connection signal="tween_all_completed" from="CanvasLayer/UI/GameOver/Button/PlayAgain/Tween" to="CanvasLayer/UI/GameOver" method="_on_Tween_tween_all_completed"]
+[connection signal="tween_all_completed" from="CanvasLayer/UI/GameOver/Button/Tween" to="CanvasLayer/UI/GameOver" method="_on_Tween_tween_all_completed"]
 
 [editable path="CanvasLayer/UI/ScreenTransition"]

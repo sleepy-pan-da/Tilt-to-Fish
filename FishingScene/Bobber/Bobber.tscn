@@ -130,7 +130,6 @@ bobber_stats = ExtResource( 5 )
 backpack = ExtResource( 8 )
 item_pool = ExtResource( 9 )
 control_config = ExtResource( 7 )
-testing_on_pc = true
 
 [node name="BobberSprite" type="Sprite" parent="."]
 material = ExtResource( 6 )
