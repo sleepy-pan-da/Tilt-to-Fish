@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var sprite = $Sprite
 onready var analog_stick = $AnalogStickLayer
 onready var state_machine_label = $StateMachineLabel
 
@@ -27,15 +28,20 @@ func move_with_analog_stick(analog_stick_move_vector : Vector2) -> void:
 
 func update_state_machine_label(movement_direction : Vector2) -> void:
 	movement_direction = movement_direction.normalized()
-	if abs(movement_direction.x) > abs(movement_direction.y): # horizontal animation
-		if movement_direction.x > 0:
-			state_machine_label.text = "Right"
-		elif movement_direction.x < 0:
-			state_machine_label.text = "Left"
-	elif abs(movement_direction.x) < abs(movement_direction.y): # vertical animation
-		if movement_direction.y > 0:
-			state_machine_label.text = "Down"
-		elif movement_direction.y < 0:
-			state_machine_label.text = "Up"
+	if movement_direction.x != 0:
+		sprite.animation = "Walk Horizontal"
+		sprite.flip_h = movement_direction.x < 0
+
+#	if abs(movement_direction.x) > abs(movement_direction.y): # horizontal animation
+#		if movement_direction.x > 0:
+#			state_machine_label.text = "Right"
+#		elif movement_direction.x < 0:
+#			state_machine_label.text = "Left"
+#	elif abs(movement_direction.x) < abs(movement_direction.y): # vertical animation
+#		if movement_direction.y > 0:
+#			state_machine_label.text = "Down"
+#		elif movement_direction.y < 0:
+#			state_machine_label.text = "Up"
 	else:
+		sprite.animation = "Idle"
 		state_machine_label.text = "Idle"
