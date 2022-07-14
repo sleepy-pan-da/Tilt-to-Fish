@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/Town Related/Prophecy.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Prophecy Name"
+requirements = "What do u need to do to fulfil"
+current_progress = 0
+amount_to_fulfil = 1
+is_fulfilled = false

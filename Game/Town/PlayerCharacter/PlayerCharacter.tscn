@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1046.PNG" type="Texture" id=1]
 [ext_resource path="res://Game/Town/PlayerCharacter/PlayerCharacter.gd" type="Script" id=2]
@@ -10,21 +10,22 @@
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1042.PNG" type="Texture" id=8]
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1041.PNG" type="Texture" id=9]
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1043.PNG" type="Texture" id=10]
+[ext_resource path="res://Resources/Custom Resources/Town Related/CurrentPlayerOwnedResources.tres" type="Resource" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "Walk Horizontal",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walk Horizontal",
+"speed": 15.0
 } ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -35,6 +36,7 @@ font_data = ExtResource( 4 )
 collision_layer = 256
 collision_mask = 128
 script = ExtResource( 2 )
+player_owned_resources = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

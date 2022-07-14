@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/Town Related/PlayerOwnedResources.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+qty_of_caught_fish_owned = 0
+qty_of_wood_owned = 0
+qty_of_steel_owned = 0
+qty_of_bricks_owned = 0

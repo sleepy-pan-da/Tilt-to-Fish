@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export(Resource) var player_owned_resources = player_owned_resources as PlayerOwnedResources
+
 onready var sprite = $Sprite
 onready var analog_stick = $AnalogStickLayer
 onready var state_machine_label = $StateMachineLabel

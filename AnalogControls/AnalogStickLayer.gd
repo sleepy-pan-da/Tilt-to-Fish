@@ -6,7 +6,6 @@ onready var analog_stick = $AnalogStick
 var analog_stick_center_position : Vector2
 var analog_stick_radius : float
 var just_pressed_screen : bool = false
-var move_vector : Vector2
 
 signal computed_move_vector_from_analog_stick
 

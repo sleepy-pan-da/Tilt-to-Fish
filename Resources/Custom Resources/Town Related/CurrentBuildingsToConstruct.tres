@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/Town Related/BuildingsToConstruct.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Custom Resources/Town Related/BuildingTypes/Temple.tres" type="Resource" id=2]
+[ext_resource path="res://Resources/Custom Resources/Town Related/BuildingTypes/TownHall.tres" type="Resource" id=3]
+[ext_resource path="res://Resources/Custom Resources/Town Related/BuildingTypes/HatShop.tres" type="Resource" id=4]
+[ext_resource path="res://Resources/Custom Resources/Town Related/BuildingTypes/FishingGearShop.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+building_types = [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 5 ), ExtResource( 4 ) ]
