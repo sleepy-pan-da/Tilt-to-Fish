@@ -381,9 +381,8 @@ func on_sell_other_item() -> void:
 			item_specifications.trigger(item_level, ItemSpecification.TRIGGER_CAUSES.sold_other_item)
 
 
-# as of now this is only needed for falsegod since it overwrites hooks and max hooks to 1
-func recompute_hooks_and_max_hooks() -> void:
-	bobber_stats.reset_hooks_and_max_hooks()
+func recompute_hooks_and_max_hooks(to_reset_max_hooks : bool) -> void:
+	if to_reset_max_hooks: bobber_stats.reset_max_hooks() # to differentiate between buying and selling constitution, this line will call when selling
 	set_up_stats_at_start_of_fishing()
 	override_stats_at_start_of_fishing()
 

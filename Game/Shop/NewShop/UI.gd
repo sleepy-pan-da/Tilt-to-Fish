@@ -181,5 +181,5 @@ func on_bobber_gained_hook(num_of_hook_gained: int) -> void:
 	hooks.update_label(bobber_stats.hooks_amount, bobber_stats.max_hooks_amount)	
 
 
-func recompute_hooks_and_max_hooks() -> void:
-	bobber.recompute_hooks_and_max_hooks()
+func recompute_hooks_and_max_hooks(to_reset_max_hooks : bool) -> void:
+	bobber.recompute_hooks_and_max_hooks(to_reset_max_hooks)

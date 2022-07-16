@@ -42,10 +42,11 @@ func set_up_initial_stats() -> void:
 	took_damage_in_round = false
 
 
-func reset_hooks_and_max_hooks() -> void:
+func reset_max_hooks() -> void:
 	max_hooks_amount = initial_max_hooks_amount
-	hooks_amount = max_hooks_amount
-	
+	if hooks_amount > max_hooks_amount:
+		reconfigure_hook()
+
 
 func minus_hook(damage : int) -> void:
 	hooks_amount -= damage

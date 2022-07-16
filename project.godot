@@ -232,6 +232,7 @@ _global_script_class_icons={
 
 config/name="Summer Game Project"
 run/main_scene="res://Game/MainMenu/MainMenu.tscn"
+config/icon="res://Assets/Fishing Scene/Fishes/Baby Shark/Baby Shark right.png"
 
 [autoload]
 
