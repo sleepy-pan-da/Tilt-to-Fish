@@ -10,11 +10,41 @@ radius = 100.0
 [node name="AnalogStickLayer" type="CanvasLayer"]
 script = ExtResource( 2 )
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -720.0
+margin_right = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnalogStickArea" type="TouchScreenButton" parent="Control"]
 modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 128, 416 )
 normal = ExtResource( 1 )
 shape = SubResource( 1 )
 
-[node name="AnalogStick" type="Sprite" parent="."]
-position = Vector2( 100, 100 )
+[node name="AnalogStick" type="Sprite" parent="Control"]
+position = Vector2( 228, 516 )
 texture = ExtResource( 3 )
+
+[node name="Control2" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1280.0
+margin_top = -720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InteractButton" type="TouchScreenButton" parent="Control2"]
+modulate = Color( 0.580392, 0.576471, 0.262745, 1 )
+position = Vector2( 992, 416 )
+normal = ExtResource( 1 )
+
+[connection signal="pressed" from="Control/AnalogStickArea" to="." method="_on_AnalogStickArea_pressed"]
+[connection signal="released" from="Control/AnalogStickArea" to="." method="_on_AnalogStickArea_released"]
+[connection signal="pressed" from="Control2/InteractButton" to="." method="_on_InteractButton_pressed"]
