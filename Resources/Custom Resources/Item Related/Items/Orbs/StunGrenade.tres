@@ -23,6 +23,7 @@ display_name = "Stun Grenade"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "Activate: AOE stun for 1/2/4s, deals 10/20/40 damage
+
 Cooldown: 6/5/4s"
 rarity = 1
 blueprint_unlocked = false

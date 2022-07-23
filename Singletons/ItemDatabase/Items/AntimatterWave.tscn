@@ -5,4 +5,4 @@
 [node name="Antimatter Wave" type="Node"]
 script = ExtResource( 1 )
 increment_damage_at_diff_levels = [ 10.0, 20.0, 40.0 ]
-increment_cooldown_at_diff_levels = [ 2.0, 1.0, 0.5 ]
+increment_cooldown_at_diff_levels = [ 6.0, 5.0, 4.0 ]

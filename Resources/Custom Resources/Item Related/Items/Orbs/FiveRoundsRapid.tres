@@ -23,7 +23,9 @@ display_name = "Five Rounds Rapid"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "Place an automated turret that deals 4/8/16 damage
+
 Lasts for 10s
+
 Cooldown: 12/10/5s"
 rarity = 1
 blueprint_unlocked = false

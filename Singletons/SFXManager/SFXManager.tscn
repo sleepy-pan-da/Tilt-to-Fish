@@ -302,6 +302,11 @@ script = ExtResource( 4 )
 stream = ExtResource( 37 )
 bus = "Sfx"
 
+[node name="Hit" type="AudioStreamPlayer" parent="Bobber/Antimatter wave"]
+stream = ExtResource( 10 )
+volume_db = -18.0
+bus = "Sfx"
+
 [node name="At all cost" type="Node" parent="Bobber"]
 script = ExtResource( 4 )
 

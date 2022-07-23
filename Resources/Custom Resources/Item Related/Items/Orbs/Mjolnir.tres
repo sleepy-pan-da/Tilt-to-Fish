@@ -22,7 +22,8 @@ spawns_orbs = true
 display_name = "Mjolnir"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "Activate: Flies back to you, dealing 15/30/60 damage and stunning for 0.5/1/2s to fishes caught in it’s path
+description = "Activate: Flies back to you, dealing 15/30/60 damage and stunning for 0.5/1/2s.
+
 Cooldown: 6/5/4s"
 rarity = 1
 blueprint_unlocked = false

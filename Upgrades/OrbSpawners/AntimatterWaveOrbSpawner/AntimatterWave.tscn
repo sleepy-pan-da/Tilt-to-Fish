@@ -4,7 +4,7 @@
 [ext_resource path="res://Upgrades/OrbSpawners/AntimatterWaveOrbSpawner/AntimatterWave.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 81.5233, 41.2025 )
+extents = Vector2( 65.5329, 53.5112 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Charging"
@@ -43,11 +43,10 @@ script = ExtResource( 2 )
 speed = 1250.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -2, 1 )
+position = Vector2( -9, -2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 1 )
 
@@ -57,3 +56,5 @@ scale = Vector2( 8.2674, 4.24543 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Charging = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

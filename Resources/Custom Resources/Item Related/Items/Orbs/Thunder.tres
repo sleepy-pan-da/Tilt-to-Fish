@@ -23,7 +23,9 @@ display_name = "Thunder"
 buying_cost = 10
 selling_cost = [ 5, 14, 22 ]
 description = "Stun all unstunned fish for 1s
+
 Deal 7/14/28 damage to all stunned fish
+
 Cooldown: 3/2/1s"
 rarity = 2
 blueprint_unlocked = false

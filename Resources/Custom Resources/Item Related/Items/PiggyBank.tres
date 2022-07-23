@@ -22,7 +22,9 @@ spawns_orbs = false
 display_name = "Piggy Bank"
 buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
-description = "Visit shop: +1/2/3 gold per 3 gold owned"
+description = "Visit shop: +1/2/3 gold per 3 gold owned 
+
+You can only gain up to 9 gold from the above ability"
 rarity = 0
 blueprint_unlocked = false
 unlocked = false

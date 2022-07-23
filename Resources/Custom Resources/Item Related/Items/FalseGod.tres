@@ -23,6 +23,7 @@ display_name = "False God"
 buying_cost = 4
 selling_cost = [ 2, 6, 8 ]
 description = "+3/6/12 reel damage
+
 Double damage taken"
 rarity = 1
 blueprint_unlocked = false

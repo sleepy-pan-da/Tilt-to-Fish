@@ -17,7 +17,6 @@ var max_orbs : int
 var orb_cooldown_reduction : float = 1.0
 var slows_down_time_by : float = 1.0
 var damage_taken_multiplier : float = 1.0
-var biscuit_tin_stack_count : int = 0
 
 var first_time_setting_up : bool = true
 var took_damage_in_round : bool = false
@@ -30,7 +29,6 @@ func set_up_initial_stats() -> void:
 		hooks_amount = max_hooks_amount
 		gold_amount = initial_gold_amount
 		first_time_setting_up = false
-		biscuit_tin_stack_count = 0
 	
 	reel_damage = initial_reel_damage
 	previous_reel_damage = 0
@@ -85,10 +83,6 @@ func change_orb_cooldown_reduction(change_in_cooldown_reduction : float) -> void
 
 func multiply_damage_taken_multiplier(multiplier : float) -> void: # for the scenario where you have 2 double damage taken items
 	damage_taken_multiplier *= multiplier
-
-
-func change_biscuit_tin_stack_count(change_in_stack_count : int) -> void:
-	biscuit_tin_stack_count += change_in_stack_count
 
 
 func set_max_orbs(number_to_set : int) -> void:

@@ -22,8 +22,11 @@ spawns_orbs = true
 display_name = "Antimatter Wave"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
-description = "Delay: Fires a wave that passes through and deals 10/20/40 damage
-Cooldown: 2/1/0.5s"
+description = "Delay: Fires a wave that passes through, dealing 10/20/40 damage and stunning for 1s.
+
+Damage x1.5 for each fish it passes through.
+
+Cooldown: 6/5/4s"
 rarity = 1
 blueprint_unlocked = false
 unlocked = false

@@ -23,6 +23,7 @@ display_name = "Loyalty Card"
 buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "Buy an item: Gain 1/2/3 gold
+
 Sell an item: Gain 0/1/2 gold"
 rarity = 0
 blueprint_unlocked = false

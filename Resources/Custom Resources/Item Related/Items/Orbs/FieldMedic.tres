@@ -23,8 +23,11 @@ display_name = "Field Medic"
 buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "Hover: Gain Hook
+
 Lasts for 5s
+
 Max hooks to be gained: 1/2/3
+
 Cooldown: 7s"
 rarity = 0
 blueprint_unlocked = false

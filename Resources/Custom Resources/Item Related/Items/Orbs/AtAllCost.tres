@@ -23,6 +23,7 @@ display_name = "At All Cost"
 buying_cost = 10
 selling_cost = [ 5, 14, 22 ]
 description = "Lose 1 hook: deal 25/50/100 damage to all fish
+
 Cooldown: 5s"
 rarity = 2
 blueprint_unlocked = false

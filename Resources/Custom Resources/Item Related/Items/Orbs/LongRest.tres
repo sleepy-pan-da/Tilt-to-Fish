@@ -23,7 +23,9 @@ display_name = "Long Rest"
 buying_cost = 4
 selling_cost = [ 2, 6, 10 ]
 description = "7/5/3s Delay: Fully restore hook count 
+
 During delay, take double damage
+
 Cooldown: 5s"
 rarity = 1
 blueprint_unlocked = false

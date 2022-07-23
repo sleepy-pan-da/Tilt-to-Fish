@@ -147,7 +147,9 @@ func _on_Hurtbox_area_entered(area):
 		progress_bar.increment_bar(area.damage)
 		area.queue_free()
 	elif area.get_name() == "AntimatterWave":
+		area.increase_in_power()
 		progress_bar.increment_bar(area.damage)
+		on_stunned(1)		
 	elif area.get_name() == "StunGrenadeExplosion":
 		progress_bar.increment_bar(area.damage)
 		on_stunned(area.stun_duration)

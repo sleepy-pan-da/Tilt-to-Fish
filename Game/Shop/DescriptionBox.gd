@@ -42,8 +42,5 @@ func update_description_box_with_item_details(item_details : ItemTraits) -> void
 	item_type.update_item_type(item_details.spawns_orbs)
 	item_description.update_item_description(item_details.description)
 	item_selling_costs.update_item_selling_costs(item_details.selling_cost)
-	
-	if item_details.display_name == "Biscuit Tin":
-		item_description.append_item_description(String(bobber_stats.biscuit_tin_stack_count))
 	#item_rarity.update_item_rarity(item_details.rarity)
 	

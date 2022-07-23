@@ -22,10 +22,7 @@ spawns_orbs = false
 display_name = "Biscuit Tin"
 buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
-description = "Visit shop + did not take damage : Gain a stack. Gain 1/2/3 gold equal to stack count
-Visit shop + took damage: reset stack count
-
-Stack count: "
+description = "Visit shop + did not take damage : Gain 1/2/3 gold"
 rarity = 0
 blueprint_unlocked = false
 unlocked = false

@@ -23,6 +23,7 @@ display_name = "Arrow"
 buying_cost = 1
 selling_cost = [ 0, 2, 4 ]
 description = "Delay: Fires an arrow that deals 15/30/60 damage
+
 Cooldown: 2/1/0.5s "
 rarity = 0
 blueprint_unlocked = false
