@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Game/GameLevelTemplate/ProgressBar.gd" type="Script" id=1]
 [ext_resource path="res://Game/GameLevelTemplate/GameLevelTemplate.gd" type="Script" id=2]
@@ -37,6 +37,7 @@
 [ext_resource path="res://Game/GameLevelTemplate/FpsLabel.gd" type="Script" id=35]
 [ext_resource path="res://Game/GameLevelTemplate/PauseManager.gd" type="Script" id=36]
 [ext_resource path="res://Game/PausedScreen/PausedScreen.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Upgrades/OrbSpawners/TimeLordVictoriousOrbSpawner/TimeLordVictoriousOrbSpawner.tscn" type="PackedScene" id=38]
 
 [sub_resource type="DynamicFont" id=1]
 size = 38
@@ -74,11 +75,11 @@ font_data = ExtResource( 8 )
 size = 64
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 32
 font_data = ExtResource( 13 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 font_data = ExtResource( 19 )
 
 [node name="GameLevelTemplate" type="Node2D"]
@@ -373,7 +374,7 @@ __meta__ = {
 [node name="Header" type="Label" parent="CanvasLayer/UI/DebugUI"]
 margin_right = 194.0
 margin_bottom = 42.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "Debug Panel"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -392,7 +393,7 @@ margin_right = 224.0
 margin_bottom = 21.0
 rect_min_size = Vector2( 224, 21 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Reel Damage: "
 
 [node name="ReelRate" type="Label" parent="CanvasLayer/UI/DebugUI/Content"]
@@ -401,7 +402,7 @@ margin_right = 224.0
 margin_bottom = 46.0
 rect_min_size = Vector2( 224, 21 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "Reel Rate: "
 
 [node name="ScreenTransition" parent="CanvasLayer/UI" instance=ExtResource( 11 )]
@@ -431,6 +432,7 @@ AtAllCost = ExtResource( 15 )
 Thunder = ExtResource( 16 )
 CookTheGrenade = ExtResource( 17 )
 TNT = ExtResource( 34 )
+TimeLordVictorious = ExtResource( 38 )
 
 [node name="OrbManager" type="Node" parent="."]
 script = ExtResource( 24 )

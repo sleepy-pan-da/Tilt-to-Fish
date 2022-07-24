@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Singletons/SFXManager/SFXManager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SFX/UI/UI confirm.wav" type="AudioStream" id=2]
@@ -45,6 +45,8 @@
 [ext_resource path="res://Assets/SFX/Bobber/Intimidate trigger.wav" type="AudioStream" id=43]
 [ext_resource path="res://Assets/SFX/Bobber/Acid trigger.wav" type="AudioStream" id=44]
 [ext_resource path="res://Singletons/SFXManager/Acid.gd" type="Script" id=45]
+[ext_resource path="res://Assets/SFX/Bobber/Stop time.wav" type="AudioStream" id=46]
+[ext_resource path="res://Assets/SFX/Bobber/Resume time.wav" type="AudioStream" id=47]
 
 [node name="SFXManager" type="Node"]
 pause_mode = 2
@@ -355,6 +357,19 @@ script = ExtResource( 45 )
 [node name="Trigger" type="AudioStreamPlayer" parent="Bobber/Acid"]
 stream = ExtResource( 44 )
 volume_db = 3.0
+bus = "Sfx"
+
+[node name="Time Lord Victorious" type="Node" parent="Bobber"]
+script = ExtResource( 4 )
+
+[node name="Stop time" type="AudioStreamPlayer" parent="Bobber/Time Lord Victorious"]
+stream = ExtResource( 46 )
+volume_db = 6.0
+bus = "Sfx"
+
+[node name="Resume time" type="AudioStreamPlayer" parent="Bobber/Time Lord Victorious"]
+stream = ExtResource( 47 )
+volume_db = 6.0
 bus = "Sfx"
 
 [node name="Fish" type="Node" parent="."]

@@ -103,20 +103,6 @@ func _physics_process(delta : float) -> void:
 		var velocity : Vector2 = Vector2(horizontal_direction * speed, vertical_direction * speed)
 		arrow.configure_arrow_location(velocity)
 		move_and_slide(velocity)
-	
-	if backpack.has_item("Time Lord Victorious"):
-		if is_moving:
-			Engine.time_scale = 1.0
-			if bobber_stats.previous_reel_damage > 0:
-				bobber_stats.reel_damage = bobber_stats.previous_reel_damage
-				bobber_stats.previous_reel_damage = 0
-		else:
-			Engine.time_scale = bobber_stats.slows_down_time_by
-			if bobber_stats.previous_reel_damage == 0:
-				bobber_stats.previous_reel_damage = bobber_stats.reel_damage 
-				bobber_stats.reel_damage = 0
-	else:
-		Engine.time_scale = 1.0
 
 
 func move(accelerometer_vector : Vector3, delta : float) -> void:

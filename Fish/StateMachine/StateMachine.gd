@@ -15,6 +15,7 @@ onready var state: State = get_node(initial_state)
 onready var state_after_recover : State = get_node(nodepath_of_state_after_recover)
 
 var slow_multiplier : float = 1.0 # to be used to affect delta, the lower the number, the slower it gets
+var time_is_not_stopped : bool = true
 
 func _ready() -> void:
 	yield(owner, "ready")
@@ -30,11 +31,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	state.update(delta * slow_multiplier)
+	# if time is stopped, the input below will be 0 regardless of slow_multiplier
+	state.update(delta * slow_multiplier * float(time_is_not_stopped))
 
 
 func _physics_process(delta: float) -> void:
-	state.physics_update(delta * slow_multiplier)
+	state.physics_update(delta * slow_multiplier * float(time_is_not_stopped))
 
 
 # This function calls the current state's exit() function, then changes the active state,

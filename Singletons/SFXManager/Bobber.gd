@@ -22,3 +22,5 @@ onready var invulnerability = $Invulnerability
 onready var plasma_field = get_node("Plasma field")
 onready var intimidate = $Intimidate
 onready var acid = $Acid
+onready var time_lord_victorious = get_node("Time Lord Victorious")
+

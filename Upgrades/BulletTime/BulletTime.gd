@@ -10,13 +10,13 @@ func set_value(new_value) -> void:
 func _on_BulletTime_body_entered(body): 
 	var state_machine : StateMachine = body.get_node_or_null("StateMachine")
 	if state_machine:
-		state_machine.slow_multiplier = max(state_machine.slow_multiplier - slow_by, 0.1)
+		state_machine.slow_multiplier = max(state_machine.slow_multiplier - slow_by, 0)
 
 
 func _on_BulletTime_body_exited(body): 
 	var state_machine : StateMachine = body.get_node_or_null("StateMachine")
 	if state_machine:
-		state_machine.slow_multiplier = max(state_machine.slow_multiplier + slow_by, 0.1)
+		state_machine.slow_multiplier = max(state_machine.slow_multiplier + slow_by, 0)
 
 
 # for projectiles

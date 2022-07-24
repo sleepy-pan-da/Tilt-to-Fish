@@ -15,13 +15,13 @@ func set_incremented_values(new_incremented_values) -> void:
 func _on_StickyGoo_body_entered(body):
 	var state_machine : StateMachine = body.get_node_or_null("StateMachine")
 	if state_machine:
-		state_machine.slow_multiplier = max(state_machine.slow_multiplier - slow_by, 0.1)
+		state_machine.slow_multiplier = max(state_machine.slow_multiplier - slow_by, 0)
 		#print(state_machine.slow_multiplier)
 
 func _on_StickyGoo_body_exited(body):
 	var state_machine : StateMachine = body.get_node_or_null("StateMachine")
 	if state_machine:
-		state_machine.slow_multiplier = max(state_machine.slow_multiplier + slow_by, 0.1)
+		state_machine.slow_multiplier = max(state_machine.slow_multiplier + slow_by, 0)
 		#print(state_machine.slow_multiplier)
 		
 

@@ -6,4 +6,5 @@
 [node name="Time Lord Victorious" type="Node"]
 script = ExtResource( 1 )
 bobber_stats = ExtResource( 2 )
-increment_values_at_diff_levels = [ 0.5, 0.3, 0.1 ]
+increment_stop_time_duration_at_diff_levels = [ 5.0, 6.0, 7.0 ]
+increment_cooldown_at_diff_levels = [ 10.0, 10.0, 10.0 ]
