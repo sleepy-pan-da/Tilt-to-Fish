@@ -20,12 +20,12 @@ triggers_when_sold_other_item = false
 triggers_when_visit_shop = false
 spawns_orbs = true
 display_name = "Time Lord Victorious"
-buying_cost = 4
-selling_cost = [ 2, 6, 10 ]
+buying_cost = 10
+selling_cost = [ 5, 14, 22 ]
 description = "Time stops for 5/6/7s for fishes
 
 Cooldown: 10s"
-rarity = 1
+rarity = 2
 blueprint_unlocked = false
 unlocked = false
 qty_of_caught_fish_required = 0

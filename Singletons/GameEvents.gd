@@ -12,7 +12,7 @@ extends Node
 signal bobber_took_damage(damage_taken) # need to pass damage taken to manage confidence
 signal bobber_gained_hook(num_of_hook_gained) # connected to GameLevelTemplate.tscn and NewShop/UI.gd
 signal need_to_recompute_bobber_hooks_and_max_hooks(to_reset_max_hooks) # connected to NewShop/UI.gd
-signal successfully_caught_fish (fish_position) # need to pass fish_position to manage intimidation
+signal successfully_caught_fish (fish_position, fish_name) # need to pass fish_position to manage intimidation
 
 signal bobber_touched_orb(name_of_orb_last_touched) # connected to GameLevelTemplate/OrbManager.gd, this manages the spawning of next orb
 

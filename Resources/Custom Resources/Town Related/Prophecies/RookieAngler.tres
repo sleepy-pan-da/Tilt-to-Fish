@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Prophecy Name"
-requirements = "What do u need to do to fulfil"
+name = "Rookie Angler"
+requirements = "Caught 3 fishes"
+updates_when_caught_fish = true
 current_progress = 0
-amount_to_fulfil = 1
+amount_to_fulfil = 3
 is_fulfilled = false

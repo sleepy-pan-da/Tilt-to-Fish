@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func _on_progress_bar_filled() -> void:
 	queue_free()
-	GameEvents.emit_signal("successfully_caught_fish", get_node("KinematicBody").global_position)
+	GameEvents.emit_signal("successfully_caught_fish", get_node("KinematicBody").global_position, name)
 
 
 func _on_progress_bar_emptied() -> void:

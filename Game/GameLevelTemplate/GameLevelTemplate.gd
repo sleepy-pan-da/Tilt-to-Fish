@@ -112,8 +112,9 @@ func on_bobber_gained_hook(num_of_hook_gained : int) -> void:
 
 
 var previous_caught_fish_position : Vector2
-func _on_successfully_caught_fish(fish_position : Vector2) -> void:
+func _on_successfully_caught_fish(fish_position : Vector2, fish_name : String) -> void:
 	SfxManager.fish.play("Caught fish")
+	ProphecyManager.updates_prophecies_when_caught_fish()
 	if is_instance_valid(bobber):	
 		var backpack = bobber.backpack
 		fishes.update_fishes_remaining_upon_successful_catch()
@@ -149,12 +150,14 @@ func proceed_to_next_wave_after_catching_all_fish() -> void:
 				proceeding_to_next_wave = true
 				
 				var earned_gold_for_the_round : int
-				if RunManager.round_number <= 3:
-					earned_gold_for_the_round = 1
-				elif RunManager.round_number <= 6:
-					earned_gold_for_the_round = 2
-				else:
-					earned_gold_for_the_round = 3
+				earned_gold_for_the_round = 1
+				
+#				if RunManager.round_number <= 3:
+#					earned_gold_for_the_round = 1
+#				elif RunManager.round_number <= 6:
+#					earned_gold_for_the_round = 2
+#				else:
+#					earned_gold_for_the_round = 3
 				bobber.bobber_stats.change_gold(earned_gold_for_the_round)
 				
 				bobber.queue_free()

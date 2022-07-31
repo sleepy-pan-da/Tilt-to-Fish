@@ -243,6 +243,8 @@ GameEvents="*res://Singletons/GameEvents.tscn"
 ItemDatabase="*res://Singletons/ItemDatabase/ItemDatabase.tscn"
 LoadingManager="res://Singletons/LoadingManager.tscn"
 SfxManager="*res://Singletons/SFXManager/SFXManager.tscn"
+UiOverlay="*res://Singletons/UIOverlay/UIOverlay.tscn"
+ProphecyManager="*res://Singletons/ProphecyManager.tscn"
 
 [debug]
 

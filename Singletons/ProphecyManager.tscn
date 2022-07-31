@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Singletons/ProphecyManager.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Custom Resources/Town Related/CurrentPropheciesToFulfil.tres" type="Resource" id=2]
+
+[node name="ProphecyManager" type="Node2D"]
+script = ExtResource( 1 )
+prophecies_to_fulfil = ExtResource( 2 )
