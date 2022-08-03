@@ -1,9 +1,7 @@
-extends Label
+extends RichTextLabel
 
 
-func update_item_description(item_description : String) -> void:
-	text = item_description
-
-
-func append_item_description(appended_text : String) -> void:
-	text += appended_text
+func update_item_description(item_description : String, item_level : int) -> void:
+	bbcode_text = item_description
+	# update current values
+	

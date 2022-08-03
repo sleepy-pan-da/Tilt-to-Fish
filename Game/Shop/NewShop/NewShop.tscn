@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Assets/Shop/BaseUI_V2/altar_base_v3.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -48,7 +48,10 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -123,9 +126,6 @@ margin_top = -376.0
 margin_right = 912.0
 margin_bottom = 320.0
 color = Color( 0.0745098, 0.0941176, 0.176471, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ShopPanel" type="TextureRect" parent="CanvasLayer/UI"]
 anchor_right = 1.0
@@ -142,7 +142,6 @@ __meta__ = {
 }
 
 [node name="DescriptionBox" type="NinePatchRect" parent="CanvasLayer/UI/ShopPanel"]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -601.0
@@ -151,27 +150,21 @@ margin_right = -304.0
 margin_bottom = 767.0
 texture = ExtResource( 5 )
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 item_pool = ExtResource( 7 )
 bobber_stats = ExtResource( 26 )
 
 [node name="Header" type="VBoxContainer" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
 margin_left = 22.0
 margin_top = 22.0
-margin_right = 278.0
-margin_bottom = 82.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_right = 272.0
+margin_bottom = 353.0
 
 [node name="ItemName" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
-margin_right = 256.0
+margin_right = 250.0
 margin_bottom = 24.0
-rect_min_size = Vector2( 256, 24 )
-custom_fonts/font = SubResource( 1 )
+rect_min_size = Vector2( 250, 24 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Item Name"
 autowrap = true
 script = ExtResource( 8 )
@@ -179,31 +172,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemType" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
 margin_top = 28.0
-margin_right = 256.0
+margin_right = 250.0
 margin_bottom = 46.0
-custom_fonts/font = SubResource( 2 )
+size_flags_vertical = 4
+
+[node name="ItemType" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header/HBoxContainer"]
+margin_right = 120.0
+margin_bottom = 18.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Orb/passive"
 script = ExtResource( 33 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemDescription" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
-margin_left = 21.0
-margin_top = 96.0
-margin_right = 269.0
-margin_bottom = 336.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Item Description"
-autowrap = true
+[node name="ItemRarity" type="RichTextLabel" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header/HBoxContainer"]
+margin_left = 124.0
+margin_right = 250.0
+margin_bottom = 18.0
+rect_min_size = Vector2( 109, 18 )
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 15 )
+bbcode_enabled = true
+bbcode_text = "[right][color=teal]Rarity[/color][/right]"
+text = "Rarity"
+scroll_active = false
+script = ExtResource( 28 )
+
+[node name="Spacer" type="Control" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
+margin_top = 50.0
+margin_right = 250.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 250, 5 )
+
+[node name="ItemDescription" type="RichTextLabel" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Header"]
+margin_top = 59.0
+margin_right = 250.0
+margin_bottom = 331.0
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "[color=green]Item Description[/color] "
+text = "Item Description "
+scroll_active = false
 script = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Body" type="VBoxContainer" parent="CanvasLayer/UI/ShopPanel/DescriptionBox"]
 margin_left = 24.0
@@ -220,26 +237,10 @@ margin_right = 248.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 105, 34 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Cost:"
 script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ItemRarity" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
-visible = false
-margin_top = 38.0
-margin_right = 248.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 109, 39 )
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Rarity:
-Super Rare"
-script = ExtResource( 28 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -249,8 +250,8 @@ margin_right = 248.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 109, 39 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "Selling cost:
 1/2/3"
 script = ExtResource( 30 )
@@ -264,8 +265,8 @@ margin_right = 248.0
 margin_bottom = 61.0
 rect_min_size = Vector2( 74, 18 )
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 5 )
 text = "Exp: 0/3"
 script = ExtResource( 29 )
 __meta__ = {
@@ -314,9 +315,6 @@ text = "9"
 align = 1
 valign = 1
 script = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Bottom/BuySellButton"]
 
@@ -347,9 +345,6 @@ margin_right = 148.0
 margin_bottom = 100.5
 custom_constants/separation = 50
 script = ExtResource( 18 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 item_pool = ExtResource( 7 )
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/ShopPanel/ItemsSold"]
@@ -453,8 +448,8 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -466,9 +461,6 @@ margin_right = 80.0
 margin_bottom = 73.0
 expand = true
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Button2" type="TextureButton" parent="CanvasLayer/UI/ShopPanel/ItemSlots"]
 margin_left = 103.0
@@ -490,8 +482,8 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -527,8 +519,8 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -564,8 +556,8 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -601,8 +593,8 @@ margin_left = 52.0
 margin_top = -8.0
 margin_right = 82.0
 margin_bottom = 44.0
-custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
 text = "9"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -693,8 +685,8 @@ margin_left = -125.5
 margin_top = 25.0
 margin_right = 125.5
 margin_bottom = 51.0
-custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 13 )
 text = "Round 99 complete"
 script = ExtResource( 6 )
 __meta__ = {
