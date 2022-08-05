@@ -7,6 +7,9 @@ export(int) var speed : float
 	
 
 func compute_vector_to_move_towards_bobber(bobber : Bobber) -> Vector2:
+	if bobber == null:
+		return Vector2.ZERO
+
 	var velocity : Vector2 = Vector2.ZERO
 	
 	var bobber_position : Vector2 = bobber.global_position

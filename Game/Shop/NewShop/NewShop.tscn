@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Assets/Shop/BaseUI_V2/altar_base_v3.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=2]
@@ -52,9 +52,6 @@ font_data = ExtResource( 2 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=16]
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=5]
@@ -137,11 +134,9 @@ margin_bottom = 110.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DescriptionBox" type="NinePatchRect" parent="CanvasLayer/UI/ShopPanel"]
+visible = false
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -601.0
@@ -245,19 +240,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemSellingCosts" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
+[node name="ItemSellingCosts" type="RichTextLabel" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
 margin_right = 248.0
 margin_bottom = 39.0
 rect_min_size = Vector2( 109, 39 )
-size_flags_vertical = 1
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 16 )
+bbcode_enabled = true
+bbcode_text = "Selling cost:
+1/2/3"
 text = "Selling cost:
 1/2/3"
+scroll_active = false
 script = ExtResource( 30 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ItemExp" type="Label" parent="CanvasLayer/UI/ShopPanel/DescriptionBox/Body"]
 margin_top = 43.0

@@ -41,6 +41,6 @@ func update_description_box_with_item_details(item_details : ItemTraits, item_le
 	item_name.update_item_name(item_details.display_name)
 	item_type.update_item_type(item_details.spawns_orbs)
 	item_description.update_item_description(item_details.description, item_level)
-	item_selling_costs.update_item_selling_costs(item_details.selling_cost)
+	item_selling_costs.update_item_selling_costs(item_details.selling_cost, item_level)
 	item_rarity.update_item_rarity(item_details.rarity)
 	
