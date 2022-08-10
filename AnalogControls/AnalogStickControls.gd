@@ -1,7 +1,7 @@
-extends CanvasLayer
+extends Control
 
-onready var analog_stick_area = $Control/AnalogStickArea
-onready var analog_stick = $Control/AnalogStick
+onready var analog_stick_area = $AnalogStickArea
+onready var analog_stick = $AnalogStick
 
 var analog_stick_center_position : Vector2
 var analog_stick_radius : float
@@ -60,24 +60,13 @@ func relocate_controls(position_to_relocate_to) -> void:
 func calculate_move_vector_direction(event_position : Vector2) -> Vector2:
 	return (event_position - analog_stick_center_position).normalized()
 
-func set_visibility_of_controls(is_visible : bool) -> void:
-	if is_visible:
-		analog_stick_area.modulate.a8 = 100 # this is hardcoded for now
-		analog_stick.modulate.a = 1
-	else:
-		analog_stick_area.modulate.a8 = 0
-		analog_stick.modulate.a = 0
-
-func controls_is_visible() -> bool:
-	return analog_stick.modulate.a == 1
-
 func reset_analog_stick_state() -> void:
 	touching_analog_stick = false
 	touching_analog_stick_index = -1
 	analog_stick.global_position = analog_stick_center_position
 
 func check_if_within_draggable_area(current_position : Vector2) -> bool:
-	var rect : Rect2 = get_node("Control").get_rect()
+	var rect : Rect2 = get_rect()
 	return current_position.x > rect.position.x \
 		and current_position.x < rect.end.x \
 		and current_position.y > rect.position.y \
@@ -87,10 +76,5 @@ func check_if_within_draggable_area(current_position : Vector2) -> bool:
 func _on_AnalogStickArea_pressed() -> void:
 	touching_analog_stick = true
 
-
 func _on_AnalogStickArea_released() -> void:
 	reset_analog_stick_state()
-
-
-func _on_InteractButton_pressed() -> void:
-	Input.vibrate_handheld(50)

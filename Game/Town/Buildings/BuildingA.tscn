@@ -17,5 +17,5 @@ position = Vector2( 0, -93 )
 scale = Vector2( 4.75, 4.75 )
 texture = ExtResource( 2 )
 
-[node name="DetectPlayer" parent="." index="2"]
+[node name="Name" parent="." index="2"]
 visible = false

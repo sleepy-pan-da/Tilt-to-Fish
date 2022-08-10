@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Game/Town/PlayerCharacter/PlayerCharacter.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Game/Town/Buildings/BuildingA.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Town/Environment/EnvironmentA.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Game/Town/Decoration/DecorationA.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Town/Buildings/TownHall.tscn" type="PackedScene" id=5]
 
 [node name="Town" type="Node2D"]
 
@@ -17,49 +17,28 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Buildings" type="YSort" parent="YSort"]
 
-[node name="BuildingA" parent="YSort/Buildings" instance=ExtResource( 2 )]
-position = Vector2( 248, 144 )
-
-[node name="BuildingA2" parent="YSort/Buildings" instance=ExtResource( 2 )]
-position = Vector2( 408, 144 )
-
-[node name="BuildingA3" parent="YSort/Buildings" instance=ExtResource( 2 )]
-position = Vector2( 504, 216 )
+[node name="TownHall" parent="YSort/Buildings" instance=ExtResource( 5 )]
+position = Vector2( 427, 0 )
 
 [node name="Environments" type="YSort" parent="YSort"]
 
 [node name="EnvironmentA" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 32, 359 )
+position = Vector2( -272, 240 )
 
 [node name="EnvironmentA2" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 88, 378 )
+position = Vector2( -193, 243 )
 
 [node name="EnvironmentA3" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 152, 352 )
+position = Vector2( -125, 257 )
 
 [node name="EnvironmentA4" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 208, 376 )
+position = Vector2( -91, 305 )
 
 [node name="EnvironmentA5" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 264, 359 )
+position = Vector2( -43, 350 )
 
 [node name="EnvironmentA6" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 328, 378 )
-
-[node name="EnvironmentA7" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 376, 362 )
-
-[node name="EnvironmentA8" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 456, 378 )
-
-[node name="EnvironmentA9" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 152, 424 )
-
-[node name="EnvironmentA10" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 272, 424 )
-
-[node name="EnvironmentA11" parent="YSort/Environments" instance=ExtResource( 3 )]
-position = Vector2( 416, 424 )
+position = Vector2( 8, 387 )
 
 [node name="Decorations" type="YSort" parent="YSort"]
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1046.PNG" type="Texture" id=1]
 [ext_resource path="res://Game/Town/PlayerCharacter/PlayerCharacter.gd" type="Script" id=2]
-[ext_resource path="res://AnalogControls/AnalogStickLayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AnalogControls/TouchScreenControlsLayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1047.PNG" type="Texture" id=5]
 [ext_resource path="res://Assets/Town/Characters/mito-front-right/IMG_1045.PNG" type="Texture" id=6]
@@ -32,9 +32,12 @@ animations = [ {
 size = 32
 font_data = ExtResource( 4 )
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 113.842
+
 [node name="PlayerCharacter" type="KinematicBody2D"]
-collision_layer = 256
-collision_mask = 128
+collision_layer = 128
+collision_mask = 768
 script = ExtResource( 2 )
 player_owned_resources = ExtResource( 11 )
 
@@ -46,8 +49,6 @@ scale = Vector2( 0.063, 0.063 )
 frames = SubResource( 2 )
 animation = "Idle"
 playing = true
-
-[node name="AnalogStickLayer" parent="." instance=ExtResource( 3 )]
 
 [node name="StateMachineLabel" type="Label" parent="."]
 visible = false
@@ -62,3 +63,16 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TouchScreenControlsLayer" parent="." instance=ExtResource( 3 )]
+right_side_controls_is_visible = false
+
+[node name="DetectInteractables" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectInteractables"]
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="DetectInteractables" to="." method="_on_DetectInteractables_body_entered"]
+[connection signal="body_exited" from="DetectInteractables" to="." method="_on_DetectInteractables_body_exited"]
