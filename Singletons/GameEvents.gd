@@ -30,3 +30,7 @@ signal pressed_fish_button_in_index(fish_name) # connected to FishIndex/Body.gd
 
 signal to_restart_game_from_paused_screen() # connected to GameLevelTemplate.tscn
 signal to_quit_game_from_paused_screen() # connected to GameLevelTemplate.tscn
+
+# Town --------------------------------------------------------------
+
+signal closed_interactable_pop_up() # connected to PlayerCharacter.tscn

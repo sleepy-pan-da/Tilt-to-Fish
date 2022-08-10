@@ -14,6 +14,7 @@ var detected_interactable : Node
 func _ready() -> void:
 	touch_screen_controls.analog_stick_controls.connect("computed_move_vector_from_analog_stick", self, "move_with_analog_stick")
 	touch_screen_controls.right_side_controls.connect("pressed_interact_button", self, "interact_with_interactable")
+	GameEvents.connect("closed_interactable_pop_up", touch_screen_controls, "toggle_visibility", [true])
 	
 func move_with_analog_stick(analog_stick_move_vector : Vector2) -> void:
 	var movement_direction : Vector2 
@@ -60,3 +61,4 @@ func _on_DetectInteractables_body_exited(body : Node):
 
 func interact_with_interactable() -> void:
 	detected_interactable.toggle_popup_visibility(true)
+	touch_screen_controls.toggle_visibility(false)
