@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game/Town/InteractableEnvironment/ResourceGenerator/ResourceGeneratorTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Custom Resources/Town Related/ResourceGeneratorSpecs/Steel/ForgeSpecs.tres" type="Resource" id=2]
+[ext_resource path="res://Game/Town/InteractableEnvironment/ResourceGenerator/Forge.gd" type="Script" id=3]
+
+[node name="Forge" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+specs = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0, 0, 0, 1 )
+scale = Vector2( 5, 5 )
+
+[node name="Name" parent="." index="2"]
+margin_top = -267.0
+margin_bottom = -233.0
+text = "Forge"
+
+[node name="Description" parent="." index="3"]
+margin_top = -210.0
+margin_bottom = -176.0
+text = "15 fish = 1 steel"

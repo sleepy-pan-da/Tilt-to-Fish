@@ -34,3 +34,4 @@ signal to_quit_game_from_paused_screen() # connected to GameLevelTemplate.tscn
 # Town --------------------------------------------------------------
 
 signal closed_interactable_pop_up() # connected to PlayerCharacter.tscn
+signal updated_player_owned_resources() # connected to PlayerCharacter.tscn

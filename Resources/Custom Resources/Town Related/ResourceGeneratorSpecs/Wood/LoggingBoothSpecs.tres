@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Custom Resources/Town Related/ResourceGeneratorSpecs.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+qty_of_caught_fish_required = [ 5, 5, 5 ]
+qty_of_resource_generated = [ 1, 2, 3 ]

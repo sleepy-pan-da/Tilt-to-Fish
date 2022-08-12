@@ -3,8 +3,9 @@ extends KinematicBody2D
 export(Resource) var player_owned_resources = player_owned_resources as PlayerOwnedResources
 
 onready var sprite = $Sprite
-onready var touch_screen_controls = $TouchScreenControlsLayer
 onready var state_machine_label = $StateMachineLabel
+onready var touch_screen_controls = $TouchScreenControlsLayer
+onready var resource_qty = $ResourceQty
 
 const MAX_SPEED = 400
 const ACCELERATION := 16000
@@ -15,7 +16,8 @@ func _ready() -> void:
 	touch_screen_controls.analog_stick_controls.connect("computed_move_vector_from_analog_stick", self, "move_with_analog_stick")
 	touch_screen_controls.right_side_controls.connect("pressed_interact_button", self, "interact_with_interactable")
 	GameEvents.connect("closed_interactable_pop_up", touch_screen_controls, "toggle_visibility", [true])
-	
+	GameEvents.connect("updated_player_owned_resources", resource_qty, "update_resource_qty_labels")	
+
 func move_with_analog_stick(analog_stick_move_vector : Vector2) -> void:
 	var movement_direction : Vector2 
 	var speed_multiplier : int = 4 # This number is determined by the MAX_SPEED / radius of analog stick circle. There's hard coupling here but I guess this will do for now
@@ -60,5 +62,6 @@ func _on_DetectInteractables_body_exited(body : Node):
 	touch_screen_controls.right_side_controls.toggle_visibility(false)
 
 func interact_with_interactable() -> void:
-	detected_interactable.toggle_popup_visibility(true)
-	touch_screen_controls.toggle_visibility(false)
+	detected_interactable.interact_with_player()
+	if detected_interactable.has_popup:
+		touch_screen_controls.toggle_visibility(false)

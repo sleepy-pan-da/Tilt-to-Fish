@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game/Town/InteractableEnvironment/ResourceGenerator/ResourceGeneratorTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/Town/InteractableEnvironment/ResourceGenerator/LoggingBooth.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Custom Resources/Town Related/ResourceGeneratorSpecs/Wood/LoggingBoothSpecs.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
+
+[node name="LoggingBooth" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+specs = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 0.376471, 0.278431, 0.196078, 1 )
+scale = Vector2( 5, 5 )
+
+[node name="Name" parent="." index="2"]
+margin_top = -274.0
+margin_right = 151.0
+margin_bottom = -240.0
+custom_fonts/font = SubResource( 2 )
+text = "Logging Booth"
+
+[node name="Description" parent="." index="3"]
+margin_top = -211.0
+margin_bottom = -177.0
+text = "5 fish = 1 wood"

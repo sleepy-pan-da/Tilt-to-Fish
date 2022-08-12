@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Custom Resources/Town Related/HatsToWear.gd"
 }, {
+"base": "StaticBody2D",
+"class": "InteractableEnvironment",
+"language": "GDScript",
+"path": "res://Game/Town/InteractableEnvironment/InteractableEnvironment.gd"
+}, {
 "base": "Node2D",
 "class": "Intimidate",
 "language": "GDScript",
@@ -164,6 +169,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Custom Resources/Town Related/Prophecy.gd"
 }, {
+"base": "InteractableEnvironment",
+"class": "ResourceGenerator",
+"language": "GDScript",
+"path": "res://Game/Town/InteractableEnvironment/ResourceGenerator/ResourceGeneratorTemplate.gd"
+}, {
+"base": "Resource",
+"class": "ResourceGeneratorSpecs",
+"language": "GDScript",
+"path": "res://Resources/Custom Resources/Town Related/ResourceGeneratorSpecs.gd"
+}, {
 "base": "Node2D",
 "class": "Retaliation",
 "language": "GDScript",
@@ -209,6 +224,7 @@ _global_script_class_icons={
 "GammaOrbs": "",
 "Hat": "",
 "HatsToWear": "",
+"InteractableEnvironment": "",
 "Intimidate": "",
 "ItemPool": "",
 "ItemSpecification": "",
@@ -221,6 +237,8 @@ _global_script_class_icons={
 "Projectile": "",
 "PropheciesToFulfil": "",
 "Prophecy": "",
+"ResourceGenerator": "",
+"ResourceGeneratorSpecs": "",
 "Retaliation": "",
 "State": "",
 "StateMachine": "",
@@ -231,7 +249,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Summer Game Project"
-run/main_scene="res://Game/MainMenu/MainMenu.tscn"
+run/main_scene="res://Game/Town/Town.tscn"
 config/icon="res://Assets/Fishing Scene/Fishes/Baby Shark/Baby Shark right.png"
 
 [autoload]

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-qty_of_caught_fish_owned = 0
+qty_of_caught_fish_owned = 50
 qty_of_wood_owned = 0
 qty_of_steel_owned = 0
 qty_of_bricks_owned = 0

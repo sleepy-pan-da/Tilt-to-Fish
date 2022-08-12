@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game/Town/InteractableEnvironment/ResourceGenerator/ResourceGeneratorTemplate.gd" type="Script" id=1]
+[ext_resource path="res://Game/Town/InteractableEnvironment/InteractableEnvironment.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Resources/Custom Resources/Town Related/CurrentPlayerOwnedResources.tres" type="Resource" id=3]
+[ext_resource path="res://Assets/Fonts/arco/ARCO for OSX.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 4 )
+
+[node name="ResourceGeneratorTemplate" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+has_popup = false
+player_owned_resources = ExtResource( 3 )
+
+[node name="Description" type="Label" parent="." index="3"]
+margin_left = -158.0
+margin_top = 49.0
+margin_right = 159.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 2 )
+text = "Description"
+align = 1
